@@ -1,0 +1,63 @@
+[project]
+name = "aws-cost-analyser"
+version = "0.1.0"
+description = "Read-only MCP server exposing AWS Cost Explorer data to MCP clients"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "mcp>=1.6.0,<2.0.0",
+    "boto3>=1.34.0",
+    "botocore>=1.34.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+]
+
+[project.scripts]
+aws-cost-analyser = "aws_cost_analyser.server:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.5.0",
+    "bandit>=1.7.9",
+    "mypy>=1.10.0",
+    "pip-audit>=2.7.3",
+    "detect-secrets>=1.5.0",
+    "cyclonedx-bom>=4.5.0",
+    "boto3-stubs[ce,sts]>=1.34.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aws_cost_analyser"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "S", "C4", "SIM"]
+# S101 (assert) is fine in tests; per-file ignore below.
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106"]
+# Dev-only script invoking a fixed, hardcoded allowlist of trusted CLI
+# tools via argument arrays (no shell, no user/model input) -- see the
+# module docstring for why S603 does not apply here.
+"scripts/security_gate.py" = ["S603"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "dist"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

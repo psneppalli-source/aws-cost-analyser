@@ -1,0 +1,19 @@
+{
+  "_comment": "Example trust policy for the OPTIONAL cross-account AssumeRole feature (config.py: ASSUME_ROLE_ARN). Deploy this in the TARGET account whose cost data you want to read. Replace the placeholder account ID / external ID and attach iam/read-only-policy.json as the role's permissions policy.",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCostAnalyserServerToAssumeThisRole",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<TRUSTED_SOURCE_ACCOUNT_ID>:root"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "<REPLACE_WITH_A_RANDOM_SHARED_SECRET_EXTERNAL_ID>"
+        }
+      }
+    }
+  ]
+}
