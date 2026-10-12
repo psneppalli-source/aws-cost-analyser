@@ -210,7 +210,11 @@ const RECORD_COLS: Record<string, string[]> = {
               </tbody></table></div></section>
         }
         @if (draft(); as d) {
-          <section class="card" style="margin-top:16px" aria-labelledby="assign-h"><h2 id="assign-h">Assign intervention</h2>
+          <section class="card" style="margin-top:16px" aria-labelledby="assign-h">
+            <div class="card-head"><h2 id="assign-h">Assign intervention</h2><span class="spacer"></span>
+              @if (session.me()?.ai) { <button class="btn small ai-draft" type="button" (click)="aiDraft()" [disabled]="drafting()">
+                {{ drafting() ? 'Drafting…' : '✨ Draft with AI' }}</button> }</div>
+            @if (aiNote()) { <p class="banner small" role="status">{{ aiNote() }}</p> }
             <form class="form-grid" (submit)="$event.preventDefault(); createIntervention()">
               <label class="field">Title<input name="t" [(ngModel)]="d.title" required maxlength="120"></label>
               <label class="field">Category<select name="c" [(ngModel)]="d.category">@for (c of ivCats(); track c[0]) { <option [value]="c[0]">{{ c[1] }}</option> }</select></label>
@@ -218,14 +222,14 @@ const RECORD_COLS: Record<string, string[]> = {
                 @for (s of owners(d.category); track s.sub) { <option [value]="s.sub">{{ s.display_name }}</option> }</select></label>
               <label class="field">Due date<input name="dd" type="date" [(ngModel)]="d.due_date" required></label>
               <label class="field">Review date<input name="rd" type="date" [(ngModel)]="d.review_date" required></label>
-              <label class="field" style="grid-column:1/-1">Details<textarea name="de" [(ngModel)]="d.detail" maxlength="1000"></textarea></label>
+              <label class="field" style="grid-column:1/-1">Details<textarea name="de" [(ngModel)]="d.detail" maxlength="1000" rows="5"></textarea></label>
               @if (d.evidence.length) { <div style="grid-column:1/-1" class="small"><strong>Evidence:</strong>
                 @for (e of d.evidence; track $index) { <div>{{ e.rule }} · {{ e.label }}@if (e.observed !== null) { — observed {{ e.observed }}, threshold {{ e.operator }} {{ e.threshold }} ({{ e.period }}) }</div> }</div> }
               <label style="grid-column:1/-1" class="row"><input type="checkbox" name="rv" [(ngModel)]="d.reviewed" style="width:auto">
                 I have reviewed this recommendation and its evidence, and I judge this intervention appropriate.</label>
               @if (formError()) { <p class="error-text" role="alert" style="grid-column:1/-1">{{ formError() }}</p> }
               <div class="row" style="grid-column:1/-1"><button class="btn primary" type="submit" [disabled]="busy() || !d.reviewed">Assign</button>
-                <button class="btn" type="button" (click)="draft.set(null)">Cancel</button></div>
+                <button class="btn" type="button" (click)="draft.set(null); aiNote.set(null)">Cancel</button></div>
             </form></section>
         }
         @if (p.permissions['create_intervention'] && !draft()) {
@@ -440,6 +444,25 @@ export class ProfilePage {
       detail: '', reviewed: false, evidence: r?.evidence || [], recommendation_key: r?.key || null });
   }
 
+  drafting = signal(false);
+  aiNote = signal<string | null>(null);
+
+  /** AI drafts the title and steps from this student's evidence; staff edit everything before assigning. */
+  async aiDraft() {
+    const d = this.draft();
+    if (!d) return;
+    this.drafting.set(true); this.aiNote.set(null); this.formError.set(null);
+    try {
+      const r = await this.api.post<{ title: string; steps: string[]; review_weeks: number; model: string }>('/ai/plan-draft', {
+        student_id: this.sid(), category: d.category, recommendation: d.title || null, evidence: d.evidence });
+      const iso = (days: number) => { const t = new Date(); t.setDate(t.getDate() + days); return t.toISOString().slice(0, 10); };
+      this.draft.set({ ...d, title: r.title.slice(0, 120), detail: r.steps.map((s) => '- ' + s).join('\n').slice(0, 1000),
+        due_date: iso(Math.max(7, r.review_weeks * 7 - 7)), review_date: iso(r.review_weeks * 7), reviewed: false });
+      this.aiNote.set(`Drafted by AI (${r.model}). Check and edit every field, then confirm the review box before assigning.`);
+    } catch (e) { this.formError.set(message(e)); }
+    finally { this.drafting.set(false); }
+  }
+
   async createIntervention() {
     const d = this.draft();
     if (!d) return;
@@ -447,6 +470,7 @@ export class ProfilePage {
     try {
       await this.api.post(`/students/${this.dataset()}/${this.sid()}/interventions`, { ...d, owner_sub: d.owner_sub || undefined });
       this.draft.set(null);
+      this.aiNote.set(null);
       this.notice.set('Intervention assigned.');
       await this.load();
       this.tab.set('interventions');

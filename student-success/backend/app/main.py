@@ -213,6 +213,27 @@ async def ai_summary(request: Request, p: Principal = Depends(principal)):
         return err(503, "ai_unavailable", str(e))
 
 
+@app.post("/api/ai/plan-draft")
+async def ai_plan_draft(request: Request, p: Principal = Depends(principal)):
+    from . import ai, ai_tools
+    b = await request.json()
+    try:
+        return ai_tools.draft_plan(p, recordsvc.DATASETS[0], str(b.get("student_id", "")), str(b.get("category") or "academic"),
+                                   b.get("recommendation"), b.get("evidence"))
+    except ai.AIUnavailable as e:
+        return err(503, "ai_unavailable", str(e))
+
+
+@app.post("/api/ai/ask")
+async def ai_ask(request: Request, p: Principal = Depends(principal)):
+    from . import ai, ai_tools
+    b = await request.json()
+    try:
+        return ai_tools.ask(p, recordsvc.DATASETS[0], str(b.get("question", "")))
+    except ai.AIUnavailable as e:
+        return err(422, "question_unclear", str(e))
+
+
 @app.get("/api/me")
 def me(p: Principal = Depends(principal)):
     m = role_matrix()

@@ -47,6 +47,38 @@ SYSTEM = (
 )
 
 
+COACH = (
+    "You are a friendly study coach for {audience}. Using ONLY the JSON facts about their own recorded data, write a "
+    "practical plan for the coming week. Format exactly: one short encouraging sentence on the first line, then 4 to 6 "
+    "lines that each start with '- ' and give one concrete action with how often or how much (e.g. 'Practise coding "
+    "problems 3 times this week for 20 minutes'). Focus on the weakest areas and any risk flags first; mention support "
+    "plans if there are any. Address the student as 'you'. Never invent numbers, never compare with named people, never "
+    "mention wellbeing diagnoses. Plain British English, no markdown except the '- ' bullets, under 140 words."
+)
+
+PLAN = (
+    "You help {audience} draft a support plan (intervention) for one student. Using ONLY the JSON facts, return ONE JSON "
+    "object and nothing else, in this exact shape: "
+    '{{"title": "short plan title, max 80 characters", "steps": ["3 to 5 concrete actions, each under 140 characters"], '
+    '"review_weeks": 4}}. '
+    "Base the plan on the given category and evidence; be specific about who does what and how often. Never invent "
+    "numbers or names. review_weeks is between 2 and 8."
+)
+
+ASK = (
+    "You translate a college staff member's question about student data into ONE query. Reply with ONE JSON object only. "
+    "Allowed shapes:\n"
+    '{{"query":"average","metric":M,"group_by":G}} - average of a metric, optionally per group\n'
+    '{{"query":"risk_count","risk":"academic"|"placement","group_by":G}} - how many students at each risk level\n'
+    '{{"query":"rank","metric":M,"order":"lowest"|"highest","limit":1-10}} - students with the lowest/highest values\n'
+    '{{"query":"band_count","group_by":G}} - how many students in each score band\n'
+    "M is one of: score, academic, attendance, lms, placement, skills, engagement. "
+    "G is one of: none, department, year, department_year. "
+    'Optional filters on any query: "department": "CSE"|"ECE"|"MECH", "year": 1-4. '
+    'If the question cannot be answered with these, reply {{"query":"unsupported"}}. {audience}'
+)
+
+
 class AIUnavailable(Exception):
     pass
 
@@ -124,7 +156,7 @@ def models(key: str) -> list[str]:
     return ids
 
 
-def complete(facts: dict, audience: str) -> tuple[str, str]:
+def complete(facts: dict, audience: str, system: str | None = None, user: str | None = None) -> tuple[str, str]:
     """Try free models one at a time (last good one first) until one answers, within about 16 seconds."""
     key = api_key()
     if not key:
@@ -134,8 +166,8 @@ def complete(facts: dict, audience: str) -> tuple[str, str]:
         ids = [_models["good"]] + [i for i in ids if i != _models["good"]]
     if not ids:
         raise AIUnavailable("No AI model is available right now. Please try again later.")
-    messages = [{"role": "system", "content": SYSTEM.format(audience=audience)},
-                {"role": "user", "content": "Facts (JSON):\n" + json.dumps(facts, separators=(",", ":"))}]
+    messages = [{"role": "system", "content": (system or SYSTEM).format(audience=audience)},
+                {"role": "user", "content": user if user is not None else "Facts (JSON):\n" + json.dumps(facts, separators=(",", ":"))}]
     deadline = time.time() + 17  # plus up to 5 s model discovery, inside the 25 s function limit
     busy = False
     for mid in ids:
@@ -304,6 +336,11 @@ def summarise(p: Principal, kind: str, ds: str, student_id: str | None = None, d
         if not student_id:
             raise AIUnavailable("Choose a student first.")
         facts, audience = _student_facts(p, ds, student_id.upper())
+    elif kind == "coach":
+        if p.student is None:
+            raise Denied("The weekly plan is for students.")
+        facts, _ = _student_facts(p, p.student[0], p.student[1])
+        return generate(p, "coach", facts, "the student themself", system=COACH, label=p.student[1])
     elif kind == "overview":
         facts = _overview_facts(p, ds, department, year)
     elif kind == "insights":
@@ -312,20 +349,27 @@ def summarise(p: Principal, kind: str, ds: str, student_id: str | None = None, d
         facts = _risk_facts(p, ds, kind, department, year)
     else:
         raise AIUnavailable("Unknown summary type.")
+    return generate(p, kind, facts, audience, label=student_id or department or "all")
+
+
+def generate(p: Principal, kind: str, facts: dict, audience: str, system: str | None = None, user: str | None = None,
+             label: str = "all", raw: bool = False) -> dict:
+    """Shared path for every AI feature: scrub, 24-hour cache, per-user daily limit, model call, audit."""
     facts = scrub(facts)
     t = db.table()
-    h = hashlib.sha256(json.dumps([kind, audience, facts], sort_keys=True, default=str).encode()).hexdigest()[:32]
+    h = hashlib.sha256(json.dumps([kind, audience, facts, system, user], sort_keys=True, default=str).encode()).hexdigest()[:32]
     hit = t.get(f"AI#{h}", "SUMMARY")
     if hit and time.time() - float(hit.get("at", 0)) < CACHE_SECONDS:
-        return {"lines": hit["lines"], "model": hit.get("model"), "generated_at": hit.get("generated_at"), "cached": True}
+        return {"lines": hit["lines"], "text": hit.get("text"), "model": hit.get("model"), "generated_at": hit.get("generated_at"),
+                "cached": True}
     day = time.strftime("%Y-%m-%d", time.gmtime())
     q = t.get(f"AIQUOTA#{p.sub}", day) or {"pk": f"AIQUOTA#{p.sub}", "sk": day, "count": 0}
     if int(q["count"]) >= DAILY_LIMIT:
-        raise AIUnavailable(f"You've reached today's limit of {DAILY_LIMIT} new AI summaries. Try again tomorrow.")
-    text, model = complete(facts, audience)
-    out = {"lines": lines(text), "model": model, "generated_at": db.now(), "cached": False}
+        raise AIUnavailable(f"You've reached today's limit of {DAILY_LIMIT} new AI requests. Try again tomorrow.")
+    text, model = complete(facts, audience, system, user)
+    out = {"lines": lines(text), "text": text[:4000] if raw else None, "model": model, "generated_at": db.now(), "cached": False}
     t.put({**q, "count": int(q["count"]) + 1})
-    t.put({"pk": f"AI#{h}", "sk": "SUMMARY", "lines": out["lines"], "model": model, "generated_at": out["generated_at"],
-           "at": str(int(time.time())), "kind": kind})
-    audit.log(p, "ai.summary_generated", kind, student_id or department or "all", {"model": model})
+    t.put({"pk": f"AI#{h}", "sk": "SUMMARY", "lines": out["lines"], "text": out["text"], "model": model,
+           "generated_at": out["generated_at"], "at": str(int(time.time())), "kind": kind})
+    audit.log(p, f"ai.{kind}_generated", kind, label, {"model": model})
     return out

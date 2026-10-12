@@ -88,6 +88,16 @@ aws ssm put-parameter --name /smartcampus/openrouter-api-key --type SecureString
 python infra/deploy.py ... --ai-key-param /smartcampus/openrouter-api-key      # '' turns AI off
 ```
 
+Three more AI helpers use the same key, privacy rules, cache and daily limit (`app/ai_tools.py`):
+
+* **Draft with AI** on the support-plan form: drafts a title, 3-5 steps and dates from that student's evidence; the
+  mentor edits every field and must still tick the review box before assigning.
+* **Ask about your students** (Insights, staff only): the model only translates the question into one of four checked
+  queries (average, risk count, ranking, score bands, with department/year filters). The server runs it on the rows
+  the user may see and writes the answer sentence itself, so no number comes from the model. Student names and IDs
+  typed in a question are replaced before it is sent. If AI is busy, a keyword reader answers common questions.
+* **Your weekly plan** (student dashboard): 4-6 concrete actions for the coming week from the student's own record.
+
 Free models are shared with every OpenRouter user, so at busy times a summary may fail with "busy, try again".
 Summaries come from a small model and can be wrong; the page says so.
 

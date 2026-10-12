@@ -36,10 +36,10 @@ interface Summary { lines: string[]; model: string; generated_at: string; cached
         <div class="in">
           <div class="head">
             <h2><span class="spark" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg></span>
-              AI summary</h2>
+              {{ heading() }}</h2>
             <span class="hint">{{ hint() }}</span>
             <button class="go" type="button" (click)="run()" [disabled]="busy()">
-              @if (busy()) { Summarising… } @else if (result()) { Refresh } @else { Summarise {{ subject() }} }</button>
+              @if (busy()) { Working… } @else if (result()) { Refresh } @else { {{ action() || 'Summarise ' + subject() }} }</button>
           </div>
           @if (busy() && !result()) { <div class="skel" style="width:70%"></div><div class="skel"></div><div class="skel" style="width:85%"></div> }
           @if (error()) { <p class="err" role="alert">{{ error() }}</p> }
@@ -47,7 +47,7 @@ interface Summary { lines: string[]; model: string; generated_at: string; cached
             @if (headline()) { <p class="headline">{{ headline() }}</p> }
             @for (t of paras(); track $index) { <p class="para">{{ t }}</p> }
             @if (bullets().length) { <ul>@for (b of bullets(); track $index) { <li>{{ b }}</li> }</ul> }
-            <p class="foot">AI-generated from the figures on this page (no names or IDs are shared) · {{ r.model }}{{ r.cached ? ' · saved summary' : '' }}.
+            <p class="foot">AI-generated from {{ kind() === 'coach' ? 'your own records' : 'the figures on this page' }} (no names or IDs are shared) · {{ r.model }}{{ r.cached ? ' · saved summary' : '' }}.
               It can be wrong: check the figures before acting.</p>
           }
         </div>
@@ -57,7 +57,9 @@ interface Summary { lines: string[]; model: string; generated_at: string; cached
 export class AiSummary {
   private api = inject(Api);
   private session = inject(Session);
-  kind = input.required<'student' | 'overview' | 'insights' | 'academic' | 'placement'>();
+  kind = input.required<'student' | 'overview' | 'insights' | 'academic' | 'placement' | 'coach'>();
+  heading = input('AI summary');
+  action = input<string | null>(null);
   studentId = input<string | null>(null);
   department = input<string | null>(null);
   year = input<string | number | null>(null);
@@ -67,9 +69,11 @@ export class AiSummary {
   error = signal<string | null>(null);
 
   available = computed(() => !!this.session.me()?.ai);
-  hint = computed(() => this.kind() === 'student'
-    ? 'A short, plain-language read of the progress and risks shown here, with next steps.'
-    : 'Key patterns in these figures and suggested next steps, in plain language.');
+  hint = computed(() => this.kind() === 'coach'
+    ? 'A practical plan for the coming week, based on your own marks, attendance and focus areas.'
+    : this.kind() === 'student'
+      ? 'A short, plain-language read of the progress and risks shown here, with next steps.'
+      : 'Key patterns in these figures and suggested next steps, in plain language.');
   headline = computed(() => (this.result()?.lines || []).find((l) => !l.startsWith('- ')) || '');
   paras = computed(() => (this.result()?.lines || []).filter((l) => !l.startsWith('- ')).slice(1));
   bullets = computed(() => (this.result()?.lines || []).filter((l) => l.startsWith('- ')).map((l) => l.slice(2)));

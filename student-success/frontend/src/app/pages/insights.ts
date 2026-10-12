@@ -1,5 +1,6 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { AiSummary } from '../shared/ai-summary';
+import { AskPanel } from '../shared/ask-panel';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
@@ -36,7 +37,7 @@ const COMP_SHORT: Record<string, string> = { academic: 'Academic', attendance: '
 
 @Component({
   selector: 'app-insights-page',
-  imports: [AiSummary, FormsModule, RouterLink, StateView, RealEmpty, Columns, HBars, Heatmap, MultiLine, Scatter, StackColumns, Spark],
+  imports: [AiSummary, AskPanel, FormsModule, RouterLink, StateView, RealEmpty, Columns, HBars, Heatmap, MultiLine, Scatter, StackColumns, Spark],
   template: `
     <div class="page-head"><h1>Insights</h1><span class="spacer"></span>
       <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
@@ -47,6 +48,7 @@ const COMP_SHORT: Record<string, string> = { academic: 'Academic', attendance: '
       <label>Year<select name="y" [ngModel]="year()" (ngModelChange)="year.set($event)"><option value="">All</option>
         @for (y of ['1','2','3','4']; track y) { <option [value]="y">Year {{ y }}</option> }</select></label>
     </form>
+    <app-ask-panel />
     <app-ai-summary kind="insights" [department]="dept()" [year]="year()" subject="these insights" />
     <app-real-empty [show]="!loading() && a()?.students === 0" />
     <app-state [loading]="loading() && !a()" [error]="error()" (retry)="load()" [empty]="a()?.students === 0" emptyText="No students match these filters." />

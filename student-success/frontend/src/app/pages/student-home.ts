@@ -60,7 +60,8 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
         </section>
       }
 
-      <div style="margin-top:16px"><app-ai-summary kind="student" [studentId]="p.student.student_id" subject="my progress" /></div>
+      <div style="margin-top:16px"><app-ai-summary kind="coach" heading="Your weekly plan" action="Make my weekly plan" />
+        <app-ai-summary kind="student" [studentId]="p.student.student_id" subject="my progress" /></div>
       @if (subjects().length) {
         <section class="card" style="margin-top:16px"><div class="card-head"><h2>Your marks</h2>
           <span class="desc">Monthly test scores as a percentage, with your attendance in each subject.</span></div>
