@@ -87,6 +87,19 @@ def account(region: str) -> None:
         say("WARN", "Free Tier usage", f"could not read: {type(e).__name__}")
 
 
+def reservations_possible(region: str, app: str) -> bool:
+    """True if the per-function caps can be reserved while leaving the 10 unreserved Lambda requires."""
+    lam = boto("lambda", region)
+    unreserved = lam.get_account_settings()["AccountLimit"]["UnreservedConcurrentExecutions"]
+    ours = 0
+    for fn in (f"{app}-api", f"{app}-web"):
+        try:
+            ours += lam.get_function_concurrency(FunctionName=fn).get("ReservedConcurrentExecutions") or 0
+        except Exception:
+            pass
+    return unreserved + ours - sum(RESERVED.values()) >= 10
+
+
 def lambda_limits(region: str, app: str) -> None:
     lam = boto("lambda", region)
     s = lam.get_account_settings()["AccountLimit"]
@@ -98,13 +111,16 @@ def lambda_limits(region: str, app: str) -> None:
         except Exception:
             pass
     left = unreserved + ours - sum(RESERVED.values())
-    if left < 10:
-        say("STOP", "Lambda concurrency", f"account limit {limit}; reserving {sum(RESERVED.values())} would leave {left} "
-                                          f"unreserved (Lambda requires 10). Deploy with ApiReservedConcurrency=0 and "
-                                          f"WebReservedConcurrency=0: the account limit of {limit} then caps concurrency")
-    else:
+    if left >= 10:
         say("PASS", "Lambda concurrency", f"account limit {limit}; {left} unreserved after caps of "
                                           f"{RESERVED['api']} (API) and {RESERVED['web']} (web)")
+    elif limit <= 50:
+        say("PASS", "Lambda concurrency", f"account limit {limit} is too low to reserve per-function caps (Lambda keeps 10 "
+                                          f"unreserved); deploy.py will deploy without reservations and the account limit "
+                                          f"of {limit} caps total concurrency")
+    else:
+        say("STOP", "Lambda concurrency", f"account limit {limit} but only {unreserved} unreserved: other functions reserve "
+                                          f"capacity; review them before deploying")
     cw = boto("cloudwatch", region)
     end = dt.datetime.now(dt.timezone.utc)
     m = cw.get_metric_statistics(Namespace="AWS/Lambda", MetricName="Invocations", StartTime=end - dt.timedelta(days=30),

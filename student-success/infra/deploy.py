@@ -22,7 +22,7 @@ import time
 import zipfile
 from pathlib import Path
 
-from common import BUILD, INFRA, ROOT, TEMPLATE, boto, outputs, parser, stack
+from common import BUILD, INFRA, RESERVED, ROOT, TEMPLATE, boto, outputs, parser, stack
 
 API_INDEX = "from lambda_api import handler  # noqa: F401\n"
 WEB_INDEX = "from web_handler import handler  # noqa: F401\n"
@@ -107,15 +107,17 @@ def check_package(api: Path, web: Path) -> None:
     print("  package checks passed (no local sign-in bypass)")
 
 
-def params(cfn, name: str, site_url: str, budget_email: str | None) -> list[dict]:
-    p = [{"ParameterKey": "AppName", "ParameterValue": name}, {"ParameterKey": "SiteUrl", "ParameterValue": site_url}]
+def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: bool) -> list[dict]:
+    p = [{"ParameterKey": "AppName", "ParameterValue": name}, {"ParameterKey": "SiteUrl", "ParameterValue": site_url},
+         {"ParameterKey": "ApiReservedConcurrency", "ParameterValue": str(RESERVED["api"] if reserve else 0)},
+         {"ParameterKey": "WebReservedConcurrency", "ParameterValue": str(RESERVED["web"] if reserve else 0)}]
     s = stack(cfn, name)
     existing = {x["ParameterKey"] for x in (s or {}).get("Parameters", [])}
     if budget_email is not None:
         p.append({"ParameterKey": "BudgetEmail", "ParameterValue": budget_email})
     elif "BudgetEmail" in existing:
         p.append({"ParameterKey": "BudgetEmail", "UsePreviousValue": True})
-    for k in ("ApiReservedConcurrency", "WebReservedConcurrency", "UserPoolTier"):
+    for k in ("UserPoolTier",):
         if k in existing:
             p.append({"ParameterKey": k, "UsePreviousValue": True})
     return p
@@ -196,13 +198,16 @@ def main() -> int:
     zips = build(frontend=not a.skip_frontend_build)
 
     cfn, lam = boto("cloudformation", a.region), boto("lambda", a.region)
+    from preflight import reservations_possible
+    reserve = reservations_possible(a.region, a.stack)
+    print(f"Per-function concurrency caps: {'reserved' if reserve else 'not reserved (the account limit caps concurrency)'}")
     site = outputs(cfn, a.stack).get("SiteUrl", "")
     print(f"Deploying stack {a.stack} to {a.region}")
-    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email), [])
+    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve), [])
     out = outputs(cfn, a.stack)
     if out["SiteUrl"] != site:
         print("Registering the CloudFront address with Cognito (second pass)")
-        apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email), [])
+        apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email, reserve), [])
         out = outputs(cfn, a.stack)
     upload(lam, out["ApiFunctionName"], zips["api"])
     upload(lam, out["WebFunctionName"], zips["web"])
