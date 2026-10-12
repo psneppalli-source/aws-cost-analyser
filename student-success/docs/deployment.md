@@ -105,6 +105,12 @@ practice and mock-interview questions, a help assistant (answers only from the a
 explainer, an entry check before saving (rules always run; AI only words the summary), and reading a certificate photo
 with a free vision model (the photo is not stored). Wellbeing and feedback answers are never sent to AI.
 
+**OpenAI (optional, paid per use).** If an OpenAI key is stored at `/smartcampus/openai-api-key`
+(`aws ssm put-parameter --name /smartcampus/openai-api-key --type SecureString --value <key>`), every AI feature tries
+OpenAI first (`OPENAI_MODEL`, default `gpt-4o-mini`, which also reads certificate photos) and falls back to the free
+OpenRouter models if OpenAI fails. No redeploy is needed; the key is picked up within about 10 minutes. The same
+privacy rules apply: no names, IDs, emails, dates of birth, comments or wellbeing answers are sent.
+
 **Daily allowance.** OpenRouter accounts without credit get about 50 free-model requests a day; users then see
 "Today's free AI allowance is used up" until midnight UTC. A one-off purchase of 10 OpenRouter credits raises the
 free-model allowance to about 1,000 requests a day (the models stay free; the credit is not spent on them).

@@ -101,8 +101,45 @@ def api_key() -> str | None:
     return v
 
 
+_okey: dict = {"value": None, "at": 0.0}
+OPENAI_API = "https://api.openai.com/v1/chat/completions"
+
+
+def openai_key() -> str | None:
+    """Optional OpenAI key (env OPENAI_API_KEY locally, or the SSM SecureString named by OPENAI_KEY_PARAM)."""
+    if os.environ.get("OPENAI_API_KEY"):
+        return os.environ["OPENAI_API_KEY"]
+    name = os.environ.get("OPENAI_KEY_PARAM")
+    if not name:
+        return None
+    if time.time() - _okey["at"] < (3600 if _okey["value"] else 600):
+        return _okey["value"]
+    try:
+        import boto3
+        v = boto3.client("ssm", region_name=settings().region).get_parameter(Name=name, WithDecryption=True)["Parameter"]["Value"]
+    except Exception:
+        v = None
+    _okey.update(value=v, at=time.time())
+    return v
+
+
+def _openai(key: str, messages: list, budget: float) -> tuple[str, str]:
+    model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+    req = urllib.request.Request(OPENAI_API, method="POST", data=json.dumps(
+        {"model": model, "messages": messages, "temperature": 0.2, "max_tokens": 900}).encode(),
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+
+    def go():
+        with urllib.request.urlopen(req, timeout=budget) as r:
+            return json.loads(r.read())
+    r = _call_with_deadline(go, budget)
+    text = ((r.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+    return text, f"openai/{r.get('model') or model}"
+
+
 def enabled() -> bool:
-    return bool(os.environ.get("OPENROUTER_API_KEY") or os.environ.get("AI_KEY_PARAM"))
+    return bool(os.environ.get("OPENROUTER_API_KEY") or os.environ.get("AI_KEY_PARAM")
+                or os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENAI_KEY_PARAM"))
 
 
 def _call_with_deadline(fn, seconds: float):
@@ -177,18 +214,34 @@ def vision_models(key: str) -> list[str]:
 
 def complete(facts: dict, audience: str, system: str | None = None, user=None, vision: bool = False,
              accept=None) -> tuple[str, str]:
-    """Try free models one at a time (last good one first) until one answers, within about 16 seconds."""
+    """OpenAI first when a key is configured; otherwise (or if it fails) free OpenRouter models one at a time."""
+    messages = [{"role": "system", "content": (system or SYSTEM).format(audience=audience)},
+                {"role": "user", "content": user if user is not None else "Facts (JSON):\n" + json.dumps(facts, separators=(",", ":"))}]
+    t0 = time.time()
+    okey = openai_key()
+    if okey:
+        try:
+            text, model = _openai(okey, messages, 12)
+            if text.strip() and (accept is None or accept(text)):
+                return text, model
+            log.warning("openai answer not usable; falling back to free models")
+        except urllib.error.HTTPError as e:
+            try:
+                detail = e.read().decode("utf8", "replace")[:200]
+            except Exception:
+                detail = ""
+            log.warning("openai %s: %s", e.code, detail)
+        except Exception as e:
+            log.warning("openai error: %s", type(e).__name__)
     key = api_key()
     if not key:
-        raise AIUnavailable("AI summaries are not configured.")
+        raise AIUnavailable("The AI service could not create a summary right now. Please try again.")
     ids = vision_models(key) if vision else models(key)
     if not vision and _models.get("good") in ids:
         ids = [_models["good"]] + [i for i in ids if i != _models["good"]]
     if not ids:
         raise AIUnavailable("No AI model is available right now. Please try again later.")
-    messages = [{"role": "system", "content": (system or SYSTEM).format(audience=audience)},
-                {"role": "user", "content": user if user is not None else "Facts (JSON):\n" + json.dumps(facts, separators=(",", ":"))}]
-    deadline = time.time() + 17  # plus up to 5 s model discovery, inside the 25 s function limit
+    deadline = t0 + 19  # one budget for OpenAI + free models (+ up to 5 s discovery) inside the 25 s function limit
     busy = False
     for mid in ids:
         left = deadline - time.time()

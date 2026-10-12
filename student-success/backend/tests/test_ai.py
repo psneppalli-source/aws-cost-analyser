@@ -114,3 +114,21 @@ def test_plan_draft_and_coach(call, monkeypatch):
     c = call("student.cse", "POST", "/api/ai/summary", {"kind": "coach"})
     assert c.status_code == 200 and systems[-1] == ai.COACH and c.json()["lines"][1].startswith("- ")
     assert call("mentor.arjun", "POST", "/api/ai/summary", {"kind": "coach"}).status_code == 403
+
+
+def test_openai_first_then_free_models(monkeypatch):
+    from app import ai
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-test")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "or-test")
+    used = []
+    monkeypatch.setattr(ai, "_openai", lambda key, messages, budget: (used.append("openai") or "OpenAI answer.\n- point", "openai/gpt-4o-mini"))
+    text, model = ai.complete({"a": 1}, "staff")
+    assert model == "openai/gpt-4o-mini" and used == ["openai"]
+
+    def broken(key, messages, budget):
+        raise TimeoutError("slow")
+    monkeypatch.setattr(ai, "_openai", broken)
+    monkeypatch.setattr(ai, "models", lambda key: ["free/model:free"])
+    monkeypatch.setattr(ai, "_call_with_deadline", lambda fn, s: {"choices": [{"message": {"content": "Free answer."}}], "model": "free/model:free"})
+    text, model = ai.complete({"a": 1}, "staff")
+    assert model == "free/model:free" and text == "Free answer."   # fell back to the free models

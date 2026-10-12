@@ -33,6 +33,13 @@ Parameters:
     Description: >-
       Optional SSM Parameter Store name (SecureString) holding an OpenRouter API key, e.g. /smartcampus/openrouter-api-key.
       When set, staff and students can ask for AI summaries (free OpenRouter models; facts only, no identities).
+  OpenAiKeyParameter:
+    Type: String
+    Default: /smartcampus/openai-api-key
+    AllowedPattern: "^$|^/[A-Za-z0-9/_.-]+$"
+    Description: >-
+      Optional SSM SecureString holding an OpenAI API key. When it exists, AI features use OpenAI first (paid per use)
+      and fall back to the free OpenRouter models. If the parameter doesn't exist, OpenAI is simply not used.
   AuthDomainPrefix:
     Type: String
     Default: ""
@@ -114,6 +121,7 @@ Conditions:
   HasSiteUrl: !Not [!Equals [!Ref SiteUrl, ""]]
   HasAliasUrl: !And [!Condition HasSiteUrl, !Not [!Equals [!Ref AliasUrl, ""]]]
   HasAiKey: !Not [!Equals [!Ref AiKeyParameter, ""]]
+  HasOpenAiKey: !Not [!Equals [!Ref OpenAiKeyParameter, ""]]
   HasAuthDomainPrefix: !Not [!Equals [!Ref AuthDomainPrefix, ""]]
   UseCloudFront: !Equals [!Ref EdgeMode, cloudfront]
   Direct: !Equals [!Ref EdgeMode, direct]
@@ -303,6 +311,12 @@ Resources:
                   Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${AiKeyParameter}"
                 - !Ref AWS::NoValue
               - !If
+                - HasOpenAiKey
+                - Effect: Allow
+                  Action: ssm:GetParameter
+                  Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${OpenAiKeyParameter}"
+                - !Ref AWS::NoValue
+              - !If
                 - HasAiKey
                 - Effect: Allow
                   Action: kms:Decrypt
@@ -359,6 +373,7 @@ Resources:
           INSIGHT_CACHE_SECONDS: "20"
           SERVE_WEB: !If [Direct, "1", "0"]   # direct mode: this function also serves the web app
           AI_KEY_PARAM: !Ref AiKeyParameter   # empty = AI summaries off
+          OPENAI_KEY_PARAM: !Ref OpenAiKeyParameter
           SITE_URL: !If [HasAliasUrl, !Ref AliasUrl, !Ref SiteUrl]
           WEB_ROOT: /var/task/web
           APP_CONFIG: !Sub
