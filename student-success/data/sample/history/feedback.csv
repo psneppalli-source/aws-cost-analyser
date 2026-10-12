@@ -1,0 +1,783 @@
+student_id,term,satisfaction,stress,faculty_rating,faculty_remark
+22CSE001,2025-ODD,3,4,4.0,Struggling to cope with workload; asked about dropping a subject.
+22CSE002,2025-ODD,4,3,4.1,Regular in mentoring sessions; no concerns raised.
+22CSE003,2025-ODD,5,1,3.5,Steady progress; needs encouragement to take up projects.
+22CSE004,2025-ODD,5,1,2.4,Regular in mentoring sessions; no concerns raised.
+22CSE005,2025-ODD,4,4,2.4,Attends regularly but participation is limited.
+22CSE006,2025-ODD,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+22CSE007,2025-ODD,4,4,4.0,Steady progress; needs encouragement to take up projects.
+22CSE008,2025-ODD,5,1,4.8,Shows leadership in project work; highly motivated.
+22CSE009,2025-ODD,3,3,2.0,Regular in mentoring sessions; no concerns raised.
+22CSE010,2025-ODD,4,2,3.0,Regular in mentoring sessions; no concerns raised.
+22CSE011,2025-ODD,4,2,2.8,Attends regularly but participation is limited.
+22CSE012,2025-ODD,2,4,2.8,Mentions financial difficulty at home; working part-time evenings.
+22CSE013,2025-ODD,3,1,3.6,Steady progress; needs encouragement to take up projects.
+22CSE014,2025-ODD,2,4,4.9,Seems withdrawn in class and avoids mentor meetings.
+22CSE015,2025-ODD,4,2,5.0,Active in class discussions and helps peers.
+22CSE016,2025-ODD,2,4,1.8,Commutes over 2 hours daily; often late for first period.
+22CSE017,2025-ODD,4,4,4.9,Shows leadership in project work; highly motivated.
+22CSE018,2025-ODD,4,4,2.9,Regular in mentoring sessions; no concerns raised.
+22CSE019,2025-ODD,3,4,3.9,Reported health issues this term; missed several classes.
+22CSE020,2025-ODD,4,2,3.3,Attends regularly but participation is limited.
+22CSE021,2025-ODD,2,3,3.2,Regular in mentoring sessions; no concerns raised.
+22CSE023,2025-ODD,4,3,1.6,Attends regularly but participation is limited.
+22CSE025,2025-ODD,4,4,4.4,Attends regularly but participation is limited.
+22CSE026,2025-ODD,3,3,3.4,Steady progress; needs encouragement to take up projects.
+22CSE027,2025-ODD,4,2,4.1,Regular in mentoring sessions; no concerns raised.
+22CSE028,2025-ODD,4,3,3.0,Regular in mentoring sessions; no concerns raised.
+22CSE029,2025-ODD,2,4,2.9,Mentions financial difficulty at home; working part-time evenings.
+22CSE030,2025-ODD,2,3,2.4,Regular in mentoring sessions; no concerns raised.
+22CSE031,2025-ODD,4,2,3.7,Shows leadership in project work; highly motivated.
+22CSE032,2025-ODD,4,2,4.1,Steady progress; needs encouragement to take up projects.
+22CSE033,2025-ODD,3,2,3.6,Steady progress; needs encouragement to take up projects.
+22CSE034,2025-ODD,3,5,2.3,Reported health issues this term; missed several classes.
+22CSE035,2025-ODD,4,1,3.5,Steady progress; needs encouragement to take up projects.
+22CSE036,2025-ODD,3,4,3.9,Regular in mentoring sessions; no concerns raised.
+22CSE037,2025-ODD,3,2,2.5,Regular in mentoring sessions; no concerns raised.
+22CSE038,2025-ODD,3,2,2.7,Regular in mentoring sessions; no concerns raised.
+22CSE039,2025-ODD,3,3,4.3,Steady progress; needs encouragement to take up projects.
+22CSE041,2025-ODD,5,2,3.1,Regular in mentoring sessions; no concerns raised.
+22CSE042,2025-ODD,5,2,4.4,Pursuing extra online courses; very curious.
+22CSE043,2025-ODD,5,2,3.4,Attends regularly but participation is limited.
+22CSE044,2025-ODD,2,5,4.9,Commutes over 2 hours daily; often late for first period.
+22CSE045,2025-ODD,5,2,1.8,Steady progress; needs encouragement to take up projects.
+22CSE046,2025-ODD,4,3,1.7,Steady progress; needs encouragement to take up projects.
+22CSE047,2025-ODD,4,3,2.6,Steady progress; needs encouragement to take up projects.
+22CSE048,2025-ODD,5,2,4.0,Steady progress; needs encouragement to take up projects.
+22CSE049,2025-ODD,4,3,3.2,Attends regularly but participation is limited.
+22CSE051,2025-ODD,2,4,3.1,Regular in mentoring sessions; no concerns raised.
+22CSE052,2025-ODD,5,3,3.4,Regular in mentoring sessions; no concerns raised.
+22CSE053,2025-ODD,5,1,1,Steady progress; needs encouragement to take up projects.
+22CSE054,2025-ODD,2,4,1.9,Commutes over 2 hours daily; often late for first period.
+22CSE055,2025-ODD,5,1,1.1,Attends regularly but participation is limited.
+22CSE056,2025-ODD,4,2,4.2,Attends regularly but participation is limited.
+22CSE057,2025-ODD,4,1,2.3,Attends regularly but participation is limited.
+22CSE060,2025-ODD,5,2,3.4,Active in class discussions and helps peers.
+22CSE061,2025-ODD,3,4,4.5,Struggling to cope with workload; asked about dropping a subject.
+22CSE062,2025-ODD,3,3,4.0,Regular in mentoring sessions; no concerns raised.
+22CSE063,2025-ODD,5,2,3.5,Regular in mentoring sessions; no concerns raised.
+22CSE064,2025-ODD,2,4,3.4,Commutes over 2 hours daily; often late for first period.
+22CSE065,2025-ODD,3,2,2.7,Steady progress; needs encouragement to take up projects.
+22CSE066,2025-ODD,4,3,1,Struggling to cope with workload; asked about dropping a subject.
+22CSE067,2025-ODD,3,3,2.2,Attends regularly but participation is limited.
+22CSE068,2025-ODD,3,3,3.9,Regular in mentoring sessions; no concerns raised.
+22CSE069,2025-ODD,4,4,3.0,Steady progress; needs encouragement to take up projects.
+22CSE070,2025-ODD,4,2,2.5,Attends regularly but participation is limited.
+22CSE071,2025-ODD,2,2,2.9,Regular in mentoring sessions; no concerns raised.
+22CSE072,2025-ODD,4,1,2.6,Steady progress; needs encouragement to take up projects.
+22CSE073,2025-ODD,4,3,2.2,Attends regularly but participation is limited.
+22CSE074,2025-ODD,3,3,3.4,Steady progress; needs encouragement to take up projects.
+22CSE075,2025-ODD,3,2,1.5,Attends regularly but participation is limited.
+22CSE076,2025-ODD,5,2,5,Shows leadership in project work; highly motivated.
+22CSE077,2025-ODD,3,3,3.1,Attends regularly but participation is limited.
+22CSE081,2025-ODD,4,3,3.1,Attends regularly but participation is limited.
+22CSE083,2025-ODD,3,3,3.5,Steady progress; needs encouragement to take up projects.
+22CSE085,2025-ODD,5,1,2.6,Attends regularly but participation is limited.
+22CSE087,2025-ODD,2,4,3.4,Commutes over 2 hours daily; often late for first period.
+22CSE088,2025-ODD,4,1,1.6,Regular in mentoring sessions; no concerns raised.
+22CSE089,2025-ODD,2,3,4.0,Pursuing extra online courses; very curious.
+22CSE090,2025-ODD,4,3,3.3,Attends regularly but participation is limited.
+22CSE091,2025-ODD,3,4,3.8,Struggling to cope with workload; asked about dropping a subject.
+22CSE093,2025-ODD,3,3,3.9,Regular in mentoring sessions; no concerns raised.
+22CSE094,2025-ODD,3,4,3.8,Mentions financial difficulty at home; working part-time evenings.
+22CSE095,2025-ODD,5,2,3.9,Active in class discussions and helps peers.
+22CSE096,2025-ODD,3,3,4.4,Regular in mentoring sessions; no concerns raised.
+22CSE097,2025-ODD,4,2,2.5,Regular in mentoring sessions; no concerns raised.
+22CSE098,2025-ODD,5,2,3.2,Regular in mentoring sessions; no concerns raised.
+22CSE099,2025-ODD,4,2,4.6,Attends regularly but participation is limited.
+22CSE100,2025-ODD,4,3,3.5,Attends regularly but participation is limited.
+22CSE101,2025-ODD,3,4,3.3,Reported health issues this term; missed several classes.
+22CSE103,2025-ODD,3,2,1.9,Seems withdrawn in class and avoids mentor meetings.
+22CSE104,2025-ODD,4,3,3.4,Regular in mentoring sessions; no concerns raised.
+22CSE105,2025-ODD,3,2,2.4,Attends regularly but participation is limited.
+22CSE106,2025-ODD,3,3,3.4,Regular in mentoring sessions; no concerns raised.
+22CSE107,2025-ODD,2,3,2.3,Family responsibilities are affecting study time.
+22CSE109,2025-ODD,4,3,4.0,Regular in mentoring sessions; no concerns raised.
+22CSE110,2025-ODD,4,1,4.3,Steady progress; needs encouragement to take up projects.
+22CSE111,2025-ODD,3,4,2.5,Steady progress; needs encouragement to take up projects.
+22CSE112,2025-ODD,5,2,2.8,Regular in mentoring sessions; no concerns raised.
+22CSE113,2025-ODD,5,3,3.8,Regular in mentoring sessions; no concerns raised.
+22CSE114,2025-ODD,2,4,3.8,Struggling to cope with workload; asked about dropping a subject.
+22CSE115,2025-ODD,4,2,3.0,Regular in mentoring sessions; no concerns raised.
+22CSE116,2025-ODD,2,3,2.4,Mentions financial difficulty at home; working part-time evenings.
+22CSE117,2025-ODD,4,3,3.2,Regular in mentoring sessions; no concerns raised.
+22CSE118,2025-ODD,2,5,1.6,Family responsibilities are affecting study time.
+22CSE119,2025-ODD,3,3,2.2,Attends regularly but participation is limited.
+22CSE121,2025-ODD,3,3,2.3,Regular in mentoring sessions; no concerns raised.
+22CSE122,2025-ODD,4,2,1.9,Steady progress; needs encouragement to take up projects.
+22CSE123,2025-ODD,5,1,2.3,Attends regularly but participation is limited.
+22CSE125,2025-ODD,2,4,3.5,Mentions financial difficulty at home; working part-time evenings.
+22CSE126,2025-ODD,4,4,2.9,Attends regularly but participation is limited.
+22CSE127,2025-ODD,3,3,2.2,Attends regularly but participation is limited.
+22CSE128,2025-ODD,3,3,1.7,Attends regularly but participation is limited.
+22CSE129,2025-ODD,3,2,3.4,Steady progress; needs encouragement to take up projects.
+22CSE130,2025-ODD,3,3,2.3,Steady progress; needs encouragement to take up projects.
+22CSE132,2025-ODD,4,4,4.4,Active in class discussions and helps peers.
+22CSE133,2025-ODD,5,1,2.5,Commutes over 2 hours daily; often late for first period.
+22CSE134,2025-ODD,4,3,2.2,Steady progress; needs encouragement to take up projects.
+22CSE135,2025-ODD,4,3,2.9,Attends regularly but participation is limited.
+22CSE136,2025-ODD,4,3,3.4,Regular in mentoring sessions; no concerns raised.
+22CSE137,2025-ODD,3,3,2.7,Regular in mentoring sessions; no concerns raised.
+22CSE138,2025-ODD,3,3,3.2,Struggling to cope with workload; asked about dropping a subject.
+22CSE140,2025-ODD,4,3,3.3,Attends regularly but participation is limited.
+22CSE141,2025-ODD,4,3,4.4,Attends regularly but participation is limited.
+22CSE144,2025-ODD,3,3,3.7,Regular in mentoring sessions; no concerns raised.
+22CSE146,2025-ODD,2,4,2.5,Family responsibilities are affecting study time.
+22CSE147,2025-ODD,4,3,3.1,Regular in mentoring sessions; no concerns raised.
+22CSE148,2025-ODD,3,3,4.7,Steady progress; needs encouragement to take up projects.
+22CSE149,2025-ODD,4,3,3.6,Regular in mentoring sessions; no concerns raised.
+22CSE150,2025-ODD,3,4,3.6,Steady progress; needs encouragement to take up projects.
+22CSE151,2025-ODD,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+22CSE152,2025-ODD,3,5,2.3,Commutes over 2 hours daily; often late for first period.
+22CSE153,2025-ODD,3,3,3.7,Pursuing extra online courses; very curious.
+22CSE154,2025-ODD,3,3,2.1,Attends regularly but participation is limited.
+22CSE155,2025-ODD,4,3,4.6,Steady progress; needs encouragement to take up projects.
+22CSE157,2025-ODD,3,4,3.4,Steady progress; needs encouragement to take up projects.
+22CSE158,2025-ODD,4,1,3.9,Attends regularly but participation is limited.
+22CSE159,2025-ODD,4,3,2.5,Steady progress; needs encouragement to take up projects.
+22CSE160,2025-ODD,4,4,2.8,Attends regularly but participation is limited.
+22CSE161,2025-ODD,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+22CSE162,2025-ODD,4,4,3.6,Pursuing extra online courses; very curious.
+22CSE163,2025-ODD,4,1,2.1,Regular in mentoring sessions; no concerns raised.
+22CSE164,2025-ODD,3,1,3.0,Regular in mentoring sessions; no concerns raised.
+22CSE165,2025-ODD,2,2,1.5,Seems withdrawn in class and avoids mentor meetings.
+22CSE166,2025-ODD,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+22CSE167,2025-ODD,4,2,4.9,Commutes over 2 hours daily; often late for first period.
+22CSE168,2025-ODD,4,3,3.1,Attends regularly but participation is limited.
+22CSE169,2025-ODD,4,3,4.1,Regular in mentoring sessions; no concerns raised.
+22CSE171,2025-ODD,5,3,2.4,Regular in mentoring sessions; no concerns raised.
+22CSE172,2025-ODD,2,5,2.3,Seems withdrawn in class and avoids mentor meetings.
+22CSE174,2025-ODD,4,1,4.8,Shows leadership in project work; highly motivated.
+22CSE175,2025-ODD,3,4,3.5,Reported health issues this term; missed several classes.
+22CSE176,2025-ODD,3,3,3.9,Steady progress; needs encouragement to take up projects.
+22CSE177,2025-ODD,3,2,2.2,Steady progress; needs encouragement to take up projects.
+22CSE178,2025-ODD,4,2,2.6,Steady progress; needs encouragement to take up projects.
+22CSE180,2025-ODD,3,3,3.0,Attends regularly but participation is limited.
+22IT001,2025-ODD,3,4,1.9,Attends regularly but participation is limited.
+22IT002,2025-ODD,2,4,3.2,Family responsibilities are affecting study time.
+22IT003,2025-ODD,2,4,3.0,Commutes over 2 hours daily; often late for first period.
+22IT004,2025-ODD,3,3,3.2,Mentions financial difficulty at home; working part-time evenings.
+22IT005,2025-ODD,2,3,2.0,Attends regularly but participation is limited.
+22IT006,2025-ODD,3,4,3.2,Struggling to cope with workload; asked about dropping a subject.
+22IT009,2025-ODD,3,3,4.5,Pursuing extra online courses; very curious.
+22IT011,2025-ODD,2,4,4.6,Seems withdrawn in class and avoids mentor meetings.
+22IT013,2025-ODD,4,3,3.8,Attends regularly but participation is limited.
+22IT014,2025-ODD,5,1,2.0,Steady progress; needs encouragement to take up projects.
+22IT016,2025-ODD,3,3,5.0,Seems withdrawn in class and avoids mentor meetings.
+22IT017,2025-ODD,3,3,2.2,Steady progress; needs encouragement to take up projects.
+22IT019,2025-ODD,4,2,3.8,Attends regularly but participation is limited.
+22IT020,2025-ODD,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+22IT021,2025-ODD,5,1,2.2,Regular in mentoring sessions; no concerns raised.
+22IT022,2025-ODD,2,4,3.6,Regular in mentoring sessions; no concerns raised.
+22IT023,2025-ODD,3,3,2.7,Attends regularly but participation is limited.
+22IT024,2025-ODD,3,3,2.5,Attends regularly but participation is limited.
+22IT025,2025-ODD,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+22IT026,2025-ODD,4,2,2.7,Attends regularly but participation is limited.
+22IT027,2025-ODD,3,3,4.0,Regular in mentoring sessions; no concerns raised.
+22IT028,2025-ODD,3,3,3.3,Steady progress; needs encouragement to take up projects.
+22IT029,2025-ODD,4,3,3.1,Attends regularly but participation is limited.
+22IT030,2025-ODD,5,1,4.9,Steady progress; needs encouragement to take up projects.
+22IT031,2025-ODD,3,4,3.3,Seems withdrawn in class and avoids mentor meetings.
+22IT032,2025-ODD,4,3,1.4,Attends regularly but participation is limited.
+22IT035,2025-ODD,2,3,4.4,Reported health issues this term; missed several classes.
+22IT036,2025-ODD,4,2,2.1,Regular in mentoring sessions; no concerns raised.
+22IT037,2025-ODD,3,2,3.0,Steady progress; needs encouragement to take up projects.
+22IT039,2025-ODD,4,1,1.9,Attends regularly but participation is limited.
+22IT041,2025-ODD,3,2,2.0,Attends regularly but participation is limited.
+22IT042,2025-ODD,3,3,2.9,Reported health issues this term; missed several classes.
+22IT043,2025-ODD,4,3,3.4,Attends regularly but participation is limited.
+22IT044,2025-ODD,2,3,2.6,Steady progress; needs encouragement to take up projects.
+22IT045,2025-ODD,4,1,3.7,Steady progress; needs encouragement to take up projects.
+22IT046,2025-ODD,3,2,1,Attends regularly but participation is limited.
+22IT047,2025-ODD,4,2,3.6,Attends regularly but participation is limited.
+22IT048,2025-ODD,3,3,3.3,Mentions financial difficulty at home; working part-time evenings.
+22IT049,2025-ODD,4,3,2.2,Attends regularly but participation is limited.
+22IT050,2025-ODD,4,3,2.0,Regular in mentoring sessions; no concerns raised.
+22IT051,2025-ODD,2,4,1.7,Steady progress; needs encouragement to take up projects.
+22IT052,2025-ODD,4,2,5,Shows leadership in project work; highly motivated.
+22IT053,2025-ODD,5,1,2.8,Steady progress; needs encouragement to take up projects.
+22IT054,2025-ODD,2,3,2.9,Struggling to cope with workload; asked about dropping a subject.
+22IT056,2025-ODD,4,3,2.7,Struggling to cope with workload; asked about dropping a subject.
+22IT057,2025-ODD,4,4,2.9,Regular in mentoring sessions; no concerns raised.
+22IT058,2025-ODD,2,3,3.4,Struggling to cope with workload; asked about dropping a subject.
+22IT059,2025-ODD,5,2,3.4,Steady progress; needs encouragement to take up projects.
+22IT060,2025-ODD,3,3,3.9,Shows leadership in project work; highly motivated.
+22IT062,2025-ODD,4,3,2.2,Regular in mentoring sessions; no concerns raised.
+22IT063,2025-ODD,3,3,3.7,Attends regularly but participation is limited.
+22IT065,2025-ODD,3,3,4.2,Family responsibilities are affecting study time.
+22IT066,2025-ODD,5,2,2.2,Steady progress; needs encouragement to take up projects.
+22IT068,2025-ODD,3,4,1.3,Regular in mentoring sessions; no concerns raised.
+22IT069,2025-ODD,3,4,4.6,Active in class discussions and helps peers.
+22IT070,2025-ODD,4,3,4.9,Shows leadership in project work; highly motivated.
+22IT071,2025-ODD,4,2,5.0,Pursuing extra online courses; very curious.
+22IT072,2025-ODD,3,3,3.5,Seems withdrawn in class and avoids mentor meetings.
+22IT073,2025-ODD,4,2,4.2,Attends regularly but participation is limited.
+22IT074,2025-ODD,4,2,2.6,Regular in mentoring sessions; no concerns raised.
+22IT075,2025-ODD,4,4,2.3,Regular in mentoring sessions; no concerns raised.
+22IT076,2025-ODD,3,2,2.0,Regular in mentoring sessions; no concerns raised.
+22IT077,2025-ODD,2,4,2.3,Regular in mentoring sessions; no concerns raised.
+22IT078,2025-ODD,5,1,4.0,Pursuing extra online courses; very curious.
+22IT079,2025-ODD,4,2,2.8,Regular in mentoring sessions; no concerns raised.
+22IT080,2025-ODD,4,3,5,Active in class discussions and helps peers.
+22IT081,2025-ODD,5,2,4.2,Steady progress; needs encouragement to take up projects.
+22IT083,2025-ODD,4,3,3.0,Regular in mentoring sessions; no concerns raised.
+22IT084,2025-ODD,5,4,2.7,Regular in mentoring sessions; no concerns raised.
+22IT085,2025-ODD,3,2,3.2,Attends regularly but participation is limited.
+22IT086,2025-ODD,4,3,4.1,Active in class discussions and helps peers.
+22IT087,2025-ODD,4,3,2.5,Regular in mentoring sessions; no concerns raised.
+22IT088,2025-ODD,2,4,2.9,Family responsibilities are affecting study time.
+22IT090,2025-ODD,3,2,2.9,Steady progress; needs encouragement to take up projects.
+22IT092,2025-ODD,5,1,4.6,Active in class discussions and helps peers.
+22IT093,2025-ODD,4,4,3.4,Shows leadership in project work; highly motivated.
+22IT094,2025-ODD,2,3,1,Regular in mentoring sessions; no concerns raised.
+22IT095,2025-ODD,3,2,3.9,Active in class discussions and helps peers.
+22IT096,2025-ODD,4,2,5,Shows leadership in project work; highly motivated.
+22IT097,2025-ODD,3,3,3.6,Attends regularly but participation is limited.
+22IT098,2025-ODD,3,3,2.1,Seems withdrawn in class and avoids mentor meetings.
+22IT099,2025-ODD,5,3,4.2,Attends regularly but participation is limited.
+22IT101,2025-ODD,2,5,3.1,Mentions financial difficulty at home; working part-time evenings.
+22IT102,2025-ODD,4,2,3.9,Attends regularly but participation is limited.
+22IT103,2025-ODD,3,2,3.7,Steady progress; needs encouragement to take up projects.
+22IT104,2025-ODD,2,3,3.8,Attends regularly but participation is limited.
+22IT105,2025-ODD,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+22IT107,2025-ODD,4,2,3.4,Regular in mentoring sessions; no concerns raised.
+22IT108,2025-ODD,3,2,3.0,Attends regularly but participation is limited.
+22IT109,2025-ODD,4,2,3.8,Attends regularly but participation is limited.
+22IT111,2025-ODD,4,3,3.1,Attends regularly but participation is limited.
+22IT112,2025-ODD,4,3,3.8,Steady progress; needs encouragement to take up projects.
+22IT113,2025-ODD,3,4,3.8,Mentions financial difficulty at home; working part-time evenings.
+22IT114,2025-ODD,3,5,3.3,Struggling to cope with workload; asked about dropping a subject.
+22IT115,2025-ODD,2,3,3.6,Seems withdrawn in class and avoids mentor meetings.
+22IT116,2025-ODD,2,4,2.5,Attends regularly but participation is limited.
+22IT117,2025-ODD,4,2,3.8,Attends regularly but participation is limited.
+22IT118,2025-ODD,3,3,3.2,Steady progress; needs encouragement to take up projects.
+22IT119,2025-ODD,5,2,3.6,Steady progress; needs encouragement to take up projects.
+22IT120,2025-ODD,2,4,2.8,Commutes over 2 hours daily; often late for first period.
+22IT121,2025-ODD,3,2,4.0,Steady progress; needs encouragement to take up projects.
+22IT122,2025-ODD,4,2,3.1,Attends regularly but participation is limited.
+22IT123,2025-ODD,4,3,3.3,Steady progress; needs encouragement to take up projects.
+22IT124,2025-ODD,3,3,2.4,Mentions financial difficulty at home; working part-time evenings.
+22IT126,2025-ODD,3,3,3.1,Attends regularly but participation is limited.
+22IT127,2025-ODD,3,2,3.0,Attends regularly but participation is limited.
+22IT128,2025-ODD,3,3,4.1,Attends regularly but participation is limited.
+22IT130,2025-ODD,3,3,2.0,Steady progress; needs encouragement to take up projects.
+22IT131,2025-ODD,4,3,1.1,Regular in mentoring sessions; no concerns raised.
+22IT132,2025-ODD,2,3,3.6,Struggling to cope with workload; asked about dropping a subject.
+22IT133,2025-ODD,2,5,5,Mentions financial difficulty at home; working part-time evenings.
+22IT134,2025-ODD,5,3,3.3,Attends regularly but participation is limited.
+22IT135,2025-ODD,4,2,3.0,Steady progress; needs encouragement to take up projects.
+22IT136,2025-ODD,3,4,4.3,Regular in mentoring sessions; no concerns raised.
+22IT137,2025-ODD,4,3,2.2,Regular in mentoring sessions; no concerns raised.
+22IT138,2025-ODD,5,1,2.4,Regular in mentoring sessions; no concerns raised.
+22IT139,2025-ODD,3,5,3.5,Attends regularly but participation is limited.
+22IT140,2025-ODD,4,2,3.5,Steady progress; needs encouragement to take up projects.
+22IT141,2025-ODD,4,2,4.1,Steady progress; needs encouragement to take up projects.
+22IT143,2025-ODD,4,3,1.6,Regular in mentoring sessions; no concerns raised.
+22IT145,2025-ODD,2,4,2.5,Regular in mentoring sessions; no concerns raised.
+22IT146,2025-ODD,4,3,5,Shows leadership in project work; highly motivated.
+22IT147,2025-ODD,5,1,3.9,Active in class discussions and helps peers.
+22IT148,2025-ODD,2,4,5,Struggling to cope with workload; asked about dropping a subject.
+22IT149,2025-ODD,3,3,1.3,Steady progress; needs encouragement to take up projects.
+22IT151,2025-ODD,2,3,3.2,Struggling to cope with workload; asked about dropping a subject.
+22IT152,2025-ODD,5,2,5,Pursuing extra online courses; very curious.
+22IT153,2025-ODD,3,3,3.0,Regular in mentoring sessions; no concerns raised.
+22IT154,2025-ODD,3,2,2.3,Attends regularly but participation is limited.
+22IT155,2025-ODD,3,3,1,Attends regularly but participation is limited.
+22IT156,2025-ODD,3,3,2.6,Steady progress; needs encouragement to take up projects.
+22IT158,2025-ODD,3,1,3.3,Regular in mentoring sessions; no concerns raised.
+22IT159,2025-ODD,1,4,2.9,Mentions financial difficulty at home; working part-time evenings.
+22IT160,2025-ODD,4,3,3.3,Attends regularly but participation is limited.
+22IT161,2025-ODD,3,4,1.6,Steady progress; needs encouragement to take up projects.
+22IT162,2025-ODD,3,3,3.9,Regular in mentoring sessions; no concerns raised.
+22IT164,2025-ODD,3,3,2.3,Mentions financial difficulty at home; working part-time evenings.
+22IT165,2025-ODD,4,3,2.8,Regular in mentoring sessions; no concerns raised.
+22IT166,2025-ODD,5,3,3.8,Steady progress; needs encouragement to take up projects.
+22IT168,2025-ODD,3,4,5,Commutes over 2 hours daily; often late for first period.
+22IT169,2025-ODD,5,3,5,Active in class discussions and helps peers.
+22IT170,2025-ODD,5,1,4.3,Steady progress; needs encouragement to take up projects.
+22IT171,2025-ODD,2,4,3.5,Regular in mentoring sessions; no concerns raised.
+22IT172,2025-ODD,4,3,3.3,Regular in mentoring sessions; no concerns raised.
+22IT173,2025-ODD,4,4,3.2,Attends regularly but participation is limited.
+22IT174,2025-ODD,4,2,2.7,Attends regularly but participation is limited.
+22IT175,2025-ODD,3,4,3.6,Steady progress; needs encouragement to take up projects.
+22IT176,2025-ODD,5,2,4.0,Active in class discussions and helps peers.
+22IT177,2025-ODD,5,2,3.5,Attends regularly but participation is limited.
+22IT180,2025-ODD,3,3,2.0,Mentions financial difficulty at home; working part-time evenings.
+22ECE001,2025-ODD,2,4,2.8,Family responsibilities are affecting study time.
+22ECE002,2025-ODD,4,2,2.5,Attends regularly but participation is limited.
+22ECE003,2025-ODD,3,3,3.2,Commutes over 2 hours daily; often late for first period.
+22ECE004,2025-ODD,3,4,3.3,Mentions financial difficulty at home; working part-time evenings.
+22ECE005,2025-ODD,3,3,3.5,Regular in mentoring sessions; no concerns raised.
+22ECE006,2025-ODD,3,3,3.1,Attends regularly but participation is limited.
+22ECE008,2025-ODD,2,4,4.6,Seems withdrawn in class and avoids mentor meetings.
+22ECE009,2025-ODD,2,3,3.7,Steady progress; needs encouragement to take up projects.
+22ECE010,2025-ODD,3,3,3.5,Regular in mentoring sessions; no concerns raised.
+22ECE011,2025-ODD,3,3,2.3,Attends regularly but participation is limited.
+22ECE012,2025-ODD,4,1,3.0,Steady progress; needs encouragement to take up projects.
+22ECE013,2025-ODD,2,3,2.2,Steady progress; needs encouragement to take up projects.
+22ECE014,2025-ODD,1,5,2.7,Family responsibilities are affecting study time.
+22ECE015,2025-ODD,4,3,5,Shows leadership in project work; highly motivated.
+22ECE017,2025-ODD,3,3,5,Shows leadership in project work; highly motivated.
+22ECE018,2025-ODD,3,1,3.8,Steady progress; needs encouragement to take up projects.
+22ECE019,2025-ODD,3,4,2.4,Struggling to cope with workload; asked about dropping a subject.
+22ECE020,2025-ODD,3,3,2.1,Regular in mentoring sessions; no concerns raised.
+22ECE021,2025-ODD,3,4,1.5,Regular in mentoring sessions; no concerns raised.
+22ECE022,2025-ODD,3,4,5,Seems withdrawn in class and avoids mentor meetings.
+22ECE023,2025-ODD,4,3,2.7,Attends regularly but participation is limited.
+22ECE024,2025-ODD,3,3,2.5,Steady progress; needs encouragement to take up projects.
+22ECE025,2025-ODD,4,2,3.0,Regular in mentoring sessions; no concerns raised.
+22ECE026,2025-ODD,3,2,4.3,Steady progress; needs encouragement to take up projects.
+22ECE027,2025-ODD,5,2,2.9,Regular in mentoring sessions; no concerns raised.
+22ECE028,2025-ODD,2,3,2.8,Attends regularly but participation is limited.
+22ECE029,2025-ODD,4,1,3.3,Regular in mentoring sessions; no concerns raised.
+22ECE030,2025-ODD,4,2,3.5,Attends regularly but participation is limited.
+22ECE031,2025-ODD,4,2,3.7,Shows leadership in project work; highly motivated.
+22ECE032,2025-ODD,4,3,3.2,Steady progress; needs encouragement to take up projects.
+22ECE033,2025-ODD,3,5,3.5,Struggling to cope with workload; asked about dropping a subject.
+22ECE034,2025-ODD,3,4,3.7,Attends regularly but participation is limited.
+22ECE035,2025-ODD,2,3,2.2,Mentions financial difficulty at home; working part-time evenings.
+22ECE036,2025-ODD,4,2,3.5,Steady progress; needs encouragement to take up projects.
+22ECE037,2025-ODD,3,3,3.2,Steady progress; needs encouragement to take up projects.
+22ECE038,2025-ODD,3,4,3.8,Struggling to cope with workload; asked about dropping a subject.
+22ECE039,2025-ODD,4,3,5,Pursuing extra online courses; very curious.
+22ECE041,2025-ODD,5,2,4.0,Pursuing extra online courses; very curious.
+22ECE042,2025-ODD,5,2,3.3,Attends regularly but participation is limited.
+22ECE043,2025-ODD,3,3,4.2,Attends regularly but participation is limited.
+22ECE044,2025-ODD,3,3,1.4,Attends regularly but participation is limited.
+22ECE045,2025-ODD,4,1,3.3,Attends regularly but participation is limited.
+22ECE047,2025-ODD,4,3,3.7,Seems withdrawn in class and avoids mentor meetings.
+22ECE048,2025-ODD,3,3,2.0,Attends regularly but participation is limited.
+22ECE049,2025-ODD,3,2,5.0,Active in class discussions and helps peers.
+22ECE050,2025-ODD,4,3,3.5,Steady progress; needs encouragement to take up projects.
+22ECE052,2025-ODD,4,2,3.7,Regular in mentoring sessions; no concerns raised.
+22ECE053,2025-ODD,4,3,2.0,Attends regularly but participation is limited.
+22ECE054,2025-ODD,4,3,2.6,Regular in mentoring sessions; no concerns raised.
+22ECE055,2025-ODD,3,3,4.9,Active in class discussions and helps peers.
+22ECE056,2025-ODD,4,2,3.1,Steady progress; needs encouragement to take up projects.
+22ECE057,2025-ODD,3,3,2.9,Struggling to cope with workload; asked about dropping a subject.
+22ECE058,2025-ODD,4,3,3.7,Attends regularly but participation is limited.
+22ECE059,2025-ODD,5,2,5.0,Active in class discussions and helps peers.
+22ECE060,2025-ODD,4,4,3.2,Regular in mentoring sessions; no concerns raised.
+22ECE062,2025-ODD,2,3,2.3,Attends regularly but participation is limited.
+22ECE063,2025-ODD,5,1,2.3,Attends regularly but participation is limited.
+22ECE064,2025-ODD,3,3,4.1,Shows leadership in project work; highly motivated.
+22ECE065,2025-ODD,5,3,2.9,Attends regularly but participation is limited.
+22ECE066,2025-ODD,5,2,1.6,Steady progress; needs encouragement to take up projects.
+22ECE067,2025-ODD,4,3,4.0,Shows leadership in project work; highly motivated.
+22ECE068,2025-ODD,2,3,3.2,Regular in mentoring sessions; no concerns raised.
+22ECE069,2025-ODD,3,3,2.8,Attends regularly but participation is limited.
+22ECE070,2025-ODD,4,3,5,Pursuing extra online courses; very curious.
+22ECE071,2025-ODD,5,3,4.6,Active in class discussions and helps peers.
+22ECE072,2025-ODD,4,3,3.2,Pursuing extra online courses; very curious.
+22ECE073,2025-ODD,3,4,4.0,Steady progress; needs encouragement to take up projects.
+22ECE074,2025-ODD,5,3,2.9,Regular in mentoring sessions; no concerns raised.
+22ECE075,2025-ODD,1,5,1.8,Steady progress; needs encouragement to take up projects.
+22ECE076,2025-ODD,3,3,4.6,Attends regularly but participation is limited.
+22ECE077,2025-ODD,4,1,3.6,Steady progress; needs encouragement to take up projects.
+22ECE078,2025-ODD,3,4,3.6,Mentions financial difficulty at home; working part-time evenings.
+22ECE079,2025-ODD,3,3,4.4,Pursuing extra online courses; very curious.
+22ECE080,2025-ODD,4,2,3.6,Steady progress; needs encouragement to take up projects.
+22ECE081,2025-ODD,4,2,5.0,Active in class discussions and helps peers.
+22ECE082,2025-ODD,4,2,3.4,Attends regularly but participation is limited.
+22ECE084,2025-ODD,3,3,4.0,Steady progress; needs encouragement to take up projects.
+22ECE085,2025-ODD,4,2,4.4,Active in class discussions and helps peers.
+22ECE086,2025-ODD,4,4,3.1,Regular in mentoring sessions; no concerns raised.
+22ECE087,2025-ODD,2,3,2.3,Reported health issues this term; missed several classes.
+22ECE088,2025-ODD,3,3,4.9,Shows leadership in project work; highly motivated.
+22ECE089,2025-ODD,4,1,2.9,Steady progress; needs encouragement to take up projects.
+22ECE090,2025-ODD,3,3,4.1,Steady progress; needs encouragement to take up projects.
+22ECE091,2025-ODD,3,4,3.6,Steady progress; needs encouragement to take up projects.
+22ECE093,2025-ODD,3,3,2.6,Attends regularly but participation is limited.
+22ECE094,2025-ODD,3,4,4.2,Pursuing extra online courses; very curious.
+22ECE095,2025-ODD,3,3,3.7,Seems withdrawn in class and avoids mentor meetings.
+22ECE096,2025-ODD,3,3,4.0,Shows leadership in project work; highly motivated.
+22ECE097,2025-ODD,4,3,3.8,Active in class discussions and helps peers.
+22ECE098,2025-ODD,4,4,2.2,Attends regularly but participation is limited.
+22ECE099,2025-ODD,5,1,2.8,Steady progress; needs encouragement to take up projects.
+22ECE101,2025-ODD,2,5,3.6,Reported health issues this term; missed several classes.
+22ECE102,2025-ODD,4,1,2.8,Steady progress; needs encouragement to take up projects.
+22ECE104,2025-ODD,4,4,2.9,Regular in mentoring sessions; no concerns raised.
+22ECE105,2025-ODD,3,3,2.4,Attends regularly but participation is limited.
+22ECE106,2025-ODD,3,3,3.8,Active in class discussions and helps peers.
+22ECE107,2025-ODD,3,3,2.5,Steady progress; needs encouragement to take up projects.
+22ECE108,2025-ODD,4,3,3.5,Pursuing extra online courses; very curious.
+22ECE109,2025-ODD,2,4,4.9,Regular in mentoring sessions; no concerns raised.
+22ECE110,2025-ODD,3,3,3.5,Pursuing extra online courses; very curious.
+22ECE111,2025-ODD,4,3,3.3,Steady progress; needs encouragement to take up projects.
+22ECE112,2025-ODD,4,3,3.5,Regular in mentoring sessions; no concerns raised.
+22ECE113,2025-ODD,3,4,3.8,Mentions financial difficulty at home; working part-time evenings.
+22ECE114,2025-ODD,3,3,2.9,Steady progress; needs encouragement to take up projects.
+22ECE115,2025-ODD,3,4,4.3,Reported health issues this term; missed several classes.
+22ECE117,2025-ODD,3,3,4.3,Active in class discussions and helps peers.
+22ECE118,2025-ODD,4,3,3.4,Steady progress; needs encouragement to take up projects.
+22ECE119,2025-ODD,3,3,5,Reported health issues this term; missed several classes.
+22ECE120,2025-ODD,3,3,3.8,Attends regularly but participation is limited.
+22ECE121,2025-ODD,3,4,2.8,Family responsibilities are affecting study time.
+22ECE122,2025-ODD,3,3,4.1,Commutes over 2 hours daily; often late for first period.
+22ECE123,2025-ODD,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+22ECE124,2025-ODD,3,2,3.4,Steady progress; needs encouragement to take up projects.
+22ECE125,2025-ODD,4,3,3.6,Attends regularly but participation is limited.
+22ECE126,2025-ODD,4,2,4.6,Shows leadership in project work; highly motivated.
+22ECE127,2025-ODD,3,2,2.5,Attends regularly but participation is limited.
+22ECE128,2025-ODD,3,2,1.3,Steady progress; needs encouragement to take up projects.
+22ECE129,2025-ODD,2,5,3.9,Mentions financial difficulty at home; working part-time evenings.
+22ECE131,2025-ODD,2,5,4.1,Seems withdrawn in class and avoids mentor meetings.
+22ECE132,2025-ODD,3,2,2.1,Steady progress; needs encouragement to take up projects.
+22ECE133,2025-ODD,3,4,2.9,Regular in mentoring sessions; no concerns raised.
+22ECE134,2025-ODD,5,2,3.2,Regular in mentoring sessions; no concerns raised.
+22ECE135,2025-ODD,4,2,4.0,Regular in mentoring sessions; no concerns raised.
+22ECE136,2025-ODD,5,1,2.6,Steady progress; needs encouragement to take up projects.
+22ECE137,2025-ODD,4,2,4.1,Pursuing extra online courses; very curious.
+22ECE138,2025-ODD,4,3,4.6,Pursuing extra online courses; very curious.
+22ECE139,2025-ODD,3,4,4.1,Steady progress; needs encouragement to take up projects.
+22ECE140,2025-ODD,2,4,2.8,Mentions financial difficulty at home; working part-time evenings.
+22ECE141,2025-ODD,4,2,1.9,Steady progress; needs encouragement to take up projects.
+22ECE142,2025-ODD,4,1,3.8,Attends regularly but participation is limited.
+22ECE143,2025-ODD,3,5,3.6,Struggling to cope with workload; asked about dropping a subject.
+22ECE145,2025-ODD,3,4,4.4,Struggling to cope with workload; asked about dropping a subject.
+22ECE146,2025-ODD,4,3,4.0,Steady progress; needs encouragement to take up projects.
+22ECE147,2025-ODD,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+22ECE148,2025-ODD,4,2,2.7,Regular in mentoring sessions; no concerns raised.
+22ECE149,2025-ODD,4,3,3.2,Attends regularly but participation is limited.
+22ECE150,2025-ODD,2,3,3.1,Attends regularly but participation is limited.
+22ECE151,2025-ODD,3,3,4.8,Active in class discussions and helps peers.
+22ECE152,2025-ODD,2,4,3.0,Seems withdrawn in class and avoids mentor meetings.
+22ECE153,2025-ODD,3,2,2.4,Regular in mentoring sessions; no concerns raised.
+22ECE154,2025-ODD,4,3,2.0,Steady progress; needs encouragement to take up projects.
+22ECE155,2025-ODD,3,2,2.2,Attends regularly but participation is limited.
+22ECE156,2025-ODD,4,2,3.6,Steady progress; needs encouragement to take up projects.
+22ECE158,2025-ODD,4,2,2.3,Regular in mentoring sessions; no concerns raised.
+22ECE159,2025-ODD,4,3,4.0,Active in class discussions and helps peers.
+22ECE160,2025-ODD,3,4,3.7,Steady progress; needs encouragement to take up projects.
+22ECE163,2025-ODD,3,3,4.2,Struggling to cope with workload; asked about dropping a subject.
+22ECE164,2025-ODD,4,2,1.9,Regular in mentoring sessions; no concerns raised.
+22ECE165,2025-ODD,3,4,2.7,Steady progress; needs encouragement to take up projects.
+22ECE166,2025-ODD,3,4,2.4,Reported health issues this term; missed several classes.
+22ECE167,2025-ODD,2,5,3.4,Seems withdrawn in class and avoids mentor meetings.
+22ECE168,2025-ODD,5,2,3.7,Regular in mentoring sessions; no concerns raised.
+22ECE169,2025-ODD,2,3,3.3,Steady progress; needs encouragement to take up projects.
+22ECE171,2025-ODD,3,2,4.2,Attends regularly but participation is limited.
+22ECE173,2025-ODD,4,2,2.9,Regular in mentoring sessions; no concerns raised.
+22ECE174,2025-ODD,5,1,2.8,Regular in mentoring sessions; no concerns raised.
+22ECE175,2025-ODD,5,2,4.9,Shows leadership in project work; highly motivated.
+22ECE176,2025-ODD,4,2,3.3,Regular in mentoring sessions; no concerns raised.
+22ECE178,2025-ODD,3,2,4.6,Active in class discussions and helps peers.
+22ECE180,2025-ODD,2,5,1.9,Family responsibilities are affecting study time.
+22MECH001,2025-ODD,3,2,2.7,Attends regularly but participation is limited.
+22MECH002,2025-ODD,4,2,2.4,Steady progress; needs encouragement to take up projects.
+22MECH003,2025-ODD,4,3,4.1,Attends regularly but participation is limited.
+22MECH004,2025-ODD,4,2,3.1,Regular in mentoring sessions; no concerns raised.
+22MECH005,2025-ODD,3,4,3.4,Attends regularly but participation is limited.
+22MECH006,2025-ODD,4,3,3.2,Attends regularly but participation is limited.
+22MECH007,2025-ODD,4,2,1.7,Steady progress; needs encouragement to take up projects.
+22MECH008,2025-ODD,4,3,3.8,Steady progress; needs encouragement to take up projects.
+22MECH009,2025-ODD,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+22MECH010,2025-ODD,2,4,4.3,Reported health issues this term; missed several classes.
+22MECH011,2025-ODD,4,1,4.0,Regular in mentoring sessions; no concerns raised.
+22MECH012,2025-ODD,3,3,4.0,Regular in mentoring sessions; no concerns raised.
+22MECH013,2025-ODD,3,2,2.9,Regular in mentoring sessions; no concerns raised.
+22MECH014,2025-ODD,3,2,1.1,Attends regularly but participation is limited.
+22MECH015,2025-ODD,4,3,2.6,Attends regularly but participation is limited.
+22MECH016,2025-ODD,4,3,5.0,Shows leadership in project work; highly motivated.
+22MECH017,2025-ODD,1,4,3.1,Commutes over 2 hours daily; often late for first period.
+22MECH018,2025-ODD,4,2,3.4,Regular in mentoring sessions; no concerns raised.
+22MECH019,2025-ODD,3,3,3.4,Steady progress; needs encouragement to take up projects.
+22MECH020,2025-ODD,4,3,3.2,Steady progress; needs encouragement to take up projects.
+22MECH021,2025-ODD,3,4,3.5,Reported health issues this term; missed several classes.
+22MECH023,2025-ODD,2,4,4.6,Family responsibilities are affecting study time.
+22MECH024,2025-ODD,5,2,3.3,Shows leadership in project work; highly motivated.
+22MECH025,2025-ODD,3,3,4.0,Regular in mentoring sessions; no concerns raised.
+22MECH026,2025-ODD,4,2,4.9,Pursuing extra online courses; very curious.
+22MECH027,2025-ODD,2,3,3.9,Steady progress; needs encouragement to take up projects.
+22MECH028,2025-ODD,3,3,4.4,Pursuing extra online courses; very curious.
+22MECH029,2025-ODD,4,1,3.1,Regular in mentoring sessions; no concerns raised.
+22MECH030,2025-ODD,4,4,3.5,Regular in mentoring sessions; no concerns raised.
+22MECH031,2025-ODD,4,2,4.6,Attends regularly but participation is limited.
+22MECH032,2025-ODD,3,2,2.4,Attends regularly but participation is limited.
+22MECH033,2025-ODD,4,2,4.2,Shows leadership in project work; highly motivated.
+22MECH034,2025-ODD,2,3,3.4,Seems withdrawn in class and avoids mentor meetings.
+22MECH035,2025-ODD,4,2,2.9,Regular in mentoring sessions; no concerns raised.
+22MECH036,2025-ODD,4,2,2.7,Attends regularly but participation is limited.
+22MECH037,2025-ODD,2,3,4.2,Steady progress; needs encouragement to take up projects.
+22MECH038,2025-ODD,2,3,3.8,Attends regularly but participation is limited.
+22MECH039,2025-ODD,3,5,3.0,Reported health issues this term; missed several classes.
+22MECH040,2025-ODD,4,3,2.5,Steady progress; needs encouragement to take up projects.
+22MECH041,2025-ODD,4,2,2.8,Regular in mentoring sessions; no concerns raised.
+22MECH042,2025-ODD,3,3,2.5,Regular in mentoring sessions; no concerns raised.
+22MECH044,2025-ODD,4,1,2.5,Steady progress; needs encouragement to take up projects.
+22MECH046,2025-ODD,3,2,3.4,Regular in mentoring sessions; no concerns raised.
+22MECH047,2025-ODD,3,2,1.8,Steady progress; needs encouragement to take up projects.
+22MECH049,2025-ODD,4,3,3.5,Shows leadership in project work; highly motivated.
+22MECH050,2025-ODD,3,5,3.0,Attends regularly but participation is limited.
+22MECH051,2025-ODD,4,2,1.5,Regular in mentoring sessions; no concerns raised.
+22MECH052,2025-ODD,4,3,2.1,Regular in mentoring sessions; no concerns raised.
+22MECH053,2025-ODD,2,3,3.2,Commutes over 2 hours daily; often late for first period.
+22MECH054,2025-ODD,5,1,3.2,Steady progress; needs encouragement to take up projects.
+22MECH055,2025-ODD,1,5,2.7,Reported health issues this term; missed several classes.
+22MECH057,2025-ODD,3,3,1.7,Attends regularly but participation is limited.
+22MECH058,2025-ODD,3,3,3.1,Regular in mentoring sessions; no concerns raised.
+22MECH059,2025-ODD,2,4,2.9,Family responsibilities are affecting study time.
+22MECH060,2025-ODD,5,2,4.2,Shows leadership in project work; highly motivated.
+22MECH061,2025-ODD,2,3,2.6,Seems withdrawn in class and avoids mentor meetings.
+22MECH062,2025-ODD,5,1,4.5,Active in class discussions and helps peers.
+22MECH063,2025-ODD,1,4,3.8,Commutes over 2 hours daily; often late for first period.
+22MECH064,2025-ODD,4,2,3.2,Steady progress; needs encouragement to take up projects.
+22MECH065,2025-ODD,5,3,1.6,Steady progress; needs encouragement to take up projects.
+22MECH067,2025-ODD,3,2,2.9,Attends regularly but participation is limited.
+22MECH068,2025-ODD,4,3,3.3,Attends regularly but participation is limited.
+22MECH069,2025-ODD,4,3,3.0,Steady progress; needs encouragement to take up projects.
+22MECH071,2025-ODD,1,5,2.1,Steady progress; needs encouragement to take up projects.
+22MECH072,2025-ODD,3,4,3.8,Regular in mentoring sessions; no concerns raised.
+22MECH073,2025-ODD,5,1,4.7,Active in class discussions and helps peers.
+22MECH074,2025-ODD,3,2,3.0,Seems withdrawn in class and avoids mentor meetings.
+22MECH075,2025-ODD,5,1,3.2,Attends regularly but participation is limited.
+22MECH076,2025-ODD,3,4,1.7,Attends regularly but participation is limited.
+22MECH077,2025-ODD,5,2,3.4,Steady progress; needs encouragement to take up projects.
+22MECH078,2025-ODD,5,1,4.5,Active in class discussions and helps peers.
+22MECH079,2025-ODD,4,2,3.3,Steady progress; needs encouragement to take up projects.
+22MECH080,2025-ODD,3,3,2.3,Steady progress; needs encouragement to take up projects.
+22MECH081,2025-ODD,3,1,2.6,Regular in mentoring sessions; no concerns raised.
+22MECH082,2025-ODD,3,2,1.5,Attends regularly but participation is limited.
+22MECH083,2025-ODD,4,2,2.8,Attends regularly but participation is limited.
+22MECH085,2025-ODD,4,2,1.9,Steady progress; needs encouragement to take up projects.
+22MECH087,2025-ODD,4,2,4.0,Steady progress; needs encouragement to take up projects.
+22MECH088,2025-ODD,4,3,5,Active in class discussions and helps peers.
+22MECH090,2025-ODD,3,3,3.5,Steady progress; needs encouragement to take up projects.
+22MECH091,2025-ODD,3,5,3.5,Steady progress; needs encouragement to take up projects.
+22MECH094,2025-ODD,3,3,2.6,Steady progress; needs encouragement to take up projects.
+22MECH095,2025-ODD,3,4,2.2,Commutes over 2 hours daily; often late for first period.
+22MECH096,2025-ODD,4,3,4.2,Attends regularly but participation is limited.
+22MECH097,2025-ODD,4,3,4.2,Active in class discussions and helps peers.
+22MECH098,2025-ODD,4,3,2.1,Attends regularly but participation is limited.
+22MECH099,2025-ODD,3,2,2.9,Attends regularly but participation is limited.
+22MECH100,2025-ODD,5,1,3.3,Attends regularly but participation is limited.
+22MECH101,2025-ODD,3,2,2.6,Regular in mentoring sessions; no concerns raised.
+22MECH102,2025-ODD,3,3,2.4,Steady progress; needs encouragement to take up projects.
+22MECH103,2025-ODD,3,3,2.1,Family responsibilities are affecting study time.
+22MECH104,2025-ODD,5,2,3.5,Attends regularly but participation is limited.
+22MECH105,2025-ODD,4,3,4.3,Attends regularly but participation is limited.
+22MECH106,2025-ODD,4,3,4.4,Shows leadership in project work; highly motivated.
+22MECH107,2025-ODD,4,3,2.5,Steady progress; needs encouragement to take up projects.
+22MECH108,2025-ODD,3,3,2.3,Regular in mentoring sessions; no concerns raised.
+22MECH109,2025-ODD,5,1,2.6,Attends regularly but participation is limited.
+22MECH110,2025-ODD,3,4,4.4,Pursuing extra online courses; very curious.
+22MECH111,2025-ODD,2,3,2.7,Steady progress; needs encouragement to take up projects.
+22MECH112,2025-ODD,4,2,2.7,Regular in mentoring sessions; no concerns raised.
+22MECH113,2025-ODD,4,3,2.0,Attends regularly but participation is limited.
+22MECH114,2025-ODD,3,3,2.2,Attends regularly but participation is limited.
+22MECH115,2025-ODD,5,2,4.0,Attends regularly but participation is limited.
+22MECH117,2025-ODD,4,3,3.6,Attends regularly but participation is limited.
+22MECH118,2025-ODD,4,3,5,Pursuing extra online courses; very curious.
+22MECH119,2025-ODD,3,3,2.7,Steady progress; needs encouragement to take up projects.
+22MECH120,2025-ODD,4,4,3.0,Steady progress; needs encouragement to take up projects.
+22MECH121,2025-ODD,5,1,4.8,Pursuing extra online courses; very curious.
+22MECH122,2025-ODD,3,3,5,Pursuing extra online courses; very curious.
+22MECH123,2025-ODD,4,2,3.3,Attends regularly but participation is limited.
+22MECH124,2025-ODD,5,2,2.9,Regular in mentoring sessions; no concerns raised.
+22MECH125,2025-ODD,2,4,4.2,Family responsibilities are affecting study time.
+22MECH126,2025-ODD,4,3,3.9,Steady progress; needs encouragement to take up projects.
+22MECH128,2025-ODD,2,3,3.2,Attends regularly but participation is limited.
+22MECH130,2025-ODD,3,2,2.3,Steady progress; needs encouragement to take up projects.
+22MECH131,2025-ODD,3,4,3.6,Attends regularly but participation is limited.
+22MECH132,2025-ODD,3,3,3.9,Regular in mentoring sessions; no concerns raised.
+22MECH133,2025-ODD,4,3,2.3,Regular in mentoring sessions; no concerns raised.
+22MECH135,2025-ODD,4,2,2.5,Steady progress; needs encouragement to take up projects.
+22MECH136,2025-ODD,4,3,2.0,Regular in mentoring sessions; no concerns raised.
+22MECH137,2025-ODD,3,4,3.2,Attends regularly but participation is limited.
+22MECH138,2025-ODD,3,3,3.6,Regular in mentoring sessions; no concerns raised.
+22MECH139,2025-ODD,1,3,1.6,Commutes over 2 hours daily; often late for first period.
+22MECH140,2025-ODD,4,1,2.9,Regular in mentoring sessions; no concerns raised.
+22MECH141,2025-ODD,3,4,2.6,Mentions financial difficulty at home; working part-time evenings.
+22MECH142,2025-ODD,4,3,4.8,Regular in mentoring sessions; no concerns raised.
+22MECH143,2025-ODD,4,2,2.7,Regular in mentoring sessions; no concerns raised.
+22MECH145,2025-ODD,2,5,3.9,Mentions financial difficulty at home; working part-time evenings.
+22MECH146,2025-ODD,3,3,2.3,Regular in mentoring sessions; no concerns raised.
+22MECH147,2025-ODD,4,2,2.7,Pursuing extra online courses; very curious.
+22MECH148,2025-ODD,4,3,1.3,Attends regularly but participation is limited.
+22MECH149,2025-ODD,4,1,1.7,Steady progress; needs encouragement to take up projects.
+22MECH151,2025-ODD,3,4,3.5,Regular in mentoring sessions; no concerns raised.
+22MECH152,2025-ODD,4,2,2.2,Steady progress; needs encouragement to take up projects.
+22MECH153,2025-ODD,3,5,4.2,Mentions financial difficulty at home; working part-time evenings.
+22MECH154,2025-ODD,3,4,1.8,Reported health issues this term; missed several classes.
+22MECH155,2025-ODD,4,4,1.6,Steady progress; needs encouragement to take up projects.
+22MECH156,2025-ODD,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+22MECH157,2025-ODD,2,2,3.8,Attends regularly but participation is limited.
+22MECH158,2025-ODD,4,3,3.7,Active in class discussions and helps peers.
+22MECH159,2025-ODD,2,3,3.8,Regular in mentoring sessions; no concerns raised.
+22MECH160,2025-ODD,4,3,5,Shows leadership in project work; highly motivated.
+22MECH161,2025-ODD,3,4,2.3,Steady progress; needs encouragement to take up projects.
+22MECH162,2025-ODD,1,4,4.8,Reported health issues this term; missed several classes.
+22MECH163,2025-ODD,3,2,4.5,Steady progress; needs encouragement to take up projects.
+22MECH165,2025-ODD,4,3,2.5,Regular in mentoring sessions; no concerns raised.
+22MECH166,2025-ODD,3,2,4.2,Shows leadership in project work; highly motivated.
+22MECH168,2025-ODD,5,1,3.4,Regular in mentoring sessions; no concerns raised.
+22MECH169,2025-ODD,4,2,3.6,Steady progress; needs encouragement to take up projects.
+22MECH170,2025-ODD,3,3,1.8,Steady progress; needs encouragement to take up projects.
+22MECH171,2025-ODD,5,1,2.1,Attends regularly but participation is limited.
+22MECH172,2025-ODD,4,2,4.5,Shows leadership in project work; highly motivated.
+22MECH174,2025-ODD,5,1,2.9,Attends regularly but participation is limited.
+22MECH175,2025-ODD,3,4,3.4,Reported health issues this term; missed several classes.
+22MECH176,2025-ODD,2,3,2.6,Steady progress; needs encouragement to take up projects.
+22MECH177,2025-ODD,4,3,5,Shows leadership in project work; highly motivated.
+22MECH178,2025-ODD,4,2,2.1,Steady progress; needs encouragement to take up projects.
+22MECH179,2025-ODD,4,2,4.4,Regular in mentoring sessions; no concerns raised.
+22MECH180,2025-ODD,3,3,2.2,Attends regularly but participation is limited.
+22CIVIL001,2025-ODD,1,5,2.4,Family responsibilities are affecting study time.
+22CIVIL002,2025-ODD,4,2,2.7,Steady progress; needs encouragement to take up projects.
+22CIVIL004,2025-ODD,5,3,5,Pursuing extra online courses; very curious.
+22CIVIL006,2025-ODD,5,1,5,Active in class discussions and helps peers.
+22CIVIL007,2025-ODD,4,4,2.7,Steady progress; needs encouragement to take up projects.
+22CIVIL010,2025-ODD,2,3,3.2,Mentions financial difficulty at home; working part-time evenings.
+22CIVIL011,2025-ODD,4,2,1.9,Regular in mentoring sessions; no concerns raised.
+22CIVIL012,2025-ODD,4,1,4.8,Shows leadership in project work; highly motivated.
+22CIVIL013,2025-ODD,4,4,3.5,Attends regularly but participation is limited.
+22CIVIL014,2025-ODD,5,2,3.8,Attends regularly but participation is limited.
+22CIVIL015,2025-ODD,5,3,4.9,Shows leadership in project work; highly motivated.
+22CIVIL016,2025-ODD,4,2,2.9,Regular in mentoring sessions; no concerns raised.
+22CIVIL018,2025-ODD,3,3,2.5,Attends regularly but participation is limited.
+22CIVIL019,2025-ODD,3,4,4.4,Shows leadership in project work; highly motivated.
+22CIVIL020,2025-ODD,2,3,2.8,Regular in mentoring sessions; no concerns raised.
+22CIVIL021,2025-ODD,2,3,3.8,Attends regularly but participation is limited.
+22CIVIL022,2025-ODD,3,4,2.9,Regular in mentoring sessions; no concerns raised.
+22CIVIL023,2025-ODD,4,3,4.5,Regular in mentoring sessions; no concerns raised.
+22CIVIL024,2025-ODD,4,2,4.0,Shows leadership in project work; highly motivated.
+22CIVIL025,2025-ODD,3,2,3.4,Attends regularly but participation is limited.
+22CIVIL026,2025-ODD,4,3,4.2,Steady progress; needs encouragement to take up projects.
+22CIVIL027,2025-ODD,3,3,2.6,Steady progress; needs encouragement to take up projects.
+22CIVIL029,2025-ODD,3,4,5,Commutes over 2 hours daily; often late for first period.
+22CIVIL030,2025-ODD,4,1,2.9,Attends regularly but participation is limited.
+22CIVIL031,2025-ODD,4,2,5,Active in class discussions and helps peers.
+22CIVIL032,2025-ODD,3,3,2.5,Attends regularly but participation is limited.
+22CIVIL034,2025-ODD,5,1,4.2,Shows leadership in project work; highly motivated.
+22CIVIL035,2025-ODD,3,2,3.4,Attends regularly but participation is limited.
+22CIVIL036,2025-ODD,4,3,3.6,Active in class discussions and helps peers.
+22CIVIL037,2025-ODD,2,3,2.3,Regular in mentoring sessions; no concerns raised.
+22CIVIL038,2025-ODD,4,2,5.0,Active in class discussions and helps peers.
+22CIVIL039,2025-ODD,3,3,2.1,Mentions financial difficulty at home; working part-time evenings.
+22CIVIL040,2025-ODD,4,3,2.0,Attends regularly but participation is limited.
+22CIVIL041,2025-ODD,3,4,3.8,Commutes over 2 hours daily; often late for first period.
+22CIVIL042,2025-ODD,4,2,4.0,Steady progress; needs encouragement to take up projects.
+22CIVIL043,2025-ODD,2,3,3.2,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL044,2025-ODD,5,1,4.2,Steady progress; needs encouragement to take up projects.
+22CIVIL045,2025-ODD,4,2,3.8,Attends regularly but participation is limited.
+22CIVIL047,2025-ODD,3,3,2.1,Attends regularly but participation is limited.
+22CIVIL048,2025-ODD,2,4,3.1,Regular in mentoring sessions; no concerns raised.
+22CIVIL050,2025-ODD,2,3,4.5,Struggling to cope with workload; asked about dropping a subject.
+22CIVIL052,2025-ODD,3,4,2.8,Commutes over 2 hours daily; often late for first period.
+22CIVIL053,2025-ODD,3,3,4.9,Struggling to cope with workload; asked about dropping a subject.
+22CIVIL054,2025-ODD,2,2,2.2,Reported health issues this term; missed several classes.
+22CIVIL055,2025-ODD,2,4,2.3,Mentions financial difficulty at home; working part-time evenings.
+22CIVIL056,2025-ODD,4,3,3.7,Regular in mentoring sessions; no concerns raised.
+22CIVIL057,2025-ODD,4,2,3.0,Attends regularly but participation is limited.
+22CIVIL058,2025-ODD,4,3,3.6,Steady progress; needs encouragement to take up projects.
+22CIVIL059,2025-ODD,3,3,4.5,Pursuing extra online courses; very curious.
+22CIVIL060,2025-ODD,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+22CIVIL061,2025-ODD,4,3,5,Shows leadership in project work; highly motivated.
+22CIVIL062,2025-ODD,5,2,4.1,Attends regularly but participation is limited.
+22CIVIL063,2025-ODD,3,2,3.3,Steady progress; needs encouragement to take up projects.
+22CIVIL064,2025-ODD,4,2,3.3,Steady progress; needs encouragement to take up projects.
+22CIVIL065,2025-ODD,3,3,4.1,Steady progress; needs encouragement to take up projects.
+22CIVIL066,2025-ODD,4,2,4.7,Active in class discussions and helps peers.
+22CIVIL067,2025-ODD,3,4,2.9,Family responsibilities are affecting study time.
+22CIVIL068,2025-ODD,4,3,3.6,Steady progress; needs encouragement to take up projects.
+22CIVIL069,2025-ODD,3,3,4.3,Pursuing extra online courses; very curious.
+22CIVIL070,2025-ODD,2,4,2.9,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL071,2025-ODD,3,3,3.0,Regular in mentoring sessions; no concerns raised.
+22CIVIL072,2025-ODD,3,3,3.0,Steady progress; needs encouragement to take up projects.
+22CIVIL073,2025-ODD,3,3,3.6,Attends regularly but participation is limited.
+22CIVIL074,2025-ODD,3,3,3.5,Attends regularly but participation is limited.
+22CIVIL075,2025-ODD,3,4,3.3,Attends regularly but participation is limited.
+22CIVIL077,2025-ODD,1,5,3.0,Family responsibilities are affecting study time.
+22CIVIL078,2025-ODD,3,2,3.0,Regular in mentoring sessions; no concerns raised.
+22CIVIL080,2025-ODD,4,1,4.1,Shows leadership in project work; highly motivated.
+22CIVIL081,2025-ODD,4,2,4.4,Attends regularly but participation is limited.
+22CIVIL082,2025-ODD,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+22CIVIL083,2025-ODD,3,2,4.0,Steady progress; needs encouragement to take up projects.
+22CIVIL084,2025-ODD,3,4,3.7,Family responsibilities are affecting study time.
+22CIVIL085,2025-ODD,4,3,3.3,Attends regularly but participation is limited.
+22CIVIL086,2025-ODD,3,3,3.4,Family responsibilities are affecting study time.
+22CIVIL087,2025-ODD,3,2,2.6,Steady progress; needs encouragement to take up projects.
+22CIVIL088,2025-ODD,4,4,3.3,Attends regularly but participation is limited.
+22CIVIL089,2025-ODD,5,3,3.9,Attends regularly but participation is limited.
+22CIVIL090,2025-ODD,4,2,4.0,Regular in mentoring sessions; no concerns raised.
+22CIVIL091,2025-ODD,2,5,4.3,Commutes over 2 hours daily; often late for first period.
+22CIVIL092,2025-ODD,5,2,2.4,Regular in mentoring sessions; no concerns raised.
+22CIVIL093,2025-ODD,4,2,3.5,Regular in mentoring sessions; no concerns raised.
+22CIVIL094,2025-ODD,2,3,1.8,Commutes over 2 hours daily; often late for first period.
+22CIVIL095,2025-ODD,3,4,1.6,Regular in mentoring sessions; no concerns raised.
+22CIVIL096,2025-ODD,3,3,3.1,Attends regularly but participation is limited.
+22CIVIL097,2025-ODD,4,1,3.3,Steady progress; needs encouragement to take up projects.
+22CIVIL098,2025-ODD,3,4,3.6,Reported health issues this term; missed several classes.
+22CIVIL099,2025-ODD,4,2,3.8,Regular in mentoring sessions; no concerns raised.
+22CIVIL100,2025-ODD,5,3,4.8,Active in class discussions and helps peers.
+22CIVIL101,2025-ODD,3,3,2.7,Attends regularly but participation is limited.
+22CIVIL102,2025-ODD,4,2,3.5,Regular in mentoring sessions; no concerns raised.
+22CIVIL103,2025-ODD,3,3,4.6,Attends regularly but participation is limited.
+22CIVIL104,2025-ODD,3,3,2.3,Attends regularly but participation is limited.
+22CIVIL105,2025-ODD,2,5,3.1,Family responsibilities are affecting study time.
+22CIVIL106,2025-ODD,3,3,2.7,Steady progress; needs encouragement to take up projects.
+22CIVIL107,2025-ODD,4,1,3.2,Steady progress; needs encouragement to take up projects.
+22CIVIL108,2025-ODD,4,3,2.8,Attends regularly but participation is limited.
+22CIVIL109,2025-ODD,3,3,2.2,Attends regularly but participation is limited.
+22CIVIL110,2025-ODD,3,3,2.7,Regular in mentoring sessions; no concerns raised.
+22CIVIL111,2025-ODD,4,3,3.2,Steady progress; needs encouragement to take up projects.
+22CIVIL112,2025-ODD,3,4,3.7,Shows leadership in project work; highly motivated.
+22CIVIL113,2025-ODD,3,2,4.3,Steady progress; needs encouragement to take up projects.
+22CIVIL115,2025-ODD,3,3,3.0,Reported health issues this term; missed several classes.
+22CIVIL116,2025-ODD,3,4,1.5,Family responsibilities are affecting study time.
+22CIVIL117,2025-ODD,4,2,3.4,Steady progress; needs encouragement to take up projects.
+22CIVIL118,2025-ODD,4,3,3.2,Steady progress; needs encouragement to take up projects.
+22CIVIL121,2025-ODD,4,2,4.1,Shows leadership in project work; highly motivated.
+22CIVIL122,2025-ODD,2,3,1.6,Mentions financial difficulty at home; working part-time evenings.
+22CIVIL123,2025-ODD,4,3,2.7,Reported health issues this term; missed several classes.
+22CIVIL124,2025-ODD,4,1,2.6,Steady progress; needs encouragement to take up projects.
+22CIVIL126,2025-ODD,3,2,2.8,Attends regularly but participation is limited.
+22CIVIL127,2025-ODD,3,3,2.5,Attends regularly but participation is limited.
+22CIVIL128,2025-ODD,4,2,2.5,Steady progress; needs encouragement to take up projects.
+22CIVIL129,2025-ODD,4,3,4.2,Pursuing extra online courses; very curious.
+22CIVIL130,2025-ODD,2,3,1.5,Reported health issues this term; missed several classes.
+22CIVIL131,2025-ODD,3,3,2.1,Attends regularly but participation is limited.
+22CIVIL132,2025-ODD,4,2,5.0,Pursuing extra online courses; very curious.
+22CIVIL134,2025-ODD,2,4,4.8,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL135,2025-ODD,4,2,4.4,Active in class discussions and helps peers.
+22CIVIL136,2025-ODD,3,3,4.0,Active in class discussions and helps peers.
+22CIVIL137,2025-ODD,2,4,3.6,Attends regularly but participation is limited.
+22CIVIL138,2025-ODD,3,4,5,Commutes over 2 hours daily; often late for first period.
+22CIVIL140,2025-ODD,3,4,2.0,Regular in mentoring sessions; no concerns raised.
+22CIVIL141,2025-ODD,3,3,2.8,Steady progress; needs encouragement to take up projects.
+22CIVIL143,2025-ODD,4,4,3.7,Regular in mentoring sessions; no concerns raised.
+22CIVIL144,2025-ODD,5,2,3.0,Regular in mentoring sessions; no concerns raised.
+22CIVIL145,2025-ODD,4,4,4.8,Steady progress; needs encouragement to take up projects.
+22CIVIL146,2025-ODD,4,3,5,Active in class discussions and helps peers.
+22CIVIL147,2025-ODD,2,5,5,Mentions financial difficulty at home; working part-time evenings.
+22CIVIL148,2025-ODD,4,4,4.4,Active in class discussions and helps peers.
+22CIVIL149,2025-ODD,3,2,4.1,Regular in mentoring sessions; no concerns raised.
+22CIVIL150,2025-ODD,5,3,2.5,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL151,2025-ODD,2,4,2.5,Commutes over 2 hours daily; often late for first period.
+22CIVIL152,2025-ODD,4,2,4.2,Shows leadership in project work; highly motivated.
+22CIVIL153,2025-ODD,3,3,2.3,Attends regularly but participation is limited.
+22CIVIL155,2025-ODD,3,3,4.2,Regular in mentoring sessions; no concerns raised.
+22CIVIL156,2025-ODD,3,3,3.6,Regular in mentoring sessions; no concerns raised.
+22CIVIL157,2025-ODD,3,3,3.5,Steady progress; needs encouragement to take up projects.
+22CIVIL158,2025-ODD,2,4,3.1,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL159,2025-ODD,4,2,4.1,Steady progress; needs encouragement to take up projects.
+22CIVIL160,2025-ODD,3,2,4.7,Reported health issues this term; missed several classes.
+22CIVIL161,2025-ODD,5,2,2.7,Regular in mentoring sessions; no concerns raised.
+22CIVIL162,2025-ODD,4,2,2.6,Steady progress; needs encouragement to take up projects.
+22CIVIL163,2025-ODD,3,5,2.8,Struggling to cope with workload; asked about dropping a subject.
+22CIVIL164,2025-ODD,2,4,1.9,Commutes over 2 hours daily; often late for first period.
+22CIVIL165,2025-ODD,3,4,2.2,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL166,2025-ODD,4,4,1.3,Steady progress; needs encouragement to take up projects.
+22CIVIL167,2025-ODD,4,3,2.9,Attends regularly but participation is limited.
+22CIVIL168,2025-ODD,4,2,4.0,Active in class discussions and helps peers.
+22CIVIL169,2025-ODD,4,2,4.4,Regular in mentoring sessions; no concerns raised.
+22CIVIL170,2025-ODD,3,2,3.7,Regular in mentoring sessions; no concerns raised.
+22CIVIL171,2025-ODD,3,1,4.2,Attends regularly but participation is limited.
+22CIVIL172,2025-ODD,3,3,4.1,Steady progress; needs encouragement to take up projects.
+22CIVIL173,2025-ODD,2,3,3.2,Seems withdrawn in class and avoids mentor meetings.
+22CIVIL175,2025-ODD,4,3,3.7,Attends regularly but participation is limited.
+22CIVIL176,2025-ODD,4,3,3.4,Attends regularly but participation is limited.
+22CIVIL177,2025-ODD,3,3,4.7,Active in class discussions and helps peers.
+22CIVIL178,2025-ODD,3,4,3.0,Steady progress; needs encouragement to take up projects.
+22CIVIL179,2025-ODD,3,2,2.9,Attends regularly but participation is limited.
+22CIVIL180,2025-ODD,5,2,2.7,Attends regularly but participation is limited.

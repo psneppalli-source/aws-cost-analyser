@@ -1,112 +1,117 @@
-# The Student Success Score: a short note
+# Student Success Score and risk rules: a short note
 
-## What it is
+Everything below is defined in one versioned file, [`config/scoring.json`](../config/scoring.json) (rules version `2026.1`). An administrator can change weights, thresholds and rules from the **Scoring rules** page. Each change:
 
-One number from 0 to 100 that sums up how a student is doing across
-academics, attendance, LMS activity, engagement, placement readiness, skills
-and wellbeing. Faculty use it to sort and compare students. The risk flags
-(below) are what trigger interventions.
+- must have a new version number and a reason
+- is checked for errors before it is accepted
+- re-scores every student
+- is recorded in the audit log
 
-## Indicators and weights
+Scores calculated under earlier versions are kept, so any past result can be reproduced.
 
-23 indicators from 7 source systems, grouped into 7 pillars.
+## 1. Indicators and weights
 
-| Pillar (weight) | Indicators (weight within pillar) | Source |
+There are 23 indicators from seven data categories, grouped into seven pillars. An indicator's overall weight is its pillar's weight × its weight within the pillar.
+
+| Pillar (weight) | Indicators (weight within pillar) | Source upload |
 |---|---|---|
-| **Academic (30%)** | CGPA (45%), active backlogs (25%), current internal marks (15%), SGPA trend (15%) | SIS, exam cell |
-| **Attendance (15%)** | Overall % (60%), weakest-subject % (20%), Jul→Sep trend (20%) | Biometric register |
-| **LMS (15%)** | Assignment completion (40%), logins/week (20%), quiz average (20%), activity trend (last 4 weeks vs first 4) (20%) | LMS export |
-| **Placement readiness (15%)** | Aptitude (35%), coding (40%), mock interview (25%) | Placement cell |
-| **Skills (10%)** | Technical (50%), communication (25%), problem solving (25%) | Skills assessment |
-| **Engagement (10%)** | Events (30%), clubs (20%), hackathons (25%), certifications (25%) | Activity logs |
-| **Feedback & wellbeing (5%)** | Student satisfaction (50%), mentor rating (50%) | Survey, mentors |
+| **Academic (30%)** | CGPA (45%), active backlogs (25%), internal marks average (15%), SGPA trend (15%) | Semester results, internal marks |
+| **Attendance (15%)** | Overall % (60%), lowest-subject % (20%), change within the term (20%) | Attendance |
+| **LMS (15%)** | Assignments submitted (40%), logins per week (20%), quiz average (20%), activity in the last 4 weeks vs the first 4 (20%) | LMS activity |
+| **Placement readiness (15%)** | Aptitude (35%), coding (40%), mock interview (25%). Placement years only | Placement assessments |
+| **Skills (10%)** | Technical (50%), communication (25%), problem solving (25%) | Skills assessments |
+| **Engagement (10%)** | Events (30%), clubs (20%), projects and hackathons (25%), certifications (25%), all over the last 12 months | Activity log |
+| **Feedback (5%)** | Student satisfaction (50%), faculty/mentor rating (50%) | Feedback survey |
 
-Why these weights: academics carry the most weight because they decide
-eligibility (exams, recruiters' CGPA and backlog cut-offs). Attendance, LMS
-and placement readiness are the levers faculty can move this semester.
-Wellbeing is weighted low in the score because survey data is
-self-reported and incomplete. Its free-text signal works better as a flag,
-and the dashboard uses it that way.
+## 2. Normalisation and combination
 
-## How indicators are combined
+1. **Normalise.** Each indicator is converted to 0–100 between a fixed "worst" and "best" value, and anything outside that range is clipped. For example, attendance of 60% scores 0 and 95% scores 100. For backlogs, 4 or more scores 0 and none scores 100. Fixed reference values are used rather than class rank, so a score means the same thing every term.
+2. **Weight.** Points for an indicator = (its weight ÷ the total weight of indicators that have data) × its 0–100 score.
+3. **Add up.** The Success Score is the sum of the points, so it can be traced exactly. A student's profile lists every indicator with its value, its 0–100 score and its points against the maximum possible. The points add up to the score shown.
 
-1. **Normalise each indicator to 0-100 with fixed anchors.** For example,
-   attendance 60% → 0 and 95% → 100. CGPA 5.0 → 0 and 9.0 → 100. Backlogs
-   4+ → 0 and none → 100. Values outside the anchors are clipped.
-   The anchors are fixed rather than percentile-based, so a score means the
-   same thing every semester and does not drop just because classmates
-   improved.
-2. **Average indicators into pillar scores** using the within-pillar weights.
-3. **Combine pillars** using the pillar weights:
-   `Success Score = Σ pillar weight × pillar score`.
-4. **Missing by design is not missing by neglect.** 2nd-year students have no
-   placement data yet, so the 15% placement weight is shared out
-   proportionally across their other pillars. If a 3rd- or 4th-year student
-   *skipped* the placement tests, their scores are imputed at the
-   department's 10th percentile and flagged, because no evidence of
-   readiness should not count as average readiness.
-5. **Bands:** Thriving ≥ 70 · On track 55-70 · Needs attention 40-55 · Critical < 40.
+**Bands:** Thriving ≥ 70 · On track 55–70 · Needs attention 40–55 · Critical < 40.
 
-## Explainability
+## 3. Missing information
 
-Every score is decomposed exactly:
+- **Missing is never treated as zero.** An indicator with no data is excluded, the remaining weights are rescaled, and the indicator appears as "missing" on the profile.
+- **Coverage** is the share of applicable indicator weight that has data:
+  - Below 75%, or with no academic or no attendance data at all, the score is shown as **Provisional**.
+  - Below 40%, the score is **withheld** ("Not enough data") and the student isn't placed in a segment.
+- **Year and course.** Placement indicators apply only in the placement years: B.Tech year 3 onwards, MCA year 2. For other years they are marked "not applicable" and don't count against coverage.
+- **Activity log.** Once the log has been uploaded, a student with no rows genuinely took part in nothing, so their counts are 0. Before the log is uploaded at all, the counts are missing.
+- **Freshness.** Each profile shows, for every source, the file, reporting period and last-updated date of the data used. Sources older than their configured age are marked stale.
 
-```
-score = baseline (the campus-average student) + Σ contribution of each indicator
-contribution = effective weight × (student's indicator score − campus average indicator score)
-```
+## 4. Risk rules
 
-The student profile shows these contributions as a diverging bar chart, so
-a mentor can see which indicators add points and which take them away.
-The test suite checks that the parts add back up to the score.
+Academic and placement risk are assessed separately, using point-based rules. Every rule that fires is shown with:
+- the student's value and the threshold it crossed
+- the points it adds
+- the source file, reporting period and date
 
-## Does it work? Validation against real outcomes
+| Academic rule | Points | | Placement rule (placement years only) | Points |
+|---|---|---|---|---|
+| CGPA < 6.0 | 3 | | Coding score < 40 | 3 |
+| CGPA 6.0–6.5 | 1 | | Coding score 40–55 | 1 |
+| 1–2 active backlogs | 2 | | Aptitude score < 45 | 2 |
+| 3+ active backlogs | 4 | | Mock interview < 2.5/5 | 2 |
+| Attendance < 75% (exam-eligibility rule) | 3 | | Any active backlog (recruiters' rule) | 3 |
+| Attendance < 65% | +2 | | CGPA < 6.0 (common recruiter cut-off) | 2 |
+| Attendance fell 10+ points in the term | 1 | | Communication < 45 | 1 |
+| Internal marks average < 45% | 2 | | No projects, hackathons or certifications | 1 |
+| Any subject < 35% in internals | 1 | | | |
+| Fewer than 60% of assignments submitted | 2 | | | |
+| LMS activity dropped below 60% of its starting level | 1 | | | |
+| Latest SGPA 0.5+ below the student's earlier average | 1 | | | |
+| Wellbeing concern in survey or mentor remarks | 1 | | | |
 
-We computed the score for last year's graduating batch (900 students) as
-they looked at the start of their final year, then compared it with what
-actually happened:
+**Levels:** High ≥ 7 points · Medium ≥ 3 · otherwise Low.
 
-| Band | Poor academic outcome* | Placed within 6 months |
+**Insufficient data.** Academic risk requires CGPA and attendance. Placement risk requires an aptitude or coding test. If required evidence is missing, the level is **Insufficient data**, which is shown differently from Low, and a "collect the data" action is suggested. The one exception: if the evidence that is available already reaches High, the student is flagged High.
+
+**Recalculation.** Every committed upload, rule change or manual request recalculates every student's score and risk for every review period.
+
+**Who sees what.** Wellbeing evidence is visible to administrators, HODs and mentors. Placement officers and students see that a concern exists, not its details.
+
+## 5. Segments (bonus)
+
+Rules are checked in order, and each student lands in the first segment that fits:
+
+1. Critical support needed
+2. Declining attendance and academic performance
+3. Strong academics, low placement readiness
+4. Strong skills, academic support needed
+5. Disengaging (early warning)
+6. Thriving
+7. Steady
+
+Each student's profile lists the exact conditions that placed them in their segment. Each segment has an owner and a playbook.
+
+## 6. Validation against real outcomes
+
+`python -m ssp.validate` scores last year's batch as it looked at the start of its final year: 900 synthetic B.Tech students, loaded through the normal import path. It then compares those scores with what happened at graduation. Results for rules version 2026.1:
+
+| | Poor academic outcome* | Not placed within 6 months |
 |---|---|---|
-| Thriving | 1% | 86% |
-| On track | 6% | 67% |
-| Needs attention | 43% | 44% |
-| Critical | 96% | 16% |
+| Academic risk **High** (208 students) | 88% | 75% |
+| Academic risk **Low** (519) | 5% | 30% |
+| Placement risk **High** (143) | 81% | 84% |
+| Placement risk **Low** (392) | 7% | 20% |
+| Placement risk **Insufficient data** (198) | 41% | 56% |
+| Score band **Critical** / **Thriving** | 96% / 0% | 82% / 13% |
 
-\*Final CGPA < 6.0 or backlogs still outstanding at graduation.
+\*Final CGPA below 6.0, or backlogs still outstanding at graduation.
 
-AUC: 0.93 for poor academic outcome, 0.78 for not being placed. The
-hand-set weights rank students well without having been fitted to outcomes.
+AUC measures how well a ranking separates outcomes: 1.0 is perfect and 0.5 is no better than chance.
 
-## Risk flags (separate from the score)
+| | Poor academic outcome | Not placed |
+|---|---|---|
+| Success Score | 0.95 | 0.79 |
+| Risk-rule points | 0.92 (academic rules) | 0.79 (placement rules) |
 
-The score is designed to be understandable. The risk flags are designed to
-be accurate. Two logistic-regression models are trained on last year's
-batch, with a 75/25 train/test split:
+Students with no placement test on record fared markedly worse than those flagged Low. This supports treating missing evidence as a reason to act, not as reassurance.
 
-| Model | Target | Holdout AUC | Recall / precision at "Medium" |
-|---|---|---|---|
-| Academic risk | Final CGPA < 6 or outstanding backlogs | 0.96 | 95% / 83% |
-| Placement risk (3rd/4th years) | Not placed within 6 months | 0.87 | 86% / 70% |
+## 7. Limitations
 
-Logistic regression was chosen because on standardised inputs each feature's
-term (coefficient × z-score) is its exact additive effect on the log-odds of
-risk. That makes "why is this student flagged?" exact rather than
-approximate. If a feature's learned direction contradicts domain knowledge
-(for example, "more certifications → more risk", which comes from
-collinearity), the feature is dropped and the model is refit. That way every
-explanation points in a direction a mentor can act on.
-
-Rules that come from campus policy sit alongside the models. The main one
-is the 75% attendance rule for exam eligibility.
-
-## Limitations
-
-- The data is **synthetic**: it was generated to mimic real campus systems,
-  including their quality problems. The weights and anchors should be
-  reviewed with the academic council and re-validated on the institution's
-  own historical outcomes before use.
-- The models are trained on one past batch. They should be retrained each
-  year and checked for drift and for fairness across departments and
-  genders.
-- Flags are prompts for a human conversation, not automated decisions.
+- **Synthetic data.** The weights and thresholds are informed defaults. They should be reviewed by the academic council and re-checked on the college's own past batches before real use.
+- **Rule-based risk.** Risk comes from transparent rules, as the brief asks for this prototype. A trained predictive model can be added later; the validation report gives the baseline it would need to beat.
+- **Advisory only.** Flags prompt a conversation with the student. They are not automated decisions.

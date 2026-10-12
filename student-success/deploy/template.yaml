@@ -1,0 +1,347 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Smart Campus Student Success Platform. Free-tier architecture: CloudFront + private S3
+  (frontend), Lambda function URL (API), S3 (records), DynamoDB provisioned 5/5 (app state),
+  Cognito Lite (sign-in, MFA, role groups), least-privilege IAM. No NAT, no API Gateway, no KMS CMK.
+
+Parameters:
+  AppName:
+    Type: String
+    Default: ssp
+    AllowedPattern: "[a-z][a-z0-9-]{1,20}"
+  CognitoDomainPrefix:
+    Type: String
+    Description: Globally unique prefix for the hosted sign-in page (e.g. ssp-kpmg-demo-1234)
+    AllowedPattern: "[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?"
+
+Resources:
+  # ------------------------------------------------------------------ storage
+  DataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: {SSEAlgorithm: AES256}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules: [{ObjectOwnership: BucketOwnerEnforced}]
+      VersioningConfiguration: {Status: Enabled}
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-old-versions
+            Status: Enabled
+            NoncurrentVersionExpiration: {NoncurrentDays: 30}
+
+  DataBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref DataBucket
+      PolicyDocument:
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource: [!GetAtt DataBucket.Arn, !Sub "${DataBucket.Arn}/*"]
+            Condition: {Bool: {"aws:SecureTransport": "false"}}
+
+  WebBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: {SSEAlgorithm: AES256}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules: [{ObjectOwnership: BucketOwnerEnforced}]
+
+  WebBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebBucket
+      PolicyDocument:
+        Statement:
+          - Sid: CloudFrontReadOnly
+            Effect: Allow
+            Principal: {Service: cloudfront.amazonaws.com}
+            Action: s3:GetObject
+            Resource: !Sub "${WebBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource: [!GetAtt WebBucket.Arn, !Sub "${WebBucket.Arn}/*"]
+            Condition: {Bool: {"aws:SecureTransport": "false"}}
+
+  Table:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AppName}-app"
+      BillingMode: PROVISIONED                  # 5/5 stays inside the always-free 25 RCU/WCU
+      ProvisionedThroughput: {ReadCapacityUnits: 5, WriteCapacityUnits: 5}
+      AttributeDefinitions:
+        - {AttributeName: pk, AttributeType: S}
+        - {AttributeName: sk, AttributeType: S}
+      KeySchema:
+        - {AttributeName: pk, KeyType: HASH}
+        - {AttributeName: sk, KeyType: RANGE}
+      SSESpecification: {SSEEnabled: false}     # false = AWS-owned key (free); data is still encrypted at rest
+
+  # ------------------------------------------------------------------ identity (IAM for people)
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: !Sub "${AppName}-users"
+      UserPoolTier: LITE                         # free up to 10,000 monthly active users
+      UsernameConfiguration: {CaseSensitive: false}
+      AdminCreateUserConfig: {AllowAdminCreateUserOnly: true}   # no self sign-up
+      MfaConfiguration: OPTIONAL
+      EnabledMfas: [SOFTWARE_TOKEN_MFA]          # authenticator-app MFA (no SMS cost)
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 10
+          RequireUppercase: true
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          TemporaryPasswordValidityDays: 7
+      AccountRecoverySetting:
+        RecoveryMechanisms: [{Name: verified_email, Priority: 1}]
+      AutoVerifiedAttributes: [email]
+      Schema:
+        - {Name: name, AttributeDataType: String, Mutable: true, Required: false}
+        - {Name: email, AttributeDataType: String, Mutable: true, Required: false}
+        - {Name: dept, AttributeDataType: String, Mutable: true, StringAttributeConstraints: {MaxLength: "10"}}
+        - {Name: student_id, AttributeDataType: String, Mutable: true, StringAttributeConstraints: {MaxLength: "12"}}
+
+  UserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: !Ref CognitoDomainPrefix
+      UserPoolId: !Ref UserPool
+      ManagedLoginVersion: 1                     # classic hosted UI, included in the Lite tier
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref UserPool
+      ClientName: !Sub "${AppName}-web"
+      GenerateSecret: false                      # public SPA client; PKCE protects the code exchange
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows: [code]
+      AllowedOAuthScopes: [openid, email, profile]
+      SupportedIdentityProviders: [COGNITO]
+      CallbackURLs: [!Sub "https://${Distribution.DomainName}/"]
+      LogoutURLs: [!Sub "https://${Distribution.DomainName}/"]
+      ExplicitAuthFlows: [ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH]
+      PreventUserExistenceErrors: ENABLED
+      EnableTokenRevocation: true
+      IdTokenValidity: 60
+      AccessTokenValidity: 60
+      RefreshTokenValidity: 12
+      TokenValidityUnits: {IdToken: minutes, AccessToken: minutes, RefreshToken: hours}
+      ReadAttributes: [name, email, "custom:dept", "custom:student_id"]
+      # Users may only edit their display name. Department and roll number are
+      # authorisation inputs, so only administrators (via the API) can set them.
+      WriteAttributes: [name]
+
+  GroupAdmin:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties: {UserPoolId: !Ref UserPool, GroupName: admin, Precedence: 1, Description: Administrator}
+  GroupHod:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties: {UserPoolId: !Ref UserPool, GroupName: hod, Precedence: 2, Description: Head of Department}
+  GroupMentor:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties: {UserPoolId: !Ref UserPool, GroupName: mentor, Precedence: 3, Description: Faculty / Mentor}
+  GroupPlacement:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties: {UserPoolId: !Ref UserPool, GroupName: placement, Precedence: 4, Description: Placement Officer}
+  GroupStudent:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties: {UserPoolId: !Ref UserPool, GroupName: student, Precedence: 5, Description: Student}
+
+  # ------------------------------------------------------------------ API (IAM for services)
+  ApiLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AppName}-api"
+      RetentionInDays: 14
+
+  ApiRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: least-privilege
+          PolicyDocument:
+            Statement:
+              - Sid: Logs
+                Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub "${ApiLogGroup.Arn}:*"
+              - Sid: RecordsObjects
+                Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:DeleteObject]
+                Resource: !Sub "${DataBucket.Arn}/*"
+              - Sid: RecordsList
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !GetAtt DataBucket.Arn
+              - Sid: AppState
+                Effect: Allow
+                Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:DeleteItem, dynamodb:Query]
+                Resource: !GetAtt Table.Arn
+              - Sid: UserAdministration
+                Effect: Allow
+                Action:
+                  - cognito-idp:AdminCreateUser
+                  - cognito-idp:AdminSetUserPassword
+                  - cognito-idp:AdminAddUserToGroup
+                  - cognito-idp:AdminEnableUser
+                  - cognito-idp:AdminDisableUser
+                  - cognito-idp:AdminUserGlobalSignOut
+                  - cognito-idp:ListUsersInGroup
+                Resource: !GetAtt UserPool.Arn
+
+  ApiFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub "${AppName}-api"
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: index.handler                     # replaced by deploy.py with ssp.lambda_handler.handler
+      MemorySize: 1024
+      Timeout: 60
+      Role: !GetAtt ApiRole.Arn
+      LoggingConfig: {LogGroup: !Ref ApiLogGroup}
+      Environment:
+        Variables:
+          SSP_MODE: aws
+          SSP_DATA_BUCKET: !Ref DataBucket
+          SSP_TABLE: !Ref Table
+          SSP_USER_POOL_ID: !Ref UserPool
+          # SSP_USER_POOL_CLIENT_ID is added by deploy.py: referencing the client here would
+          # create a cycle (client -> CloudFront URL -> function URL -> function -> client).
+      Code:
+        ZipFile: |
+          def handler(event, context):
+              return {"statusCode": 503, "body": "Deployment in progress"}
+
+  ApiUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt ApiFunction.Arn
+      AuthType: NONE                             # every route verifies the Cognito token itself
+      InvokeMode: BUFFERED
+
+  ApiUrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+
+  ApiInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+
+  # ------------------------------------------------------------------ delivery
+  WebOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AppName}-web-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  SecurityHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub "${AppName}-security-headers"
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            Override: true
+            ContentSecurityPolicy: !Sub "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://${CognitoDomainPrefix}.auth.${AWS::Region}.amazoncognito.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+          StrictTransportSecurity: {Override: true, AccessControlMaxAgeSec: 63072000, IncludeSubdomains: true, Preload: false}
+          ContentTypeOptions: {Override: true}
+          FrameOptions: {Override: true, FrameOption: DENY}
+          ReferrerPolicy: {Override: true, ReferrerPolicy: no-referrer}
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub "${AppName} student success platform"
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        PriceClass: PriceClass_200               # includes India edge locations
+        Origins:
+          - Id: web
+            DomainName: !GetAtt WebBucket.RegionalDomainName
+            OriginAccessControlId: !Ref WebOAC
+            S3OriginConfig: {OriginAccessIdentity: ""}
+          - Id: api
+            DomainName: !Select [2, !Split ["/", !GetAtt ApiUrl.FunctionUrl]]
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols: [TLSv1.2]
+        DefaultCacheBehavior:
+          TargetOriginId: web
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6          # Managed-CachingOptimized
+          ResponseHeadersPolicyId: !Ref SecurityHeaders
+          Compress: true
+        CacheBehaviors:
+          - PathPattern: /api/*
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD, OPTIONS, PUT, PATCH, POST, DELETE]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad        # Managed-CachingDisabled
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac # Managed-AllViewerExceptHostHeader
+            ResponseHeadersPolicyId: !Ref SecurityHeaders
+            Compress: true
+        ViewerCertificate: {CloudFrontDefaultCertificate: true, MinimumProtocolVersion: TLSv1.2_2021}
+
+Outputs:
+  SiteUrl:
+    Value: !Sub "https://${Distribution.DomainName}/"
+  DistributionId:
+    Value: !Ref Distribution
+  WebBucket:
+    Value: !Ref WebBucket
+  DataBucket:
+    Value: !Ref DataBucket
+  TableName:
+    Value: !Ref Table
+  FunctionName:
+    Value: !Ref ApiFunction
+  UserPoolId:
+    Value: !Ref UserPool
+  UserPoolClientId:
+    Value: !Ref UserPoolClient
+  CognitoDomain:
+    Value: !Sub "https://${CognitoDomainPrefix}.auth.${AWS::Region}.amazoncognito.com"

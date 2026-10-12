@@ -1,0 +1,78 @@
+{
+  "rules_version": "2026.1",
+  "batch": "2022 B.Tech batch, scored at the start of final year (2025-ODD), compared with graduation outcomes",
+  "students": 900,
+  "base_rates": {
+    "poor_academic": 0.306,
+    "not_placed": 0.438
+  },
+  "score_auc": {
+    "poor_academic": 0.946,
+    "not_placed": 0.789
+  },
+  "risk_points_auc": {
+    "academic": 0.923,
+    "placement": 0.787
+  },
+  "by_band": {
+    "Needs attention": {
+      "students": 253,
+      "poor_academic_rate": 0.395,
+      "not_placed_rate": 0.557
+    },
+    "On track": {
+      "students": 313,
+      "poor_academic_rate": 0.054,
+      "not_placed_rate": 0.304
+    },
+    "Thriving": {
+      "students": 169,
+      "poor_academic_rate": 0.0,
+      "not_placed_rate": 0.13
+    },
+    "Critical": {
+      "students": 165,
+      "poor_academic_rate": 0.958,
+      "not_placed_rate": 0.824
+    }
+  },
+  "by_academic_level": {
+    "Medium": {
+      "students": 173,
+      "poor_academic_rate": 0.37,
+      "not_placed_rate": 0.468
+    },
+    "Low": {
+      "students": 519,
+      "poor_academic_rate": 0.054,
+      "not_placed_rate": 0.301
+    },
+    "High": {
+      "students": 208,
+      "poor_academic_rate": 0.88,
+      "not_placed_rate": 0.755
+    }
+  },
+  "by_placement_level": {
+    "High": {
+      "students": 143,
+      "poor_academic_rate": 0.811,
+      "not_placed_rate": 0.839
+    },
+    "Low": {
+      "students": 392,
+      "poor_academic_rate": 0.069,
+      "not_placed_rate": 0.202
+    },
+    "Insufficient data": {
+      "students": 198,
+      "poor_academic_rate": 0.414,
+      "not_placed_rate": 0.556
+    },
+    "Medium": {
+      "students": 167,
+      "poor_academic_rate": 0.299,
+      "not_placed_rate": 0.509
+    }
+  }
+}

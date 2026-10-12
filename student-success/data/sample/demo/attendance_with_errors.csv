@@ -1,0 +1,31 @@
+student_id,month,subject,classes_held,classes_attended
+24CSE999,2026-07,Machine Learning,16,12
+23CSE001,2026-07,Compiler Design,16,19
+23CSE001,Sept 2026,Cloud Computing,18,18
+23CSE001,2026-07,Distributed Systems,,12
+ABC-123,2026-07,Cryptography,16,15
+23CSE001,2026-07,Web Technologies,14,13
+23CSE001,2026-08,Machine Learning,13,11
+23CSE001,2026-08,Compiler Design,15,11
+23CSE001,2026-08,Cryptography,14,10
+23CSE001,2026-08,Cryptography,14,10
+23CSE001,2026-08,Web Technologies,14,12
+23CSE001,2026-08,Web Technologies,14,10
+23CSE001,2026-09,Machine Learning,16,16
+23CSE001,2026-09,Compiler Design,15,12
+23CSE001,2026-09,Cloud Computing,14,11
+23CSE001,2026-09,Distributed Systems,13,11
+23CSE001,2026-09,Cryptography,18,15
+23CSE001,2026-09,Web Technologies,17,16
+ 23CSE002 ,2026-07,Machine Learning,13,13
+ 23CSE002 ,2026-07,Compiler Design,13,12
+ 23CSE002 ,2026-07,Cloud Computing,17,15
+ 23CSE002 ,2026-07,Distributed Systems,16,14
+ 23CSE002 ,2026-07,Cryptography,18,18
+ 23CSE002 ,2026-07,Web Technologies,15,14
+ 23CSE002 ,2026-08,Machine Learning,17,15
+ 23CSE002 ,2026-08,Compiler Design,17,12
+ 23CSE002 ,2026-08,Cloud Computing,15,14
+ 23CSE002 ,2026-08,Distributed Systems,16,13
+ 23CSE002 ,2026-08,Cryptography,17,16
+ 23CSE002 ,2026-08,Web Technologies,15,14

@@ -1,0 +1,4 @@
+.local/
+deploy/.demo-credentials.json
+*.db
+__pycache__/

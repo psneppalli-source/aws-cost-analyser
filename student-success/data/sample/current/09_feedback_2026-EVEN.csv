@@ -1,0 +1,586 @@
+student_id,term,satisfaction,stress,faculty_rating,faculty_remark
+23CSE001,2026-EVEN,3,4,4.1,Mentions financial difficulty at home; working part-time evenings.
+23CSE002,2026-EVEN,4,2,3.7,Attends regularly but participation is limited.
+23CSE003,2026-EVEN,4,3,2.2,Regular in mentoring sessions; no concerns raised.
+23CSE004,2026-EVEN,3,2,2.2,Attends regularly but participation is limited.
+23CSE005,2026-EVEN,5,2,3.5,Regular in mentoring sessions; no concerns raised.
+23CSE006,2026-EVEN,5,2,1.7,Attends regularly but participation is limited.
+23CSE007,2026-EVEN,5,1,4.8,Shows leadership in project work; highly motivated.
+23CSE008,2026-EVEN,4,2,2.0,Steady progress; needs encouragement to take up projects.
+23CSE009,2026-EVEN,4,2,4.1,Regular in mentoring sessions; no concerns raised.
+23CSE010,2026-EVEN,3,3,1.9,Steady progress; needs encouragement to take up projects.
+23CSE011,2026-EVEN,3,4,3.5,Attends regularly but participation is limited.
+23CSE012,2026-EVEN,4,3,3.6,Steady progress; needs encouragement to take up projects.
+23CSE013,2026-EVEN,4,4,4.0,Pursuing extra online courses; very curious.
+23CSE014,2026-EVEN,5,2,4.6,Pursuing extra online courses; very curious.
+23CSE015,2026-EVEN,4,2,2.9,Steady progress; needs encouragement to take up projects.
+23CSE016,2026-EVEN,4,2,4.1,Regular in mentoring sessions; no concerns raised.
+23CSE017,2026-EVEN,2,4,4.6,Mentions financial difficulty at home; working part-time evenings.
+23CSE018,2026-EVEN,3,3,4.9,Seems withdrawn in class and avoids mentor meetings.
+23CSE019,2026-EVEN,4,3,3.9,Attends regularly but participation is limited.
+23CSE020,2026-EVEN,5,2,5,Steady progress; needs encouragement to take up projects.
+23CSE021,2026-EVEN,3,3,4.7,Active in class discussions and helps peers.
+23CSE022,2026-EVEN,3,1,3.2,Attends regularly but participation is limited.
+23CSE023,2026-EVEN,3,3,2.5,Attends regularly but participation is limited.
+23CSE024,2026-EVEN,4,3,2.7,Steady progress; needs encouragement to take up projects.
+23CSE025,2026-EVEN,4,2,1,Steady progress; needs encouragement to take up projects.
+23CSE026,2026-EVEN,4,2,2.1,Regular in mentoring sessions; no concerns raised.
+23CSE027,2026-EVEN,4,3,2.4,Regular in mentoring sessions; no concerns raised.
+23CSE028,2026-EVEN,3,3,2.9,Steady progress; needs encouragement to take up projects.
+23CSE029,2026-EVEN,2,4,3.5,Steady progress; needs encouragement to take up projects.
+23CSE030,2026-EVEN,4,1,2.6,Steady progress; needs encouragement to take up projects.
+23CSE031,2026-EVEN,5,2,4.6,Pursuing extra online courses; very curious.
+23CSE032,2026-EVEN,4,2,2.4,Attends regularly but participation is limited.
+23CSE033,2026-EVEN,2,3,5,Mentions financial difficulty at home; working part-time evenings.
+23CSE034,2026-EVEN,4,3,4.4,Shows leadership in project work; highly motivated.
+23CSE035,2026-EVEN,5,1,1.6,Attends regularly but participation is limited.
+23CSE036,2026-EVEN,4,4,2.8,Struggling to cope with workload; asked about dropping a subject.
+23CSE037,2026-EVEN,3,3,3.4,Pursuing extra online courses; very curious.
+23CSE038,2026-EVEN,3,3,2.7,Commutes over 2 hours daily; often late for first period.
+23CSE039,2026-EVEN,3,3,3.8,Struggling to cope with workload; asked about dropping a subject.
+23CSE040,2026-EVEN,4,3,3.1,Regular in mentoring sessions; no concerns raised.
+23IT001,2026-EVEN,3,4,3.6,Commutes over 2 hours daily; often late for first period.
+23IT002,2026-EVEN,3,3,4.5,Attends regularly but participation is limited.
+23IT003,2026-EVEN,4,2,2.3,Reported health issues this term; missed several classes.
+23IT004,2026-EVEN,3,3,4.5,Active in class discussions and helps peers.
+23IT005,2026-EVEN,3,3,2.9,Attends regularly but participation is limited.
+23IT006,2026-EVEN,4,3,3.7,Regular in mentoring sessions; no concerns raised.
+23IT008,2026-EVEN,4,2,3.5,Regular in mentoring sessions; no concerns raised.
+23IT009,2026-EVEN,5,3,3.2,Steady progress; needs encouragement to take up projects.
+23IT010,2026-EVEN,2,4,3.3,Regular in mentoring sessions; no concerns raised.
+23IT011,2026-EVEN,4,2,2.5,Attends regularly but participation is limited.
+23IT012,2026-EVEN,2,5,2.3,Struggling to cope with workload; asked about dropping a subject.
+23IT014,2026-EVEN,3,3,4.0,Regular in mentoring sessions; no concerns raised.
+23IT015,2026-EVEN,4,2,2.3,Attends regularly but participation is limited.
+23IT016,2026-EVEN,2,3,2.9,Attends regularly but participation is limited.
+23IT017,2026-EVEN,5,1,2.2,Steady progress; needs encouragement to take up projects.
+23IT018,2026-EVEN,4,3,4.3,Shows leadership in project work; highly motivated.
+23IT019,2026-EVEN,3,2,2.2,Regular in mentoring sessions; no concerns raised.
+23IT020,2026-EVEN,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+23IT021,2026-EVEN,3,3,3.8,Family responsibilities are affecting study time.
+23IT023,2026-EVEN,5,3,3.5,Steady progress; needs encouragement to take up projects.
+23IT024,2026-EVEN,4,2,3.2,Attends regularly but participation is limited.
+23IT025,2026-EVEN,4,2,2.2,Attends regularly but participation is limited.
+23IT026,2026-EVEN,5,2,5,Attends regularly but participation is limited.
+23IT028,2026-EVEN,4,3,1.4,Regular in mentoring sessions; no concerns raised.
+23IT029,2026-EVEN,3,4,3.2,Seems withdrawn in class and avoids mentor meetings.
+23IT030,2026-EVEN,4,2,3.1,Attends regularly but participation is limited.
+23IT031,2026-EVEN,3,3,3.9,Shows leadership in project work; highly motivated.
+23IT032,2026-EVEN,5,2,4.4,Shows leadership in project work; highly motivated.
+23IT033,2026-EVEN,4,3,3.3,Attends regularly but participation is limited.
+23IT034,2026-EVEN,4,2,2.7,Steady progress; needs encouragement to take up projects.
+23IT035,2026-EVEN,2,5,3.6,Regular in mentoring sessions; no concerns raised.
+23IT036,2026-EVEN,4,2,5,Shows leadership in project work; highly motivated.
+23IT037,2026-EVEN,5,2,3.5,Attends regularly but participation is limited.
+23IT038,2026-EVEN,4,3,3.3,Steady progress; needs encouragement to take up projects.
+23IT039,2026-EVEN,3,5,2.7,Steady progress; needs encouragement to take up projects.
+23IT040,2026-EVEN,5,2,4.2,Regular in mentoring sessions; no concerns raised.
+23ECE001,2026-EVEN,4,3,2.3,Regular in mentoring sessions; no concerns raised.
+23ECE002,2026-EVEN,4,3,3.4,Regular in mentoring sessions; no concerns raised.
+23ECE003,2026-EVEN,3,2,3.3,Attends regularly but participation is limited.
+23ECE004,2026-EVEN,4,2,2.5,Regular in mentoring sessions; no concerns raised.
+23ECE005,2026-EVEN,3,4,4.1,Regular in mentoring sessions; no concerns raised.
+23ECE006,2026-EVEN,2,4,4.0,Family responsibilities are affecting study time.
+23ECE007,2026-EVEN,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+23ECE008,2026-EVEN,4,1,4.6,Active in class discussions and helps peers.
+23ECE009,2026-EVEN,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+23ECE010,2026-EVEN,4,3,2.7,Regular in mentoring sessions; no concerns raised.
+23ECE012,2026-EVEN,3,2,4.0,Steady progress; needs encouragement to take up projects.
+23ECE013,2026-EVEN,4,2,2.8,Steady progress; needs encouragement to take up projects.
+23ECE014,2026-EVEN,4,1,2.3,Steady progress; needs encouragement to take up projects.
+23ECE015,2026-EVEN,3,2,4.3,Active in class discussions and helps peers.
+23ECE016,2026-EVEN,3,3,3.7,Active in class discussions and helps peers.
+23ECE017,2026-EVEN,4,2,2.1,Regular in mentoring sessions; no concerns raised.
+23ECE018,2026-EVEN,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+23ECE019,2026-EVEN,4,2,2.0,Attends regularly but participation is limited.
+23ECE020,2026-EVEN,4,3,3.8,Shows leadership in project work; highly motivated.
+23ECE023,2026-EVEN,4,2,2.8,Attends regularly but participation is limited.
+23ECE024,2026-EVEN,3,3,3.9,Struggling to cope with workload; asked about dropping a subject.
+23ECE025,2026-EVEN,4,3,1.9,Seems withdrawn in class and avoids mentor meetings.
+23ECE026,2026-EVEN,4,4,3.8,Steady progress; needs encouragement to take up projects.
+23ECE027,2026-EVEN,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+23ECE029,2026-EVEN,3,5,3.1,Family responsibilities are affecting study time.
+23ECE030,2026-EVEN,1,5,3.3,Seems withdrawn in class and avoids mentor meetings.
+23ECE031,2026-EVEN,4,4,4.8,Shows leadership in project work; highly motivated.
+23ECE032,2026-EVEN,4,3,4.7,Attends regularly but participation is limited.
+23ECE033,2026-EVEN,4,1,3.4,Steady progress; needs encouragement to take up projects.
+23ECE034,2026-EVEN,2,4,2.6,Steady progress; needs encouragement to take up projects.
+23ECE035,2026-EVEN,3,4,3.5,Steady progress; needs encouragement to take up projects.
+23ECE036,2026-EVEN,3,2,3.4,Attends regularly but participation is limited.
+23ECE038,2026-EVEN,5,2,3.6,Steady progress; needs encouragement to take up projects.
+23ECE039,2026-EVEN,3,3,1.6,Attends regularly but participation is limited.
+23ECE040,2026-EVEN,4,3,4.6,Pursuing extra online courses; very curious.
+23MECH001,2026-EVEN,2,5,2.7,Commutes over 2 hours daily; often late for first period.
+23MECH002,2026-EVEN,3,2,4.8,Shows leadership in project work; highly motivated.
+23MECH003,2026-EVEN,4,3,2.5,Steady progress; needs encouragement to take up projects.
+23MECH004,2026-EVEN,5,3,2.8,Regular in mentoring sessions; no concerns raised.
+23MECH005,2026-EVEN,4,3,3.3,Regular in mentoring sessions; no concerns raised.
+23MECH006,2026-EVEN,1,4,3.9,Family responsibilities are affecting study time.
+23MECH007,2026-EVEN,3,3,3.2,Regular in mentoring sessions; no concerns raised.
+23MECH008,2026-EVEN,3,3,3.8,Attends regularly but participation is limited.
+23MECH009,2026-EVEN,3,4,1.9,Regular in mentoring sessions; no concerns raised.
+23MECH010,2026-EVEN,5,3,4.4,Shows leadership in project work; highly motivated.
+23MECH011,2026-EVEN,5,1,3.9,Attends regularly but participation is limited.
+23MECH012,2026-EVEN,3,3,3.0,Steady progress; needs encouragement to take up projects.
+23MECH014,2026-EVEN,3,2,2.0,Regular in mentoring sessions; no concerns raised.
+23MECH015,2026-EVEN,2,3,3.3,Reported health issues this term; missed several classes.
+23MECH016,2026-EVEN,5,2,3.3,Steady progress; needs encouragement to take up projects.
+23MECH019,2026-EVEN,3,3,3.4,Attends regularly but participation is limited.
+23MECH020,2026-EVEN,4,4,2.6,Seems withdrawn in class and avoids mentor meetings.
+23MECH021,2026-EVEN,1,5,2.6,Reported health issues this term; missed several classes.
+23MECH023,2026-EVEN,3,4,3.2,Struggling to cope with workload; asked about dropping a subject.
+23MECH024,2026-EVEN,4,3,2.9,Attends regularly but participation is limited.
+23MECH025,2026-EVEN,5,2,3.7,Steady progress; needs encouragement to take up projects.
+23MECH026,2026-EVEN,4,3,4.4,Reported health issues this term; missed several classes.
+23MECH027,2026-EVEN,3,3,2.5,Steady progress; needs encouragement to take up projects.
+23MECH028,2026-EVEN,4,5,3.8,Steady progress; needs encouragement to take up projects.
+23MECH029,2026-EVEN,3,4,1,Attends regularly but participation is limited.
+23MECH030,2026-EVEN,3,2,3.0,Steady progress; needs encouragement to take up projects.
+23MECH031,2026-EVEN,3,2,2.3,Regular in mentoring sessions; no concerns raised.
+23MECH032,2026-EVEN,5,1,2.7,Steady progress; needs encouragement to take up projects.
+23MECH033,2026-EVEN,3,3,3.0,Attends regularly but participation is limited.
+23MECH034,2026-EVEN,5,2,2.0,Regular in mentoring sessions; no concerns raised.
+23MECH035,2026-EVEN,5,1,2.6,Regular in mentoring sessions; no concerns raised.
+23MECH036,2026-EVEN,3,2,2.8,Attends regularly but participation is limited.
+23MECH037,2026-EVEN,4,3,3.8,Shows leadership in project work; highly motivated.
+23MECH038,2026-EVEN,3,3,4.3,Steady progress; needs encouragement to take up projects.
+23MECH039,2026-EVEN,4,3,3.7,Attends regularly but participation is limited.
+23MECH040,2026-EVEN,3,3,4.5,Steady progress; needs encouragement to take up projects.
+23CIVIL001,2026-EVEN,3,3,3.4,Attends regularly but participation is limited.
+23CIVIL002,2026-EVEN,4,4,3.8,Regular in mentoring sessions; no concerns raised.
+23CIVIL003,2026-EVEN,4,2,5,Active in class discussions and helps peers.
+23CIVIL004,2026-EVEN,2,3,2.4,Regular in mentoring sessions; no concerns raised.
+23CIVIL005,2026-EVEN,5,1,3.8,Steady progress; needs encouragement to take up projects.
+23CIVIL006,2026-EVEN,4,3,2.6,Regular in mentoring sessions; no concerns raised.
+23CIVIL008,2026-EVEN,3,4,4.9,Reported health issues this term; missed several classes.
+23CIVIL009,2026-EVEN,4,2,4.8,Steady progress; needs encouragement to take up projects.
+23CIVIL010,2026-EVEN,5,2,3.7,Attends regularly but participation is limited.
+23CIVIL011,2026-EVEN,5,3,2.7,Attends regularly but participation is limited.
+23CIVIL012,2026-EVEN,4,3,4.3,Active in class discussions and helps peers.
+23CIVIL013,2026-EVEN,3,3,2.9,Reported health issues this term; missed several classes.
+23CIVIL014,2026-EVEN,1,5,2.1,Mentions financial difficulty at home; working part-time evenings.
+23CIVIL015,2026-EVEN,3,3,2.2,Family responsibilities are affecting study time.
+23CIVIL016,2026-EVEN,3,3,4.6,Steady progress; needs encouragement to take up projects.
+23CIVIL018,2026-EVEN,5,2,3.2,Regular in mentoring sessions; no concerns raised.
+23CIVIL020,2026-EVEN,5,4,2.6,Attends regularly but participation is limited.
+23CIVIL021,2026-EVEN,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+23CIVIL023,2026-EVEN,4,1,3.7,Steady progress; needs encouragement to take up projects.
+23CIVIL024,2026-EVEN,4,3,3.1,Steady progress; needs encouragement to take up projects.
+23CIVIL025,2026-EVEN,5,1,3.3,Attends regularly but participation is limited.
+23CIVIL026,2026-EVEN,4,2,2.2,Steady progress; needs encouragement to take up projects.
+23CIVIL027,2026-EVEN,5,4,3.1,Steady progress; needs encouragement to take up projects.
+23CIVIL028,2026-EVEN,3,3,2.3,Regular in mentoring sessions; no concerns raised.
+23CIVIL032,2026-EVEN,3,2,3.4,Attends regularly but participation is limited.
+23CIVIL033,2026-EVEN,3,3,2.4,Attends regularly but participation is limited.
+23CIVIL034,2026-EVEN,3,3,3.1,Struggling to cope with workload; asked about dropping a subject.
+23CIVIL035,2026-EVEN,3,4,2.0,Regular in mentoring sessions; no concerns raised.
+23CIVIL036,2026-EVEN,4,2,2.8,Steady progress; needs encouragement to take up projects.
+23CIVIL037,2026-EVEN,3,3,3.5,Steady progress; needs encouragement to take up projects.
+23CIVIL039,2026-EVEN,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+23CIVIL040,2026-EVEN,4,2,3.8,Regular in mentoring sessions; no concerns raised.
+24CSE001,2026-EVEN,3,2,2.1,Regular in mentoring sessions; no concerns raised.
+24CSE002,2026-EVEN,5,2,4.3,Pursuing extra online courses; very curious.
+24CSE003,2026-EVEN,4,4,3.1,Steady progress; needs encouragement to take up projects.
+24CSE004,2026-EVEN,3,3,2.2,Regular in mentoring sessions; no concerns raised.
+24CSE005,2026-EVEN,4,1,2.0,Regular in mentoring sessions; no concerns raised.
+24CSE006,2026-EVEN,4,2,2.3,Steady progress; needs encouragement to take up projects.
+24CSE007,2026-EVEN,4,3,4.8,Active in class discussions and helps peers.
+24CSE008,2026-EVEN,4,3,3.0,Steady progress; needs encouragement to take up projects.
+24CSE009,2026-EVEN,4,2,1.7,Regular in mentoring sessions; no concerns raised.
+24CSE010,2026-EVEN,4,3,3.8,Steady progress; needs encouragement to take up projects.
+24CSE011,2026-EVEN,4,2,4.0,Attends regularly but participation is limited.
+24CSE013,2026-EVEN,3,3,5,Pursuing extra online courses; very curious.
+24CSE014,2026-EVEN,5,2,3.9,Shows leadership in project work; highly motivated.
+24CSE015,2026-EVEN,3,3,4.1,Active in class discussions and helps peers.
+24CSE016,2026-EVEN,4,3,5,Pursuing extra online courses; very curious.
+24CSE017,2026-EVEN,3,3,4.2,Regular in mentoring sessions; no concerns raised.
+24CSE018,2026-EVEN,2,2,1.6,Regular in mentoring sessions; no concerns raised.
+24CSE019,2026-EVEN,4,1,3.9,Steady progress; needs encouragement to take up projects.
+24CSE020,2026-EVEN,3,2,1.9,Regular in mentoring sessions; no concerns raised.
+24CSE021,2026-EVEN,3,2,4.0,Shows leadership in project work; highly motivated.
+24CSE022,2026-EVEN,5,1,2.8,Regular in mentoring sessions; no concerns raised.
+24CSE023,2026-EVEN,3,3,2.8,Steady progress; needs encouragement to take up projects.
+24CSE024,2026-EVEN,2,4,3.1,Reported health issues this term; missed several classes.
+24CSE025,2026-EVEN,4,3,2.2,Attends regularly but participation is limited.
+24CSE026,2026-EVEN,3,4,3.9,Family responsibilities are affecting study time.
+24CSE027,2026-EVEN,3,1,2.3,Attends regularly but participation is limited.
+24CSE028,2026-EVEN,3,3,2.6,Steady progress; needs encouragement to take up projects.
+24CSE029,2026-EVEN,5,2,1.5,Steady progress; needs encouragement to take up projects.
+24CSE031,2026-EVEN,3,3,4.4,Pursuing extra online courses; very curious.
+24CSE032,2026-EVEN,3,3,2.5,Struggling to cope with workload; asked about dropping a subject.
+24CSE033,2026-EVEN,2,4,2.0,Regular in mentoring sessions; no concerns raised.
+24CSE034,2026-EVEN,3,4,2.9,Regular in mentoring sessions; no concerns raised.
+24CSE036,2026-EVEN,5,2,3.2,Attends regularly but participation is limited.
+24CSE037,2026-EVEN,4,3,3.6,Attends regularly but participation is limited.
+24CSE038,2026-EVEN,3,4,2.9,Mentions financial difficulty at home; working part-time evenings.
+24CSE039,2026-EVEN,4,1,5,Shows leadership in project work; highly motivated.
+24CSE040,2026-EVEN,3,2,3.9,Regular in mentoring sessions; no concerns raised.
+24IT001,2026-EVEN,5,1,4.6,Pursuing extra online courses; very curious.
+24IT003,2026-EVEN,3,4,4.2,Mentions financial difficulty at home; working part-time evenings.
+24IT004,2026-EVEN,4,2,3.9,Regular in mentoring sessions; no concerns raised.
+24IT005,2026-EVEN,5,2,3.6,Regular in mentoring sessions; no concerns raised.
+24IT007,2026-EVEN,4,1,3.4,Steady progress; needs encouragement to take up projects.
+24IT008,2026-EVEN,3,3,4.3,Steady progress; needs encouragement to take up projects.
+24IT009,2026-EVEN,4,3,2.4,Attends regularly but participation is limited.
+24IT011,2026-EVEN,4,2,3.2,Attends regularly but participation is limited.
+24IT012,2026-EVEN,3,1,4.5,Active in class discussions and helps peers.
+24IT013,2026-EVEN,3,4,3.3,Steady progress; needs encouragement to take up projects.
+24IT014,2026-EVEN,4,2,1.4,Regular in mentoring sessions; no concerns raised.
+24IT015,2026-EVEN,3,3,4.1,Steady progress; needs encouragement to take up projects.
+24IT016,2026-EVEN,4,2,1.8,Regular in mentoring sessions; no concerns raised.
+24IT017,2026-EVEN,2,4,1.9,Commutes over 2 hours daily; often late for first period.
+24IT018,2026-EVEN,5,2,4.4,Shows leadership in project work; highly motivated.
+24IT019,2026-EVEN,1,5,2.7,Commutes over 2 hours daily; often late for first period.
+24IT020,2026-EVEN,3,3,3.0,Steady progress; needs encouragement to take up projects.
+24IT021,2026-EVEN,5,2,4.1,Active in class discussions and helps peers.
+24IT022,2026-EVEN,3,2,3.9,Attends regularly but participation is limited.
+24IT023,2026-EVEN,3,3,3.1,Commutes over 2 hours daily; often late for first period.
+24IT024,2026-EVEN,2,5,3.1,Family responsibilities are affecting study time.
+24IT025,2026-EVEN,4,3,2.5,Attends regularly but participation is limited.
+24IT026,2026-EVEN,3,2,4.3,Pursuing extra online courses; very curious.
+24IT027,2026-EVEN,3,4,5,Shows leadership in project work; highly motivated.
+24IT028,2026-EVEN,5,3,2.2,Steady progress; needs encouragement to take up projects.
+24IT030,2026-EVEN,4,3,2.2,Steady progress; needs encouragement to take up projects.
+24IT031,2026-EVEN,3,3,4.5,Pursuing extra online courses; very curious.
+24IT032,2026-EVEN,4,3,3.6,Attends regularly but participation is limited.
+24IT033,2026-EVEN,2,4,4.4,Reported health issues this term; missed several classes.
+24IT034,2026-EVEN,2,4,3.7,Commutes over 2 hours daily; often late for first period.
+24IT035,2026-EVEN,4,3,3.6,Attends regularly but participation is limited.
+24IT036,2026-EVEN,3,3,5,Active in class discussions and helps peers.
+24IT037,2026-EVEN,3,3,4.9,Seems withdrawn in class and avoids mentor meetings.
+24IT039,2026-EVEN,2,4,3.7,Family responsibilities are affecting study time.
+24IT040,2026-EVEN,5,1,4.6,Pursuing extra online courses; very curious.
+24ECE001,2026-EVEN,4,2,2.8,Regular in mentoring sessions; no concerns raised.
+24ECE002,2026-EVEN,3,2,2.2,Regular in mentoring sessions; no concerns raised.
+24ECE003,2026-EVEN,2,4,3.7,Seems withdrawn in class and avoids mentor meetings.
+24ECE004,2026-EVEN,5,1,3.0,Attends regularly but participation is limited.
+24ECE006,2026-EVEN,4,3,3.7,Regular in mentoring sessions; no concerns raised.
+24ECE007,2026-EVEN,4,3,4.3,Steady progress; needs encouragement to take up projects.
+24ECE008,2026-EVEN,3,3,4.3,Attends regularly but participation is limited.
+24ECE009,2026-EVEN,5,2,5.0,Regular in mentoring sessions; no concerns raised.
+24ECE010,2026-EVEN,3,4,2.3,Steady progress; needs encouragement to take up projects.
+24ECE011,2026-EVEN,3,3,1.8,Attends regularly but participation is limited.
+24ECE012,2026-EVEN,3,3,3.7,Attends regularly but participation is limited.
+24ECE014,2026-EVEN,3,2,3.8,Regular in mentoring sessions; no concerns raised.
+24ECE015,2026-EVEN,4,2,1.0,Steady progress; needs encouragement to take up projects.
+24ECE016,2026-EVEN,3,3,3.7,Seems withdrawn in class and avoids mentor meetings.
+24ECE018,2026-EVEN,5,1,4.2,Pursuing extra online courses; very curious.
+24ECE019,2026-EVEN,4,3,4.6,Pursuing extra online courses; very curious.
+24ECE020,2026-EVEN,4,3,1.4,Regular in mentoring sessions; no concerns raised.
+24ECE021,2026-EVEN,4,2,3.1,Steady progress; needs encouragement to take up projects.
+24ECE022,2026-EVEN,3,1,1.7,Regular in mentoring sessions; no concerns raised.
+24ECE023,2026-EVEN,4,2,5,Active in class discussions and helps peers.
+24ECE024,2026-EVEN,5,3,3.5,Regular in mentoring sessions; no concerns raised.
+24ECE025,2026-EVEN,5,1,1.6,Steady progress; needs encouragement to take up projects.
+24ECE026,2026-EVEN,5,2,4.4,Attends regularly but participation is limited.
+24ECE027,2026-EVEN,5,2,2.5,Steady progress; needs encouragement to take up projects.
+24ECE029,2026-EVEN,5,1,3.9,Steady progress; needs encouragement to take up projects.
+24ECE030,2026-EVEN,3,3,3.9,Attends regularly but participation is limited.
+24ECE031,2026-EVEN,3,3,2.2,Regular in mentoring sessions; no concerns raised.
+24ECE032,2026-EVEN,4,3,2.3,Attends regularly but participation is limited.
+24ECE033,2026-EVEN,4,2,3.2,Attends regularly but participation is limited.
+24ECE034,2026-EVEN,2,3,2.4,Mentions financial difficulty at home; working part-time evenings.
+24ECE035,2026-EVEN,4,3,3.9,Attends regularly but participation is limited.
+24ECE036,2026-EVEN,2,3,1.7,Attends regularly but participation is limited.
+24ECE037,2026-EVEN,4,4,4.2,Shows leadership in project work; highly motivated.
+24ECE038,2026-EVEN,5,3,2.6,Attends regularly but participation is limited.
+24ECE039,2026-EVEN,2,4,4.3,Family responsibilities are affecting study time.
+24ECE040,2026-EVEN,3,3,3.0,Regular in mentoring sessions; no concerns raised.
+24MECH001,2026-EVEN,3,3,1.5,Attends regularly but participation is limited.
+24MECH002,2026-EVEN,4,2,4.5,Attends regularly but participation is limited.
+24MECH004,2026-EVEN,3,4,3.1,Family responsibilities are affecting study time.
+24MECH007,2026-EVEN,2,4,3.2,Seems withdrawn in class and avoids mentor meetings.
+24MECH008,2026-EVEN,3,3,4.4,Steady progress; needs encouragement to take up projects.
+24MECH009,2026-EVEN,2,2,3.4,Attends regularly but participation is limited.
+24MECH010,2026-EVEN,4,2,1.9,Regular in mentoring sessions; no concerns raised.
+24MECH011,2026-EVEN,4,3,3.2,Regular in mentoring sessions; no concerns raised.
+24MECH012,2026-EVEN,4,2,2.0,Attends regularly but participation is limited.
+24MECH013,2026-EVEN,3,4,3.0,Steady progress; needs encouragement to take up projects.
+24MECH014,2026-EVEN,3,3,2.1,Regular in mentoring sessions; no concerns raised.
+24MECH015,2026-EVEN,3,2,3.4,Regular in mentoring sessions; no concerns raised.
+24MECH016,2026-EVEN,4,3,3.0,Steady progress; needs encouragement to take up projects.
+24MECH017,2026-EVEN,4,2,3.4,Steady progress; needs encouragement to take up projects.
+24MECH018,2026-EVEN,4,3,2.3,Attends regularly but participation is limited.
+24MECH019,2026-EVEN,2,4,1,Family responsibilities are affecting study time.
+24MECH020,2026-EVEN,2,2,4.4,Attends regularly but participation is limited.
+24MECH021,2026-EVEN,3,2,2.8,Attends regularly but participation is limited.
+24MECH022,2026-EVEN,3,2,3.6,Regular in mentoring sessions; no concerns raised.
+24MECH023,2026-EVEN,5,1,2.9,Attends regularly but participation is limited.
+24MECH025,2026-EVEN,4,2,1.8,Steady progress; needs encouragement to take up projects.
+24MECH026,2026-EVEN,2,4,3.9,Mentions financial difficulty at home; working part-time evenings.
+24MECH027,2026-EVEN,4,4,4.7,Shows leadership in project work; highly motivated.
+24MECH028,2026-EVEN,4,3,2.0,Steady progress; needs encouragement to take up projects.
+24MECH029,2026-EVEN,4,1,2.8,Regular in mentoring sessions; no concerns raised.
+24MECH030,2026-EVEN,5,2,5,Active in class discussions and helps peers.
+24MECH031,2026-EVEN,4,3,2.5,Steady progress; needs encouragement to take up projects.
+24MECH032,2026-EVEN,4,4,2.0,Commutes over 2 hours daily; often late for first period.
+24MECH033,2026-EVEN,3,4,2.8,Attends regularly but participation is limited.
+24MECH034,2026-EVEN,4,3,3.0,Steady progress; needs encouragement to take up projects.
+24MECH035,2026-EVEN,3,4,3.2,Attends regularly but participation is limited.
+24MECH037,2026-EVEN,3,3,3.6,Attends regularly but participation is limited.
+24MECH039,2026-EVEN,4,4,3.5,Active in class discussions and helps peers.
+24CIVIL001,2026-EVEN,3,4,2.8,Steady progress; needs encouragement to take up projects.
+24CIVIL002,2026-EVEN,4,2,2.8,Attends regularly but participation is limited.
+24CIVIL003,2026-EVEN,3,4,3.8,Mentions financial difficulty at home; working part-time evenings.
+24CIVIL004,2026-EVEN,4,2,3.3,Regular in mentoring sessions; no concerns raised.
+24CIVIL005,2026-EVEN,5,2,4.3,Attends regularly but participation is limited.
+24CIVIL006,2026-EVEN,4,4,3.7,Regular in mentoring sessions; no concerns raised.
+24CIVIL007,2026-EVEN,2,4,4.0,Struggling to cope with workload; asked about dropping a subject.
+24CIVIL008,2026-EVEN,3,3,1.3,Steady progress; needs encouragement to take up projects.
+24CIVIL009,2026-EVEN,4,2,3.5,Regular in mentoring sessions; no concerns raised.
+24CIVIL010,2026-EVEN,3,3,2.2,Steady progress; needs encouragement to take up projects.
+24CIVIL011,2026-EVEN,1,5,2.4,Seems withdrawn in class and avoids mentor meetings.
+24CIVIL012,2026-EVEN,4,2,1.9,Attends regularly but participation is limited.
+24CIVIL013,2026-EVEN,4,2,3.0,Attends regularly but participation is limited.
+24CIVIL014,2026-EVEN,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+24CIVIL015,2026-EVEN,3,2,2.8,Attends regularly but participation is limited.
+24CIVIL016,2026-EVEN,3,2,2.0,Steady progress; needs encouragement to take up projects.
+24CIVIL017,2026-EVEN,4,4,2.0,Attends regularly but participation is limited.
+24CIVIL018,2026-EVEN,5,1,3.4,Regular in mentoring sessions; no concerns raised.
+24CIVIL020,2026-EVEN,4,2,4.2,Active in class discussions and helps peers.
+24CIVIL021,2026-EVEN,3,3,4.8,Pursuing extra online courses; very curious.
+24CIVIL022,2026-EVEN,3,5,3.4,Family responsibilities are affecting study time.
+24CIVIL023,2026-EVEN,3,4,2.2,Reported health issues this term; missed several classes.
+24CIVIL024,2026-EVEN,4,3,4.4,Steady progress; needs encouragement to take up projects.
+24CIVIL026,2026-EVEN,4,2,4.1,Attends regularly but participation is limited.
+24CIVIL028,2026-EVEN,5,2,3.0,Attends regularly but participation is limited.
+24CIVIL029,2026-EVEN,3,3,3.4,Shows leadership in project work; highly motivated.
+24CIVIL030,2026-EVEN,4,3,2.9,Regular in mentoring sessions; no concerns raised.
+24CIVIL031,2026-EVEN,4,2,1.8,Steady progress; needs encouragement to take up projects.
+24CIVIL032,2026-EVEN,5,2,4.4,Pursuing extra online courses; very curious.
+24CIVIL035,2026-EVEN,3,3,4.8,Shows leadership in project work; highly motivated.
+24CIVIL036,2026-EVEN,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+24CIVIL037,2026-EVEN,4,2,1.6,Steady progress; needs encouragement to take up projects.
+24CIVIL038,2026-EVEN,4,2,3.6,Attends regularly but participation is limited.
+24CIVIL039,2026-EVEN,2,4,2.1,Regular in mentoring sessions; no concerns raised.
+24CIVIL040,2026-EVEN,4,2,3.7,Steady progress; needs encouragement to take up projects.
+25CSE001,2026-EVEN,2,3,3.7,Reported health issues this term; missed several classes.
+25CSE002,2026-EVEN,4,3,3.6,Attends regularly but participation is limited.
+25CSE003,2026-EVEN,3,3,3.3,Commutes over 2 hours daily; often late for first period.
+25CSE004,2026-EVEN,3,4,4.6,Mentions financial difficulty at home; working part-time evenings.
+25CSE005,2026-EVEN,3,3,4.6,Active in class discussions and helps peers.
+25CSE006,2026-EVEN,3,3,3.0,Steady progress; needs encouragement to take up projects.
+25CSE007,2026-EVEN,3,2,2.0,Steady progress; needs encouragement to take up projects.
+25CSE008,2026-EVEN,4,2,3.1,Attends regularly but participation is limited.
+25CSE009,2026-EVEN,5,2,4.1,Regular in mentoring sessions; no concerns raised.
+25CSE010,2026-EVEN,3,3,2.5,Steady progress; needs encouragement to take up projects.
+25CSE011,2026-EVEN,3,4,3.1,Regular in mentoring sessions; no concerns raised.
+25CSE013,2026-EVEN,5,2,3.0,Attends regularly but participation is limited.
+25CSE014,2026-EVEN,3,3,3.4,Steady progress; needs encouragement to take up projects.
+25CSE016,2026-EVEN,3,4,3.5,Steady progress; needs encouragement to take up projects.
+25CSE017,2026-EVEN,3,3,3.3,Family responsibilities are affecting study time.
+25CSE018,2026-EVEN,5,3,2.8,Mentions financial difficulty at home; working part-time evenings.
+25CSE019,2026-EVEN,5,2,3.1,Steady progress; needs encouragement to take up projects.
+25CSE020,2026-EVEN,3,3,2.6,Regular in mentoring sessions; no concerns raised.
+25CSE021,2026-EVEN,4,3,3.5,Attends regularly but participation is limited.
+25CSE022,2026-EVEN,3,2,3.8,Regular in mentoring sessions; no concerns raised.
+25CSE023,2026-EVEN,3,3,3.9,Steady progress; needs encouragement to take up projects.
+25CSE024,2026-EVEN,4,2,3.3,Attends regularly but participation is limited.
+25CSE025,2026-EVEN,5,1,2.9,Steady progress; needs encouragement to take up projects.
+25CSE026,2026-EVEN,3,2,4.5,Regular in mentoring sessions; no concerns raised.
+25CSE027,2026-EVEN,3,3,4.9,Shows leadership in project work; highly motivated.
+25CSE029,2026-EVEN,5,3,3.7,Regular in mentoring sessions; no concerns raised.
+25CSE030,2026-EVEN,5,2,3.3,Shows leadership in project work; highly motivated.
+25CSE031,2026-EVEN,2,2,2.4,Steady progress; needs encouragement to take up projects.
+25CSE034,2026-EVEN,4,2,3.5,Steady progress; needs encouragement to take up projects.
+25CSE035,2026-EVEN,5,1,3.6,Steady progress; needs encouragement to take up projects.
+25CSE036,2026-EVEN,4,3,2.8,Attends regularly but participation is limited.
+25CSE037,2026-EVEN,3,3,4.1,Attends regularly but participation is limited.
+25CSE038,2026-EVEN,3,3,3.3,Steady progress; needs encouragement to take up projects.
+25CSE039,2026-EVEN,4,3,2.5,Regular in mentoring sessions; no concerns raised.
+25CSE040,2026-EVEN,4,3,3.4,Steady progress; needs encouragement to take up projects.
+25IT002,2026-EVEN,2,3,2.9,Regular in mentoring sessions; no concerns raised.
+25IT003,2026-EVEN,4,2,3.2,Steady progress; needs encouragement to take up projects.
+25IT004,2026-EVEN,3,2,2.7,Steady progress; needs encouragement to take up projects.
+25IT005,2026-EVEN,4,2,2.2,Regular in mentoring sessions; no concerns raised.
+25IT006,2026-EVEN,4,3,4.0,Steady progress; needs encouragement to take up projects.
+25IT007,2026-EVEN,3,3,3.8,Active in class discussions and helps peers.
+25IT008,2026-EVEN,4,4,4.2,Attends regularly but participation is limited.
+25IT009,2026-EVEN,2,4,2.3,Mentions financial difficulty at home; working part-time evenings.
+25IT010,2026-EVEN,3,3,3.8,Active in class discussions and helps peers.
+25IT012,2026-EVEN,3,3,3.9,Steady progress; needs encouragement to take up projects.
+25IT013,2026-EVEN,4,2,3.6,Steady progress; needs encouragement to take up projects.
+25IT014,2026-EVEN,2,4,4.1,Reported health issues this term; missed several classes.
+25IT015,2026-EVEN,4,2,3.0,Attends regularly but participation is limited.
+25IT016,2026-EVEN,2,3,2.6,Steady progress; needs encouragement to take up projects.
+25IT017,2026-EVEN,3,5,3.7,Steady progress; needs encouragement to take up projects.
+25IT018,2026-EVEN,2,2,3.0,Attends regularly but participation is limited.
+25IT019,2026-EVEN,2,3,1.3,Reported health issues this term; missed several classes.
+25IT020,2026-EVEN,2,3,3.3,Reported health issues this term; missed several classes.
+25IT021,2026-EVEN,3,4,5,Family responsibilities are affecting study time.
+25IT022,2026-EVEN,4,3,3.7,Regular in mentoring sessions; no concerns raised.
+25IT023,2026-EVEN,4,2,4.1,Shows leadership in project work; highly motivated.
+25IT024,2026-EVEN,2,3,2.7,Steady progress; needs encouragement to take up projects.
+25IT026,2026-EVEN,5,3,3.8,Steady progress; needs encouragement to take up projects.
+25IT027,2026-EVEN,5,1,2.9,Attends regularly but participation is limited.
+25IT028,2026-EVEN,3,3,4.8,Pursuing extra online courses; very curious.
+25IT029,2026-EVEN,4,2,4.3,Steady progress; needs encouragement to take up projects.
+25IT030,2026-EVEN,4,2,5,Pursuing extra online courses; very curious.
+25IT031,2026-EVEN,4,2,4.8,Pursuing extra online courses; very curious.
+25IT032,2026-EVEN,3,4,3.4,Active in class discussions and helps peers.
+25IT033,2026-EVEN,5,3,3.8,Steady progress; needs encouragement to take up projects.
+25IT034,2026-EVEN,4,3,3.5,Attends regularly but participation is limited.
+25IT035,2026-EVEN,4,2,2.8,Regular in mentoring sessions; no concerns raised.
+25IT036,2026-EVEN,3,3,3.4,Attends regularly but participation is limited.
+25IT037,2026-EVEN,3,3,4.8,Pursuing extra online courses; very curious.
+25IT038,2026-EVEN,5,2,3.9,Regular in mentoring sessions; no concerns raised.
+25IT039,2026-EVEN,4,2,3.9,Steady progress; needs encouragement to take up projects.
+25ECE001,2026-EVEN,4,3,3.4,Steady progress; needs encouragement to take up projects.
+25ECE002,2026-EVEN,3,3,3.4,Attends regularly but participation is limited.
+25ECE003,2026-EVEN,2,3,2.0,Mentions financial difficulty at home; working part-time evenings.
+25ECE004,2026-EVEN,2,4,2.7,Attends regularly but participation is limited.
+25ECE005,2026-EVEN,3,2,2.2,Attends regularly but participation is limited.
+25ECE006,2026-EVEN,5,1,3.8,Attends regularly but participation is limited.
+25ECE007,2026-EVEN,3,3,3.0,Steady progress; needs encouragement to take up projects.
+25ECE008,2026-EVEN,5,2,4.9,Pursuing extra online courses; very curious.
+25ECE009,2026-EVEN,4,3,1.9,Regular in mentoring sessions; no concerns raised.
+25ECE011,2026-EVEN,5,2,4.1,Pursuing extra online courses; very curious.
+25ECE012,2026-EVEN,3,4,3.8,Steady progress; needs encouragement to take up projects.
+25ECE013,2026-EVEN,2,3,5,Steady progress; needs encouragement to take up projects.
+25ECE014,2026-EVEN,3,4,3.9,Pursuing extra online courses; very curious.
+25ECE015,2026-EVEN,4,3,2.4,Regular in mentoring sessions; no concerns raised.
+25ECE016,2026-EVEN,3,3,4.7,Pursuing extra online courses; very curious.
+25ECE017,2026-EVEN,3,3,2.7,Attends regularly but participation is limited.
+25ECE018,2026-EVEN,5,3,3.2,Attends regularly but participation is limited.
+25ECE019,2026-EVEN,3,3,1.1,Regular in mentoring sessions; no concerns raised.
+25ECE021,2026-EVEN,3,3,3.1,Regular in mentoring sessions; no concerns raised.
+25ECE022,2026-EVEN,3,3,3.5,Regular in mentoring sessions; no concerns raised.
+25ECE023,2026-EVEN,4,3,3.5,Attends regularly but participation is limited.
+25ECE024,2026-EVEN,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+25ECE025,2026-EVEN,5,2,4.0,Attends regularly but participation is limited.
+25ECE027,2026-EVEN,4,2,3.4,Regular in mentoring sessions; no concerns raised.
+25ECE028,2026-EVEN,4,1,2.7,Attends regularly but participation is limited.
+25ECE030,2026-EVEN,3,3,2.5,Attends regularly but participation is limited.
+25ECE031,2026-EVEN,4,2,3.0,Attends regularly but participation is limited.
+25ECE032,2026-EVEN,4,2,3.2,Attends regularly but participation is limited.
+25ECE033,2026-EVEN,4,4,3.9,Active in class discussions and helps peers.
+25ECE034,2026-EVEN,4,4,3.9,Steady progress; needs encouragement to take up projects.
+25ECE035,2026-EVEN,4,2,5,Active in class discussions and helps peers.
+25ECE036,2026-EVEN,4,3,4.5,Pursuing extra online courses; very curious.
+25ECE038,2026-EVEN,3,4,3.4,Attends regularly but participation is limited.
+25ECE039,2026-EVEN,4,2,4.2,Attends regularly but participation is limited.
+25ECE040,2026-EVEN,5,3,2.7,Regular in mentoring sessions; no concerns raised.
+25MECH001,2026-EVEN,5,3,5,Shows leadership in project work; highly motivated.
+25MECH002,2026-EVEN,2,4,4.0,Commutes over 2 hours daily; often late for first period.
+25MECH003,2026-EVEN,3,2,4.6,Regular in mentoring sessions; no concerns raised.
+25MECH004,2026-EVEN,5,2,2.3,Steady progress; needs encouragement to take up projects.
+25MECH005,2026-EVEN,5,2,3.5,Regular in mentoring sessions; no concerns raised.
+25MECH008,2026-EVEN,4,2,4.2,Pursuing extra online courses; very curious.
+25MECH009,2026-EVEN,5,2,2.2,Regular in mentoring sessions; no concerns raised.
+25MECH010,2026-EVEN,4,4,4.6,Active in class discussions and helps peers.
+25MECH011,2026-EVEN,4,2,1.9,Regular in mentoring sessions; no concerns raised.
+25MECH013,2026-EVEN,3,2,2.9,Regular in mentoring sessions; no concerns raised.
+25MECH015,2026-EVEN,3,4,2.3,Attends regularly but participation is limited.
+25MECH016,2026-EVEN,3,2,2.2,Steady progress; needs encouragement to take up projects.
+25MECH017,2026-EVEN,4,3,2.1,Regular in mentoring sessions; no concerns raised.
+25MECH018,2026-EVEN,1,4,3.7,Struggling to cope with workload; asked about dropping a subject.
+25MECH019,2026-EVEN,2,4,2.3,Struggling to cope with workload; asked about dropping a subject.
+25MECH020,2026-EVEN,3,2,1.1,Attends regularly but participation is limited.
+25MECH021,2026-EVEN,4,1,2.2,Attends regularly but participation is limited.
+25MECH022,2026-EVEN,4,2,4.1,Active in class discussions and helps peers.
+25MECH023,2026-EVEN,3,3,4.6,Shows leadership in project work; highly motivated.
+25MECH024,2026-EVEN,3,2,5.0,Shows leadership in project work; highly motivated.
+25MECH025,2026-EVEN,5,2,2.1,Steady progress; needs encouragement to take up projects.
+25MECH026,2026-EVEN,2,5,2.4,Struggling to cope with workload; asked about dropping a subject.
+25MECH027,2026-EVEN,2,4,3.2,Steady progress; needs encouragement to take up projects.
+25MECH028,2026-EVEN,3,2,3.3,Steady progress; needs encouragement to take up projects.
+25MECH029,2026-EVEN,4,3,4.5,Regular in mentoring sessions; no concerns raised.
+25MECH030,2026-EVEN,1,5,4.5,Family responsibilities are affecting study time.
+25MECH031,2026-EVEN,4,2,3.7,Pursuing extra online courses; very curious.
+25MECH033,2026-EVEN,3,2,3.9,Steady progress; needs encouragement to take up projects.
+25MECH034,2026-EVEN,3,3,3.8,Steady progress; needs encouragement to take up projects.
+25MECH035,2026-EVEN,5,2,3.5,Active in class discussions and helps peers.
+25MECH036,2026-EVEN,4,2,5,Pursuing extra online courses; very curious.
+25MECH037,2026-EVEN,4,3,4.5,Shows leadership in project work; highly motivated.
+25MECH039,2026-EVEN,4,1,2.9,Attends regularly but participation is limited.
+25MECH040,2026-EVEN,4,1,2.9,Attends regularly but participation is limited.
+25CIVIL001,2026-EVEN,4,2,3.6,Steady progress; needs encouragement to take up projects.
+25CIVIL002,2026-EVEN,3,5,3.9,Seems withdrawn in class and avoids mentor meetings.
+25CIVIL003,2026-EVEN,4,1,4.1,Shows leadership in project work; highly motivated.
+25CIVIL004,2026-EVEN,4,2,4.0,Steady progress; needs encouragement to take up projects.
+25CIVIL005,2026-EVEN,3,4,4.2,Seems withdrawn in class and avoids mentor meetings.
+25CIVIL006,2026-EVEN,4,2,4.9,Struggling to cope with workload; asked about dropping a subject.
+25CIVIL007,2026-EVEN,4,2,4.1,Steady progress; needs encouragement to take up projects.
+25CIVIL008,2026-EVEN,4,2,3.3,Regular in mentoring sessions; no concerns raised.
+25CIVIL009,2026-EVEN,3,3,3.6,Regular in mentoring sessions; no concerns raised.
+25CIVIL010,2026-EVEN,3,3,3.8,Attends regularly but participation is limited.
+25CIVIL011,2026-EVEN,2,5,3.1,Seems withdrawn in class and avoids mentor meetings.
+25CIVIL012,2026-EVEN,3,3,3.4,Steady progress; needs encouragement to take up projects.
+25CIVIL013,2026-EVEN,4,2,2.2,Attends regularly but participation is limited.
+25CIVIL014,2026-EVEN,3,4,4.2,Steady progress; needs encouragement to take up projects.
+25CIVIL015,2026-EVEN,3,5,3.9,Regular in mentoring sessions; no concerns raised.
+25CIVIL016,2026-EVEN,4,3,3.7,Steady progress; needs encouragement to take up projects.
+25CIVIL017,2026-EVEN,4,3,3.0,Steady progress; needs encouragement to take up projects.
+25CIVIL018,2026-EVEN,4,4,3.6,Reported health issues this term; missed several classes.
+25CIVIL019,2026-EVEN,4,2,2.5,Regular in mentoring sessions; no concerns raised.
+25CIVIL021,2026-EVEN,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+25CIVIL022,2026-EVEN,5,2,4.0,Active in class discussions and helps peers.
+25CIVIL023,2026-EVEN,3,4,2.8,Regular in mentoring sessions; no concerns raised.
+25CIVIL024,2026-EVEN,4,3,3.8,Attends regularly but participation is limited.
+25CIVIL025,2026-EVEN,4,3,2.9,Regular in mentoring sessions; no concerns raised.
+25CIVIL026,2026-EVEN,5,2,4.0,Steady progress; needs encouragement to take up projects.
+25CIVIL027,2026-EVEN,5,2,3.1,Regular in mentoring sessions; no concerns raised.
+25CIVIL028,2026-EVEN,3,3,5,Active in class discussions and helps peers.
+25CIVIL030,2026-EVEN,4,4,4.2,Attends regularly but participation is limited.
+25CIVIL031,2026-EVEN,4,2,1.6,Regular in mentoring sessions; no concerns raised.
+25CIVIL032,2026-EVEN,3,3,3.9,Regular in mentoring sessions; no concerns raised.
+25CIVIL033,2026-EVEN,4,5,2.9,Regular in mentoring sessions; no concerns raised.
+25CIVIL036,2026-EVEN,3,3,3.8,Regular in mentoring sessions; no concerns raised.
+25CIVIL037,2026-EVEN,3,3,2.5,Regular in mentoring sessions; no concerns raised.
+25CIVIL038,2026-EVEN,4,1,2.6,Regular in mentoring sessions; no concerns raised.
+25CIVIL039,2026-EVEN,2,3,2.2,Steady progress; needs encouragement to take up projects.
+25CIVIL040,2026-EVEN,2,5,4.0,Family responsibilities are affecting study time.
+24MCA001,2026-EVEN,3,3,3.8,Commutes over 2 hours daily; often late for first period.
+24MCA002,2026-EVEN,4,3,2.6,Attends regularly but participation is limited.
+24MCA003,2026-EVEN,4,3,2.3,Steady progress; needs encouragement to take up projects.
+24MCA004,2026-EVEN,4,3,5,Active in class discussions and helps peers.
+24MCA006,2026-EVEN,3,3,4.1,Shows leadership in project work; highly motivated.
+24MCA007,2026-EVEN,5,1,2.8,Steady progress; needs encouragement to take up projects.
+24MCA008,2026-EVEN,3,3,1.4,Attends regularly but participation is limited.
+24MCA009,2026-EVEN,3,4,3.5,Family responsibilities are affecting study time.
+24MCA010,2026-EVEN,2,4,4.7,Attends regularly but participation is limited.
+24MCA011,2026-EVEN,3,3,3.9,Family responsibilities are affecting study time.
+24MCA012,2026-EVEN,4,4,4.8,Regular in mentoring sessions; no concerns raised.
+24MCA013,2026-EVEN,5,1,2.9,Steady progress; needs encouragement to take up projects.
+24MCA014,2026-EVEN,4,2,2.8,Steady progress; needs encouragement to take up projects.
+24MCA015,2026-EVEN,3,2,1.6,Steady progress; needs encouragement to take up projects.
+24MCA016,2026-EVEN,4,1,2.6,Attends regularly but participation is limited.
+24MCA017,2026-EVEN,3,3,4.1,Shows leadership in project work; highly motivated.
+24MCA018,2026-EVEN,2,4,4.5,Regular in mentoring sessions; no concerns raised.
+24MCA019,2026-EVEN,5,1,3.8,Shows leadership in project work; highly motivated.
+24MCA020,2026-EVEN,4,2,3.8,Steady progress; needs encouragement to take up projects.
+24MCA021,2026-EVEN,4,2,2.1,Steady progress; needs encouragement to take up projects.
+24MCA022,2026-EVEN,3,3,3.7,Steady progress; needs encouragement to take up projects.
+24MCA023,2026-EVEN,4,4,2.7,Regular in mentoring sessions; no concerns raised.
+24MCA024,2026-EVEN,4,2,3.8,Pursuing extra online courses; very curious.
+24MCA025,2026-EVEN,4,1,3.0,Attends regularly but participation is limited.
+24MCA026,2026-EVEN,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+24MCA027,2026-EVEN,4,3,3.7,Steady progress; needs encouragement to take up projects.
+24MCA028,2026-EVEN,3,3,2.2,Attends regularly but participation is limited.
+24MCA029,2026-EVEN,2,4,3.0,Attends regularly but participation is limited.
+24MCA030,2026-EVEN,3,3,3.1,Regular in mentoring sessions; no concerns raised.
+25MCA001,2026-EVEN,5,2,3.6,Attends regularly but participation is limited.
+25MCA002,2026-EVEN,4,2,4.5,Active in class discussions and helps peers.
+25MCA004,2026-EVEN,5,2,1.9,Regular in mentoring sessions; no concerns raised.
+25MCA005,2026-EVEN,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+25MCA006,2026-EVEN,4,2,3.1,Attends regularly but participation is limited.
+25MCA007,2026-EVEN,3,3,3.3,Family responsibilities are affecting study time.
+25MCA008,2026-EVEN,3,3,3.6,Mentions financial difficulty at home; working part-time evenings.
+25MCA009,2026-EVEN,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+25MCA010,2026-EVEN,4,3,4.1,Regular in mentoring sessions; no concerns raised.
+25MCA011,2026-EVEN,4,1,3.8,Regular in mentoring sessions; no concerns raised.
+25MCA013,2026-EVEN,3,3,3.6,Family responsibilities are affecting study time.
+25MCA016,2026-EVEN,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+25MCA017,2026-EVEN,3,4,3.6,Steady progress; needs encouragement to take up projects.
+25MCA018,2026-EVEN,4,3,5,Active in class discussions and helps peers.
+25MCA019,2026-EVEN,4,1,1.2,Regular in mentoring sessions; no concerns raised.
+25MCA020,2026-EVEN,2,3,3.7,Regular in mentoring sessions; no concerns raised.
+25MCA021,2026-EVEN,5,2,3.9,Regular in mentoring sessions; no concerns raised.
+25MCA022,2026-EVEN,5,2,4.3,Shows leadership in project work; highly motivated.
+25MCA024,2026-EVEN,4,2,2.8,Steady progress; needs encouragement to take up projects.
+25MCA025,2026-EVEN,4,3,2.8,Mentions financial difficulty at home; working part-time evenings.
+25MCA026,2026-EVEN,1,4,2.3,Commutes over 2 hours daily; often late for first period.
+25MCA027,2026-EVEN,3,1,3.3,Steady progress; needs encouragement to take up projects.
+25MCA028,2026-EVEN,4,2,3.4,Seems withdrawn in class and avoids mentor meetings.
+25MCA029,2026-EVEN,4,3,4.6,Shows leadership in project work; highly motivated.
+25MCA030,2026-EVEN,4,3,2.9,Regular in mentoring sessions; no concerns raised.
