@@ -237,3 +237,106 @@ def recommendations(p: Principal, risks: dict) -> list[dict]:
                                                                         "observed": None, "threshold": None, "operator": None,
                                                                         "period": r.get("period")}]})
     return out
+
+
+# --------------------------------------------------------------------------- analytics (Insights page)
+def _avg(xs):
+    xs = [x for x in xs if x is not None]
+    return round(mean(xs), 1) if xs else None
+
+
+def analytics(p: Principal, ds: str, department: str | None, year: int | None) -> dict:
+    """Aggregates for the Insights page from ONE scoped listing pass (no scans).
+
+    Rows are already field-filtered for the user's role, so a figure a role may not see is simply absent
+    (e.g. a Placement Officer gets no overall scores). Periods compare only scored values; missing data is
+    excluded, never counted as zero.
+    """
+    rows = visible_rows(p, ds, department, year)
+    per = insights.periods()
+    cur = per[-1] if per else None
+    comps = list(COMPONENT_LABELS)
+
+    def bp(r, period):
+        return (r.get("by_period") or {}).get(period) or {}
+
+    scored = [r for r in rows if r.get("score") is not None]
+    prev = per[-2] if len(per) > 1 else None
+    prev_scores = [bp(r, prev).get("score") for r in rows] if prev else []
+
+    # score distribution (10-point bins)
+    bins = [{"from": b, "to": b + 10, "label": f"{b}–{b + 9}" if b < 90 else "90–100", "count": 0} for b in range(0, 100, 10)]
+    for r in scored:
+        bins[min(9, int(r["score"] // 10))]["count"] += 1
+
+    # component averages, overall and by department
+    comp_avg = [{"key": c, "label": COMPONENT_LABELS[c], "avg": _avg([(r.get("components") or {}).get(c) for r in rows]),
+                 "n": sum((r.get("components") or {}).get(c) is not None for r in rows)} for c in comps]
+    depts = sorted({r["department"] for r in rows})
+    comp_dept = [{"department": d, "values": {c: _avg([(r.get("components") or {}).get(c) for r in rows if r["department"] == d])
+                                              for c in comps}} for d in depts]
+
+    # trends per department and per year (scored values only)
+    dept_trend = [{"department": d, "values": [_avg([bp(r, x).get("score") for r in rows if r["department"] == d]) for x in per]}
+                  for d in depts]
+    year_avgs = [{"year": y, "avg": _avg([r.get("score") for r in rows if int(r["year"]) == y]),
+                  "students": sum(int(r["year"]) == y for r in rows)} for y in sorted({int(r["year"]) for r in rows})]
+
+    # data coverage over time
+    coverage = []
+    for x in per:
+        c = Counter(bp(r, x).get("status") for r in rows if bp(r, x))
+        coverage.append({"period": x, "complete": c.get("complete", 0), "provisional": c.get("provisional", 0),
+                         "insufficient_data": c.get("insufficient_data", 0)})
+
+    # academic x placement risk matrix
+    order = ["high", "medium", "low", "insufficient_data", "not_applicable"]
+    matrix = {a: {b: 0 for b in order} for a in order}
+    for r in rows:
+        a, b = _risk_level(r, "academic"), _risk_level(r, "placement")
+        if a in matrix and b in matrix[a]:
+            matrix[a][b] += 1
+
+    # attendance vs academic (students with both)
+    scatter = [{"student_id": r["student_id"], "name": r.get("name"), "department": r["department"], "year": r["year"],
+                "attendance": (r.get("components") or {}).get("attendance"), "academic": (r.get("components") or {}).get("academic"),
+                "score": r.get("score")}
+               for r in rows if (r.get("components") or {}).get("attendance") is not None
+               and (r.get("components") or {}).get("academic") is not None]
+
+    # movers: first vs last scored period for each student (same profile and scoring version per student)
+    movers = []
+    for r in rows:
+        series = [bp(r, x).get("score") for x in per]
+        pts = [(i, v) for i, v in enumerate(series) if v is not None]
+        if len(pts) >= 2 and pts[0][0] != pts[-1][0]:
+            movers.append({"student_id": r["student_id"], "name": r.get("name"), "department": r["department"], "year": r["year"],
+                           "from_period": per[pts[0][0]], "to_period": per[pts[-1][0]], "from": pts[0][1], "to": pts[-1][1],
+                           "change": round(pts[-1][1] - pts[0][1], 1), "series": series})
+    movers.sort(key=lambda m: m["change"])
+
+    # interventions
+    ivs, _ = interventions.listing(p, ds, dept=department) if decide_any(p, "intervention", "read") else ([], None)
+    if year:
+        ivs = [i for i in ivs if int(i["year"]) == int(year)]
+    iv = {"total": len(ivs), "by_status": dict(Counter(i["status"] for i in ivs)),
+          "by_outcome": dict(Counter((i.get("outcome") or {}).get("result") for i in ivs if i.get("outcome"))),
+          "by_category": dict(Counter(i["category"] for i in ivs)), "overdue": sum(bool(i.get("overdue")) for i in ivs)}
+
+    return {
+        "dataset": ds, "period": cur, "periods": per, "students": len(rows), "scored": len(scored),
+        "kpis": {"average_score": _avg([r["score"] for r in scored]), "previous_average": _avg(prev_scores),
+                 "previous_period": prev,
+                 "complete_pct": round(100 * sum(r.get("status") == "complete" for r in rows) / len(rows)) if rows else None,
+                 "any_high_risk": sum("high" in (_risk_level(r, "academic"), _risk_level(r, "placement")) for r in rows),
+                 "improved": sum(m["change"] >= 5 for m in movers), "declined": sum(m["change"] <= -5 for m in movers)},
+        "distribution": bins if scored else [], "components": comp_avg, "components_by_department": comp_dept,
+        "department_trend": dept_trend, "year_averages": year_avgs, "coverage": coverage,
+        "risk_matrix": {"levels": order, "counts": matrix}, "scatter": scatter,
+        "movers": {"up": [m for m in reversed(movers) if m["change"] > 0][:6], "down": [m for m in movers if m["change"] < 0][:6]},
+        "interventions": iv,
+    }
+
+
+COMPONENT_LABELS = {"academic": "Academic", "attendance": "Attendance", "lms": "LMS activity",
+                    "placement": "Placement readiness", "skills": "Skills", "engagement": "Engagement"}

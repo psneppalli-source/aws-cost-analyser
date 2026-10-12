@@ -60,6 +60,7 @@ export class Shell {
     return [
       g('Insights', [
         { path: '/overview', label: 'Overview', show: staff },
+        { path: '/insights', label: 'Insights & charts', show: staff },
         { path: '/students', label: 'Students', show: staff },
         { path: '/risk', label: 'Academic risk', show: staff && !this.only('placement_officer', 'activity_coordinator') },
         { path: '/placement', label: 'Placement readiness', show: staff && !this.only('activity_coordinator') },

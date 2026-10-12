@@ -9,6 +9,8 @@ export const routes: Routes = [
       { path: '', pathMatch: 'full', canActivate: [landing], children: [] },
       { path: 'overview', title: 'Overview', canActivate: [needs('student_insight:read')],
         loadComponent: () => import('./pages/overview').then((m) => m.OverviewPage) },
+      { path: 'insights', title: 'Insights', canActivate: [needs('student_insight:read')],
+        loadComponent: () => import('./pages/insights').then((m) => m.InsightsPage) },
       { path: 'students', title: 'Students', canActivate: [needs('student_insight:read')],
         loadComponent: () => import('./pages/students').then((m) => m.StudentsPage) },
       { path: 'students/:dataset/:sid', title: 'Student profile',

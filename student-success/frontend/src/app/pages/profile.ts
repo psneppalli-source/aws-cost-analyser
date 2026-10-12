@@ -5,7 +5,8 @@ import { Api, ApiError } from '../core/api.service';
 import { Session } from '../core/session.service';
 import { COMPONENTS, IV_CATEGORIES, OUTCOMES, SEGMENTS, pct, when } from '../shared/labels';
 import { message } from '../shared/page';
-import { LineChart, RiskBadge, Series, StateView, StatusChip } from '../shared/ui';
+import { RiskBadge, StateView, StatusChip } from '../shared/ui';
+import { Line, MultiLine, SERIES } from '../shared/charts';
 
 interface Flag { rule: string; label: string; indicator: string; observed: number; operator: string; threshold: number; level: string;
   observed_period: string; suggested_intervention: { key: string; title: string; category: string; owner_role: string }; }
@@ -53,7 +54,7 @@ const RECORD_COLS: Record<string, string[]> = {
 
 @Component({
   selector: 'app-profile-page',
-  imports: [FormsModule, RouterLink, StateView, RiskBadge, StatusChip, LineChart],
+  imports: [FormsModule, RouterLink, StateView, RiskBadge, StatusChip, MultiLine],
   styles: [`.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:8px 0 16px;flex-wrap:wrap}
     .tabs button{background:none;border:0;padding:10px 14px;font:inherit;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent}
     .tabs button[aria-selected=true]{color:var(--navy-900);border-color:var(--teal-500);font-weight:600}
@@ -155,8 +156,10 @@ const RECORD_COLS: Record<string, string[]> = {
         @if (p.history.length) {
           <section class="card" style="margin-top:16px"><div class="card-head"><h2>Trend</h2>
             <span class="desc">Periods are compared only when calculated under the same cohort profile. Gaps mean insufficient data.</span></div>
-            <app-lines [labels]="histLabels()" [series]="histSeries()" label="Success Score by reporting period" [ref]="60" />
-            <app-lines [labels]="histLabels()" [series]="compSeries()" label="Component values by reporting period" />
+            <h3>Success Score</h3>
+            <app-multiline [labels]="histLabels()" [series]="histSeries()" label="Success Score by reporting period" [ref]="60" refLabel="On track (60)" />
+            <h3 style="margin-top:14px">Components</h3>
+            <app-multiline [labels]="histLabels()" [series]="compSeries()" label="Component values by reporting period" seriesName="Component" />
             <div class="table-wrap"><table><thead><tr><th>Period</th><th class="num">Score</th><th>Status</th><th class="num">Coverage</th><th>Profile</th><th>Missing</th></tr></thead>
               <tbody>@for (h of p.history; track h.period) {
                 <tr><td>{{ h.period }}</td><td class="num">{{ h.score ?? '–' }}@if (h.score === null && h.indicative_score !== null) { <span class="small muted"> (indicative {{ h.indicative_score }})</span> }</td>
@@ -332,9 +335,10 @@ export class ProfilePage {
     return (s as unknown[]).map((x) => typeof x === 'string' ? { key: x, label: SEGMENTS[x] || x, reasons: [] as string[] } : x as { key: string; label: string; reasons: string[] });
   });
   histLabels = computed(() => (this.p()?.history || []).map((h) => h.period));
-  histSeries = computed<Series[]>(() => [{ name: 'Success Score', values: (this.p()?.history || []).map((h) => h.score) }]);
-  compSeries = computed<Series[]>(() => {
-    const colors: Record<string, string> = { academic: '#16304f', attendance: '#0f8a8a', lms: '#6b7fa0', placement: '#c98a12', skills: '#2e8a50', engagement: '#8a4fa0' };
+  histSeries = computed<Line[]>(() => [{ name: 'Success Score', color: SERIES[0], values: (this.p()?.history || []).map((h) => h.score) }]);
+  compSeries = computed<Line[]>(() => {
+    // fixed order: each component keeps its colour on every profile
+    const colors: Record<string, string> = { academic: SERIES[0], attendance: SERIES[1], lms: SERIES[2], placement: SERIES[3], skills: SERIES[4], engagement: SERIES[5] };
     const hist = this.p()?.history || [];
     return Object.keys(COMPONENTS).map((k) => ({ name: COMPONENTS[k], color: colors[k],
       values: hist.map((h) => h.rows?.find((r) => r.component === k)?.value ?? null) })).filter((s) => s.values.some((v) => v !== null));

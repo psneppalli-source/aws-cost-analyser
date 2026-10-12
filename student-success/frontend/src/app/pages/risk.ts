@@ -28,7 +28,7 @@ import { Row } from './students';
       <div class="card" style="padding:0"><div class="table-wrap"><table>
         <thead><tr><th>Student</th><th>Dept · Year</th><th>Academic risk</th><th class="num">Score</th><th>Status</th><th>Segments</th><th>Mentor</th></tr></thead>
         <tbody>@for (r of rows(); track r.student_id) {
-          <tr><td><a [routerLink]="['/students', r.dataset, r.student_id]">{{ r.name }}</a> <span class="mono muted small">{{ r.student_id }}</span></td>
+          <tr><td><a [routerLink]="['/students', r.dataset, r.student_id]">{{ r.name }}</a><br><span class="mono muted small">{{ r.student_id }}</span></td>
             <td>{{ r.department }} · Y{{ r.year }}</td><td><app-risk [level]="r.risks?.academic?.level" /></td>
             <td class="num">{{ r.score ?? '–' }}</td><td><app-status [status]="r.status" /></td>
             <td class="small">{{ segs(r) }}</td><td class="small">{{ r.mentor_name || '–' }}</td></tr>

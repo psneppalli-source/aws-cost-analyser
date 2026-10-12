@@ -31,8 +31,8 @@ DEPTS = ["CSE", "ECE", "MECH"]
 FIRST = ["Aarav", "Ananya", "Vihaan", "Diya", "Arjun", "Saanvi", "Ishaan", "Kavya", "Rohan", "Meera", "Karthik", "Isha",
          "Siddharth", "Riya", "Pranav", "Lakshmi", "Varun", "Sneha", "Nikhil", "Tanvi", "Farhan", "Zoya", "Joseph", "Fatima",
          "Tenzin", "Anjali", "Deepak", "Aditi", "Harsh", "Neha"]
-LAST = ["Sharma", "Reddy", "Iyer", "Nair", "Patel", "Gupta", "Singh", "Rao", "Kumar", "Menon", "Joshi", "Das", "Mehta",
-        "Pillai", "Kulkarni", "Naidu", "Khan", "D'Souza", "Hegde", "Banerjee"]
+LAST = ["Sharma", "Bhat", "Iyer", "Nair", "Patel", "Gupta", "Singh", "Rao", "Kumar", "Menon", "Joshi", "Das", "Mehta",
+        "Pillai", "Kulkarni", "Chopra", "Khan", "D'Souza", "Hegde", "Banerjee"]
 ARCHETYPES = ["high_performer", "strong_academic_low_placement", "declining_attendance", "academic_support", "improving",
               "incomplete", "typical"]
 SYSTEM = Principal("seed", "seed", "Data setup")
@@ -352,8 +352,15 @@ def run(with_accounts: bool = True) -> dict:
             if sk != "MASTER":
                 _put(item, stats)
     # Recalculate every student, then fill intervention baselines/outcomes from computed history.
-    for s in data["students"]:
-        insights.recompute_safely(DS, s["student_id"])
+    # At low provisioned capacity a calculation can fail under throttling; retry, and leave any
+    # remaining ones marked for repair (never silently missing).
+    failed = [s["student_id"] for s in data["students"] if insights.recompute_safely(DS, s["student_id"]) != "current"]
+    for attempt in range(3):
+        if not failed:
+            break
+        time.sleep(5 * (attempt + 1))
+        failed = [sid for sid in failed if insights.recompute_safely(DS, sid) != "current"]
+    stats["recalc_pending"] = len(failed)
     for iv in data["interventions"]:
         _fill_baseline(iv)
     for s in data["students"]:
@@ -479,6 +486,20 @@ def relabel() -> int:
                     n += 1
                 except ConditionFailed:
                     pass  # changed meanwhile by a person; leave it
+    # Student names: follow the generator (only seed-owned masters; anything a person edited is left alone).
+    for st in generate()["students"]:
+        pk = f"STU#{DS}#{st['student_id']}"
+        m = t.get(pk, "MASTER")
+        if not m or m.get("name") == st["name"] or m.get("updated_by") != "seed":
+            continue
+        t.put({**m, "name": st["name"], "version": m["version"] + 1}, C.version(m["version"]))
+        n += 1
+        for it in t.query(pk)[0]:
+            if it["sk"].startswith(("INT#", "CORR#")) and it.get("student_name") != st["name"]:
+                t.put({**it, "student_name": st["name"]})
+                n += 1
+        insights.recompute_safely(DS, st["student_id"])
+    insights.invalidate_listing()
     for per in PERSONAS:
         for u in t.query("USERS", index="gsi2", limit=500)[0]:
             if u["username"] == per["username"] and u.get("display_name", "").startswith("Demo student"):

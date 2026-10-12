@@ -27,7 +27,7 @@ to **Demo (synthetic)** to see the 150 fictional students.
 
 | | |
 |---|---|
-| Frontend | `frontend/` — 15 screens: login, overview, students, profile with trends, academic risk, placement, segments, data entry, imports, interventions, approvals & verification, role matrix, configuration (scoring, recalculation, demo reset, platform settings), audit, users & assignments |
+| Frontend | `frontend/` — 16 screens: login, overview, insights & charts, students, profile with trends, academic risk, placement, segments, data entry, imports, interventions, approvals & verification, role matrix, configuration (scoring, recalculation, demo reset, platform settings), audit, users & assignments |
 | Backend | `backend/app/`, Lambda handlers `backend/lambda_api.py`, `backend/web_handler.py` |
 | Infrastructure | `infra/template.yaml`; `infra/preflight.py`, `deploy.py`, `setup_accounts.py`, `smoke_test.py`, `rollback.py`, `teardown.py` |
 | Seed generator | `backend/app/seed.py` (`python -m app.seed`; deterministic, idempotent, labelled synthetic) |

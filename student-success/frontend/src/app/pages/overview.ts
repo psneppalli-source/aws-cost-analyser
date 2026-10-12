@@ -4,7 +4,14 @@ import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
 import { SEGMENTS, when } from '../shared/labels';
 import { RealEmpty, blankFilters, message } from '../shared/page';
-import { BarChart, Bar, FilterBar, Filters, LineChart, StackedBars, StateView, StatusChip } from '../shared/ui';
+import { FilterBar, Filters, StateView, StatusChip } from '../shared/ui';
+import { HBar, HBars, HStack, Line, MultiLine, Part, SERIES, STATUS } from '../shared/charts';
+
+const SEG_SHORT: Record<string, string> = {
+  strong_academics_low_placement: 'Strong academics', declining_attendance_results: 'Declining trend',
+  strong_skills_academic_support: 'Strong skills', improving_after_intervention: 'Improving',
+  consistently_performing_well: 'Consistently strong', insufficient_data: 'Not enough data',
+};
 
 interface Dashboard {
   dataset: string; period: string; periods: string[]; students: number;
@@ -20,7 +27,7 @@ interface Dashboard {
 
 @Component({
   selector: 'app-overview-page',
-  imports: [RouterLink, FilterBar, StateView, BarChart, StackedBars, LineChart, StatusChip, RealEmpty],
+  imports: [RouterLink, FilterBar, StateView, HBars, HStack, MultiLine, StatusChip, RealEmpty],
   template: `
     <div class="page-head">
       <h1>Overview</h1><span class="spacer"></span>
@@ -49,23 +56,23 @@ interface Dashboard {
       <div class="grid g2" style="margin-top:16px">
         <section class="card"><div class="card-head"><h2>Average score by period</h2>
           <span class="desc">Only students with enough data; profiles are not mixed across years.</span></div>
-          <app-lines [labels]="trendLabels()" [series]="trendSeries()" label="Average Success Score by reporting period" [ref]="60" /></section>
+          <app-multiline [labels]="trendLabels()" [series]="trendSeries()" label="Average Success Score by reporting period" [ref]="60" refLabel="On track (60)" /></section>
         <section class="card"><div class="card-head"><h2>Score bands</h2><span class="desc">Students without enough data are counted separately, never as zero.</span></div>
-          <app-bars [data]="bands()" label="Students per score band" xName="Band" yName="Students" /></section>
+          <app-hbars [data]="bands()" label="Students per score band" /></section>
         <section class="card"><div class="card-head"><h2>Academic risk by department</h2></div>
-          <app-stacks [rows]="riskRows('academic')" label="Academic risk levels per department" /></section>
+          <app-hstack [rows]="riskRows('academic')" [parts]="riskParts" label="Academic risk levels per department" /></section>
         <section class="card"><div class="card-head"><h2>Placement risk by department</h2><span class="desc">Years 3–4 only. Missing assessments are “insufficient data”, not poor readiness.</span></div>
-          <app-stacks [rows]="riskRows('placement')" label="Placement risk levels per department" /></section>
+          <app-hstack [rows]="riskRows('placement')" [parts]="riskParts" label="Placement risk levels per department" /></section>
       </div>
       <section class="card" style="margin-top:16px"><div class="card-head"><h2>Segments</h2><span class="desc">Rules-based groupings; a student can be in more than one.</span></div>
-        <app-bars [data]="segmentBars()" label="Students per segment" xName="Segment" yName="Students" /></section>
+        <app-hbars [data]="segmentBars()" label="Students per segment" /></section>
       <section class="card" style="margin-top:16px">
         <div class="card-head"><h2>Students needing review</h2><span class="desc">Staff decide what to do; nothing is assigned automatically.</span></div>
         <div class="table-wrap"><table>
           <thead><tr><th>Student</th><th>Dept · Year</th><th class="num">Score</th><th>Status</th><th>Why</th></tr></thead>
           <tbody>
             @for (r of d.needs_review; track r.student_id) {
-              <tr><td><a [routerLink]="['/students', d.dataset, r.student_id]">{{ r.name }}</a> <span class="muted mono small">{{ r.student_id }}</span></td>
+              <tr><td><a [routerLink]="['/students', d.dataset, r.student_id]">{{ r.name }}</a><br><span class="muted mono small">{{ r.student_id }}</span></td>
                 <td>{{ r.department }} · Y{{ r.year }}</td><td class="num">{{ r.score ?? '–' }}</td><td><app-status [status]="r.status" /></td>
                 <td class="small">{{ r.reasons.join('; ') }}</td></tr>
             } @empty { <tr><td colspan="5" class="muted">No students currently meet the review rules.</td></tr> }
@@ -85,20 +92,24 @@ export class OverviewPage {
   periods = computed(() => this.session.me()?.periods || []);
   scored = computed(() => { const s = this.d()?.kpis.status || {}; return (s['complete'] || 0) + (s['provisional'] || 0); });
   trendLabels = computed(() => (this.d()?.trend || []).map((t) => t.period));
-  trendSeries = computed(() => [{ name: 'Average score', values: (this.d()?.trend || []).map((t) => t.average_score) }]);
-  bands = computed<Bar[]>(() => {
+  trendSeries = computed<Line[]>(() => [{ name: 'Average score', color: SERIES[0], values: (this.d()?.trend || []).map((t) => t.average_score) }]);
+  /** Score bands are ordered: one blue ramp from strong to at-risk; "not enough data" is neutral, never a score. */
+  bands = computed<HBar[]>(() => {
     const b = this.d()?.bands || {};
-    const order: [string, Bar['tone']][] = [['Strong', 'low'], ['On track', 'teal'], ['Needs attention', 'medium'], ['At risk', 'high'], ['Insufficient data', 'na']];
-    return order.map(([k, tone]) => ({ label: k, value: b[k] || 0, tone }));
+    const order: [string, string][] = [['Strong', '#184f95'], ['On track', '#2a78d6'], ['Needs attention', '#5598e7'], ['At risk', '#86b6ef'], ['Insufficient data', STATUS.neutral]];
+    return order.map(([k, color]) => ({ label: k === 'Insufficient data' ? 'Not enough data' : k, value: b[k] || 0, color, note: 'students' }));
   });
-  segmentBars = computed<Bar[]>(() => Object.entries(SEGMENTS).map(([k, v]) => ({ label: v.split(',')[0], note: v, value: this.d()?.segments[k] || 0, tone: k === 'insufficient_data' ? 'na' : 'navy' })));
+  segmentBars = computed<HBar[]>(() => Object.entries(SEGMENTS).map(([k, v]) => ({ label: SEG_SHORT[k] || v, note: v, value: this.d()?.segments[k] || 0,
+    color: k === 'insufficient_data' ? STATUS.neutral : SERIES[0] })));
+  riskParts: Part[] = [{ key: 'high', label: '▲ High', color: STATUS.critical }, { key: 'medium', label: '■ Medium', color: STATUS.warning },
+    { key: 'low', label: '● Low', color: STATUS.good }, { key: 'insufficient_data', label: '◌ Not enough data', color: STATUS.neutral }];
 
   constructor() {
     effect(() => { this.session.dataset(); this.filters(); untracked(() => this.load()); });
   }
 
   riskRows(kind: 'academic' | 'placement') {
-    return (this.d()?.risk_by_department || []).map((r) => ({ label: r.department, parts: r[kind] }));
+    return (this.d()?.risk_by_department || []).map((r) => ({ label: r.department, values: r[kind] }));
   }
 
   async load() {

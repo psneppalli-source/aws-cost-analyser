@@ -3,12 +3,14 @@ import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
 import { RealEmpty, blankFilters, message } from '../shared/page';
-import { FilterBar, Filters, RiskBadge, StackedBars, StateView } from '../shared/ui';
+import { FilterBar, Filters, RiskBadge, StateView } from '../shared/ui';
+import { HStack, Part, Pt, STATUS, Scatter } from '../shared/charts';
+import { Router } from '@angular/router';
 import { Row } from './students';
 
 @Component({
   selector: 'app-placement-page',
-  imports: [RouterLink, FilterBar, StateView, RiskBadge, StackedBars, RealEmpty],
+  imports: [RouterLink, FilterBar, StateView, RiskBadge, HStack, Scatter, RealEmpty],
   template: `
     <div class="page-head"><h1>Placement readiness</h1><span class="spacer"></span>
       <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
@@ -25,14 +27,20 @@ import { Row } from './students';
         <div class="card kpi"><div class="label">Strong academics, low placement</div><div class="value">{{ strongLow() }}</div></div>
       </section>
       <section class="card" style="margin:16px 0"><div class="card-head"><h2>Placement risk by department</h2></div>
-        <app-stacks [rows]="byDept()" label="Placement risk levels per department" /></section>
+        <app-hstack [rows]="byDept()" [parts]="parts" label="Placement risk levels per department" /></section>
+      @if (readiness().length) {
+        <section class="card" style="margin:0 0 16px"><div class="card-head"><h2>Placement readiness and skills</h2></div>
+          <p class="insight">Each dot is a student with both assessments. Bottom-left needs the most preparation; select a dot to open the student.</p>
+          <app-scatter [points]="readiness()" label="Placement readiness against skills per student" xName="Skills" yName="Placement readiness"
+                       (pick)="open($event)" /></section>
+      }
       <div class="row" role="group" aria-label="Risk level" style="margin-bottom:10px;gap:6px">
         @for (l of levelOpts; track l[0]) { <button type="button" class="btn small" [class.primary]="level() === l[0]" [attr.aria-pressed]="level() === l[0]" (click)="level.set(l[0])">{{ l[1] }}</button> }
       </div>
       <div class="card" style="padding:0"><div class="table-wrap"><table>
         <thead><tr><th>Student</th><th>Dept · Year</th><th>Placement risk</th><th class="num">Placement readiness</th><th class="num">Skills</th><th>Notes</th></tr></thead>
         <tbody>@for (r of rows(); track r.student_id) {
-          <tr><td><a [routerLink]="['/students', r.dataset, r.student_id]">{{ r.name }}</a> <span class="mono muted small">{{ r.student_id }}</span></td>
+          <tr><td><a [routerLink]="['/students', r.dataset, r.student_id]">{{ r.name }}</a><br><span class="mono muted small">{{ r.student_id }}</span></td>
             <td>{{ r.department }} · Y{{ r.year }}</td><td><app-risk [level]="r.risks?.placement?.level" /></td>
             <td class="num">{{ r.components?.['placement'] ?? '–' }}</td><td class="num">{{ r.components?.['skills'] ?? '–' }}</td>
             <td class="small">@if ((r.segments || []).includes('strong_academics_low_placement')) { Strong academics, low placement readiness }
@@ -60,8 +68,15 @@ export class PlacementPage {
   byDept = computed(() => {
     const m: Record<string, Record<string, number>> = {};
     for (const r of this.all()) { const l = r.risks?.placement?.level || 'insufficient_data'; (m[r.department] ||= {})[l] = (m[r.department][l] || 0) + 1; }
-    return Object.entries(m).sort().map(([label, parts]) => ({ label, parts }));
+    return Object.entries(m).sort().map(([label, values]) => ({ label, values }));
   });
+  parts: Part[] = [{ key: 'high', label: '▲ High', color: STATUS.critical }, { key: 'medium', label: '■ Medium', color: STATUS.warning },
+    { key: 'low', label: '● Low', color: STATUS.good }, { key: 'insufficient_data', label: '◌ Not assessed', color: STATUS.neutral }];
+  readiness = computed<Pt[]>(() => this.all().filter((r) => r.components?.['placement'] != null && r.components?.['skills'] != null)
+    .map((r) => ({ id: r.student_id, label: r.name, group: r.department, x: Math.round(r.components!['skills']), y: Math.round(r.components!['placement']),
+      note: `Year ${r.year}` })));
+  private router = inject(Router);
+  open(id: string) { this.router.navigate(['/students', this.session.dataset(), id]); }
 
   constructor() { effect(() => { this.session.dataset(); this.filters().department; this.filters().year; untracked(() => this.load()); }); }
 

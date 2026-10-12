@@ -192,3 +192,18 @@ def test_role_matrix_viewer_and_doc_in_sync(call):
     assert call("student.cse", "GET", "/api/role-matrix").status_code == 200
     from app.tools.render_role_matrix import OUT, render
     assert OUT.read_text() == render(), "run python -m app.tools.render_role_matrix"
+
+
+def test_analytics_is_scoped_and_role_filtered(call):
+    admin = call("admin.priya", "GET", "/api/analytics?dataset=demo").json()
+    assert admin["students"] == 150 and admin["kpis"]["average_score"] is not None
+    assert sum(b["count"] for b in admin["distribution"]) == admin["scored"]
+    assert len(admin["department_trend"]) == 3 and len(admin["department_trend"][0]["values"]) == len(admin["periods"])
+    assert sum(sum(v.values()) for v in admin["risk_matrix"]["counts"].values()) == 150
+    mentor = call("mentor.arjun", "GET", "/api/analytics?dataset=demo").json()
+    assert mentor["students"] == call("mentor.arjun", "GET", "/api/students?dataset=demo&limit=200").json()["total"] < 150
+    placement = call("placement.rohit", "GET", "/api/analytics?dataset=demo").json()
+    assert placement["kpis"]["average_score"] is None and placement["distribution"] == []  # no overall scores for this role
+    assert {c["key"] for c in placement["components"] if c["avg"] is not None} <= {"placement", "skills"}
+    assert call("student.cse", "GET", "/api/analytics?dataset=demo").status_code == 403
+    assert call("sysadmin.dev", "GET", "/api/analytics?dataset=demo").status_code == 403

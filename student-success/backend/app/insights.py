@@ -203,9 +203,14 @@ def recompute(ds: str, sid: str, actor="system") -> dict:
 
 
 def mark_failed(ds: str, sid: str) -> None:
-    ins = db.table().get(f"STU#{ds}#{sid}", "INSIGHT")
+    """Keep a failed recalculation visible and repairable: always (re)write the STALE marker that repair() reads,
+    and flag the existing insight if there is one. A student whose first calculation failed must not vanish."""
+    t = db.table()
+    t.put({"pk": f"STU#{ds}#{sid}", "sk": "STALE", "gsi2pk": f"STALE#{ds}", "gsi2sk": sid,
+           "reason": "recalculation failed", "marked_at": db.now()})
+    ins = t.get(f"STU#{ds}#{sid}", "INSIGHT")
     if ins:
-        db.table().put({**ins, "recalc_status": "stale"})
+        t.put({**ins, "recalc_status": "stale"})
 
 
 def recompute_safely(ds: str, sid: str) -> str:

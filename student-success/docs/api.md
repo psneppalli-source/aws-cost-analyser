@@ -35,6 +35,7 @@ see are removed from responses.
 | PUT | `/api/students/{ds}/{id}/mentor` | Assign or clear the mentor `{mentor_sub, version}` |
 | GET | `/api/entry/categories`, `/api/entry/classes`, `/api/entry/roster` | What this user may enter; their classes; a roster with saved values for a category and period |
 | GET | `/api/dashboard` | KPIs, bands, trend, risk by department, segments, students needing review |
+| GET | `/api/analytics` | Insights page aggregates (score spread, department trends, component strengths, risk matrix, attendance vs academic, data completeness, movers, interventions) from one scoped listing pass |
 | GET | `/api/risk/academic` | Students by academic risk (`level`) |
 | GET | `/api/placement` | Years 3–4 placement readiness and levels |
 | GET | `/api/segments` | Segment counts and members |

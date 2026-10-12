@@ -168,3 +168,23 @@ def test_prediction_model_is_disabled_by_default(client):
     assert get_model() is None
     h = client.get("/api/health").json()
     assert h["prediction"]["enabled"] is False and h["prediction"]["method"] == "rules"
+
+
+def test_failed_first_calculation_is_marked_and_repairable(call, monkeypatch):
+    from app import db, insights
+    t = db.table()
+    t.put({"pk": "STU#demo#MECH26900", "sk": "MASTER", "student_id": "MECH26900", "name": "Repair Case", "department": "MECH",
+           "year": 1, "dataset": "demo", "programme": "B.Tech", "status": "active", "version": 1})
+    for sk in ("INSIGHT", "STALE"):
+        t.delete("STU#demo#MECH26900", sk)
+    real = insights.recompute
+    monkeypatch.setattr(insights, "recompute", lambda ds, sid: (_ for _ in ()).throw(RuntimeError("throttled")))
+    assert insights.recompute_safely("demo", "MECH26900") == "stale"
+    assert t.get("STU#demo#MECH26900", "STALE") is not None  # visible to repair even with no insight yet
+    monkeypatch.setattr(insights, "recompute", real)
+    insights.repair("demo", budget_seconds=5)
+    assert t.get("STU#demo#MECH26900", "INSIGHT") is not None and t.get("STU#demo#MECH26900", "STALE") is None
+    t.delete("STU#demo#MECH26900", "INSIGHT"); t.delete("STU#demo#MECH26900", "INSIGHTD"); t.delete("STU#demo#MECH26900", "MASTER")
+    for i in t.query("STU#demo#MECH26900")[0]:
+        t.delete(i["pk"], i["sk"])
+    insights.invalidate_listing()

@@ -258,6 +258,14 @@ def dashboard(p: Principal = Depends(principal), dataset: str = Depends(ds_param
     return views.dashboard(p, dataset, department, year, period)
 
 
+@app.get("/api/analytics")
+def analytics(p: Principal = Depends(principal), dataset: str = Depends(ds_param), department: str | None = None,
+              year: int | None = None):
+    if not grants(p, "student_insight", "read") or p.roles == {"student"}:
+        raise Denied("Insights are for staff roles.")
+    return views.analytics(p, dataset, department, year)
+
+
 @app.get("/api/risk/academic")
 def academic_risk(p: Principal = Depends(principal), dataset: str = Depends(ds_param), department: str | None = None,
                   year: int | None = None, period: str | None = None, level: str | None = None):
