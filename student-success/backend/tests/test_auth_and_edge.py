@@ -94,6 +94,24 @@ def test_local_demo_refused_inside_lambda(monkeypatch):
         Settings()
 
 
+def test_lambda_entry_point_fails_to_start_with_local_auth(monkeypatch):
+    """The API handler module itself refuses to load, so a misconfigured function serves nothing."""
+    import importlib
+    import sys
+
+    from app import settings as s
+    monkeypatch.setenv("AWS_LAMBDA_FUNCTION_NAME", "ssp-api")
+    monkeypatch.setenv("AUTH_MODE", "local-demo")
+    s.settings.cache_clear()
+    sys.modules.pop("lambda_api", None)
+    try:
+        with pytest.raises(RuntimeError, match="cognito"):
+            importlib.import_module("lambda_api")
+    finally:
+        s.settings.cache_clear()
+        sys.modules.pop("lambda_api", None)
+
+
 # --------------------------------------------------------------------------- CloudFront OAC behaviour
 SIGV4 = "AWS4-HMAC-SHA256 Credential=ASIAEXAMPLE/20261012/eu-west-2/lambda/aws4_request, SignedHeaders=host;x-amz-date, Signature=abc"
 

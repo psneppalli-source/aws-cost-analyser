@@ -161,3 +161,10 @@ def test_insufficient_data_student_profile_and_listing(call):
     assert ins["score"] is None and ins["status"] == "insufficient_data" and ins["band"] is None
     for period in ("2026-04", "2026-09"):
         assert call("admin.priya", "GET", f"/api/students?dataset=demo&period={period}&limit=200").status_code == 200
+
+
+def test_prediction_model_is_disabled_by_default(client):
+    from app.model_interface import get_model
+    assert get_model() is None
+    h = client.get("/api/health").json()
+    assert h["prediction"]["enabled"] is False and h["prediction"]["method"] == "rules"

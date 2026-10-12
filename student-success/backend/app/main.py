@@ -108,7 +108,8 @@ def ds_param(dataset: str = "real") -> str:
 # --------------------------------------------------------------------------- session
 @app.get("/api/health")
 def health():
-    return {"ok": True}
+    from .model_interface import status
+    return {"ok": True, "prediction": status()}
 
 
 @app.get("/api/auth/config")

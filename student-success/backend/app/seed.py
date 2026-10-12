@@ -208,24 +208,41 @@ def _put(item: dict, stats: dict) -> None:
         stats["skipped"] += 1
 
 
+def persona_roles(per: dict, student_ids: dict) -> list[dict]:
+    """Role assignments for a demo persona; student personas point at the first student of their class."""
+    return [{**r, "student_id": student_ids[per["student"]]} if r["role"] == "student" else r for r in per["roles"]]
+
+
+def first_students() -> dict:
+    out: dict = {}
+    for s in generate()["students"]:
+        out.setdefault((s["department"], s["year"]), s["student_id"])
+    return out
+
+
+def assign_persona_roles(subs: dict) -> int:
+    """Give each persona account (username -> sub) its demo roles, unless it already has roles."""
+    from . import accounts
+    ids, n = first_students(), 0
+    for per in PERSONAS:
+        sub = subs.get(per["username"])
+        prof = db.table().get(f"USER#{sub}", "PROFILE") if sub else None
+        if prof and not prof.get("roles"):
+            accounts.set_roles(SYSTEM, sub, persona_roles(per, ids), prof["version"], system=True)
+            n += 1
+    return n
+
+
 def _ensure_accounts(stats: dict, student_ids: dict) -> dict:
+    """Local demo mode only: fixed 'local-' subs, no passwords."""
     from . import accounts
     subs = {}
     for per in PERSONAS:
         sub = f"local-{per['username']}"
         if not db.table().get(f"USER#{sub}", "PROFILE"):
             accounts.create_user(SYSTEM, per["username"], per["display_name"], sub=sub, system=True)
-        prof = db.table().get(f"USER#{sub}", "PROFILE")
-        roles = []
-        for r in per["roles"]:
-            if r["role"] == "student":
-                roles.append({**r, "student_id": student_ids[per["student"]]})
-            else:
-                roles.append(r)
-        if not prof.get("roles"):
-            accounts.set_roles(SYSTEM, sub, roles, prof["version"], system=True)
-            stats["accounts"] += 1
         subs[per["username"]] = sub
+    stats["accounts"] += assign_persona_roles(subs)
     return subs
 
 

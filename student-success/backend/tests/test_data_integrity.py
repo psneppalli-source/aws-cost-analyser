@@ -277,3 +277,12 @@ def test_demo_reset_restores_changes_in_bounded_resumable_steps(call):
     assert after["source"] == "seed" and after["assignments_due"] == rec["assignments_due"]
     assert db.table().get("STU#demo#ECE26777", "MASTER") is None
     assert db.table().get("STU#real#ECE26778", "MASTER") is not None
+
+
+def test_csv_templates_in_docs_match_the_importer():
+    import subprocess
+    import sys
+    r = subprocess.run([sys.executable, "-m", "app.tools.export_templates", "--check"], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout
+    r = subprocess.run([sys.executable, "-m", "app.tools.render_role_matrix", "--check"], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
