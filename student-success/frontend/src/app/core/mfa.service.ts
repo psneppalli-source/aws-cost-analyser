@@ -22,6 +22,9 @@ export class MfaService {
       const msg = (j as { message?: string }).message || '';
       const type = (j as { __type?: string }).__type || '';
       if (/CodeMismatch|EnableSoftwareTokenMFA/.test(type)) throw new Error('That code is not correct. Check the time on your phone and try the newest code.');
+      if (/NotAuthorized/.test(type) && target === 'ChangePassword') throw new Error('Your current password is not correct.');
+      if (/InvalidPassword/.test(type)) throw new Error(msg.split(':').pop()!.trim() || 'That password does not meet the rules.');
+      if (/LimitExceeded/.test(type)) throw new Error('Too many attempts. Please wait a few minutes and try again.');
       if (/scope|not authorized|access token/i.test(msg)) throw new Error('Please sign out and sign in again, then retry.');
       throw new Error(msg || 'The authenticator could not be set up. Please try again.');
     }
@@ -36,6 +39,13 @@ export class MfaService {
     const issuer = 'Smart Campus';
     const uri = `otpauth://totp/${encodeURIComponent(issuer)}:${encodeURIComponent(account)}?secret=${r.SecretCode}&issuer=${encodeURIComponent(issuer)}`;
     return { secret: r.SecretCode, uri };
+  }
+
+  /** Change the signed-in user's password (needs the current one). */
+  async changePassword(current: string, next: string): Promise<void> {
+    const token = await this.auth.accessToken();
+    if (!token) throw new Error('Please sign out and sign in again, then retry.');
+    await this.call('ChangePassword', { AccessToken: token, PreviousPassword: current, ProposedPassword: next });
   }
 
   /** Confirm with a code from the app and make the authenticator the sign-in method. */

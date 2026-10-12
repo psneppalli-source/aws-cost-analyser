@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from . import db
 
-TECHNICAL = {"user", "role", "system", "auth", "mfa", "registration"}
+TECHNICAL = {"user", "role", "system", "auth", "mfa", "registration", "recovery", "password"}
 
 
 def log(actor, action: str, entity: str, entity_id: str = "", details: dict | None = None, dataset: str = "") -> None:

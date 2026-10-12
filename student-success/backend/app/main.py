@@ -177,6 +177,28 @@ async def register_complete(request: Request):
                                  b.get("password", ""))
 
 
+# --------------------------------------------------------------------------- account recovery (public)
+@app.post("/api/recovery/start")
+async def recovery_start(request: Request):
+    from . import recovery
+    b = await request.json()
+    try:
+        return recovery.start(b.get("username", ""))
+    except recovery.NotAvailable as e:
+        return err(400, "not_available", str(e))
+
+
+@app.post("/api/recovery/complete")
+async def recovery_complete(request: Request):
+    from . import recovery
+    b = await request.json()
+    try:
+        return recovery.complete(b.get("username", ""), b.get("code", ""), b.get("password", ""),
+                                 bool(b.get("reset_authenticator")), b.get("date_of_birth"))
+    except recovery.NotAvailable as e:
+        return err(400, "not_available", str(e))
+
+
 @app.get("/api/me")
 def me(p: Principal = Depends(principal)):
     m = role_matrix()
@@ -535,6 +557,16 @@ async def create_user(request: Request, p: Principal = Depends(principal)):
 async def set_roles(sub: str, request: Request, p: Principal = Depends(principal)):
     b = await request.json()
     return accounts.set_roles(p, sub, b.get("assignments") or [], b.get("version"))
+
+
+@app.post("/api/users/{sub}/password-reset")
+def password_reset(sub: str, p: Principal = Depends(principal)):
+    """System Administrator: email a reset code; the user then sets a new password with "Forgot password"."""
+    require(p, "user_account", "update")
+    if sub == p.sub:
+        raise Denied("Use Security, Change password, for your own account.")
+    from . import recovery
+    return recovery.admin_send_reset(p, sub)
 
 
 @app.post("/api/users/{sub}/mfa-reset")

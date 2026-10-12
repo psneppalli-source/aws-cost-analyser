@@ -4,6 +4,7 @@ import { Shell } from './shell';
 
 export const routes: Routes = [
   { path: 'login', title: 'Sign in · Smart Campus', loadComponent: () => import('./pages/login').then((m) => m.LoginPage) },
+  { path: 'recover', title: 'Reset password or authenticator', loadComponent: () => import('./pages/recover').then((m) => m.RecoverPage) },
   { path: 'register', title: 'Create your student account', loadComponent: () => import('./pages/register').then((m) => m.RegisterPage) },
   {
     path: '', component: Shell, canActivate: [signedIn], canActivateChild: [mfaReady], children: [

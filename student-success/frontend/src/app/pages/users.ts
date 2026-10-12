@@ -45,7 +45,8 @@ interface Edit { roles: Record<string, boolean>; department: string; dataset: st
             <td class="row" style="gap:4px">@if (u.sub !== me()) {
               <button class="btn small" type="button" (click)="startEdit(u)">Roles</button>
               <button class="btn small" type="button" (click)="toggle(u)" [disabled]="busy()">{{ u.status === 'active' ? 'Disable' : 'Enable' }}</button>
-              <button class="btn small" type="button" (click)="resetMfa(u)" [disabled]="busy()" title="For a lost phone: the user sets up a new authenticator at next sign-in">Reset authenticator</button> }
+              <button class="btn small" type="button" (click)="resetMfa(u)" [disabled]="busy()" title="For a lost phone: the user sets up a new authenticator at next sign-in">Reset authenticator</button>
+              <button class="btn small" type="button" (click)="resetPassword(u)" [disabled]="busy()" title="Emails a 6-digit code; the user sets a new password with Forgot password">Send password reset</button> }
               @else { <span class="small muted">You</span> }</td></tr>
           @if (editing() === u.sub) {
             <tr><td colspan="5">
@@ -176,6 +177,11 @@ export class UsersPage {
       await this.api.post(`/users/${encodeURIComponent(u.sub)}/mfa-reset`);
       return `Authenticator reset for ${u.username}.`;
     });
+  }
+
+  resetPassword(u: User) {
+    if (!confirm(`Email ${u.username} a password reset code? Their current password stops working until they set a new one.`)) return;
+    return this.act(async () => (await this.api.post<{ message: string }>(`/users/${encodeURIComponent(u.sub)}/password-reset`)).message);
   }
 
   async loadAssignments() {

@@ -12,6 +12,7 @@ import { message } from '../shared/page';
   selector: 'app-security-page',
   imports: [FormsModule],
   styles: [`.qr{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap} .qr img{width:200px;height:200px;image-rendering:pixelated;border:1px solid var(--line);border-radius:8px}
+    .rules{font-size:12.5px;color:var(--muted);margin:4px 0 0;padding-left:0;list-style:none} .rules li.ok{color:#006300}
     .secret{font-family:ui-monospace,monospace;letter-spacing:.08em;word-break:break-all;background:#f0efec;padding:6px 8px;border-radius:6px;font-size:13px}`],
   template: `
     <div class="page-head"><h1>Security</h1>
@@ -29,7 +30,9 @@ import { message } from '../shared/page';
         <p class="small">Authenticator apps are used with the college sign-in on the hosted site. In local development there is nothing to set up.</p>
       } @else if (enabled() && !secret()) {
         <p>Your account asks for a 6-digit code from your authenticator app each time you sign in.</p>
-        <p class="small muted">Lost your phone? Ask the system administrator to reset your authenticator, then set it up again here.</p>
+        <button class="btn" type="button" (click)="begin()" [disabled]="busy()">Move to a new phone</button>
+        <p class="small muted" style="margin-top:8px">Scan a new QR code with your new phone; the old phone stops working once you confirm.
+          Lost your phone and can't sign in? Use “Lost your authenticator app?” on the sign-in page.</p>
       } @else if (!secret()) {
         <ol class="small"><li>Install Google Authenticator, Microsoft Authenticator or another authenticator app on your phone.</li>
           <li>Select <strong>Set up</strong> and scan the QR code with the app.</li>
@@ -57,8 +60,23 @@ import { message } from '../shared/page';
         <dt class="muted">User ID</dt><dd style="margin:0">{{ session.me()?.user?.username }}</dd>
         <dt class="muted">Name</dt><dd style="margin:0">{{ session.me()?.user?.display_name }}</dd>
         <dt class="muted">Role</dt><dd style="margin:0">{{ session.me()?.user?.role_labels?.join(', ') }}</dd></dl>
-      <p class="small muted" style="margin-top:10px">To change your password, sign out and use “Forgot your password?” on the sign-in page.</p>
-    </section>`,
+    </section>
+
+    @if (!local()) {
+      <section class="card" style="margin-top:16px"><h2>Change password</h2>
+        <form class="stack" style="max-width:420px" (submit)="$event.preventDefault(); changePassword()">
+          <label class="field">Current password<input name="cur" type="password" [(ngModel)]="cur" required autocomplete="current-password"></label>
+          <label class="field">New password<input name="np" type="password" [(ngModel)]="np" (ngModelChange)="pw.set($event)" required autocomplete="new-password"></label>
+          <ul class="rules">@for (r of rules(); track r.text) { <li [class.ok]="r.ok">{{ r.ok ? '✓' : '•' }} {{ r.text }}</li> }</ul>
+          <label class="field">Confirm new password<input name="np2" type="password" [(ngModel)]="np2" required autocomplete="new-password"></label>
+          @if (np2 && np2 !== np) { <span class="error-text">The passwords don't match.</span> }
+          <button class="btn primary" type="submit" [disabled]="pwBusy() || !cur || np !== np2 || !allOk()">Change password</button>
+        </form>
+        @if (pwError()) { <p class="error-text" role="alert" style="margin-top:10px">{{ pwError() }}</p> }
+        @if (pwNotice()) { <p class="banner" role="status" style="margin-top:10px">{{ pwNotice() }}</p> }
+        <p class="small muted" style="margin-top:10px">Forgotten your current password? Sign out and use “Forgot password?” on the sign-in page.</p>
+      </section>
+    }`,
 })
 export class SecurityPage {
   private api = inject(Api);
@@ -72,6 +90,21 @@ export class SecurityPage {
   error = signal<string | null>(null);
   notice = signal<string | null>(null);
   code = '';
+  cur = ''; np = ''; np2 = '';
+  pw = signal('');
+  pwBusy = signal(false);
+  pwError = signal<string | null>(null);
+  pwNotice = signal<string | null>(null);
+  rules = computed(() => {
+    const p = this.pw();
+    return [
+      { text: 'At least 12 characters', ok: p.length >= 12 },
+      { text: 'An upper-case and a lower-case letter', ok: /[A-Z]/.test(p) && /[a-z]/.test(p) },
+      { text: 'A number', ok: /\d/.test(p) },
+      { text: 'A symbol, e.g. ! @ # %', ok: /[^A-Za-z0-9]/.test(p) },
+    ];
+  });
+  allOk() { return this.rules().every((r) => r.ok); }
   local = computed(() => this.auth.config()?.mode !== 'cognito');
   enabled = computed(() => !!this.session.me()?.user.mfa?.enabled);
   grouped = computed(() => (this.secret() || '').replace(/(.{4})/g, '$1 ').trim());
@@ -90,6 +123,16 @@ export class SecurityPage {
       this.secret.set(r.secret); this.uri.set(r.uri);
     } catch (e) { this.error.set(message(e)); }
     finally { this.busy.set(false); }
+  }
+
+  async changePassword() {
+    this.pwBusy.set(true); this.pwError.set(null); this.pwNotice.set(null);
+    try {
+      await this.mfa.changePassword(this.cur, this.np);
+      this.cur = this.np = this.np2 = ''; this.pw.set('');
+      this.pwNotice.set('Password changed. Use the new password next time you sign in.');
+    } catch (e) { this.pwError.set(message(e)); }
+    finally { this.pwBusy.set(false); }
   }
 
   async confirm() {

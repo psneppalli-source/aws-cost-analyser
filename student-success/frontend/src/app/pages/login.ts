@@ -16,9 +16,12 @@ interface Persona { username: string; display_name: string; }
           <div><strong id="t">Smart Campus Analytics</strong><small style="color:var(--muted)">Predict, optimise and improve student success</small></div></div>
         @if (error()) { <p class="banner danger" role="alert">{{ error() }}</p> }
         @if (auth.config()?.mode === 'cognito') {
-          <p>Sign in with the account your college administrator created for you. There is no public registration.</p>
+          <p>Sign in with your user ID, password and authenticator app code.</p>
           <button class="btn primary" type="button" style="width:100%" (click)="cognito()" [disabled]="busy()">Sign in</button>
-          <p class="small muted" style="margin-top:14px">Staff accounts are created by the college. Forgotten your password? Use “Forgot your password?” on the sign-in page.</p>
+          <div class="row small" style="gap:16px;margin-top:12px;flex-wrap:wrap">
+            <a routerLink="/recover">Forgot password?</a>
+            <a routerLink="/recover" [queryParams]="{ mode: 'mfa' }">Lost your authenticator app?</a></div>
+          <p class="small muted" style="margin-top:10px">Staff accounts are created by the college.</p>
         } @else {
           <p class="banner warn small"><strong>Local demonstration sign-in.</strong> Choose a persona. This mode is for local development only and is refused by AWS deployments.</p>
           <div class="stack" role="list">
@@ -32,7 +35,7 @@ interface Persona { username: string; display_name: string; }
             @if (!personas().length) { <p class="muted">No personas yet. Run <span class="mono">python -m app.seed</span> in backend/ first.</p> }
           </div>
         }
-        <p class="small" style="margin-top:16px;border-top:1px solid var(--line);padding-top:12px">New student? <a routerLink="/register">Create your account</a> using your student ID, date of birth and college email.</p>
+        <p class="small" style="margin-top:16px;border-top:1px solid var(--line);padding-top:12px">New student? <a routerLink="/register">Create your account</a> using your student ID and date of birth.</p>
       </main>
     </div>`,
 })

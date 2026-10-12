@@ -156,10 +156,10 @@ Resources:
       UsernameConfiguration:
         CaseSensitive: false
       AutoVerifiedAttributes: [email]
-      VerificationMessageTemplate:          # the 6-digit code students receive when registering (app/registration.py)
+      VerificationMessageTemplate:          # 6-digit codes for registration (app/registration.py) and password recovery (app/recovery.py)
         DefaultEmailOption: CONFIRM_WITH_CODE
         EmailSubject: "Your Smart Campus verification code"
-        EmailMessage: "Your Smart Campus verification code is {####}<br><br>Enter this 6-digit code on the student registration page within 30 minutes. If you did not ask for it, ignore this email."
+        EmailMessage: "Your Smart Campus verification code is {####}<br><br>Enter this 6-digit code on the Smart Campus page where you asked for it (create account or reset password). If you did not ask for it, ignore this email and your account stays unchanged."
       AccountRecoverySetting:
         RecoveryMechanisms:
           - { Name: verified_email, Priority: 1 }   # never SMS
@@ -261,6 +261,7 @@ Resources:
                   - cognito-idp:AdminSetUserPassword
                   - cognito-idp:AdminInitiateAuth
                   - cognito-idp:AdminSetUserMFAPreference
+                  - cognito-idp:AdminResetUserPassword
                   - cognito-idp:AdminDisableUser
                   - cognito-idp:AdminEnableUser
                   - cognito-idp:AdminUserGlobalSignOut
