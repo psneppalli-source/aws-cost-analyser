@@ -22,6 +22,9 @@
 
   const state = { view: "overview", sort: { k: "acad_risk", dir: -1 }, page: 0, riskKind: "acad", scoreRange: null };
   const PAGE = 25;
+  // When embedded (e.g. a hosted viewer), downloads and URL changes may be blocked.
+  const EMBEDDED = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
+  function setHash(h) { try { history.replaceState(null, "", h); } catch (e) { /* not allowed here */ } }
 
   /* ---------------- Theme ---------------- */
   function resolvedTheme() {
@@ -89,7 +92,7 @@
     document.querySelectorAll(".view").forEach((v) => (v.hidden = v.id !== "view-" + view));
     $("#filters").style.display = view === "method" ? "none" : "";
     renderAll();
-    if (location.hash !== "#" + view && !location.hash.startsWith("#student=")) history.replaceState(null, "", "#" + view);
+    if (location.hash !== "#" + view && !location.hash.startsWith("#student=")) setHash("#" + view);
   }
   document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => show(t.dataset.view)));
 
@@ -307,13 +310,34 @@
     const lines = [cols.join(",")].concat(filtered().sort((a, b) => b.acad_risk - a.acad_risk).map((s) => [
       s.id, s.name, s.dept, s.year, s.score, s.band, s.acad_tier, s.acad_risk, s.place_tier || "", s.place_risk ?? "",
       SEG[s.segment].label, s.flags.join("; "), s.actions[0]?.action, s.actions[0]?.owner].map(q).join(",")));
-    const blob = new Blob([lines.join("\n")], { type: "text/csv" });
+    const csv = lines.join("\n");
+    if (EMBEDDED) { copyCsv(csv, lines.length - 1); return; }
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
     a.download = "intervention_list.csv";
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });
+
+  // Embedded viewers block downloads, so copy the CSV instead (paste into Excel or Sheets).
+  function copyCsv(csv, n) {
+    const btn = $("#exportBtn");
+    const done = (msg) => { btn.textContent = msg; setTimeout(() => (btn.textContent = btn.dataset.label), 2500); };
+    const fallback = () => {
+      let ta = $("#csvFallback");
+      if (!ta) {
+        ta = document.createElement("textarea");
+        ta.id = "csvFallback"; ta.readOnly = true; ta.rows = 6;
+        ta.style.cssText = "width:100%;margin-top:10px;font:12px ui-monospace,monospace;background:var(--surface);color:var(--ink);border:1px solid var(--border);border-radius:8px;padding:8px";
+        $("#pager").after(ta);
+      }
+      ta.value = csv; ta.focus(); ta.select();
+      done("Select all and copy the text below");
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(csv).then(() => done(`Copied ${n} rows as CSV`), fallback);
+    } else fallback();
+  }
 
   /* ================= SEGMENTS ================= */
   function renderSegments(list) {
@@ -462,7 +486,7 @@
     $("#scrim").classList.add("show");
     $("#closeDrawer").addEventListener("click", closeStudent);
     $("#closeDrawer").focus();
-    history.replaceState(null, "", "#student=" + s.id);
+    setHash("#student=" + s.id);
     // Charts need the drawer laid out to measure width.
     requestAnimationFrame(() => drawStudentCharts(s, "acad"));
     document.querySelectorAll("#dRiskToggle button").forEach((b) => b.addEventListener("click", () => {
@@ -523,7 +547,7 @@
     $("#drawer").setAttribute("aria-hidden", "true");
     $("#scrim").classList.remove("show");
     C.tip.hide();
-    history.replaceState(null, "", "#" + state.view);
+    setHash("#" + state.view);
   }
   $("#scrim").addEventListener("click", closeStudent);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("#drawer").classList.contains("show")) closeStudent(); });
@@ -558,6 +582,7 @@
   });
 
   $("#asof").textContent = `Data as of ${D.generated_on}`;
+  $("#exportBtn").dataset.label = $("#exportBtn").textContent = EMBEDDED ? "Copy intervention list (CSV)" : "Export intervention list (CSV)";
   const h = location.hash.slice(1);
   if (h.startsWith("student=")) { show("students"); openStudent(h.slice(8)); }
   else show(["overview", "students", "segments", "method"].includes(h) ? h : "overview");
