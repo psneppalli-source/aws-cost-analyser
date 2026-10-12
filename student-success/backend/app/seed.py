@@ -35,7 +35,14 @@ LAST = ["Sharma", "Reddy", "Iyer", "Nair", "Patel", "Gupta", "Singh", "Rao", "Ku
         "Pillai", "Kulkarni", "Naidu", "Khan", "D'Souza", "Hegde", "Banerjee"]
 ARCHETYPES = ["high_performer", "strong_academic_low_placement", "declining_attendance", "academic_support", "improving",
               "incomplete", "typical"]
-SYSTEM = Principal("seed", "seed", "Synthetic data generator")
+SYSTEM = Principal("seed", "seed", "Data setup")
+
+# Display texts carried by seeded records (chosen without extra random draws so the dataset is unchanged).
+FEEDBACK_COMMENTS = ["Would like more practice problems before internal tests.", "Workload is heavy this month.",
+                     "Lab sessions are helpful.", "Need guidance on choosing electives.", "More mock interviews would help."]
+CERT_ISSUERS = {"NPTEL Python": "NPTEL", "Cloud Fundamentals": "Cloud training partner", "Data Analytics Basics": "Skills portal"}
+INTERVENTION_DETAIL = "Plan agreed with the student; progress reviewed at each check-in."
+OLD_TEXTS = {"comment": "Synthetic feedback comment.", "issuer": "Synthetic issuer", "detail": "Synthetic example intervention."}
 
 # Demo personas (local-demo mode signs in as these; in Cognito mode infra/setup_accounts.py creates them).
 PERSONAS = [
@@ -48,9 +55,9 @@ PERSONAS = [
     {"username": "placement.rohit", "display_name": "Rohit Verma (Placement Officer)", "roles": [{"role": "placement_officer"}]},
     {"username": "activity.sara", "display_name": "Sara Thomas (Activity Coordinator)", "roles": [{"role": "activity_coordinator"}]},
     {"username": "sysadmin.dev", "display_name": "Dev Malhotra (System Administrator)", "roles": [{"role": "system_admin"}]},
-    {"username": "student.cse", "display_name": "Demo student (CSE year 3)", "roles": [{"role": "student", "dataset": DS}],
+    {"username": "student.cse", "display_name": "Student (CSE year 3)", "roles": [{"role": "student", "dataset": DS}],
      "student": ("CSE", 3)},
-    {"username": "student.ece", "display_name": "Demo student (ECE year 1)", "roles": [{"role": "student", "dataset": DS}],
+    {"username": "student.ece", "display_name": "Student (ECE year 1)", "roles": [{"role": "student", "dataset": DS}],
      "student": ("ECE", 1)},
 ]
 
@@ -157,7 +164,7 @@ def _records_for(rng, s, periods, cur) -> list[dict]:
             stress = int(clip(round(3 - 0.5 * ability + g(0, 0.8) + (1 if a == "declining_attendance" and i >= 3 else 0)), 1, 5))
             rec("feedback", p, satisfaction=int(clip(round(3.6 + 0.4 * ability + g(0, 0.7)), 1, 5)), stress=stress,
                 support_needed=["academic"] if a in ("academic_support", "improving") else (["career"] if a == "strong_academic_low_placement" else []),
-                comment="Synthetic feedback comment.")
+                comment=FEEDBACK_COMMENTS[(i + p.count("0")) % len(FEEDBACK_COMMENTS)])
     n_events = max(0, int(round(2 + 1.5 * ability + g(0, 1)))) if a != "incomplete" else 0
     for k in range(n_events):
         rec("engagement", periods[rng.randint(0, 5)], activity_type="event", name=rng.choice(
@@ -170,8 +177,10 @@ def _records_for(rng, s, periods, cur) -> list[dict]:
         rec("engagement", periods[rng.randint(1, 5)], activity_type="project", name="Mini project: campus app", role="Team member",
             verification="verified")
     if a != "incomplete" and rng.random() < 0.5:
-        rec("certification", periods[rng.randint(0, 5)], name=rng.choice(["NPTEL Python", "Cloud Fundamentals", "Data Analytics Basics"]),
-            issuer="Synthetic issuer", verification="verified" if rng.random() < 0.7 else "pending")
+        cp = periods[rng.randint(0, 5)]  # same draw order as before: period, name, verification
+        cert = rng.choice(["NPTEL Python", "Cloud Fundamentals", "Data Analytics Basics"])
+        rec("certification", cp, name=cert,
+            issuer=CERT_ISSUERS[cert], verification="verified" if rng.random() < 0.7 else "pending")
     return out
 
 
@@ -299,7 +308,7 @@ def _plan(data: dict, subs: dict, ts: str) -> tuple[dict, dict]:
         item = {"pk": f"STU#{DS}#{iv['student_id']}", "sk": f"INT#{iv['intervention_id']}", "intervention_id": iv["intervention_id"],
                 "student_id": iv["student_id"], "student_name": m["name"], "dataset": DS, "department": m["department"],
                 "year": m["year"], "title": iv["title"], "category": iv["category"], "recommendation_key": iv["recommendation_key"],
-                "evidence": [], "detail": "Synthetic example intervention.", "owner_sub": owner,
+                "evidence": [], "detail": INTERVENTION_DETAIL, "owner_sub": owner,
                 "owner_name": next((p["display_name"] for p in PERSONAS if subs.get(p["username"]) == owner), "Demo owner"),
                 "due_date": iv["due_date"], "review_date": iv["review_date"], "status": iv["status"],
                 "outcome": iv["outcome"], "reviewed_by": "seed", "created_by": "seed", "created_by_name": "seed",
@@ -446,10 +455,46 @@ def reset_demo(principal, confirmation: str, cursor: int = 0, budget_seconds: fl
             "removed": removed, "restored": restored}
 
 
+def relabel() -> int:
+    """One-off: replace older seeded display texts in place (no score changes). Returns items updated."""
+    t, n = db.table(), 0
+    by_sid = {}
+    for r in generate()["records"]:
+        if r["category"] in ("feedback", "certification"):
+            by_sid.setdefault(r["student_id"], {})[(r["category"], r["period"], r.get("name"))] = r
+    for sid in sorted({s["student_id"] for s in generate()["students"]}):
+        items, _ = t.query(f"STU#{DS}#{sid}")
+        for it in items:
+            new = None
+            if it.get("comment") == OLD_TEXTS["comment"]:
+                g = by_sid.get(sid, {}).get(("feedback", it["period"], None))
+                new = {"comment": g["comment"] if g else FEEDBACK_COMMENTS[0]}
+            elif it.get("issuer") == OLD_TEXTS["issuer"]:
+                new = {"issuer": CERT_ISSUERS.get(it.get("name"), "Training provider")}
+            elif it.get("detail") == OLD_TEXTS["detail"]:
+                new = {"detail": INTERVENTION_DETAIL}
+            if new:
+                try:
+                    t.put({**it, **new, "version": it.get("version", 1) + 1}, C.version(it.get("version", 1)))
+                    n += 1
+                except ConditionFailed:
+                    pass  # changed meanwhile by a person; leave it
+    for per in PERSONAS:
+        for u in t.query("USERS", index="gsi2", limit=500)[0]:
+            if u["username"] == per["username"] and u.get("display_name", "").startswith("Demo student"):
+                t.put({**u, "display_name": per["display_name"], "version": u["version"] + 1}, C.version(u["version"]))
+                n += 1
+    return n
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--no-accounts", action="store_true", help="don't create the demo sign-in accounts")
+    ap.add_argument("--relabel", action="store_true", help="update older seeded display texts in place, then exit")
     a = ap.parse_args()
+    if a.relabel:
+        print(f"Updated {relabel()} item(s).")
+        return
     from .settings import settings
     if settings().auth_mode == "cognito" and not a.no_accounts:
         raise SystemExit("In Cognito mode create accounts with infra/setup_accounts.py, then run with --no-accounts.")

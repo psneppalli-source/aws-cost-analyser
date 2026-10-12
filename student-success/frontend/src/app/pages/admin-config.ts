@@ -81,7 +81,7 @@ interface Version { config_version: string; status: string; reason: string; prop
 
     @if (session.can('dataset', 'reset_demo')) {
       <section class="card" style="margin-top:16px"><div class="card-head"><h2>Reset demo dataset</h2></div>
-        <p class="small">Deletes and regenerates the synthetic demo dataset only (fixed seed). Real records are never touched.</p>
+        <p class="small">Restores the demo dataset to its original state. Real records are never touched.</p>
         <form class="row" style="gap:6px" (submit)="$event.preventDefault(); resetDemo()">
           <label class="field">Type RESET DEMO to confirm<input name="rc" [(ngModel)]="confirm" autocomplete="off"></label>
           <button class="btn danger" type="submit" [disabled]="busy() || confirm !== 'RESET DEMO'">Reset demo data</button></form>

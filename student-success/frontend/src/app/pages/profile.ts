@@ -65,7 +65,7 @@ const RECORD_COLS: Record<string, string[]> = {
       <div class="page-head">
         <div><h1 style="margin-bottom:2px">{{ p.student.name }}</h1>
           <span class="mono muted">{{ p.student.student_id }}</span> · {{ p.student.department }} · Year {{ p.student.year }} · {{ p.student.programme }}
-          @if (p.student.dataset === 'demo') { <span class="chip">Synthetic demo student</span> }</div>
+</div>
         <span class="spacer"></span>
         <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
         @if (!isOwn()) { <a class="btn small" routerLink="/students">Back to students</a> }

@@ -17,7 +17,7 @@ export interface Me {
 export class Session {
   private api = inject(Api);
   readonly me = signal<Me | null>(null);
-  /** Real records by default; demo data is shown only when chosen (never mixed into real aggregates). */
+  /** The dataset being viewed: the user's choice, else demo data when the user may see it (never mixed with real). */
   readonly dataset = signal<'real' | 'demo'>((sessionStorage.getItem('ssp.dataset') as 'real' | 'demo') || 'real');
   readonly roles = computed(() => new Set(this.me()?.user.roles || []));
   readonly isStudent = computed(() => this.roles().has('student') && this.roles().size === 1);
@@ -27,6 +27,7 @@ export class Session {
     const me = await this.api.get<Me>('/me');
     this.me.set(me);
     if (me.user.student) this.setDataset(me.user.student.dataset as 'real' | 'demo');
+    else if (!sessionStorage.getItem('ssp.dataset') && me.datasets.includes('demo')) this.dataset.set('demo');
     return me;
   }
 

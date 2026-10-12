@@ -1,8 +1,7 @@
 # Five-minute demonstration script
 
-Setup beforehand: demo dataset seeded; browser at the site; topbar dataset set to **Demo (synthetic)**.
-Locally pick personas on the login page; on AWS sign in with the persona accounts from
-`infra/setup_accounts.py --demo-personas`. Every student shown is fictional.
+Setup beforehand: demo dataset loaded (shown by default). Locally pick personas on the login page; on AWS sign in
+with the persona accounts from `infra/setup_accounts.py --demo-personas`.
 
 | Time | Persona | Show | Say |
 |---|---|---|---|

@@ -22,7 +22,7 @@ export function message(e: unknown): string {
     @if (show() && session.dataset() === 'real') {
       <div class="banner" style="margin-bottom:14px">
         No real student records yet. Add students and data with <strong>Enter data</strong> or <strong>Import</strong>@if (canDemo()) {,
-        or <button class="btn small" type="button" (click)="session.setDataset('demo')">view the synthetic demo dataset</button>}.
+        or <button class="btn small" type="button" (click)="session.setDataset('demo')">view the demo data</button>}.
       </div>
     }`,
 })

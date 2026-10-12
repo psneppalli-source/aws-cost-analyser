@@ -25,7 +25,7 @@ interface Import {
       <form class="form-grid" (submit)="$event.preventDefault(); preview()">
         <label class="field">What are you importing?<select name="c" [(ngModel)]="category">
           @for (c of cats(); track c.category) { <option [value]="c.category">{{ c.label }}</option> }</select></label>
-        <label class="field">Dataset<input name="ds" [value]="session.dataset() === 'demo' ? 'Demo (synthetic)' : 'Real records'" disabled></label>
+        <label class="field">Dataset<input name="ds" [value]="session.dataset() === 'demo' ? 'Demo data' : 'Real records'" disabled></label>
         <div class="field">Template<button class="btn" type="button" (click)="template()" [disabled]="!category">Download CSV template</button></div>
         <label class="field" style="grid-column:1/-1">File (.csv or .xlsx, up to 2,000 rows)
           <input type="file" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" (change)="file = $any($event.target).files?.[0] || null"></label>

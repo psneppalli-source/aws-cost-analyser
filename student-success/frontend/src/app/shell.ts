@@ -29,12 +29,9 @@ interface NavItem { path: string; label: string; show: boolean; }
           @if (datasets().length > 1) {
             <label class="row small" style="gap:6px">Dataset
               <select [value]="session.dataset()" (change)="setDataset($any($event.target).value)" aria-label="Dataset">
+                <option value="demo">Demo data</option>
                 <option value="real">Real records</option>
-                <option value="demo">Demo (synthetic)</option>
               </select></label>
-          }
-          @if (session.dataset() === 'demo') {
-            <span class="chip" title="150 fictional students generated with a fixed seed. Never mixed into real figures.">Synthetic demo data</span>
           }
           <span class="spacer"></span>
           <span class="small"><strong>{{ me()?.user?.display_name }}</strong>

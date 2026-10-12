@@ -18,7 +18,7 @@ interface Persona { username: string; display_name: string; }
           <button class="btn primary" type="button" style="width:100%" (click)="cognito()" [disabled]="busy()">Sign in</button>
           <p class="small muted" style="margin-top:14px">Accounts are provisioned by the System Administrator. Forgotten your password? Use “Forgot password” on the sign-in page.</p>
         } @else {
-          <p class="banner warn small"><strong>Local demonstration sign-in.</strong> Choose a fictional persona. This mode is for local development only and is refused by AWS deployments.</p>
+          <p class="banner warn small"><strong>Local demonstration sign-in.</strong> Choose a persona. This mode is for local development only and is refused by AWS deployments.</p>
           <div class="stack" role="list">
             @for (p of personas(); track p.username) {
               <button class="btn" role="listitem" type="button" style="justify-content:flex-start;text-align:left" [disabled]="busy()" (click)="local(p.username)">
