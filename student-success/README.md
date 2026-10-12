@@ -20,8 +20,8 @@ python3 -m venv .venv && .venv/bin/pip install -r backend/requirements-dev.txt
 cd backend && ../.venv/bin/python -m app.seed && ../.venv/bin/python local_server.py   # http://127.0.0.1:8000
 ```
 
-Choose a persona on the login page (local demonstration sign-in; refused in AWS). Switch the topbar dataset
-to **Demo (synthetic)** to see the 150 fictional students.
+Choose a persona on the login page (local demonstration sign-in; refused in AWS). The 150-student demo dataset
+is shown by default; the topbar switch selects real records.
 
 ## Deliverables
 
