@@ -153,12 +153,13 @@ Resources:
       DeletionProtection: !Ref UserPoolDeletionProtection
       AdminCreateUserConfig:
         AllowAdminCreateUserOnly: true      # no open sign-up: students register only by matching their record (app/registration.py)
-        InviteMessageTemplate:              # used only to email registration verification codes (staff invites are suppressed)
-          EmailSubject: "Your Smart Campus verification code"
-          EmailMessage: "Your Smart Campus verification code is {####}<br><br>Enter it on the student registration page within 30 minutes. If you did not ask for it, ignore this email.<br><br>Reference: {username}"
       UsernameConfiguration:
         CaseSensitive: false
       AutoVerifiedAttributes: [email]
+      VerificationMessageTemplate:          # the 6-digit code students receive when registering (app/registration.py)
+        DefaultEmailOption: CONFIRM_WITH_CODE
+        EmailSubject: "Your Smart Campus verification code"
+        EmailMessage: "Your Smart Campus verification code is {####}<br><br>Enter this 6-digit code on the student registration page within 30 minutes. If you did not ask for it, ignore this email."
       AccountRecoverySetting:
         RecoveryMechanisms:
           - { Name: verified_email, Priority: 1 }   # never SMS
@@ -191,7 +192,9 @@ Resources:
       ClientName: !Sub "${AppName}-spa"
       UserPoolId: !Ref UserPool
       GenerateSecret: false                          # public client; PKCE
-      ExplicitAuthFlows: [ALLOW_REFRESH_TOKEN_AUTH, ALLOW_USER_SRP_AUTH]
+      # ADMIN_USER_PASSWORD_AUTH needs AWS credentials (the API role); the backend uses it only for the short-lived
+      # registration placeholder that receives and checks the email code. Browsers keep using SRP / the hosted UI.
+      ExplicitAuthFlows: [ALLOW_REFRESH_TOKEN_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH]
       PreventUserExistenceErrors: ENABLED
       EnableTokenRevocation: true
       SupportedIdentityProviders: [COGNITO]
@@ -256,6 +259,7 @@ Resources:
                   - cognito-idp:AdminDeleteUser
                   - cognito-idp:AdminGetUser
                   - cognito-idp:AdminSetUserPassword
+                  - cognito-idp:AdminInitiateAuth
                   - cognito-idp:AdminSetUserMFAPreference
                   - cognito-idp:AdminDisableUser
                   - cognito-idp:AdminEnableUser

@@ -129,7 +129,7 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
         <section class="card"><div class="card-head"><h2>Your details</h2></div>
           <dl class="small" style="display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0">
             <dt class="muted">Programme</dt><dd style="margin:0">{{ p.student.programme }}</dd>
-            <dt class="muted">Email</dt><dd style="margin:0">{{ p.student.email || '–' }}</dd>
+            <dt class="muted">College email</dt><dd style="margin:0">{{ p.student.email || '–' }}</dd>
             <dt class="muted">Date of birth</dt><dd style="margin:0">{{ p.student.date_of_birth || '–' }}</dd>
             <dt class="muted">Sign-in security</dt><dd style="margin:0">@if (session.me()?.user?.mfa?.enabled) { Authenticator app ✓ } @else { <a routerLink="/security">Set up authenticator</a> }</dd></dl>
           <p class="small muted" style="margin-top:8px">Something wrong? Contact the college office. <a [routerLink]="['/students', 'real', p.student.student_id]">See your full record</a></p>

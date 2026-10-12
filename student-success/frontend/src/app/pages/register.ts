@@ -6,14 +6,15 @@ import { AuthService } from '../core/auth.service';
 import { message } from '../shared/page';
 
 /**
- * Student self-registration: details must match the student's record; the emailed code proves the address;
- * only then are a user ID and password chosen. An authenticator app is set up at first sign-in.
+ * Student self-registration: the student ID and date of birth must match the student's record; any email address
+ * the student uses is proven by a 6-digit emailed code and becomes the account email. Then a user ID and password are
+ * chosen. An authenticator app is set up at first sign-in.
  */
 @Component({
   selector: 'app-register-page',
   imports: [FormsModule, RouterLink],
   styles: [`.steps{display:flex;gap:8px;margin:0 0 16px;font-size:12.5px;color:var(--muted)} .steps span{flex:1;border-top:3px solid var(--line);padding-top:6px}
-    .steps span.on{border-color:var(--teal-500);color:var(--navy-900);font-weight:600} .rules{font-size:12.5px;color:var(--muted);margin:4px 0 0;padding-left:18px}
+    .steps span.on{border-color:var(--teal-500);color:var(--navy-900);font-weight:600} .rules{font-size:12.5px;color:var(--muted);margin:4px 0 0;padding-left:0;list-style:none}
     .rules li.ok{color:#006300}`],
   template: `
     <div class="login-wrap">
@@ -25,13 +26,14 @@ import { message } from '../shared/page';
 
         @switch (step()) {
           @case (1) {
-            <p class="small">Enter the details the college holds for you. We'll email a verification code to that address.</p>
+            <p class="small">Your student ID and date of birth confirm who you are. Then give the email address you'd like to use; we'll send a 6-digit code to it.</p>
             <form class="stack" (submit)="$event.preventDefault(); start()">
               <label class="field">Student ID<input name="sid" [(ngModel)]="sid" required autocomplete="off" placeholder="e.g. CSE24007" [attr.aria-invalid]="!!fields()['student_id']"></label>
               @if (fields()['student_id']) { <span class="error-text">{{ fields()['student_id'] }}</span> }
               <label class="field">Date of birth<input name="dob" type="date" [(ngModel)]="dob" required [attr.aria-invalid]="!!fields()['date_of_birth']"></label>
               @if (fields()['date_of_birth']) { <span class="error-text">{{ fields()['date_of_birth'] }}</span> }
-              <label class="field">College email address<input name="em" type="email" [(ngModel)]="email" required autocomplete="email" [attr.aria-invalid]="!!fields()['email']"></label>
+              <label class="field">Your email address<input name="em" type="email" [(ngModel)]="email" required autocomplete="email" [attr.aria-invalid]="!!fields()['email']"></label>
+              <span class="small muted">Any address you can open. It becomes your account email for sign-in help.</span>
               @if (fields()['email']) { <span class="error-text">{{ fields()['email'] }}</span> }
               <button class="btn primary" type="submit" [disabled]="busy()">Send verification code</button>
             </form>
@@ -40,7 +42,8 @@ import { message } from '../shared/page';
             <p class="banner small" role="status">{{ notice() }}</p>
             @if (devCode()) { <p class="banner warn small">Local development: no email is sent. Your code is <strong class="mono">{{ devCode() }}</strong></p> }
             <form class="stack" (submit)="$event.preventDefault(); complete()">
-              <label class="field">Verification code from the email<input name="code" [(ngModel)]="code" required autocomplete="one-time-code" class="mono" [attr.aria-invalid]="!!fields()['code']"></label>
+              <label class="field">6-digit code from the email<input name="code" [(ngModel)]="code" required autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" class="mono" [attr.aria-invalid]="!!fields()['code']"></label>
+              <span class="small muted">Sent to {{ email }}. Check your spam folder if it hasn't arrived.</span>
               @if (fields()['code']) { <span class="error-text">{{ fields()['code'] }}</span> }
               <label class="field">Choose a user ID<input name="u" [(ngModel)]="username" required autocomplete="username" [attr.aria-invalid]="!!fields()['username']"></label>
               <span class="small muted">3–40 characters: lower-case letters, digits, dot, dash or underscore.</span>
@@ -50,7 +53,7 @@ import { message } from '../shared/page';
               @if (fields()['password']) { <span class="error-text">{{ fields()['password'] }}</span> }
               <label class="field">Confirm password<input name="p2" type="password" [(ngModel)]="password2" required autocomplete="new-password"></label>
               @if (password2 && password2 !== password) { <span class="error-text">The passwords don't match.</span> }
-              <div class="row" style="gap:8px"><button class="btn primary" type="submit" [disabled]="busy() || password !== password2">Create account</button>
+              <div class="row" style="gap:8px"><button class="btn primary" type="submit" [disabled]="busy() || password !== password2 || !codeOk()">Create account</button>
                 <button class="btn" type="button" (click)="start()" [disabled]="busy()">Send a new code</button></div>
             </form>
           }
@@ -77,6 +80,7 @@ export class RegisterPage {
   sid = ''; dob = ''; email = ''; code = ''; username = ''; password = ''; password2 = '';
   pw = signal('');
   rules = computed(() => this.check(this.pw()));
+  codeOk() { return /^\d{6}$/.test(this.code.trim()); }
 
   check(p: string) {
     return [

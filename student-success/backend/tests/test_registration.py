@@ -10,23 +10,28 @@ def _master(call, sid="MECH26901", dob="2008-03-14", email="new.student@college.
     return sid, dob, email
 
 
-def test_registration_requires_matching_record_then_verified_email(call):
+def test_registration_requires_id_and_dob_then_verified_email(call):
     sid, dob, email = _master(call)
+    email = "asha.personal@mail.example"  # any address the student uses; the code proves it
     # wrong date of birth: same generic answer, no code
     r = call("admin.priya", "POST", "/api/register/start", {"student_id": sid, "date_of_birth": "2008-03-15", "email": email})
     assert r.status_code == 200 and "dev_code" not in r.json()
-    # wrong email: same
-    r = call("admin.priya", "POST", "/api/register/start", {"student_id": sid, "date_of_birth": dob, "email": "x@y.example"})
-    assert "dev_code" not in r.json() and r.json()["message"]
+    # not an email address
+    r = call("admin.priya", "POST", "/api/register/start", {"student_id": sid, "date_of_birth": dob, "email": "not-an-email"})
+    assert r.status_code == 422 and "email" in r.json()["error"]["details"]
     # unknown student: same
     r = call("admin.priya", "POST", "/api/register/start", {"student_id": "MECH26999", "date_of_birth": dob, "email": email})
     assert "dev_code" not in r.json()
     # match: a code is issued (returned only in local development mode)
     r = call("admin.priya", "POST", "/api/register/start", {"student_id": sid, "date_of_birth": dob, "email": email.upper()})
     code = r.json()["dev_code"]
+    assert len(code) == 6 and code.isdigit()  # a 6-digit numeric code
+    fmt = call("admin.priya", "POST", "/api/register/complete",
+               {"student_id": sid, "email": email, "code": "12ab56", "username": "asha.v", "password": "Str0ng!Passw0rd"})
+    assert fmt.status_code == 422 and "6-digit" in fmt.json()["error"]["details"]["code"]
     # the user ID and password are only accepted with the right code
     bad = call("admin.priya", "POST", "/api/register/complete",
-               {"student_id": sid, "email": email, "code": "000000-AAaa!", "username": "asha.v", "password": "Str0ng!Passw0rd"})
+               {"student_id": sid, "email": email, "code": "000000" if code != "000000" else "999999", "username": "asha.v", "password": "Str0ng!Passw0rd"})
     assert bad.status_code == 422 and "attempt" in bad.json()["error"]["details"]["code"]
     weak = call("admin.priya", "POST", "/api/register/complete",
                 {"student_id": sid, "email": email, "code": code, "username": "asha.v", "password": "short"})
@@ -41,6 +46,8 @@ def test_registration_requires_matching_record_then_verified_email(call):
     c = TestClient(app)
     me = c.get("/api/me", headers={"Authorization": f"Bearer {tok}"}).json()
     assert me["user"]["roles"] == ["student"] and me["user"]["student"] == {"dataset": "real", "student_id": sid}
+    from app import db
+    assert db.table().get(f"USER#{me['user']['sub']}", "PROFILE")["email"] == email  # the verified address is the account email
     other = c.get("/api/students/real/CSE24001", headers={"Authorization": f"Bearer {tok}"})
     assert other.status_code == 403
     # a second registration for the same student is refused (generic answer, no code)
@@ -55,7 +62,7 @@ def test_code_attempts_and_send_limits(call):
     assert all(codes[:3]) and codes[3] is None  # at most three codes a day
     for i in range(5):
         r = call("admin.priya", "POST", "/api/register/complete",
-                 {"student_id": sid, "email": email, "code": "111111-AAaa!", "username": "lim.t", "password": "Str0ng!Passw0rd"})
+                 {"student_id": sid, "email": email, "code": "111111" if "111111" not in codes else "222222", "username": "lim.t", "password": "Str0ng!Passw0rd"})
         assert r.status_code == 422
     r = call("admin.priya", "POST", "/api/register/complete",
              {"student_id": sid, "email": email, "code": codes[2], "username": "lim.t", "password": "Str0ng!Passw0rd"})
