@@ -22,7 +22,7 @@ interface Version { config_version: string; status: string; reason: string; prop
     @if (session.can('scoring_config', 'read')) {
       <app-state [loading]="!cfg() && !error()" [error]="error()" (retry)="load()" />
       @if (cfg(); as c) {
-        <div class="grid g2">
+        <div class="grid g2 top">
           <section class="card"><div class="card-head"><h2>Active scoring v{{ c.version }}</h2></div>
             <p class="small">{{ c.description }}</p>
             <div class="table-wrap"><table><thead><tr><th>Component</th><th class="num">Weight</th></tr></thead>

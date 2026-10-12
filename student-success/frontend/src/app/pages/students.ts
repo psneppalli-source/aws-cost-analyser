@@ -34,7 +34,7 @@ export interface Row {
         <tbody>
           @for (r of rows(); track r.student_id) {
             <tr><td><a [routerLink]="['/students', r.dataset, r.student_id]">{{ r.name }}</a><br><span class="muted mono small">{{ r.student_id }}</span></td>
-              <td>{{ r.department }} · Y{{ r.year }}</td>
+              <td class="nowrap">{{ r.department }} · Y{{ r.year }}</td>
               <td class="num">@if (r.score !== undefined) { {{ r.score ?? '–' }}
                 @if (r.score === null && r.indicative_score !== null && r.indicative_score !== undefined) { <br><span class="small muted" title="Calculated from incomplete data; not a Success Score">indicative {{ r.indicative_score }}</span> } } @else { <span class="muted">–</span> }</td>
               <td>@if (r.status) { <app-status [status]="r.status" /> } @if (r.recalc_status === 'stale') { <span class="chip">Recalculating</span> }</td>

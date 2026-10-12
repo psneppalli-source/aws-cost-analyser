@@ -201,6 +201,18 @@ async def recovery_complete(request: Request):
         return err(400, "not_available", str(e))
 
 
+# --------------------------------------------------------------------------- AI summaries
+@app.post("/api/ai/summary")
+async def ai_summary(request: Request, p: Principal = Depends(principal)):
+    from . import ai
+    b = await request.json()
+    try:
+        year = int(b["year"]) if b.get("year") else None
+        return ai.summarise(p, str(b.get("kind", "")), recordsvc.DATASETS[0], b.get("student_id"), b.get("department") or None, year)
+    except ai.AIUnavailable as e:
+        return err(503, "ai_unavailable", str(e))
+
+
 @app.get("/api/me")
 def me(p: Principal = Depends(principal)):
     m = role_matrix()
@@ -209,7 +221,12 @@ def me(p: Principal = Depends(principal)):
     return {"user": p.public(), "permissions": perms, "periods": insights.periods(),
             "current_period": insights.current_period(), "departments": curriculum()["departments"],
             "scoring_version": cfg["version"] if cfg else None,
-            "datasets": [d for d in recordsvc.DATASETS if d in p.datasets]}
+            "datasets": [d for d in recordsvc.DATASETS if d in p.datasets], "ai": _ai_enabled()}
+
+
+def _ai_enabled() -> bool:
+    from . import ai
+    return ai.enabled()
 
 
 # --------------------------------------------------------------------------- students

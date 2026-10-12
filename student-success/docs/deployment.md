@@ -72,6 +72,25 @@ Optional: subscribe the distribution to the CloudFront **Free** flat-rate plan i
 
 Redeploying code only: run the same deploy command; unchanged infrastructure is reported as “no changes”.
 
+### AI summaries (OpenRouter, free models)
+
+Pages with figures (Overview, Insights, Academic risk, Placement readiness, a student's profile and the student's own
+dashboard) offer an **AI summary** button. The API builds the facts from what the signed-in user may already see and
+sends only numbers and category labels: names, student IDs, emails, dates of birth and free-text comments are never
+sent (`app/ai.py`, `scrub`). Only completely free OpenRouter models (ids ending `:free`) are used, Meta Llama and
+NVIDIA Nemotron first; the function tries several in turn when the free pool is busy. Identical requests are served
+from a 24-hour cache, and each user can generate 40 new summaries a day (`AI_DAILY_LIMIT`).
+
+Set up once (the key is never stored in the repository):
+
+```
+aws ssm put-parameter --name /smartcampus/openrouter-api-key --type SecureString --value <key>
+python infra/deploy.py ... --ai-key-param /smartcampus/openrouter-api-key      # '' turns AI off
+```
+
+Free models are shared with every OpenRouter user, so at busy times a summary may fail with "busy, try again".
+Summaries come from a small model and can be wrong; the page says so.
+
 ### Readable site address (Netlify, free)
 
 A Lambda function URL can't be renamed. `netlify.toml` lets Netlify's free plan serve the site at an address

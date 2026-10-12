@@ -1,4 +1,5 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
+import { AiSummary } from '../shared/ai-summary';
 import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
@@ -27,7 +28,7 @@ interface Dashboard {
 
 @Component({
   selector: 'app-overview-page',
-  imports: [RouterLink, FilterBar, StateView, HBars, HStack, MultiLine, StatusChip, RealEmpty],
+  imports: [AiSummary, RouterLink, FilterBar, StateView, HBars, HStack, MultiLine, StatusChip, RealEmpty],
   template: `
     <div class="page-head">
       <h1>Overview</h1><span class="spacer"></span>
@@ -36,6 +37,7 @@ interface Dashboard {
         @if (d(); as d) { Period {{ d.period }} · {{ d.students }} students · calculated {{ when(d.last_calculated_at) }} · scoring v{{ session.me()?.scoring_version }} }</p>
     </div>
     <app-filters [value]="filters()" (changed)="filters.set($event)" [departments]="departments()" [periods]="periods()" [showRisk]="false" [showSegment]="false" />
+    <app-ai-summary kind="overview" [department]="filters().department" [year]="filters().year" subject="this overview" />
     <app-real-empty [show]="!loading() && d()?.students === 0" />
     <app-state [loading]="loading() && !d()" [error]="error()" (retry)="load()" [empty]="d()?.students === 0" emptyText="No students match these filters." />
     @if (d(); as d) { @if (d.students) {

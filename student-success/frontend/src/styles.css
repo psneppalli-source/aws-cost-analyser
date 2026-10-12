@@ -60,7 +60,7 @@ p { margin: 0 0 8px; }
 .grid { display: grid; gap: 16px; }
 .g2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
 .g3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-.kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); }
+.kpis { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
 .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .spacer { flex: 1; }
 .stack { display: grid; gap: 16px; }
@@ -143,10 +143,21 @@ details.data-table summary { cursor: pointer; font-size: 12.5px; color: var(--te
               linear-gradient(160deg, #0d1b2e 0%, #13263f 55%, #0b3b4a 100%); }
 .login-card { width: min(460px, 100%); background: var(--white); border-radius: 18px; padding: 30px; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
 
+.menu-btn { display: none; }
 @media (max-width: 860px) {
   .shell { grid-template-columns: 1fr; }
-  .side { position: static; height: auto; }
-  .content, .topbar { padding-left: 16px; padding-right: 16px; }
+  /* phones: a compact header with a Menu button instead of the full side navigation */
+  .side { position: sticky; top: 0; z-index: 20; height: auto; padding: 10px 16px; overflow: visible; }
+  .side-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .side .brand { padding: 0; }
+  .menu-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--navy-700); color: #fff; border: 0;
+    border-radius: 9px; padding: 8px 12px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .nav-links { display: none; max-height: calc(100vh - 70px); overflow-y: auto; padding-top: 8px; }
+  .nav-links.open { display: block; }
+  .topbar { position: static; padding: 8px 16px; gap: 8px; flex-wrap: nowrap; }
+  .topbar .who { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topbar .role, .topbar .chip { display: none; }
+  .content { padding-left: 16px; padding-right: 16px; }
 }
 
 /* ---------------------------------------------------------------- charts (shared/charts.ts) */
@@ -188,3 +199,12 @@ details.data-table summary { cursor: pointer; font-size: 12.5px; color: var(--te
 .stat .delta.up { color: #006300; }
 .stat .delta.down { color: #b42318; }
 .movers td { vertical-align: middle; }
+
+/* alignment helpers */
+.nowrap { white-space: nowrap; }
+.g2 > :last-child:nth-child(odd) { grid-column: 1 / -1; }   /* a lone last card spans the row instead of leaving a gap */
+.grid.top { align-items: start; }                            /* cards keep their own height */
+.filters label.check { display: flex; align-items: center; gap: 6px; min-height: 36px; font-size: 13px; }
+.cell-actions { display: flex; flex-wrap: wrap; gap: 4px; }
+.form-grid .field > input, .form-grid .field > select { min-height: 38px; }
+td.when { white-space: nowrap; }

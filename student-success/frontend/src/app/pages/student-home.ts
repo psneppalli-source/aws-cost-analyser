@@ -1,4 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
+import { AiSummary } from '../shared/ai-summary';
 import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
@@ -29,7 +30,7 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
 /** The student's own dashboard: only their own details, marks and improvement over time, plus what to focus on and actions. */
 @Component({
   selector: 'app-student-home-page',
-  imports: [RouterLink, StateView, StatusChip, RiskBadge, MultiLine, Spark],
+  imports: [AiSummary, RouterLink, StateView, StatusChip, RiskBadge, MultiLine, Spark],
   styles: [`.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap} .big{font-size:56px;font-weight:700;color:var(--navy-900);line-height:1}
     .focus li{margin:6px 0} .actions{display:flex;gap:10px;flex-wrap:wrap}
     .marks td,.marks th{text-align:center;white-space:nowrap} .marks td:first-child,.marks th:first-child{text-align:left}
@@ -59,6 +60,7 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
         </section>
       }
 
+      <div style="margin-top:16px"><app-ai-summary kind="student" [studentId]="p.student.student_id" subject="my progress" /></div>
       @if (subjects().length) {
         <section class="card" style="margin-top:16px"><div class="card-head"><h2>Your marks</h2>
           <span class="desc">Monthly test scores as a percentage, with your attendance in each subject.</span></div>

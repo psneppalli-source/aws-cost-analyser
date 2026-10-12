@@ -23,8 +23,8 @@ interface Entry { ts: string; actor_name: string; action: string; entity: string
       <div class="card" style="padding:0"><div class="table-wrap"><table>
         <thead><tr><th>When</th><th>Who</th><th>Action</th><th>What</th><th>Dataset</th><th>Details</th></tr></thead>
         <tbody>@for (e of items(); track e.ts + e.action + e.entity_id) {
-          <tr><td class="small">{{ when(e.ts) }}</td><td>{{ e.actor_name }}</td><td class="mono small">{{ e.action }}</td>
-            <td class="small">{{ e.entity }} {{ e.entity_id }}</td><td>{{ e.dataset || '–' }}</td><td class="small mono">{{ fmt(e.details) }}</td></tr>
+          <tr><td class="small when">{{ when(e.ts) }}</td><td class="small">{{ e.actor_name }}</td><td class="mono small">{{ e.action }}</td>
+            <td class="small">{{ e.entity }} {{ e.entity_id }}</td><td class="small">{{ e.dataset || '–' }}</td><td class="small mono">{{ fmt(e.details) }}</td></tr>
         }</tbody></table></div></div>
       @if (next()) { <p style="text-align:center"><button class="btn" type="button" (click)="load(false)" [disabled]="loading()">Older entries</button></p> }
     }`,

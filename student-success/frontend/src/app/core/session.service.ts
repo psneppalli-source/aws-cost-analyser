@@ -11,6 +11,7 @@ export interface Me {
   departments: Record<string, { name: string; subjects: Record<string, string[]> }>;
   scoring_version: string | null;
   datasets: string[];
+  ai?: boolean;           // AI summaries available on this deployment
 }
 
 /** Signed-in user, their permissions, and the dataset/period being viewed. */

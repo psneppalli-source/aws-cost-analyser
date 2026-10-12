@@ -1,4 +1,5 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
+import { AiSummary } from '../shared/ai-summary';
 import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
@@ -10,12 +11,13 @@ import { Row } from './students';
 
 @Component({
   selector: 'app-placement-page',
-  imports: [RouterLink, FilterBar, StateView, RiskBadge, HStack, Scatter, RealEmpty],
+  imports: [AiSummary, RouterLink, FilterBar, StateView, RiskBadge, HStack, Scatter, RealEmpty],
   template: `
     <div class="page-head"><h1>Placement readiness</h1><span class="spacer"></span>
       <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
       <p class="sub">Years 3–4. Aptitude, coding, mock interviews and skills. A student without assessments is “insufficient data”, not low readiness.</p></div>
     <app-filters [value]="filters()" (changed)="filters.set($event)" [departments]="departments()" [showPeriod]="false" [showRisk]="false" [showSegment]="false" [showSearch]="true" />
+    <app-ai-summary kind="placement" [department]="filters().department" [year]="filters().year" subject="placement readiness" />
     <app-real-empty [show]="!loading() && !all().length" />
     <app-state [loading]="loading() && !all().length" [error]="error()" (retry)="load()" [empty]="!loading() && !all().length" emptyText="No students in years 3–4 match." />
     @if (all().length) {

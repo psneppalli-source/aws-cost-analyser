@@ -41,6 +41,9 @@ before deploying.** `infra/preflight.py` prints the links and checks the account
 | Two CloudWatch log groups | 3-day retention | Within free log allowance at expected volume |
 | Optional AWS Budget | USD 1/month, email alerts (only with `--budget-email`) | Expected free (confirm budget pricing) |
 
+Optional: SSM Parameter Store standard SecureString for the OpenRouter key (no charge for standard parameters);
+AI summaries use free OpenRouter models only, outside AWS.
+
 Not created: S3, EC2, NAT, load balancers, API Gateway, RDS, provisioned concurrency, WAF, Route 53,
 certificates, SMS, X-Ray, alarms, backups.
 

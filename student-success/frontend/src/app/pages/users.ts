@@ -50,14 +50,14 @@ interface Edit { roles: Record<string, boolean>; department: string; dataset: st
         <thead><tr><th>User</th><th>Roles</th><th>Status</th><th>Created</th><th></th></tr></thead>
         <tbody>@for (u of users(); track u.sub) {
           <tr><td><strong>{{ u.display_name }}</strong><br><span class="mono small muted">{{ u.username }}</span></td>
-            <td class="small">{{ roleText(u) }}</td><td>{{ u.status }}</td><td class="small">{{ when(u.created_at) }}</td>
-            <td class="row" style="gap:4px;flex-wrap:wrap">@if (u.sub === me()) { <span class="small muted">You</span> }
+            <td class="small">{{ roleText(u) }}</td><td>{{ u.status }}</td><td class="small when">{{ when(u.created_at) }}</td>
+            <td><div class="cell-actions">@if (u.sub === me()) { <span class="small muted">You</span> }
               @else if (u.roles.includes('system_admin') && !session.isSysAdmin()) { <span class="small muted">Managed by the System Administrator</span> }
               @else {
               <button class="btn small" type="button" (click)="startEdit(u)">Roles</button>
               <button class="btn small" type="button" (click)="toggle(u)" [disabled]="busy()">{{ u.status === 'active' ? 'Disable' : 'Enable' }}</button>
               <button class="btn small" type="button" (click)="resetMfa(u)" [disabled]="busy()" title="For a lost phone: the user sets up a new authenticator at next sign-in">Reset authenticator</button>
-              <button class="btn small" type="button" (click)="resetPassword(u)" [disabled]="busy()" title="Emails a 6-digit code; the user sets a new password with Forgot password">Send password reset</button> }</td></tr>
+              <button class="btn small" type="button" (click)="resetPassword(u)" [disabled]="busy()" title="Emails a 6-digit code; the user sets a new password with Forgot password">Send password reset</button> }</div></td></tr>
           @if (editing() === u.sub) {
             <tr><td colspan="5">
               <form class="stack" (submit)="$event.preventDefault(); saveRoles(u)">

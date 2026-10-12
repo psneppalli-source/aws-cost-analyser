@@ -22,7 +22,7 @@ interface Iv { intervention_id: string; student_id: string; student_name: string
       <label>Show<select name="m" [ngModel]="mine()" (ngModelChange)="mine.set($event)"><option [ngValue]="false">All I can see</option><option [ngValue]="true">Assigned to me</option></select></label>
       <label>Status<select name="s" [ngModel]="status()" (ngModelChange)="status.set($event)"><option value="">Any</option><option>Open</option><option>In Progress</option><option>Completed</option></select></label>
       <label>Department<select name="d" [ngModel]="dept()" (ngModelChange)="dept.set($event)"><option value="">All</option>@for (d of departments(); track d) { <option [value]="d">{{ d }}</option> }</select></label>
-      <label class="row" style="gap:6px;align-self:end"><input type="checkbox" style="width:auto" name="o" [ngModel]="overdue()" (ngModelChange)="overdue.set($event)"> Overdue only</label>
+      <label class="check"><input type="checkbox" style="width:auto" name="o" [ngModel]="overdue()" (ngModelChange)="overdue.set($event)"> Overdue only</label>
     </form>
     <app-real-empty [show]="!loading() && !items().length && !status() && !overdue()" />
     <section class="kpis" style="margin-bottom:14px">

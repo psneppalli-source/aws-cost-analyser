@@ -26,6 +26,13 @@ Parameters:
     Description: >-
       Optional second address that forwards to this site (e.g. https://smart-campus.netlify.app). It is registered
       for sign-in and sign-out alongside SiteUrl, so users can use either address.
+  AiKeyParameter:
+    Type: String
+    Default: ""
+    AllowedPattern: "^$|^/[A-Za-z0-9/_.-]+$"
+    Description: >-
+      Optional SSM Parameter Store name (SecureString) holding an OpenRouter API key, e.g. /smartcampus/openrouter-api-key.
+      When set, staff and students can ask for AI summaries (free OpenRouter models; facts only, no identities).
   AuthDomainPrefix:
     Type: String
     Default: ""
@@ -106,6 +113,7 @@ Parameters:
 Conditions:
   HasSiteUrl: !Not [!Equals [!Ref SiteUrl, ""]]
   HasAliasUrl: !And [!Condition HasSiteUrl, !Not [!Equals [!Ref AliasUrl, ""]]]
+  HasAiKey: !Not [!Equals [!Ref AiKeyParameter, ""]]
   HasAuthDomainPrefix: !Not [!Equals [!Ref AuthDomainPrefix, ""]]
   UseCloudFront: !Equals [!Ref EdgeMode, cloudfront]
   Direct: !Equals [!Ref EdgeMode, direct]
@@ -288,6 +296,21 @@ Resources:
                   - cognito-idp:AdminEnableUser
                   - cognito-idp:AdminUserGlobalSignOut
                 Resource: !GetAtt UserPool.Arn
+              - !If
+                - HasAiKey
+                - Effect: Allow
+                  Action: ssm:GetParameter
+                  Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${AiKeyParameter}"
+                - !Ref AWS::NoValue
+              - !If
+                - HasAiKey
+                - Effect: Allow
+                  Action: kms:Decrypt
+                  Resource: "*"
+                  Condition:
+                    StringEquals:
+                      kms:ViaService: !Sub "ssm.${AWS::Region}.amazonaws.com"
+                - !Ref AWS::NoValue
 
   WebRole:
     Type: AWS::IAM::Role
@@ -318,7 +341,7 @@ Resources:
       Architectures: [arm64]
       Handler: index.handler
       MemorySize: 512
-      Timeout: 20                    # imports and repairs work within ~12 s budgets and resume
+      Timeout: 25                    # imports and repairs work within ~12 s budgets and resume; AI summaries wait up to ~16 s
       ReservedConcurrentExecutions: !If [ReserveApi, !Ref ApiReservedConcurrency, !Ref AWS::NoValue]
       Role: !GetAtt ApiRole.Arn
       LoggingConfig:
@@ -335,6 +358,8 @@ Resources:
           SSP_CONFIG_DIR: /var/task/config
           INSIGHT_CACHE_SECONDS: "20"
           SERVE_WEB: !If [Direct, "1", "0"]   # direct mode: this function also serves the web app
+          AI_KEY_PARAM: !Ref AiKeyParameter   # empty = AI summaries off
+          SITE_URL: !If [HasAliasUrl, !Ref AliasUrl, !Ref SiteUrl]
           WEB_ROOT: /var/task/web
           APP_CONFIG: !Sub
             - '{"mode":"cognito","domain":"https://${Domain}.auth.${AWS::Region}.amazoncognito.com","clientId":"${UserPoolClient}","redirectUri":"${Redirect}","region":"${AWS::Region}"}'
