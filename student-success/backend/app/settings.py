@@ -28,6 +28,9 @@ class Settings:
         self.local_secret = os.environ.get("LOCAL_DEMO_SECRET", "")
         self.in_lambda = bool(os.environ.get("AWS_LAMBDA_FUNCTION_NAME"))
         self.verify_payload_hash = os.environ.get("VERIFY_PAYLOAD_HASH", "1") == "1"
+        # CloudFront OAC already signs the viewer's x-amz-content-sha256 into the request, so Lambda rejects a
+        # mismatched body before this code runs. Requiring the header here as well is optional.
+        self.require_payload_hash = os.environ.get("REQUIRE_PAYLOAD_HASH", "0") == "1"
         self.cache_seconds = int(os.environ.get("INSIGHT_CACHE_SECONDS", "20"))
         if self.in_lambda and self.auth_mode != "cognito":
             raise RuntimeError("AUTH_MODE must be 'cognito' in AWS Lambda; local demo authentication is disabled there.")

@@ -44,9 +44,9 @@ token endpoint (public client, no secret) and keeps the tokens in `sessionStorag
 **API call.** The SPA sends the Cognito ID token in **`X-App-Authorization`** because CloudFront's OAC
 replaces `Authorization` with its own SigV4 signature. For `POST/PUT/PATCH` it serialises the body itself
 and sends **`x-amz-content-sha256`** = hex SHA-256 of exactly those bytes; OAC needs it to sign bodies for
-Lambda origins, and the API verifies it again (`payload_hash_mismatch`, `payload_hash_required` inside Lambda).
-The origin request policy forwards only `x-app-authorization`, `x-amz-content-sha256`, `content-type`,
-`accept` and the query string. The `/api/*` behaviour uses the managed *CachingDisabled* policy and every
+Lambda origins (CloudFront treats it as a restricted header and signs the viewer's value, so Lambda rejects
+a body that doesn't match). When the header reaches the API it is verified again (`payload_hash_mismatch`).
+The origin request policy forwards only `x-app-authorization`, `content-type`, `accept` and the query string. The `/api/*` behaviour uses the managed *CachingDisabled* policy and every
 API response carries `Cache-Control: no-store, private`.
 
 **Authorisation.** The API validates the token (RS256 signature against the pool's JWKS, issuer, expiry,

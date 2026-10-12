@@ -113,6 +113,7 @@ Backup. Consequences and mitigations:
 
 | Symptom | Cause / fix |
 |---|---|
+| `Your account must be verified before you can add new CloudFront resources` | New AWS accounts must be verified by AWS Support before creating CloudFront distributions. Open a free *Account and billing* case quoting the error, wait for confirmation, then deploy again. The failed stack rolls back cleanly (protection is off on the first create) |
 | Pages load but `/api` returns 403 | Lambda permissions missing for the distribution (both `InvokeFunctionUrl` and `InvokeFunction`) or the function URL was recreated — redeploy |
 | Writes return 400 `payload_hash_*` | A client did not send `x-amz-content-sha256` of the exact body |
 | Sign-in loops back to the login page | `SiteUrl` not registered with Cognito — rerun deploy (second pass) |

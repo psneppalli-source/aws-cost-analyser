@@ -24,7 +24,8 @@ def test_function_urls_are_iam_only_and_both_oac_permissions_exist():
 def test_api_is_never_cached_and_app_token_is_forwarded_separately():
     api = TPL[TPL.index("PathPattern: /api/*"):TPL.index("PathPattern: /config.json")]
     assert "4135ea2d-6df8-44a3-9df3-4b5a84be39ad" in api  # Managed-CachingDisabled
-    assert "x-app-authorization" in TPL and "x-amz-content-sha256" in TPL
+    headers = re.search(r"Headers: \[(.*)\]", TPL).group(1)
+    assert "x-app-authorization" in headers and "x-amz-content-sha256" not in headers  # restricted; OAC signs it
     assert not re.search(r"Headers:.*\bauthorization\b", TPL.replace("x-app-authorization", ""))
 
 

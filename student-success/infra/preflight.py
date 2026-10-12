@@ -170,6 +170,9 @@ def others(region: str) -> None:
     dists = cf.list_distributions().get("DistributionList", {}).get("Items", []) or []
     say("INFO", "CloudFront", f"{len(dists)} existing distribution(s); pay-as-you-go always-free data transfer and requests "
                               "are shared by all of them (verify)")
+    if not dists:
+        say("WARN", "CloudFront account verification", "new accounts may need AWS Support to verify the account before the "
+                                                        "first distribution can be created (deploy fails and rolls back if so)")
     try:
         subs = boto("pricing-plan-manager", "us-east-1").list_subscriptions().get("subscriptionSummaries", [])
         tiers = [f"{s.get('planFamily')}:{s.get('planTier')}" for s in subs]

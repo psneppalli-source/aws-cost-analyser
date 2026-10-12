@@ -7,7 +7,7 @@ Base path `/api`, JSON. Interactive schema at `/api/docs` (OpenAPI at `/api/open
 | | |
 |---|---|
 | Authentication | `X-App-Authorization: Bearer <Cognito ID token>`. `Authorization` is reserved for CloudFront's SigV4 (OAC). Locally `Authorization` also works. |
-| Writes | `POST`/`PUT`/`PATCH` must send `x-amz-content-sha256` = lowercase hex SHA-256 of the exact body bytes (empty body: `e3b0c442…b855`). Missing inside Lambda → `400 payload_hash_required`; wrong → `400 payload_hash_mismatch`. |
+| Writes | `POST`/`PUT`/`PATCH` must send `x-amz-content-sha256` = lowercase hex SHA-256 of the exact body bytes (empty body: `e3b0c442…b855`). A wrong hash is rejected (by Lambda when CloudFront signs it, or `400 payload_hash_mismatch` from the API); set `REQUIRE_PAYLOAD_HASH=1` to also reject writes without it (`400 payload_hash_required`). |
 | Concurrency | Updates send the `version` they started from. A changed item → `409 conflict` with `details.current`. |
 | Errors | `{"error": {"code", "message", "details"}}` — 400 bad_request, 401 unauthenticated, 403 forbidden, 404 not_found, 409 conflict, 422 validation_error (`details` maps field → message), 500 server_error. |
 | Lists | `limit` (≤ 200) and opaque `cursor`; responses include `next_cursor`. |

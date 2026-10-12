@@ -107,10 +107,13 @@ def check_package(api: Path, web: Path) -> None:
     print("  package checks passed (no local sign-in bypass)")
 
 
-def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: bool) -> list[dict]:
+def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: bool, protect: bool = True) -> list[dict]:
+    """protect=False only for the very first create, so a failed create can roll back cleanly."""
     p = [{"ParameterKey": "AppName", "ParameterValue": name}, {"ParameterKey": "SiteUrl", "ParameterValue": site_url},
          {"ParameterKey": "ApiReservedConcurrency", "ParameterValue": str(RESERVED["api"] if reserve else 0)},
-         {"ParameterKey": "WebReservedConcurrency", "ParameterValue": str(RESERVED["web"] if reserve else 0)}]
+         {"ParameterKey": "WebReservedConcurrency", "ParameterValue": str(RESERVED["web"] if reserve else 0)},
+         {"ParameterKey": "TableDeletionProtection", "ParameterValue": "true" if protect else "false"},
+         {"ParameterKey": "UserPoolDeletionProtection", "ParameterValue": "ACTIVE" if protect else "INACTIVE"}]
     s = stack(cfn, name)
     existing = {x["ParameterKey"] for x in (s or {}).get("Parameters", [])}
     if budget_email is not None:
@@ -201,12 +204,15 @@ def main() -> int:
     from preflight import reservations_possible
     reserve = reservations_possible(a.region, a.stack)
     print(f"Per-function concurrency caps: {'reserved' if reserve else 'not reserved (the account limit caps concurrency)'}")
+    existing = stack(cfn, a.stack)
+    if existing and existing["StackStatus"] in ("ROLLBACK_COMPLETE", "ROLLBACK_FAILED"):
+        sys.exit(f"Stack {a.stack} is {existing['StackStatus']} from a failed first deploy. Delete it, then deploy again.")
     site = outputs(cfn, a.stack).get("SiteUrl", "")
     print(f"Deploying stack {a.stack} to {a.region}")
-    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve), [])
+    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve, protect=existing is not None), [])
     out = outputs(cfn, a.stack)
-    if out["SiteUrl"] != site:
-        print("Registering the CloudFront address with Cognito (second pass)")
+    if out["SiteUrl"] != site or existing is None:
+        print("Registering the CloudFront address with Cognito and switching on deletion protection (second pass)")
         apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email, reserve), [])
         out = outputs(cfn, a.stack)
     upload(lam, out["ApiFunctionName"], zips["api"])

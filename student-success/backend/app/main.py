@@ -84,7 +84,7 @@ async def guard(request: Request, call_next):
     if request.method in ("POST", "PUT", "PATCH") and request.url.path.startswith("/api/"):
         body = await request.body()
         given = request.headers.get("x-amz-content-sha256")
-        if given is None and settings().in_lambda:
+        if given is None and settings().require_payload_hash:
             return err(400, "payload_hash_required", "Write requests must include x-amz-content-sha256.")
         if given is not None and given != "UNSIGNED-PAYLOAD" and given != hashlib.sha256(body).hexdigest():
             return err(400, "payload_hash_mismatch", "The request body does not match x-amz-content-sha256.")

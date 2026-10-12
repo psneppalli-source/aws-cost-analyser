@@ -135,7 +135,7 @@ def test_write_requires_matching_payload_hash(client, tokens, monkeypatch):
     bad = client.put("/api/students/demo/CSE24002/records/lms/2026-02", content=body,
                      headers={**base, "x-amz-content-sha256": hashlib.sha256(b"tampered").hexdigest()})
     assert bad.status_code == 400 and bad.json()["error"]["code"] == "payload_hash_mismatch"
-    monkeypatch.setattr(settings(), "in_lambda", True)
+    monkeypatch.setattr(settings(), "require_payload_hash", True)
     missing = client.put("/api/students/demo/CSE24002/records/lms/2026-02", content=body, headers=base)
     assert missing.status_code == 400 and missing.json()["error"]["code"] == "payload_hash_required"
     ok = client.put("/api/students/demo/CSE24002/records/lms/2026-02", content=body,

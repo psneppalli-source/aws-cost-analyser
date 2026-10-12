@@ -91,7 +91,7 @@ Resources:
   # ------------------------------------------------------------------ data
   Table:
     Type: AWS::DynamoDB::Table
-    DeletionPolicy: Retain          # teardown deletes it explicitly after confirmation
+    DeletionPolicy: Delete          # guarded by DeletionProtectionEnabled; teardown switches it off after an optional export
     UpdateReplacePolicy: Retain
     Properties:
       TableName: !Sub "${AppName}-data"
@@ -388,7 +388,9 @@ Resources:
         Comment: App token travels separately from the OAC SigV4 Authorization header
         HeadersConfig:
           HeaderBehavior: whitelist
-          Headers: [x-app-authorization, x-amz-content-sha256, content-type, accept]
+          # x-amz-content-sha256 is not listed: CloudFront treats it as restricted and uses the viewer's value when
+          # OAC signs the request, so a body that doesn't match its hash is rejected by Lambda.
+          Headers: [x-app-authorization, content-type, accept]
         QueryStringsConfig: { QueryStringBehavior: all }
         CookiesConfig: { CookieBehavior: none }
 
