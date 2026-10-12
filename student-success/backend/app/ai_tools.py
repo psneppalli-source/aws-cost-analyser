@@ -46,7 +46,8 @@ def draft_plan(p: Principal, ds: str, sid: str, category: str, recommendation: s
     facts["recommendation"] = (recommendation or "")[:120] or None
     facts["evidence"] = [{"label": str(e.get("label", ""))[:120], "observed": e.get("observed"), "threshold": e.get("threshold"),
                           "period": e.get("period")} for e in (evidence or [])[:6] if isinstance(e, dict)]
-    out = ai.generate(p, "plan_draft", facts, "a mentor or head of department", system=ai.PLAN, label=sid, raw=True)
+    out = ai.generate(p, "plan_draft", facts, "a mentor or head of department", system=ai.PLAN, label=sid, raw=True,
+                      accept=lambda t: bool((_json_obj(t) or {}).get("steps")))
     obj = _json_obj(out.get("text") or "\n".join(out["lines"])) or {}
     steps = [str(x).strip()[:160] for x in (obj.get("steps") or []) if str(x).strip()][:5]
     if not steps:  # model ignored the JSON shape: fall back to its bullet lines
@@ -225,7 +226,8 @@ def ask(p: Principal, ds: str, question: str) -> dict:
     spec, source, model = None, "keywords", None
     if ai.enabled():
         try:
-            out = ai.generate(p, "ask", {"question": safe}, "", system=ai.ASK, user=f"Question: {safe}", label="insights", raw=True)
+            out = ai.generate(p, "ask", {"question": safe}, "", system=ai.ASK, user=f"Question: {safe}", label="insights", raw=True,
+                              accept=lambda t: bool((_json_obj(t) or {}).get("query")))
             obj = _json_obj(out.get("text") or "")
             if obj and obj.get("query") == "unsupported":
                 return {"supported": False, "question": q, "source": "ai", "model": out["model"],

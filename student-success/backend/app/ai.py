@@ -138,7 +138,7 @@ def models(key: str) -> list[str]:
         data = _http(f"{API}/models", None, key, 5)["data"]
     except Exception:
         return _models["ids"] or []
-    free = [m for m in data if m["id"].endswith(":free") and str(m.get("pricing", {}).get("prompt")) in ("0", "0.0") and
+    free = [m for m in data if m["id"].endswith(":free") and not re.search(r"safety|guard|moderat|embed", m["id"]) and str(m.get("pricing", {}).get("prompt")) in ("0", "0.0") and
             str(m.get("pricing", {}).get("completion")) in ("0", "0.0") and (m.get("context_length") or 0) >= 8000
             and "text" in str((m.get("architecture") or {}).get("output_modalities", ["text"]))]
     def rank(m):
@@ -156,13 +156,33 @@ def models(key: str) -> list[str]:
     return ids
 
 
-def complete(facts: dict, audience: str, system: str | None = None, user: str | None = None) -> tuple[str, str]:
+def vision_models(key: str) -> list[str]:
+    """Free models that accept images (for reading certificates)."""
+    if os.environ.get("AI_VISION_MODELS"):
+        return [m.strip() for m in os.environ["AI_VISION_MODELS"].split(",") if m.strip()]
+    if _models.get("vision") and time.time() - _models.get("vat", 0) < 6 * 3600:
+        return _models["vision"]
+    try:
+        data = _http(f"{API}/models", None, key, 5)["data"]
+    except Exception:
+        return _models.get("vision") or []
+    ids = [m["id"] for m in data if m["id"].endswith(":free") and "image" in str((m.get("architecture") or {}).get("input_modalities", []))
+           and not re.search(r"safety|guard|moderat|embed", m["id"])]
+    pref = ("google/gemma", "meta-llama/", "nvidia/", "qwen/", "mistralai/")
+    ids.sort(key=lambda i: next((n for n, x in enumerate(pref) if i.startswith(x)), len(pref)))
+    log.warning("openrouter free vision models: %s", ids[:6])
+    _models.update(vision=ids[:6], vat=time.time())
+    return ids[:6]
+
+
+def complete(facts: dict, audience: str, system: str | None = None, user=None, vision: bool = False,
+             accept=None) -> tuple[str, str]:
     """Try free models one at a time (last good one first) until one answers, within about 16 seconds."""
     key = api_key()
     if not key:
         raise AIUnavailable("AI summaries are not configured.")
-    ids = models(key)
-    if _models.get("good") in ids:
+    ids = vision_models(key) if vision else models(key)
+    if not vision and _models.get("good") in ids:
         ids = [_models["good"]] + [i for i in ids if i != _models["good"]]
     if not ids:
         raise AIUnavailable("No AI model is available right now. Please try again later.")
@@ -190,9 +210,12 @@ def complete(facts: dict, audience: str, system: str | None = None, user: str | 
                 detail = ""
             log.warning("openrouter %s for %s: %s", e.code, mid, detail)
             busy = busy or e.code == 429
+            if e.code == 429 and "per-day" in detail:  # the account's free allowance is used up: every model will refuse
+                raise AIUnavailable("Today's free AI allowance is used up. It resets at midnight UTC (5:30 am IST); "
+                                    "please try again then.") from None
             if e.code in (401, 402):  # key or account problem: no other model will work either
                 raise AIUnavailable("The AI service refused the request (check the API key or account).") from None
-            if e.code in (403, 404):  # this model isn't usable from this app: don't try it again
+            if e.code in (403, 404) or (e.code == 400 and "mandatory" in detail):  # not usable here: don't try it again
                 _models["ids"] = [i for i in (_models["ids"] or []) if i != mid]
             continue
         except Exception as e:  # timeout or network: try the next model
@@ -200,8 +223,12 @@ def complete(facts: dict, audience: str, system: str | None = None, user: str | 
             continue
         choice = (r.get("choices") or [{}])[0]
         text = (choice.get("message") or {}).get("content") or ""
+        if text.strip() and accept is not None and not accept(text):
+            log.warning("openrouter answer from %s not in the expected form; trying the next model", mid)
+            continue
         if text.strip():
-            _models["good"] = mid
+            if not vision:
+                _models["good"] = mid
             return text, r.get("model") or mid
         log.warning("openrouter empty answer from %s (finish %s)", mid, choice.get("finish_reason"))
     if busy:
@@ -212,7 +239,11 @@ def complete(facts: dict, audience: str, system: str | None = None, user: str | 
 def lines(text: str) -> list[str]:
     """Plain lines for display: markdown emphasis and headings stripped, bullets normalised to '- '."""
     out = []
+    raw = []
     for ln in text.replace("\r", "").split("\n"):
+        parts = re.split(r"\s+-\s+(?=[A-Z])", ln)  # bullets written on one line: "Intro. - First - Second"
+        raw += [parts[0]] + ["- " + x for x in parts[1:]] if len(parts) > 2 else [ln]
+    for ln in raw:
         bullet = re.match(r"^\s*(?:[-*•–]|\d+[.)])\s+", ln)
         ln = re.sub(r"[*_`#>]+", "", ln[bullet.end():] if bullet else ln).strip()
         ln = re.sub(r"^(?:headline|summary|key findings|next steps?)\s*:\s*", "", ln, flags=re.I)
@@ -239,7 +270,9 @@ def _student_facts(p: Principal, ds: str, sid: str) -> tuple[dict, str]:
         "latest_period": ins.get("period"), "success_score": _r(ins.get("score")), "band": ins.get("band"),
         "data_status": ins.get("status"), "data_coverage_pct": _r((ins.get("coverage") or 0) * 100) if ins.get("coverage") is not None else None,
         "components_0_100": {k: _r((v or {}).get("value")) for k, v in (ins.get("components") or {}).items()},
-        "indicators": {k: _r(v) for k, v in (ins.get("indicators") or {}).items()},
+        # wellbeing and feedback answers stay on the platform
+        "indicators": {k: _r(v) for k, v in (ins.get("indicators") or {}).items()
+                       if not re.search(r"stress|satisf|wellbeing|feedback|support_needed", k)},
         "score_history": [{"period": h["period"], "score": _r(h.get("score"))} for h in prof.get("history", [])],
         "risks": {k: {"level": (v or {}).get("level"), "flags": [f.get("label") for f in (v or {}).get("flags") or []]}
                   for k, v in risks.items()},
@@ -352,8 +385,18 @@ def summarise(p: Principal, kind: str, ds: str, student_id: str | None = None, d
     return generate(p, kind, facts, audience, label=student_id or department or "all")
 
 
+def use_quota(p: Principal) -> None:
+    """Count one new AI request against the user's daily limit (cached answers are free)."""
+    t = db.table()
+    day = time.strftime("%Y-%m-%d", time.gmtime())
+    q = t.get(f"AIQUOTA#{p.sub}", day) or {"pk": f"AIQUOTA#{p.sub}", "sk": day, "count": 0}
+    if int(q["count"]) >= DAILY_LIMIT:
+        raise AIUnavailable(f"You've reached today's limit of {DAILY_LIMIT} new AI requests. Try again tomorrow.")
+    t.put({**q, "count": int(q["count"]) + 1})
+
+
 def generate(p: Principal, kind: str, facts: dict, audience: str, system: str | None = None, user: str | None = None,
-             label: str = "all", raw: bool = False) -> dict:
+             label: str = "all", raw: bool = False, accept=None) -> dict:
     """Shared path for every AI feature: scrub, 24-hour cache, per-user daily limit, model call, audit."""
     facts = scrub(facts)
     t = db.table()
@@ -362,13 +405,9 @@ def generate(p: Principal, kind: str, facts: dict, audience: str, system: str | 
     if hit and time.time() - float(hit.get("at", 0)) < CACHE_SECONDS:
         return {"lines": hit["lines"], "text": hit.get("text"), "model": hit.get("model"), "generated_at": hit.get("generated_at"),
                 "cached": True}
-    day = time.strftime("%Y-%m-%d", time.gmtime())
-    q = t.get(f"AIQUOTA#{p.sub}", day) or {"pk": f"AIQUOTA#{p.sub}", "sk": day, "count": 0}
-    if int(q["count"]) >= DAILY_LIMIT:
-        raise AIUnavailable(f"You've reached today's limit of {DAILY_LIMIT} new AI requests. Try again tomorrow.")
-    text, model = complete(facts, audience, system, user)
+    use_quota(p)
+    text, model = complete(facts, audience, system, user, accept=accept) if accept else complete(facts, audience, system, user)
     out = {"lines": lines(text), "text": text[:4000] if raw else None, "model": model, "generated_at": db.now(), "cached": False}
-    t.put({**q, "count": int(q["count"]) + 1})
     t.put({"pk": f"AI#{h}", "sk": "SUMMARY", "lines": out["lines"], "text": out["text"], "model": model,
            "generated_at": out["generated_at"], "at": str(int(time.time())), "kind": kind})
     audit.log(p, f"ai.{kind}_generated", kind, label, {"model": model})

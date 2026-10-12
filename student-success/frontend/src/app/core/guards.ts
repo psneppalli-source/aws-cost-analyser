@@ -4,11 +4,12 @@ import { AuthService } from './auth.service';
 import { Session } from './session.service';
 
 /** Signed in, with the user's assignments loaded from the server (the source of truth for access). */
-export const signedIn: CanActivateFn = async () => {
+export const signedIn: CanActivateFn = async (_route, state) => {
   const auth = inject(AuthService);
   const session = inject(Session);
   const router = inject(Router);
-  if (!(await auth.token())) return router.parseUrl('/login');
+  // visitors who aren't signed in see the home page first; deep links go straight to sign-in
+  if (!(await auth.token())) return router.parseUrl(state.url === '/' || state.url === '' ? '/home' : '/login');
   if (!session.me()) {
     try { await session.load(); } catch { return router.parseUrl('/login'); }
   }

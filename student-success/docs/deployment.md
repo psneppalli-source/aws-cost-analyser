@@ -98,6 +98,17 @@ Three more AI helpers use the same key, privacy rules, cache and daily limit (`a
   typed in a question are replaced before it is sent. If AI is busy, a keyword reader answers common questions.
 * **Your weekly plan** (student dashboard): 4-6 concrete actions for the coming week from the student's own record.
 
+More helpers (`app/ai_more.py`, one endpoint `/api/ai/tool`), shown in each page's **AI assistant** card or beside
+the form they help with: meeting brief (printable), draft review of a support plan, "what's working" across completed
+plans, tidy a note (names, IDs, emails and phone numbers are masked first), weekly digest, explain a score change,
+practice and mock-interview questions, a help assistant (answers only from the app's help text), an import problem
+explainer, an entry check before saving (rules always run; AI only words the summary), and reading a certificate photo
+with a free vision model (the photo is not stored). Wellbeing and feedback answers are never sent to AI.
+
+**Daily allowance.** OpenRouter accounts without credit get about 50 free-model requests a day; users then see
+"Today's free AI allowance is used up" until midnight UTC. A one-off purchase of 10 OpenRouter credits raises the
+free-model allowance to about 1,000 requests a day (the models stay free; the credit is not spent on them).
+
 Free models are shared with every OpenRouter user, so at busy times a summary may fail with "busy, try again".
 Summaries come from a small model and can be wrong; the page says so.
 

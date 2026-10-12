@@ -3,6 +3,7 @@ import { landing, mfaReady, needs, signedIn, staffOnly } from './core/guards';
 import { Shell } from './shell';
 
 export const routes: Routes = [
+  { path: 'home', title: 'Smart Campus · Student success analytics', loadComponent: () => import('./pages/home').then((m) => m.HomePage) },
   { path: 'login', title: 'Sign in · Smart Campus', loadComponent: () => import('./pages/login').then((m) => m.LoginPage) },
   { path: 'recover', title: 'Reset password or authenticator', loadComponent: () => import('./pages/recover').then((m) => m.RecoverPage) },
   { path: 'register', title: 'Create your student account', loadComponent: () => import('./pages/register').then((m) => m.RegisterPage) },

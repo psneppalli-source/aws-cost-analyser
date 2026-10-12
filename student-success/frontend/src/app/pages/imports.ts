@@ -57,7 +57,14 @@ interface Import {
           <h3>Rows needing attention</h3>
           <div class="table-wrap"><table><thead><tr><th class="num">Row</th><th>Student</th><th>Result</th><th>Problem</th></tr></thead>
             <tbody>@for (p of i.problems; track p.row) { <tr><td class="num">{{ p.row }}</td><td class="mono">{{ p.student_id || '–' }}</td><td>{{ p.status }}</td><td class="small">{{ p.errors.join('; ') }}</td></tr> }</tbody></table></div>
-          <p><button class="btn small" type="button" (click)="exportProblems(i)">Download problems as CSV</button></p>
+          <p class="row" style="gap:8px"><button class="btn small" type="button" (click)="exportProblems(i)">Download problems as CSV</button>
+            @if (session.me()?.ai) { <button class="btn small" type="button" (click)="explain(i)" [disabled]="exBusy()">{{ exBusy() ? 'Explaining…' : '✨ Explain these problems' }}</button> }</p>
+          @if (exError()) { <p class="error-text" role="alert">{{ exError() }}</p> }
+          @if (ex().length) {
+            <div class="banner" style="margin-top:8px" aria-live="polite">
+              @for (l of ex(); track $index) { @if (l.startsWith('- ')) { <div style="margin:4px 0">• {{ l.slice(2) }}</div> } @else { <p style="margin:0 0 6px"><strong>{{ l }}</strong></p> } }
+              <p class="small muted" style="margin:8px 0 0">AI explanation of the problems above (row values are not shared). Fix the file and upload it again.</p></div>
+          }
         }
       </section>
     }
@@ -89,6 +96,16 @@ export class ImportsPage {
   canMaster = computed(() => this.session.can('student_master', 'create'));
 
   constructor() { this.init(); this.history(); }
+
+  ex = signal<string[]>([]);
+  exBusy = signal(false);
+  exError = signal<string | null>(null);
+  async explain(i: { import_id: string }) {
+    this.exBusy.set(true); this.exError.set(null);
+    try { this.ex.set((await this.api.post<{ lines: string[] }>('/ai/tool', { tool: 'import_help', import_id: i.import_id })).lines); }
+    catch (e) { this.exError.set(message(e)); }
+    finally { this.exBusy.set(false); }
+  }
 
   async init() {
     try {

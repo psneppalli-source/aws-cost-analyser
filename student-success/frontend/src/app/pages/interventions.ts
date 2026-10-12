@@ -1,4 +1,5 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
+import { AiHub, AiTool } from '../shared/ai-hub';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
@@ -13,7 +14,7 @@ interface Iv { intervention_id: string; student_id: string; student_name: string
 
 @Component({
   selector: 'app-interventions-page',
-  imports: [FormsModule, RouterLink, StateView, RealEmpty],
+  imports: [AiHub, FormsModule, RouterLink, StateView, RealEmpty],
   template: `
     <div class="page-head"><h1>Interventions</h1><span class="spacer"></span>
       <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
@@ -24,6 +25,7 @@ interface Iv { intervention_id: string; student_id: string; student_name: string
       <label>Department<select name="d" [ngModel]="dept()" (ngModelChange)="dept.set($event)"><option value="">All</option>@for (d of departments(); track d) { <option [value]="d">{{ d }}</option> }</select></label>
       <label class="check"><input type="checkbox" style="width:auto" name="o" [ngModel]="overdue()" (ngModelChange)="overdue.set($event)"> Overdue only</label>
     </form>
+    <app-ai-hub [tools]="aiTools" [department]="dept()" />
     <app-real-empty [show]="!loading() && !items().length && !status() && !overdue()" />
     <section class="kpis" style="margin-bottom:14px">
       <div class="card kpi"><div class="label">Open</div><div class="value">{{ count('Open') }}</div></div>
@@ -46,6 +48,7 @@ interface Iv { intervention_id: string; student_id: string; student_name: string
     }`,
 })
 export class InterventionsPage {
+  aiTools: AiTool[] = [{ kind: 'outcomes', label: "What's working", action: 'Summarise outcomes' }];
   private api = inject(Api);
   session = inject(Session);
   items = signal<Iv[]>([]);

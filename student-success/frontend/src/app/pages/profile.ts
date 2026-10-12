@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject, input, signal, untracked } from '@angular/core';
-import { AiSummary } from '../shared/ai-summary';
+import { AiHub, AiTool } from '../shared/ai-hub';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Api, ApiError } from '../core/api.service';
@@ -56,7 +56,7 @@ const RECORD_COLS: Record<string, string[]> = {
 
 @Component({
   selector: 'app-profile-page',
-  imports: [AiSummary, FormsModule, RouterLink, StateView, RiskBadge, StatusChip, MultiLine, PairedBars],
+  imports: [AiHub, FormsModule, RouterLink, StateView, RiskBadge, StatusChip, MultiLine, PairedBars],
   styles: [`.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:8px 0 16px;flex-wrap:wrap}
     .tabs button{background:none;border:0;padding:10px 14px;font:inherit;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent}
     .tabs button[aria-selected=true]{color:var(--navy-900);border-color:var(--teal-500);font-weight:600}
@@ -77,7 +77,7 @@ const RECORD_COLS: Record<string, string[]> = {
         <p class="banner warn">Recent changes are waiting to be included in this student's score.
           @if (session.can('insight', 'recompute')) { An administrator can run <em>Recalculate</em> on the Configuration page. }</p>
       }
-      <app-ai-summary kind="student" [studentId]="p.student.student_id" [subject]="isOwn() ? 'my progress' : 'this student'" />
+      <app-ai-hub [tools]="aiTools()" [studentId]="p.student.student_id" />
       <div class="tabs" role="tablist">
         @for (t of tabs(); track t[0]) {
           <button role="tab" type="button" [attr.aria-selected]="tab() === t[0]" (click)="tab.set(t[0])">{{ t[1] }}</button>
@@ -260,7 +260,10 @@ const RECORD_COLS: Record<string, string[]> = {
                   <label class="field">Review date<input type="date" name="r" [(ngModel)]="upd(i).review_date"></label>
                   <label class="field">Outcome<select name="o" [(ngModel)]="upd(i).result"><option value="">Not recorded yet</option>
                     @for (o of outcomeKeys; track o) { <option [value]="o">{{ outcomeLabel(o) }}</option> }</select></label>
-                  <label class="field" style="grid-column:1/-1">Outcome note<textarea name="n" [(ngModel)]="upd(i).note" maxlength="1000"></textarea></label>
+                  <label class="field" style="grid-column:1/-1">Outcome note<textarea name="n" [(ngModel)]="upd(i).note" maxlength="1000" rows="3"></textarea></label>
+                  @if (session.me()?.ai) { <div class="row" style="grid-column:1/-1;gap:8px">
+                    <button class="btn small" type="button" (click)="draftReview(i)" [disabled]="aiBusy()">{{ aiBusy() === 'review' + i.intervention_id ? 'Drafting…' : '✨ Draft review' }}</button>
+                    @if (aiMsg()[i.intervention_id]) { <span class="small muted">{{ aiMsg()[i.intervention_id] }}</span> }</div> }
                   <p class="small muted" style="grid-column:1/-1">Completing requires an outcome. The current score is recorded for the before/after view.</p>
                   <div class="row" style="grid-column:1/-1"><button class="btn primary" type="submit" [disabled]="busy()">Save</button></div>
                 </form></details>
@@ -276,6 +279,8 @@ const RECORD_COLS: Record<string, string[]> = {
                   <textarea [(ngModel)]="noteText[i.intervention_id]" [name]="'n' + i.intervention_id" placeholder="Add a note" maxlength="2000" rows="2" style="flex:1" aria-label="Note"></textarea>
                   <select [(ngModel)]="noteVis[i.intervention_id]" [name]="'v' + i.intervention_id" aria-label="Visibility">
                     <option value="staff">Staff</option>@if (p.permissions['confidential_note']) { <option value="confidential">Confidential (mentor, HOD)</option> }</select>
+                  @if (session.me()?.ai) { <button class="btn small" type="button" (click)="tidyNote(i)" [disabled]="!!aiBusy()"
+                    title="Rewrites the note clearly. Names, IDs, emails and phone numbers are hidden from the AI.">{{ aiBusy() === 'tidy' + i.intervention_id ? 'Tidying…' : '✨ Tidy' }}</button> }
                   <button class="btn small" type="submit" [disabled]="busy()">Add</button></form>
               }
             }
@@ -309,6 +314,11 @@ const RECORD_COLS: Record<string, string[]> = {
     }`,
 })
 export class ProfilePage {
+  aiTools = computed<AiTool[]>(() => this.isOwn()
+    ? [{ kind: 'student', label: 'Summary', action: 'Summarise my progress' }, { kind: 'explain', label: 'Explain my score', action: 'Explain my score' }]
+    : [{ kind: 'student', label: 'Summary', action: 'Summarise this student' },
+       { kind: 'brief', label: 'Meeting brief', action: 'Prepare meeting brief', printable: true },
+       { kind: 'explain', label: 'Explain the score change', action: 'Explain the change' }]);
   private api = inject(Api);
   session = inject(Session);
   dataset = input.required<string>();
@@ -490,6 +500,36 @@ export class ProfilePage {
       delete this.updates[i.intervention_id];
       return 'Intervention updated.';
     });
+  }
+
+  aiBusy = signal<string | null>(null);
+  aiMsg = signal<Record<string, string>>({});
+  private setMsg(id: string, m: string) { this.aiMsg.update((x) => ({ ...x, [id]: m })); }
+
+  /** AI suggests the outcome from the before/after figures; the mentor edits it and saves. */
+  async draftReview(i: Intervention) {
+    this.aiBusy.set('review' + i.intervention_id); this.setMsg(i.intervention_id, '');
+    try {
+      const r = await this.api.post<{ result: string; recommendation: string; note: string; model: string }>('/ai/tool',
+        { tool: 'plan_review', student_id: this.sid(), intervention_id: i.intervention_id });
+      const u = this.upd(i);
+      u.result = r.result; u.note = r.note.slice(0, 1000);
+      if (r.recommendation === 'close') u.status = 'Completed'; else if (u.status === 'Open') u.status = 'In Progress';
+      this.setMsg(i.intervention_id, `Suggested: ${r.recommendation} the plan (AI, ${r.model}). Check before saving.`);
+    } catch (e) { this.setMsg(i.intervention_id, message(e)); }
+    finally { this.aiBusy.set(null); }
+  }
+
+  /** AI rewrites the note clearly; identities are masked before it leaves the platform. */
+  async tidyNote(i: Intervention) {
+    const text = (this.noteText[i.intervention_id] || '').trim();
+    if (!text) return;
+    this.aiBusy.set('tidy' + i.intervention_id);
+    try {
+      const r = await this.api.post<{ text: string }>('/ai/tool', { tool: 'tidy', student_id: this.sid(), text });
+      if (r.text) this.noteText[i.intervention_id] = r.text;
+    } catch (e) { this.setMsg(i.intervention_id, message(e)); }
+    finally { this.aiBusy.set(null); }
   }
 
   async addNote(i: Intervention) {

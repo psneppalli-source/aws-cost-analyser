@@ -1,5 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { AiSummary } from '../shared/ai-summary';
+import { AiHub, AiTool } from '../shared/ai-hub';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
@@ -30,11 +31,12 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
 /** The student's own dashboard: only their own details, marks and improvement over time, plus what to focus on and actions. */
 @Component({
   selector: 'app-student-home-page',
-  imports: [AiSummary, RouterLink, StateView, StatusChip, RiskBadge, MultiLine, Spark],
+  imports: [AiHub, FormsModule, RouterLink, StateView, StatusChip, RiskBadge, MultiLine, Spark],
   styles: [`.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap} .big{font-size:56px;font-weight:700;color:var(--navy-900);line-height:1}
     .focus li{margin:6px 0} .actions{display:flex;gap:10px;flex-wrap:wrap}
     .marks td,.marks th{text-align:center;white-space:nowrap} .marks td:first-child,.marks th:first-child{text-align:left}
     .cell{display:inline-block;min-width:44px;padding:2px 6px;border-radius:6px;font-variant-numeric:tabular-nums}
+    .practice{margin-top:16px} .pq{margin:12px 0 6px;padding-left:22px} .pq li{margin:8px 0;line-height:1.5}
     .up{color:#006300;font-weight:600;white-space:nowrap} .down{color:#b42318;font-weight:600;white-space:nowrap} .num{font-variant-numeric:tabular-nums}`],
   template: `
     <app-state [loading]="loading() && !p()" [error]="error()" (retry)="load()" />
@@ -60,8 +62,24 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
         </section>
       }
 
-      <div style="margin-top:16px"><app-ai-summary kind="coach" heading="Your weekly plan" action="Make my weekly plan" />
-        <app-ai-summary kind="student" [studentId]="p.student.student_id" subject="my progress" /></div>
+      <div style="margin-top:16px"><app-ai-hub [tools]="aiTools" [studentId]="p.student.student_id" /></div>
+      @if (session.me()?.ai) {
+        <section class="card practice" aria-labelledby="pq-h">
+          <div class="card-head"><h2 id="pq-h">✨ Practice questions</h2>
+            <span class="desc">Five questions with hints for a subject, or mock interview questions. No answers, so you can test yourself.</span></div>
+          <form class="row" style="gap:8px" (submit)="$event.preventDefault(); practice()">
+            <select name="pqs" [(ngModel)]="pqSubject" aria-label="Subject">
+              @for (s of subjects(); track s.subject) { <option [value]="s.subject">{{ s.subject }}</option> }
+              <option value="__interview">Placement interview practice</option></select>
+            <button class="btn primary" type="submit" [disabled]="pqBusy() || !pqSubject">{{ pqBusy() ? 'Creating…' : 'Create questions' }}</button>
+          </form>
+          @if (pqError()) { <p class="error-text" role="alert" style="margin-top:8px">{{ pqError() }}</p> }
+          @if (pq().length) {
+            <ol class="pq">@for (q of pqItems(); track $index) { <li>{{ q.q }}@if (q.hint) { <br><span class="small muted">Hint: {{ q.hint }}</span> }</li> }</ol>
+            <p class="small muted">AI-generated practice ({{ pqModel() }}). Questions can contain mistakes; ask your teacher if one looks wrong.</p>
+          }
+        </section>
+      }
       @if (subjects().length) {
         <section class="card" style="margin-top:16px"><div class="card-head"><h2>Your marks</h2>
           <span class="desc">Monthly test scores as a percentage, with your attendance in each subject.</span></div>
@@ -141,6 +159,9 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
     }`,
 })
 export class StudentHomePage {
+  aiTools: AiTool[] = [{ kind: 'coach', label: 'My weekly plan', action: 'Make my weekly plan' },
+    { kind: 'explain', label: 'Explain my score', action: 'Explain my score' },
+    { kind: 'student', label: 'Summary', action: 'Summarise my progress' }];
   private api = inject(Api);
   session = inject(Session);
   p = signal<Profile | null>(null);
@@ -226,6 +247,25 @@ export class StudentHomePage {
 
   constructor() { this.load(); }
 
+  // practice questions
+  pqSubject = '';
+  pq = signal<string[]>([]);
+  pqModel = signal('');
+  pqBusy = signal(false);
+  pqError = signal<string | null>(null);
+  pqItems = computed(() => this.pq().filter((l) => l.startsWith('- ')).map((l) => {
+    const [q, hint] = l.slice(2).split(/\s*Hint:\s*/i); return { q, hint: hint || '' }; }));
+  async practice() {
+    if (!this.pqSubject) return;
+    this.pqBusy.set(true); this.pqError.set(null);
+    try {
+      const body = this.pqSubject === '__interview' ? { tool: 'practice', mode: 'interview' } : { tool: 'practice', mode: 'subject', subject: this.pqSubject };
+      const r = await this.api.post<{ lines: string[]; model: string }>('/ai/tool', body);
+      this.pq.set(r.lines); this.pqModel.set(r.model);
+    } catch (e) { this.pqError.set(message(e)); }
+    finally { this.pqBusy.set(false); }
+  }
+
   sparkOf(m: Metric) { return m.values.map((v) => (v === null ? null : Math.min(100, v * m.scale))); }
   fmt(v: number | null, unit: string) { return v === null ? '–' : `${v}${unit}`; }
   short(p: string) { return new Date(p + '-01').toLocaleString(undefined, { month: 'short', year: '2-digit' }); }
@@ -247,6 +287,11 @@ export class StudentHomePage {
         this.api.get<{ items: Rec[] }>(`/students/${st.dataset}/${st.student_id}/records`),
       ]);
       this.p.set(p); this.records.set(r.items);
+      if (!this.pqSubject) {  // start on the weakest subject (lowest latest test %)
+        const last = (x: { pcts: (number | null)[] }) => [...x.pcts].reverse().find((v) => v !== null) ?? 999;
+        const s = [...this.subjects()].sort((a, b) => last(a) - last(b))[0];
+        this.pqSubject = s ? s.subject : '__interview';
+      }
     } catch (e) { this.error.set(message(e)); }
     finally { this.loading.set(false); }
   }

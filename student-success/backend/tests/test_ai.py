@@ -11,7 +11,7 @@ from app import ai
 def fake_model(monkeypatch):
     sent = []
 
-    def complete(facts, audience, system=None, user=None):
+    def complete(facts, audience, system=None, user=None, **kw):
         sent.append((facts, audience))
         return "Headline about the data.\n* **Point one**\n2. Point two\n- Next step", "test/free-model:free"
     monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
@@ -65,7 +65,7 @@ def test_ask_runs_a_checked_query_never_model_numbers(call, monkeypatch):
     monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
     asked = []
 
-    def complete(facts, audience, system=None, user=None):
+    def complete(facts, audience, system=None, user=None, **kw):
         asked.append(user)
         return '{"query":"average","metric":"attendance","group_by":"department","year":3}', "test/m:free"
     monkeypatch.setattr(ai, "complete", complete)
@@ -100,7 +100,7 @@ def test_plan_draft_and_coach(call, monkeypatch):
     monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
     systems = []
 
-    def complete(facts, audience, system=None, user=None):
+    def complete(facts, audience, system=None, user=None, **kw):
         systems.append(system)
         if system == ai.PLAN:
             return 'Sure: {"title":"Coding practice plan","steps":["Weekly coding clinic","Two practice tests"],"review_weeks":3}', "m:free"

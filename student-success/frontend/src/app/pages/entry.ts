@@ -24,7 +24,8 @@ const SUBJECT = new Set(['marks', 'attendance']);
 @Component({
   selector: 'app-entry-page',
   imports: [FormsModule, RouterLink, StateView],
-  styles: [`.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-bottom:16px}
+  styles: [`.cert-ai{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border:1px dashed var(--line-2);border-radius:12px;background:#fafcfe}
+    .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-bottom:16px}
     .cats button{text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--white);cursor:pointer;font:inherit;display:flex;flex-direction:column;justify-content:flex-start;gap:2px;box-shadow:var(--shadow-1);transition:border-color .15s,box-shadow .15s}
     .cats button:hover{border-color:#b8c5d5}
     .cats button[aria-pressed=true]{border-color:var(--teal-500);box-shadow:0 0 0 3px var(--teal-100);background:linear-gradient(180deg,#fff,#f3fbfb)}
@@ -108,6 +109,13 @@ const SUBJECT = new Set(['marks', 'attendance']);
               </label>
             }
             @if (c.category === 'feedback') { <p class="small muted" style="grid-column:1/-1">Feedback helps staff offer support. It never lowers your score.</p> }
+            @if (c.category === 'certification' && session.me()?.ai) {
+              <div class="cert-ai" style="grid-column:1/-1">
+                <label class="btn small" style="cursor:pointer">✨ Read from a photo
+                  <input type="file" accept="image/png,image/jpeg,image/webp" (change)="readCert($event)" class="sr-only"></label>
+                <span class="small muted">{{ certMsg() || 'Fills in the certificate name and issuer. The photo is not saved; check the details before submitting.' }}</span>
+              </div>
+            }
             <div style="grid-column:1/-1"><button class="btn primary" type="submit" [disabled]="busy()">Submit</button></div>
           </form>
         </section>
@@ -127,7 +135,19 @@ const SUBJECT = new Set(['marks', 'attendance']);
                 <td class="small" aria-live="polite"><span [class.saved]="r.state === 'Saved'" [class.warn]="r.state.startsWith('Correction')">{{ r.state }}</span>
                   @if (r.error) { <span class="error-text">{{ r.error }}</span> }</td></tr>
             }</tbody></table></div></div>
-          <p class="row" style="margin-top:12px"><button class="btn primary" type="button" (click)="saveAll()" [disabled]="busy() || !dirtyCount()">Save {{ dirtyCount() }} changed row(s)</button>
+          @if (checks(); as k) {
+            <div class="banner" [class.warn]="k.warnings.length" style="margin-top:12px" aria-live="polite">
+              @if (!k.warnings.length) { ✓ No unusual values found in {{ k.rows_checked }} row(s). }
+              @else {
+                <strong>{{ k.warnings.length }} value(s) to check</strong>@if (k.summary) { — {{ k.summary }} }
+                <ul style="margin:6px 0 0;padding-left:18px">@for (w of k.warnings.slice(0, 12); track $index) {
+                  <li class="small">@if (w.student_id) { <strong>{{ nameOf(w.student_id) }}</strong> · {{ w.field }}: } {{ w.message }}</li> }</ul>
+                @if (k.warnings.length > 12) { <p class="small muted" style="margin:4px 0 0">…and {{ k.warnings.length - 12 }} more.</p> }
+              }
+            </div>
+          }
+          <p class="row" style="margin-top:12px"><button class="btn" type="button" (click)="check()" [disabled]="checking() || !dirtyCount()">{{ checking() ? 'Checking…' : 'Check entries' }}</button>
+            <button class="btn primary" type="button" (click)="saveAll()" [disabled]="busy() || !dirtyCount()">Save {{ dirtyCount() }} changed row(s)</button>
             <span class="small muted">Rows are saved one by one. Unchanged values are skipped; if someone else changed a value meanwhile, that row is not overwritten.</span></p>
         }
       }
@@ -204,6 +224,7 @@ export class EntryPage {
     this.newStudent.set(false);
     this.cat.set(c); this.msg.set(null); this.fieldErr.set({});
     this.common = {};
+    this.checks.set(null);
     for (const f of c.fields) if ((COMMON[c.category] || []).includes(f.name) && f.type === 'enum') this.common[f.name] = f.choices[0];
     if (c.category === 'marks') this.common['max_score'] = 50;
     this.own = {};
@@ -270,6 +291,46 @@ export class EntryPage {
     }
     this.msg.set(`${saved} saved, ${corrections} sent for HOD approval, ${failed} not saved.`);
     this.busy.set(false);
+  }
+
+  // --- checks before saving (rules; AI only words a summary)
+  checks = signal<{ warnings: { student_id: string; field: string; message: string }[]; rows_checked: number; summary: string | null } | null>(null);
+  checking = signal(false);
+  nameOf(sid: string) { return this.rows().find((r) => r.student_id === sid)?.name || sid; }
+  async check() {
+    const c = this.cat(); if (!c) return;
+    this.checking.set(true);
+    try {
+      const rows = this.rows().filter((r) => r.dirty).map((r) => ({ student_id: r.student_id, values: r.values, saved: r.match || {} }));
+      this.checks.set(await this.api.post('/ai/tool', { tool: 'check_entries', category: c.category, common: this.common, rows }));
+    } catch (e) { this.msg.set(message(e)); }
+    finally { this.checking.set(false); }
+  }
+
+  // --- certificate photo: shrink in the browser, read with a free vision model, pre-fill the form
+  certMsg = signal<string | null>(null);
+  async readCert(ev: Event) {
+    const file = (ev.target as HTMLInputElement).files?.[0];
+    (ev.target as HTMLInputElement).value = '';
+    if (!file) return;
+    this.certMsg.set('Reading the certificate…');
+    try {
+      const url = await new Promise<string>((ok, bad) => {
+        const img = new Image();
+        img.onload = () => {
+          const k = Math.min(1, 1400 / Math.max(img.width, img.height));
+          const cv = document.createElement('canvas'); cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k);
+          cv.getContext('2d')!.drawImage(img, 0, 0, cv.width, cv.height);
+          URL.revokeObjectURL(img.src); ok(cv.toDataURL('image/jpeg', 0.82));
+        };
+        img.onerror = () => bad(new Error('That file could not be opened as an image.'));
+        img.src = URL.createObjectURL(file);
+      });
+      const r = await this.api.post<{ name: string | null; issuer: string | null; date: string | null; model: string }>('/ai/tool', { tool: 'read_certificate', image: url });
+      if (r.name) this.own['name'] = r.name;
+      if (r.issuer) this.own['issuer'] = r.issuer;
+      this.certMsg.set(`Filled in from the photo${r.date ? ' (dated ' + r.date + ')' : ''}. Check the details, then submit.`);
+    } catch (e) { this.certMsg.set(message(e)); }
   }
 
   async saveOwn() {

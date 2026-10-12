@@ -234,6 +234,37 @@ async def ai_ask(request: Request, p: Principal = Depends(principal)):
         return err(422, "question_unclear", str(e))
 
 
+@app.post("/api/ai/tool")
+async def ai_tool(request: Request, p: Principal = Depends(principal)):
+    """One entry point for the smaller AI helpers (see app/ai_more.py)."""
+    from . import ai, ai_more
+    b = await request.json()
+    ds, tool = recordsvc.DATASETS[0], str(b.get("tool", ""))
+    sid = str(b.get("student_id") or "")
+    try:
+        year = int(b["year"]) if b.get("year") else None
+        fns = {
+            "brief": lambda: ai_more.brief(p, ds, sid),
+            "plan_review": lambda: ai_more.plan_review(p, ds, sid, str(b.get("intervention_id", ""))),
+            "outcomes": lambda: ai_more.outcomes(p, ds, b.get("department") or None),
+            "tidy": lambda: ai_more.tidy(p, ds, sid, str(b.get("text", ""))),
+            "digest": lambda: ai_more.digest(p, ds, b.get("department") or None, year),
+            "explain": lambda: ai_more.explain(p, ds, sid or (p.student[1] if p.student else "")),
+            "practice": lambda: ai_more.practice(p, ds, str(b.get("mode", "subject")), b.get("subject")),
+            "help": lambda: ai_more.help_answer(p, str(b.get("question", ""))),
+            "import_help": lambda: ai_more.import_help(p, str(b.get("import_id", ""))),
+            "check_entries": lambda: ai_more.check_entries(p, str(b.get("category", "")), b.get("common") or {}, b.get("rows") or []),
+            "read_certificate": lambda: ai_more.read_certificate(p, str(b.get("image", ""))),
+        }
+        if tool not in fns:
+            return err(404, "unknown_tool", "Unknown AI helper.")
+        if tool != "check_entries" and not ai.enabled():
+            return err(503, "ai_unavailable", "AI features are not configured.")
+        return fns[tool]()
+    except ai.AIUnavailable as e:
+        return err(503, "ai_unavailable", str(e))
+
+
 @app.get("/api/me")
 def me(p: Principal = Depends(principal)):
     m = role_matrix()

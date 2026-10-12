@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from './core/auth.service';
+import { HelpWidget } from './shared/help-widget';
 import { Session } from './core/session.service';
 
 interface NavItem { path: string; label: string; show: boolean; }
@@ -8,14 +9,14 @@ interface NavItem { path: string; label: string; show: boolean; }
 /** Signed-in layout: navigation filtered by the user's permissions, dataset switch and sign out. */
 @Component({
   selector: 'app-shell',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, HelpWidget],
   template: `
     <a class="skip" href="#main">Skip to content</a>
     <div class="shell">
       <nav class="side" aria-label="Main">
         <div class="side-head">
           <div class="brand"><div class="brand-mark" aria-hidden="true">SC</div>
-            <div>Smart Campus<small>Student success analytics</small></div></div>
+            <div><span class="brand-name">Smart Campus</span><small>Student success analytics</small></div></div>
           <button class="menu-btn" type="button" (click)="open.set(!open())" [attr.aria-expanded]="open()" aria-controls="nav-links">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
               @if (open()) { <path d="M6 6l12 12M18 6L6 18"/> } @else { <path d="M4 7h16M4 12h16M4 17h16"/> }</svg>
@@ -53,6 +54,7 @@ interface NavItem { path: string; label: string; show: boolean; }
         <main id="main" class="content" tabindex="-1">
           <router-outlet />
         </main>
+        <app-help-widget />
       </div>
     </div>`,
 })

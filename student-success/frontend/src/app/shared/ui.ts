@@ -37,8 +37,10 @@ export class StatusChip {
   selector: 'app-state',
   template: `
     @if (loading()) {
-      <div class="state" role="status" aria-live="polite"><div class="skeleton" style="max-width:420px;margin:0 auto 8px"></div>
-        <div class="skeleton" style="max-width:300px;margin:0 auto"></div><span class="sr-only">Loading…</span></div>
+      <div class="state loading-state" role="status" aria-live="polite">
+        <div class="sk-row"><div class="sk-card"></div><div class="sk-card"></div><div class="sk-card"></div><div class="sk-card"></div></div>
+        <div class="sk-panel"><div class="skeleton" style="width:40%"></div><div class="skeleton"></div><div class="skeleton" style="width:85%"></div><div class="skeleton" style="width:70%"></div></div>
+        <span class="sr-only">Loading…</span></div>
     } @else if (error()) {
       <div class="state error" role="alert">{{ error() }} <button class="btn small" type="button" (click)="retry.emit()">Try again</button></div>
     } @else if (empty()) {

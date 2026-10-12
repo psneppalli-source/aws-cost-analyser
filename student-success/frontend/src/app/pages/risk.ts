@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
-import { AiSummary } from '../shared/ai-summary';
+import { AiHub, AiTool } from '../shared/ai-hub';
 import { RouterLink } from '@angular/router';
 import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
@@ -10,14 +10,14 @@ import { Row } from './students';
 
 @Component({
   selector: 'app-risk-page',
-  imports: [AiSummary, RouterLink, FilterBar, StateView, RiskBadge, StatusChip, RealEmpty],
+  imports: [AiHub, RouterLink, FilterBar, StateView, RiskBadge, StatusChip, RealEmpty],
   template: `
     <div class="page-head"><h1>Academic risk</h1><span class="spacer"></span>
       <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
       <p class="sub">Rules on CGPA, backlogs, marks, attendance and assignment completion. Thresholds are assumptions to validate with the college,
         shown with every flag on the student profile. Placement readiness is assessed separately.</p></div>
     <app-filters [value]="filters()" (changed)="filters.set($event)" [departments]="departments()" [periods]="periods()" [showRisk]="false" />
-    <app-ai-summary kind="academic" [department]="filters().department" [year]="filters().year" subject="academic risk" />
+    <app-ai-hub [tools]="aiTools" [department]="filters().department" [year]="filters().year" />
     <div class="row" role="group" aria-label="Risk level" style="margin:-4px 0 14px;gap:6px">
       @for (l of levels; track l[0]) {
         <button type="button" class="btn small" [class.primary]="level() === l[0]" [attr.aria-pressed]="level() === l[0]" (click)="level.set(l[0])">
@@ -39,6 +39,7 @@ import { Row } from './students';
     }`,
 })
 export class RiskPage {
+  aiTools: AiTool[] = [{ kind: 'academic', label: 'Summary', action: 'Summarise academic risk' }];
   private api = inject(Api);
   session = inject(Session);
   filters = signal<Filters>(blankFilters());

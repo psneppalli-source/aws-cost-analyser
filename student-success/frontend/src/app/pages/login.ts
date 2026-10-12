@@ -73,7 +73,7 @@ interface Persona { username: string; display_name: string; }
   template: `
     <div class="split">
       <section class="si-hero" aria-label="About Smart Campus">
-        <div class="logo"><div class="mark" aria-hidden="true">SC</div><div><strong>Smart Campus</strong><small>Student success analytics</small></div></div>
+        <a class="logo" routerLink="/home" style="text-decoration:none" title="Home"><div class="mark" aria-hidden="true">SC</div><div><strong>Smart Campus</strong><small>Student success analytics</small></div></a>
         <div>
           <h1 class="headline">Every student's progress, <span>in one clear view.</span></h1>
           <p class="lede">Marks, attendance, skills and placement readiness come together in one Success Score, so support reaches students early.</p>
