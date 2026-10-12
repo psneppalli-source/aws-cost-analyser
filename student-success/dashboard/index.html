@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Campus Analytics</title>
+  <meta name="description" content="Student Success Platform: unified student view, Success Score, at-risk identification, segmentation and explainable drivers.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">S</div>
+        <div>
+          <h1>Smart Campus Analytics</h1>
+          <div class="sub">Student Success Platform · predict, prioritise, intervene</div>
+        </div>
+        <div class="spacer"></div>
+        <span class="muted" id="asof" style="font-size:12px"></span>
+        <button class="icon-btn" id="themeBtn" type="button" title="Toggle light/dark theme">◐ Theme</button>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Views">
+        <button class="tab" role="tab" data-view="overview" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" data-view="students" aria-selected="false">Students</button>
+        <button class="tab" role="tab" data-view="segments" aria-selected="false">Segments &amp; actions</button>
+        <button class="tab" role="tab" data-view="method" aria-selected="false">Data &amp; model</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="filters" id="filters" aria-label="Filters">
+    <label>Department<select id="fDept"><option value="">All departments</option></select></label>
+    <label>Year<select id="fYear"><option value="">All years</option><option value="2">2nd year</option><option value="3">3rd year</option><option value="4">4th year</option></select></label>
+    <label>Segment<select id="fSeg"><option value="">All segments</option></select></label>
+    <label>Risk flag<select id="fRisk">
+      <option value="">Any</option>
+      <option value="acadHigh">High academic risk</option>
+      <option value="placeHigh">High placement risk</option>
+      <option value="anyHigh">Any high risk</option>
+      <option value="attendance">Attendance &lt; 75%</option>
+      <option value="lms">LMS drop-off</option>
+      <option value="wellbeing">Wellbeing concern</option>
+    </select></label>
+    <label>Search<input type="search" id="fSearch" placeholder="Name or roll no."></label>
+    <button class="link-btn" id="fReset" type="button">Reset</button>
+    <span class="count" id="fCount"></span>
+  </div>
+
+  <main>
+    <!-- ================= OVERVIEW ================= -->
+    <section class="view" id="view-overview" role="tabpanel">
+      <div class="grid g-kpi" id="kpis"></div>
+
+      <h2 class="section-title">What the combined data is telling us</h2>
+      <div class="insights" id="insights"></div>
+
+      <h2 class="section-title">Scores &amp; risk</h2>
+      <div class="grid g-2">
+        <div class="card">
+          <div class="card-head"><h2>Success Score distribution</h2>
+            <span class="desc">Students per 5-point bucket, coloured by band. Hover for counts; click a bar to list those students.</span></div>
+          <div class="chart" id="chHist"></div>
+          <div class="legend" id="lgHist"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Risk by department</h2>
+            <div class="right seg-toggle" id="riskToggle">
+              <button type="button" data-k="acad" aria-pressed="true">Academic</button>
+              <button type="button" data-k="place" aria-pressed="false">Placement</button>
+            </div>
+            <span class="desc">Share of students in each risk tier. Placement risk covers 3rd and 4th years only.</span></div>
+          <div class="chart" id="chDept"></div>
+          <div class="legend" id="lgDept"></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Key trends</h2>
+      <div class="grid g-2">
+        <div class="card">
+          <div class="card-head"><h2>LMS logins per week, this semester</h2>
+            <span class="desc">Average logins per student. The disengaging group fades from week 6, weeks before internal exams and long before CGPA moves.</span></div>
+          <div class="chart" id="chLms"></div>
+          <div class="legend" id="lgLms"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Attendance by month</h2>
+            <span class="desc">Average attendance by cohort, against the 75% exam-eligibility line.</span></div>
+          <div class="chart" id="chAtt"></div>
+          <div class="legend" id="lgAtt"></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Where to act</h2>
+      <div class="grid g-2">
+        <div class="card">
+          <div class="card-head"><h2>Academic strength vs placement readiness</h2>
+            <span class="desc">Each dot is a student. Bottom-right quadrant: strong academics, weak readiness. Click a dot to open the profile.</span></div>
+          <div class="chart" id="chScatter"></div>
+          <div class="legend" id="lgScatter"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Pillar scores by department</h2>
+            <span class="desc">Average 0-100 pillar score. Stronger blue means a higher score; the faintest cells are the weak spots.</span></div>
+          <div class="chart" id="chHeat"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STUDENTS ================= -->
+    <section class="view" id="view-students" role="tabpanel" hidden>
+      <div class="toolbar">
+        <span class="muted" id="stuSummary"></span>
+        <span style="flex:1"></span>
+        <button class="btn" id="exportBtn" type="button">Export intervention list (CSV)</button>
+      </div>
+      <div class="table-wrap">
+        <table id="stuTable">
+          <thead><tr>
+            <th class="sortable" data-k="name">Student</th>
+            <th class="sortable" data-k="dept">Dept</th>
+            <th class="sortable num" data-k="year">Yr</th>
+            <th class="sortable" data-k="score">Success Score</th>
+            <th class="sortable" data-k="acad_risk">Academic risk</th>
+            <th class="sortable" data-k="place_risk">Placement risk</th>
+            <th class="sortable" data-k="segment">Segment</th>
+            <th>Top driver</th>
+            <th>Flags</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pager" id="pager"></div>
+    </section>
+
+    <!-- ================= SEGMENTS ================= -->
+    <section class="view" id="view-segments" role="tabpanel" hidden>
+      <p class="ink2" style="margin:0 0 14px">Six segments, each with a clear owner and playbook, so a mentor, the T&amp;P cell or the HoD can act on a group at once instead of student by student. Rules are applied in priority order, so a student belongs to exactly one segment.</p>
+      <div class="grid g-3" id="segCards"></div>
+      <h2 class="section-title">Segment profile</h2>
+      <div class="card">
+        <div class="card-head"><h2>Average pillar score by segment</h2>
+          <span class="desc">What makes each segment different. Stronger blue means a higher score.</span></div>
+        <div class="chart" id="chSegHeat"></div>
+      </div>
+    </section>
+
+    <!-- ================= METHOD ================= -->
+    <section class="view" id="view-method" role="tabpanel" hidden>
+      <div class="card">
+        <div class="card-head"><h2>Pipeline</h2></div>
+        <div class="pipeline">
+          <span class="step">7 source systems</span><span class="arr">→</span>
+          <span class="step">Clean &amp; reconcile IDs</span><span class="arr">→</span>
+          <span class="step">Unified student view</span><span class="arr">→</span>
+          <span class="step">Success Score (7 pillars)</span><span class="arr">→</span>
+          <span class="step">Risk models trained on last year's outcomes</span><span class="arr">→</span>
+          <span class="step">Segments + next-best actions</span>
+        </div>
+      </div>
+
+      <h2 class="section-title">Data integration</h2>
+      <div class="grid g-2">
+        <div class="card">
+          <div class="card-head"><h2>Source lineage</h2><span class="desc" id="lineageDesc"></span></div>
+          <div class="table-wrap"><table id="lineageTable"></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Data-quality fixes applied</h2><span class="desc">Every correction is logged, not silently applied.</span></div>
+          <div class="table-wrap"><table id="dqTable"></table></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Student Success Score</h2>
+      <div class="grid g-2">
+        <div class="card">
+          <div class="card-head"><h2>How the score is built</h2></div>
+          <div class="formula">indicator score = clip((value − worst) / (best − worst), 0, 1) × 100<br>pillar = Σ indicator weight × indicator score<br>Success Score = Σ pillar weight × pillar</div>
+          <p class="ink2" style="font-size:13px">Fixed anchors (not percentiles) keep the score comparable across semesters. 2nd-year students have no placement data, so that pillar's 15% is shared proportionally across the others. Bands: Thriving ≥ 70, On track 55-70, Needs attention 40-55, Critical &lt; 40.</p>
+          <div class="table-wrap"><table id="weightsTable"></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Does the score predict real outcomes?</h2>
+            <span class="desc" id="valDesc"></span></div>
+          <div class="chart" id="chVal"></div>
+          <div class="legend" id="lgVal"></div>
+          <div class="chart" id="chVal2" style="margin-top:16px"></div>
+          <div class="legend" id="lgVal2"></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">At-risk models</h2>
+      <div class="grid g-2" id="modelCards"></div>
+    </section>
+  </main>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="Student profile" aria-hidden="true"></aside>
+  <div class="tooltip" id="tt" role="tooltip"></div>
+
+  <script src="data.js"></script>
+  <script src="charts.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

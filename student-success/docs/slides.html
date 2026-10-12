@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Campus Analytics Deck</title>
+<style>
+  :root { --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6f6d68; --accent:#2a78d6; --wash:#e6f0fc; --border:rgba(11,11,11,.10); --crit:#d03b3b; --good:#0ca30c; --serious:#ec835a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#9a988f; --accent:#3987e5; --wash:#16263b; --border:rgba(255,255,255,.10); } }
+  :root[data-theme="dark"] { --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#9a988f; --accent:#3987e5; --wash:#16263b; --border:rgba(255,255,255,.10); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .deck { height:100%; display:grid; place-items:center; padding:16px; }
+  .slide { display:none; width:min(1200px,100%); aspect-ratio:16/9; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:48px 56px; overflow:hidden; position:relative; }
+  .slide.on { display:flex; flex-direction:column; }
+  .k { color:var(--accent); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
+  h1 { font-size:44px; line-height:1.1; margin:10px 0 14px; }
+  h2 { font-size:30px; line-height:1.15; margin:8px 0 18px; }
+  p, li { color:var(--ink2); font-size:18px; }
+  ul { margin:0; padding-left:20px; } li { margin:6px 0; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:32px; flex:1; min-height:0; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:8px 0 18px; }
+  .stat { background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+  .stat b { display:block; font-size:30px; color:var(--ink); }
+  .stat span { font-size:13.5px; color:var(--muted); }
+  img.shot { width:100%; height:100%; object-fit:cover; object-position:top left; border-radius:10px; border:1px solid var(--border); }
+  .flow { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:14px 0 22px; }
+  .flow span { background:var(--wash); color:var(--ink); border-radius:10px; padding:10px 14px; font-weight:500; font-size:15px; }
+  .flow i { color:var(--muted); font-style:normal; }
+  table { border-collapse:collapse; width:100%; font-size:15px; }
+  td, th { padding:7px 10px; border-bottom:1px solid var(--border); text-align:left; }
+  th { color:var(--muted); font-weight:600; font-size:13px; }
+  td.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .bar { height:12px; border-radius:0 4px 4px 0; background:var(--accent); display:inline-block; vertical-align:middle; }
+  .ins { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .ins div { border-left:3px solid var(--accent); background:var(--bg); padding:10px 14px; border-radius:0 8px 8px 0; }
+  .ins b { display:block; font-size:16px; } .ins span { color:var(--ink2); font-size:14px; }
+  .foot { position:absolute; bottom:18px; left:56px; right:56px; display:flex; justify-content:space-between; color:var(--muted); font-size:12.5px; }
+  .nav { position:fixed; bottom:14px; right:16px; display:flex; gap:6px; }
+  .nav button { border:1px solid var(--border); background:var(--surface); color:var(--ink); border-radius:8px; padding:6px 12px; cursor:pointer; font:inherit; }
+  @media (max-width: 760px) {
+    .slide { aspect-ratio:auto; min-height:80vh; padding:24px 20px 48px; }
+    .cols, .ins { grid-template-columns:1fr; } .stats { grid-template-columns:1fr 1fr; }
+    h1 { font-size:32px; } h2 { font-size:24px; } .foot { left:20px; right:20px; }
+  }
+  @media print { .slide { display:flex !important; page-break-after:always; } .nav { display:none; } }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="slide">
+  <div class="k">Smart Campus Analytics</div>
+  <h1>Predict, prioritise, intervene:<br>a Student Success Platform</h1>
+  <p style="max-width:760px">Seven disconnected campus systems joined into one student view. A transparent Success Score, two risk models trained on last year's real outcomes, and a next action for every student flagged.</p>
+  <div class="stats" style="margin-top:auto">
+    <div class="stat"><b>600</b><span>students, 5 departments, years 2-4</span></div>
+    <div class="stat"><b>7</b><span>source systems integrated</span></div>
+    <div class="stat"><b>0.96</b><span>academic-risk AUC on held-out students</span></div>
+    <div class="stat"><b>6</b><span>actionable segments with owners</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="k">The problem</div>
+  <h2>Colleges find out students are struggling only after the results are out</h2>
+  <div class="cols">
+    <ul>
+      <li>Marks sit in the SIS, attendance in a biometric export, activity in the LMS, test scores with the placement cell, and concerns in mentor notebooks.</li>
+      <li>Each system uses its own student ID format, so nobody sees the whole student.</li>
+      <li>Reports look backwards (CGPA, final placement %). By the time they show a problem, the semester is over.</li>
+    </ul>
+    <ul>
+      <li><b>Mentors</b> need to know which of their 20 mentees to call this week, and why.</li>
+      <li><b>T&amp;P cell</b> needs to know who won't be placement-ready, early enough to train them.</li>
+      <li><b>HoDs</b> need department patterns and a list of interventions they can track.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>Problem understanding</span><span>2</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">Approach</div>
+  <h2>From silos to decisions in one reproducible pipeline</h2>
+  <div class="flow"><span>7 raw sources</span><i>→</i><span>Clean &amp; reconcile IDs</span><i>→</i><span>Unified student view</span><i>→</i><span>Success Score</span><i>→</i><span>Risk models</span><i>→</i><span>Segments + actions</span><i>→</i><span>Dashboard</span></div>
+  <div class="cols">
+    <div>
+      <p><b style="color:var(--ink)">26,694 raw rows → 600 student records.</b> 15 kinds of data-quality fix, each logged with its row count:</p>
+      <ul style="font-size:16px">
+        <li>4 different roll-number formats (<code>24-cse-007</code>, email, un-padded)</li>
+        <li>Duplicate SIS rows; 16 spellings of 5 department names</li>
+        <li>Biometric "attended &gt; held" glitches; scores stored as "72%" text</li>
+        <li>Multiple placement attempts (latest kept); skipped surveys (flagged, not hidden)</li>
+      </ul>
+    </div>
+    <div>
+      <p><b style="color:var(--ink)">Derived signals the raw systems don't have:</b></p>
+      <ul style="font-size:16px">
+        <li>LMS activity trend (last 4 weeks vs first 4): the early-warning signal</li>
+        <li>Attendance trend and weakest-subject attendance against the 75% rule</li>
+        <li>SGPA trajectory across semesters</li>
+        <li>Concern tags mined from free-text mentor remarks (financial, health, commute…)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Data integration &amp; analysis</span><span>3</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">Student Success Score</div>
+  <h2>23 indicators → 7 pillars → one explainable 0-100 score</h2>
+  <div class="cols">
+    <table>
+      <tr><th>Pillar</th><th>Weight</th><th></th></tr>
+      <tr><td>Academic</td><td class="n">30%</td><td><span class="bar" style="width:180px"></span></td></tr>
+      <tr><td>Attendance</td><td class="n">15%</td><td><span class="bar" style="width:90px"></span></td></tr>
+      <tr><td>LMS</td><td class="n">15%</td><td><span class="bar" style="width:90px"></span></td></tr>
+      <tr><td>Placement readiness</td><td class="n">15%</td><td><span class="bar" style="width:90px"></span></td></tr>
+      <tr><td>Skills</td><td class="n">10%</td><td><span class="bar" style="width:60px"></span></td></tr>
+      <tr><td>Engagement</td><td class="n">10%</td><td><span class="bar" style="width:60px"></span></td></tr>
+      <tr><td>Feedback &amp; wellbeing</td><td class="n">5%</td><td><span class="bar" style="width:30px"></span></td></tr>
+    </table>
+    <div>
+      <p>Fixed anchors (attendance 60% → 0, 95% → 100) keep scores comparable across semesters. Every score breaks down exactly as <i>baseline + Σ indicator contributions</i>.</p>
+      <p><b style="color:var(--ink)">Validated on last year's batch (900 students):</b></p>
+      <table>
+        <tr><th>Band</th><th class="n">Poor academic outcome</th><th class="n">Placed</th></tr>
+        <tr><td>Thriving ≥ 70</td><td class="n">1%</td><td class="n">86%</td></tr>
+        <tr><td>On track 55-70</td><td class="n">6%</td><td class="n">67%</td></tr>
+        <tr><td>Needs attention 40-55</td><td class="n">43%</td><td class="n">44%</td></tr>
+        <tr><td>Critical &lt; 40</td><td class="n">96%</td><td class="n">16%</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="foot"><span>Success Score</span><span>4</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">At-risk identification</div>
+  <h2>Two models trained on real outcomes, every flag explained</h2>
+  <div class="cols">
+    <div>
+      <div class="stats" style="grid-template-columns:1fr 1fr">
+        <div class="stat"><b>0.96</b><span>AUC, academic risk (CGPA &lt; 6 or backlogs at graduation)</span></div>
+        <div class="stat"><b>0.87</b><span>AUC, placement risk (not placed in 6 months)</span></div>
+        <div class="stat"><b>95%</b><span>of held-out students with a poor outcome were flagged Medium or High</span></div>
+        <div class="stat"><b>83%</b><span>of those flags were right</span></div>
+      </div>
+      <ul style="font-size:16px">
+        <li>Logistic regression: each factor's push on risk is exact, not approximated.</li>
+        <li>Features whose direction contradicts domain sense are dropped and the model refit, so explanations are always actionable.</li>
+        <li>Policy rule alongside the models: the 75% attendance rule for exam eligibility.</li>
+      </ul>
+    </div>
+    <img class="shot" style="object-position:top right" src="img/student.png" alt="Student profile with score and risk explanations">
+  </div>
+  <div class="foot"><span>Risk identification &amp; explainability</span><span>5</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">Key insights</div>
+  <h2>What the combined data shows (that no single system could)</h2>
+  <div class="ins">
+    <div><b>Attendance shortage multiplies academic risk 3.5×</b><span>60% of the 127 students below 75% are high-risk, vs 17% of everyone else.</span></div>
+    <div><b>126 students are quietly disengaging; a third still have CGPA 7+</b><span>LMS logins fall from week 6. A CGPA-only report misses them until results.</span></div>
+    <div><b>59 high-CGPA students are not placement-ready</b><span>Coding average 36 vs 58 campus-wide, and half have skipped placement tests.</span></div>
+    <div><b>89 seniors have never taken a placement test</b><span>58% are high placement risk vs 24% of those who did.</span></div>
+    <div><b>Hackathon participants score 10 points higher in coding</b><span>Only 39% of seniors have taken part, so this is a cheap lever.</span></div>
+    <div><b>83 mentor notes flag a personal concern</b><span>40% of these students are high academic risk; 11 mention financial difficulty.</span></div>
+  </div>
+  <div class="foot"><span>Insights from integrated data (synthetic campus)</span><span>6</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">Segmentation → targeted action</div>
+  <h2>Six segments, each with an owner and a playbook</h2>
+  <div class="cols">
+    <table>
+      <tr><th>Segment</th><th class="n">Students</th><th>Owner</th></tr>
+      <tr><td>Critical support needed</td><td class="n">108</td><td>Mentor + HoD</td></tr>
+      <tr><td>Disengaging (early warning)</td><td class="n">76</td><td>Class mentor</td></tr>
+      <tr><td>Academic achiever, placement-unready</td><td class="n">59</td><td>T&amp;P cell</td></tr>
+      <tr><td>Job-ready, academically at risk</td><td class="n">11</td><td>Exam + T&amp;P cell</td></tr>
+      <tr><td>Thriving all-rounder</td><td class="n">96</td><td>Department</td></tr>
+      <tr><td>Steady middle</td><td class="n">250</td><td>Department</td></tr>
+    </table>
+    <img class="shot" src="img/segments.png" alt="Segments view">
+  </div>
+  <div class="foot"><span>Bonus: segmentation</span><span>7</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">Demo</div>
+  <h2>A 3-minute walkthrough</h2>
+  <div class="cols">
+    <ol style="padding-left:20px">
+      <li><p><b style="color:var(--ink)">Overview:</b> KPIs, then the insights. Click "LMS drop-off" to filter.</p></li>
+      <li><p><b style="color:var(--ink)">Trends:</b> the disengaging cohort fades from week 6 while others stay flat.</p></li>
+      <li><p><b style="color:var(--ink)">Scatter:</b> click a dot in the "achiever, placement-unready" quadrant.</p></li>
+      <li><p><b style="color:var(--ink)">Profile:</b> why the score, why the flag, 360° view, actions with owners.</p></li>
+      <li><p><b style="color:var(--ink)">Students:</b> filter by department, then export the intervention list as CSV.</p></li>
+      <li><p><b style="color:var(--ink)">Data &amp; model:</b> lineage, quality log, weights, validation.</p></li>
+    </ol>
+    <img class="shot" src="img/overview.png" alt="Dashboard overview">
+  </div>
+  <div class="foot"><span>Open dashboard/index.html, no server or install needed</span><span>8</span></div>
+</section>
+
+<section class="slide">
+  <div class="k">Next steps</div>
+  <h2>From prototype to campus rollout</h2>
+  <div class="cols">
+    <ul>
+      <li>Connect live exports (SIS, LMS, biometric) on a nightly schedule. The pipeline already handles their formats.</li>
+      <li>Calibrate weights and anchors with the academic council, then re-validate on the college's own past batches.</li>
+      <li>Track interventions and outcomes, so the platform learns which actions work.</li>
+    </ul>
+    <ul>
+      <li>Fairness audit across departments and genders each retraining cycle.</li>
+      <li>Role-based access: mentors see their mentees, HoDs see their department.</li>
+      <li>Weekly digest to mentors: "3 of your mentees need a call this week."</li>
+    </ul>
+  </div>
+  <p style="margin-top:auto;font-size:14px;color:var(--muted)">All data in this prototype is synthetic and generated to mimic real campus systems, including their quality problems. No real student information is used.</p>
+  <div class="foot"><span></span><span>9</span></div>
+</section>
+
+</div>
+<div class="nav"><button type="button" id="prev">←</button><button type="button" id="next">→</button></div>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = Math.max(0, Math.min(slides.length - 1, (parseInt(location.hash.slice(1), 10) || 1) - 1));
+  function go(n) { i = Math.max(0, Math.min(slides.length - 1, n)); slides.forEach((s, k) => s.classList.toggle('on', k === i)); history.replaceState(null, '', '#' + (i + 1)); }
+  document.getElementById('prev').onclick = () => go(i - 1);
+  document.getElementById('next').onclick = () => go(i + 1);
+  document.addEventListener('keydown', (e) => { if (['ArrowRight', 'PageDown', ' '].includes(e.key)) go(i + 1); if (['ArrowLeft', 'PageUp'].includes(e.key)) go(i - 1); });
+  go(i);
+</script>
+</body>
+</html>

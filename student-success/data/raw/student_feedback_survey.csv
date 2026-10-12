@@ -1,0 +1,535 @@
+roll,satisfaction_1to5,stress_1to5,mentor_rating_1to5,mentor_remark
+25CSE001,4,3,5.0,Shows leadership in project work; highly motivated.
+24CSE001,4,3,3.4,Attends class regularly but participation is limited.
+23CSE001,3,3,5.0,Struggling to cope with workload; asked about dropping a subject.
+25IT001,3,3,2.0,Attends class regularly but participation is limited.
+24IT001,4,2,3.4,Steady progress; needs encouragement to take up projects.
+23IT001,4,3,3.2,Regular in mentoring sessions; no concerns raised.
+25ECE001,4,3,3.4,Attends class regularly but participation is limited.
+24ECE001,4,3,5.0,Shows leadership in project work; highly motivated.
+25MECH001,4,3,4.3,Consistently curious; pursuing extra online courses.
+24MECH001,3,3,2.4,Attends class regularly but participation is limited.
+25CIVIL001,2,3,2.6,Commutes over 2 hours daily; often late for first period.
+24CIVIL001,5,2,5.0,Shows leadership in project work; highly motivated.
+23CIVIL001,3,2,3.6,Steady progress; needs encouragement to take up projects.
+25CSE002,3,3,4.3,Regular in mentoring sessions; no concerns raised.
+24CSE002,4,4,4.2,Reported health issues this semester; missed several classes.
+23CSE002,4,3,4.0,Steady progress; needs encouragement to take up projects.
+25IT002,3,4,2.1,Commutes over 2 hours daily; often late for first period.
+23IT002,5,1,3.6,Attends class regularly but participation is limited.
+25ECE002,3,4,4.0,Attends class regularly but participation is limited.
+24ECE002,3,3,3.0,Attends class regularly but participation is limited.
+23ECE002,3,3,4.0,Regular in mentoring sessions; no concerns raised.
+25MECH002,4,2,1.5,Regular in mentoring sessions; no concerns raised.
+23MECH002,4,3,3.9,Steady progress; needs encouragement to take up projects.
+25CIVIL002,3,2,4.2,Steady progress; needs encouragement to take up projects.
+24CIVIL002,4,3,3.5,Regular in mentoring sessions; no concerns raised.
+23CIVIL002,2,3,4.0,Active in class discussions and helps peers.
+25CSE003,3,4,3.1,Steady progress; needs encouragement to take up projects.
+24CSE003,5,1,3.9,Regular in mentoring sessions; no concerns raised.
+23CSE003,4,2,4.7,Regular in mentoring sessions; no concerns raised.
+24IT003,4,4,3.2,Steady progress; needs encouragement to take up projects.
+23IT003,2,4,2.0,Regular in mentoring sessions; no concerns raised.
+25ECE003,3,2,2.5,Attends class regularly but participation is limited.
+24ECE003,4,1,4.0,Steady progress; needs encouragement to take up projects.
+23ECE003,4,4,3.7,Shows leadership in project work; highly motivated.
+24MECH003,3,2,2.7,Attends class regularly but participation is limited.
+23MECH003,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+25CIVIL003,4,3,2.6,Attends class regularly but participation is limited.
+24CIVIL003,2,4,3.0,Mentions financial difficulty at home; working part-time evenings.
+23CIVIL003,4,3,2.6,Steady progress; needs encouragement to take up projects.
+25CSE004,3,3,1.8,Steady progress; needs encouragement to take up projects.
+24CSE004,5,2,4.2,Regular in mentoring sessions; no concerns raised.
+23CSE004,4,2,3.4,Steady progress; needs encouragement to take up projects.
+25IT004,4,3,2.3,Regular in mentoring sessions; no concerns raised.
+24IT004,3,3,2.5,Mentions financial difficulty at home; working part-time evenings.
+23IT004,4,1,4.2,Attends class regularly but participation is limited.
+25ECE004,3,3,1.0,Regular in mentoring sessions; no concerns raised.
+24ECE004,5,2,2.8,Attends class regularly but participation is limited.
+23ECE004,2,4,3.0,Seems withdrawn in class and avoids mentor meetings.
+25MECH004,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+23MECH004,2,3,2.2,Family responsibilities affecting study time.
+25CIVIL004,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+24CIVIL004,4,1,2.1,Steady progress; needs encouragement to take up projects.
+23CIVIL004,3,5,4.0,Commutes over 2 hours daily; often late for first period.
+25CSE005,3,3,2.2,Regular in mentoring sessions; no concerns raised.
+24CSE005,3,4,2.2,Steady progress; needs encouragement to take up projects.
+25IT005,3,5,4.5,Shows leadership in project work; highly motivated.
+24IT005,3,3,3.4,Family responsibilities affecting study time.
+23IT005,2,3,2.6,Attends class regularly but participation is limited.
+25ECE005,3,2,2.7,Regular in mentoring sessions; no concerns raised.
+24ECE005,4,3,5.0,Consistently curious; pursuing extra online courses.
+23ECE005,3,4,3.2,Regular in mentoring sessions; no concerns raised.
+25MECH005,3,3,2.6,Steady progress; needs encouragement to take up projects.
+24MECH005,4,3,4.0,Steady progress; needs encouragement to take up projects.
+23MECH005,3,2,2.0,Attends class regularly but participation is limited.
+25CIVIL005,5,2,3.1,Attends class regularly but participation is limited.
+24CIVIL005,3,2,3.5,Shows leadership in project work; highly motivated.
+23CIVIL005,4,2,2.3,Steady progress; needs encouragement to take up projects.
+25CSE006,3,4,1.0,Struggling to cope with workload; asked about dropping a subject.
+23CSE006,2,4,3.9,Regular in mentoring sessions; no concerns raised.
+25IT006,3,4,4.4,Regular in mentoring sessions; no concerns raised.
+24IT006,3,5,4.2,Struggling to cope with workload; asked about dropping a subject.
+23IT006,2,3,4.4,Steady progress; needs encouragement to take up projects.
+25ECE006,4,4,4.4,Regular in mentoring sessions; no concerns raised.
+24ECE006,4,2,2.8,Seems withdrawn in class and avoids mentor meetings.
+23ECE006,4,2,3.5,Steady progress; needs encouragement to take up projects.
+25MECH006,3,2,2.3,Regular in mentoring sessions; no concerns raised.
+23MECH006,4,2,4.3,Regular in mentoring sessions; no concerns raised.
+25CIVIL006,3,4,2.6,Struggling to cope with workload; asked about dropping a subject.
+23CIVIL006,1,5,4.6,Seems withdrawn in class and avoids mentor meetings.
+25CSE007,4,3,3.4,Steady progress; needs encouragement to take up projects.
+24CSE007,4,2,1.4,Attends class regularly but participation is limited.
+23CSE007,3,4,2.8,Attends class regularly but participation is limited.
+25IT007,3,3,2.1,Regular in mentoring sessions; no concerns raised.
+24IT007,2,5,3.1,Seems withdrawn in class and avoids mentor meetings.
+23IT007,2,3,3.0,Regular in mentoring sessions; no concerns raised.
+25ECE007,4,2,3.3,Steady progress; needs encouragement to take up projects.
+24ECE007,4,3,2.5,Steady progress; needs encouragement to take up projects.
+23ECE007,3,1,3.1,Attends class regularly but participation is limited.
+25MECH007,4,2,4.3,Steady progress; needs encouragement to take up projects.
+24MECH007,2,3,2.1,Regular in mentoring sessions; no concerns raised.
+23MECH007,4,2,2.8,Attends class regularly but participation is limited.
+25CIVIL007,4,3,2.9,Steady progress; needs encouragement to take up projects.
+24CIVIL007,3,2,3.7,Regular in mentoring sessions; no concerns raised.
+23CIVIL007,5,2,4.2,Regular in mentoring sessions; no concerns raised.
+25CSE008,4,3,3.3,Attends class regularly but participation is limited.
+24CSE008,4,4,3.6,Attends class regularly but participation is limited.
+25IT008,5,3,4.1,Consistently curious; pursuing extra online courses.
+24IT008,4,1,3.9,Regular in mentoring sessions; no concerns raised.
+23IT008,3,3,2.3,Regular in mentoring sessions; no concerns raised.
+25ECE008,4,3,4.2,Active in class discussions and helps peers.
+24ECE008,3,3,3.6,Steady progress; needs encouragement to take up projects.
+23ECE008,3,3,3.1,Family responsibilities affecting study time.
+25MECH008,4,2,2.4,Attends class regularly but participation is limited.
+23MECH008,5,2,4.8,Active in class discussions and helps peers.
+25CIVIL008,4,2,3.9,Attends class regularly but participation is limited.
+24CIVIL008,3,2,3.0,Regular in mentoring sessions; no concerns raised.
+23CIVIL008,2,2,2.6,Mentions financial difficulty at home; working part-time evenings.
+25CSE009,4,4,2.2,Attends class regularly but participation is limited.
+24CSE009,3,3,5.0,Consistently curious; pursuing extra online courses.
+23CSE009,5,2,3.5,Attends class regularly but participation is limited.
+24IT009,4,3,3.8,Steady progress; needs encouragement to take up projects.
+23IT009,3,2,3.5,Steady progress; needs encouragement to take up projects.
+25ECE009,4,2,2.4,Reported health issues this semester; missed several classes.
+23ECE009,3,4,3.6,Shows leadership in project work; highly motivated.
+25MECH009,4,3,3.1,Steady progress; needs encouragement to take up projects.
+24MECH009,4,3,2.4,Steady progress; needs encouragement to take up projects.
+23MECH009,3,4,4.5,Shows leadership in project work; highly motivated.
+25CIVIL009,4,3,4.2,Attends class regularly but participation is limited.
+24CIVIL009,2,3,1.0,Regular in mentoring sessions; no concerns raised.
+23CIVIL009,3,3,1.7,Regular in mentoring sessions; no concerns raised.
+25CSE010,4,3,3.0,Regular in mentoring sessions; no concerns raised.
+24CSE010,3,4,3.6,Family responsibilities affecting study time.
+23CSE010,4,3,4.7,Regular in mentoring sessions; no concerns raised.
+25IT010,3,3,3.1,Steady progress; needs encouragement to take up projects.
+24IT010,4,3,1.6,Attends class regularly but participation is limited.
+24ECE010,4,3,3.3,Regular in mentoring sessions; no concerns raised.
+25MECH010,2,4,3.1,Regular in mentoring sessions; no concerns raised.
+24MECH010,3,3,3.1,Steady progress; needs encouragement to take up projects.
+23MECH010,4,3,5.0,Active in class discussions and helps peers.
+24CIVIL010,3,2,2.0,Steady progress; needs encouragement to take up projects.
+23CIVIL010,4,2,3.2,Steady progress; needs encouragement to take up projects.
+25CSE011,3,2,4.0,Regular in mentoring sessions; no concerns raised.
+24CSE011,5,3,4.3,Attends class regularly but participation is limited.
+25IT011,3,2,2.4,Regular in mentoring sessions; no concerns raised.
+24IT011,4,3,4.5,Consistently curious; pursuing extra online courses.
+23IT011,2,3,3.2,Commutes over 2 hours daily; often late for first period.
+25ECE011,3,3,2.6,Struggling to cope with workload; asked about dropping a subject.
+24ECE011,4,3,3.5,Steady progress; needs encouragement to take up projects.
+23ECE011,4,3,3.9,Shows leadership in project work; highly motivated.
+25MECH011,3,3,4.6,Reported health issues this semester; missed several classes.
+24MECH011,2,3,3.3,Family responsibilities affecting study time.
+23MECH011,3,3,1.8,Steady progress; needs encouragement to take up projects.
+25CIVIL011,4,2,1.7,Regular in mentoring sessions; no concerns raised.
+24CIVIL011,4,2,4.0,Shows leadership in project work; highly motivated.
+23CIVIL011,1,5,3.3,Reported health issues this semester; missed several classes.
+25CSE012,3,5,2.7,Regular in mentoring sessions; no concerns raised.
+24CSE012,3,3,3.3,Attends class regularly but participation is limited.
+23CSE012,3,2,3.1,Steady progress; needs encouragement to take up projects.
+25IT012,3,2,3.3,Attends class regularly but participation is limited.
+23IT012,2,4,3.5,Mentions financial difficulty at home; working part-time evenings.
+24ECE012,5,3,4.2,Consistently curious; pursuing extra online courses.
+23ECE012,2,4,3.1,Regular in mentoring sessions; no concerns raised.
+25MECH012,4,3,4.2,Attends class regularly but participation is limited.
+24MECH012,4,4,5.0,Reported health issues this semester; missed several classes.
+23MECH012,3,2,2.5,Steady progress; needs encouragement to take up projects.
+25CIVIL012,4,3,3.3,Attends class regularly but participation is limited.
+24CIVIL012,3,3,3.2,Regular in mentoring sessions; no concerns raised.
+23CIVIL012,4,2,2.6,Steady progress; needs encouragement to take up projects.
+25CSE013,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+23CSE013,5,3,2.9,Attends class regularly but participation is limited.
+25IT013,2,4,4.5,Family responsibilities affecting study time.
+24IT013,4,2,4.4,Shows leadership in project work; highly motivated.
+23IT013,4,2,2.0,Steady progress; needs encouragement to take up projects.
+25ECE013,4,3,3.0,Attends class regularly but participation is limited.
+24ECE013,2,4,3.7,Seems withdrawn in class and avoids mentor meetings.
+23ECE013,4,2,2.6,Attends class regularly but participation is limited.
+25MECH013,3,3,4.0,Family responsibilities affecting study time.
+24MECH013,4,3,3.8,Family responsibilities affecting study time.
+23MECH013,3,2,4.6,Steady progress; needs encouragement to take up projects.
+25CIVIL013,4,3,4.0,Attends class regularly but participation is limited.
+24CIVIL013,4,3,4.9,Struggling to cope with workload; asked about dropping a subject.
+23CIVIL013,4,2,2.2,Regular in mentoring sessions; no concerns raised.
+25CSE014,2,2,4.5,Regular in mentoring sessions; no concerns raised.
+24CSE014,5,1,3.4,Attends class regularly but participation is limited.
+23CSE014,3,4,2.6,Attends class regularly but participation is limited.
+25IT014,2,3,3.3,Steady progress; needs encouragement to take up projects.
+24IT014,5,2,1.6,Attends class regularly but participation is limited.
+23IT014,3,4,3.3,Commutes over 2 hours daily; often late for first period.
+25ECE014,2,2,3.6,Steady progress; needs encouragement to take up projects.
+24ECE014,4,3,3.2,Steady progress; needs encouragement to take up projects.
+25MECH014,2,4,3.7,Commutes over 2 hours daily; often late for first period.
+24MECH014,3,4,3.4,Regular in mentoring sessions; no concerns raised.
+25CIVIL014,3,2,2.3,Attends class regularly but participation is limited.
+24CIVIL014,5,2,4.0,Steady progress; needs encouragement to take up projects.
+23CIVIL014,3,3,3.3,Steady progress; needs encouragement to take up projects.
+24CSE015,4,3,3.5,Attends class regularly but participation is limited.
+23CSE015,3,3,1.8,Attends class regularly but participation is limited.
+24IT015,4,2,2.8,Steady progress; needs encouragement to take up projects.
+23IT015,4,1,4.2,Regular in mentoring sessions; no concerns raised.
+25ECE015,4,4,4.0,Steady progress; needs encouragement to take up projects.
+24ECE015,3,4,3.1,Attends class regularly but participation is limited.
+23ECE015,3,3,2.1,Steady progress; needs encouragement to take up projects.
+25MECH015,2,4,2.0,Reported health issues this semester; missed several classes.
+24MECH015,2,3,3.3,Family responsibilities affecting study time.
+23MECH015,4,3,1.7,Steady progress; needs encouragement to take up projects.
+25CIVIL015,5,3,5.0,Consistently curious; pursuing extra online courses.
+23CIVIL015,4,3,2.4,Steady progress; needs encouragement to take up projects.
+24CSE016,4,2,2.3,Regular in mentoring sessions; no concerns raised.
+23CSE016,3,1,2.4,Attends class regularly but participation is limited.
+25IT016,4,3,2.4,Attends class regularly but participation is limited.
+24IT016,5,2,3.6,Seems withdrawn in class and avoids mentor meetings.
+23IT016,4,3,3.5,Commutes over 2 hours daily; often late for first period.
+25ECE016,5,2,2.7,Regular in mentoring sessions; no concerns raised.
+24ECE016,2,4,2.0,Attends class regularly but participation is limited.
+23ECE016,5,1,3.1,Regular in mentoring sessions; no concerns raised.
+25MECH016,4,3,3.2,Regular in mentoring sessions; no concerns raised.
+24MECH016,3,2,1.3,Attends class regularly but participation is limited.
+23MECH016,5,2,2.2,Steady progress; needs encouragement to take up projects.
+25CIVIL016,5,1,3.1,Attends class regularly but participation is limited.
+24CIVIL016,4,3,2.7,Regular in mentoring sessions; no concerns raised.
+23CIVIL016,4,1,2.9,Regular in mentoring sessions; no concerns raised.
+25CSE017,3,3,3.1,Seems withdrawn in class and avoids mentor meetings.
+24CSE017,3,4,3.5,Commutes over 2 hours daily; often late for first period.
+23CSE017,4,4,3.9,Regular in mentoring sessions; no concerns raised.
+25IT017,3,3,4.0,Attends class regularly but participation is limited.
+24IT017,3,3,3.3,Attends class regularly but participation is limited.
+24ECE017,3,3,3.9,Steady progress; needs encouragement to take up projects.
+23ECE017,3,4,2.0,Regular in mentoring sessions; no concerns raised.
+25MECH017,3,2,3.0,Steady progress; needs encouragement to take up projects.
+24MECH017,3,3,2.3,Steady progress; needs encouragement to take up projects.
+23MECH017,4,1,4.3,Shows leadership in project work; highly motivated.
+25CIVIL017,3,3,5.0,Family responsibilities affecting study time.
+24CIVIL017,5,2,2.7,Steady progress; needs encouragement to take up projects.
+23CIVIL017,3,2,2.7,Mentions financial difficulty at home; working part-time evenings.
+24CSE018,2,4,3.6,Steady progress; needs encouragement to take up projects.
+23CSE018,3,2,2.9,Regular in mentoring sessions; no concerns raised.
+25IT018,4,1,2.0,Attends class regularly but participation is limited.
+24IT018,3,4,4.3,Seems withdrawn in class and avoids mentor meetings.
+23IT018,5,2,2.3,Attends class regularly but participation is limited.
+25ECE018,5,2,3.1,Steady progress; needs encouragement to take up projects.
+24ECE018,4,2,3.2,Steady progress; needs encouragement to take up projects.
+25MECH018,2,4,2.7,Regular in mentoring sessions; no concerns raised.
+23MECH018,2,3,3.3,Attends class regularly but participation is limited.
+25CIVIL018,5,2,5.0,Shows leadership in project work; highly motivated.
+24CIVIL018,4,1,2.3,Regular in mentoring sessions; no concerns raised.
+23CIVIL018,3,3,1.7,Mentions financial difficulty at home; working part-time evenings.
+25CSE019,2,4,1.2,Reported health issues this semester; missed several classes.
+24CSE019,3,2,4.7,Active in class discussions and helps peers.
+23CSE019,4,2,1.0,Regular in mentoring sessions; no concerns raised.
+25IT019,4,2,5.0,Shows leadership in project work; highly motivated.
+24IT019,5,2,3.4,Attends class regularly but participation is limited.
+23IT019,4,4,4.5,Regular in mentoring sessions; no concerns raised.
+25ECE019,3,1,3.7,Attends class regularly but participation is limited.
+24ECE019,4,3,2.5,Attends class regularly but participation is limited.
+23ECE019,3,3,4.0,Shows leadership in project work; highly motivated.
+25MECH019,4,3,2.7,Regular in mentoring sessions; no concerns raised.
+23MECH019,5,2,5.0,Consistently curious; pursuing extra online courses.
+24CIVIL019,4,4,4.1,Consistently curious; pursuing extra online courses.
+23CIVIL019,3,4,4.4,Active in class discussions and helps peers.
+25CSE020,4,2,1.9,Regular in mentoring sessions; no concerns raised.
+24CSE020,4,1,3.1,Steady progress; needs encouragement to take up projects.
+25IT020,4,2,3.5,Active in class discussions and helps peers.
+24IT020,4,1,3.3,Attends class regularly but participation is limited.
+23IT020,3,3,4.2,Regular in mentoring sessions; no concerns raised.
+25ECE020,3,3,3.0,Seems withdrawn in class and avoids mentor meetings.
+24ECE020,4,3,3.3,Regular in mentoring sessions; no concerns raised.
+25MECH020,3,2,2.6,Attends class regularly but participation is limited.
+24MECH020,4,2,1.5,Attends class regularly but participation is limited.
+23MECH020,3,4,2.7,Commutes over 2 hours daily; often late for first period.
+25CIVIL020,4,3,3.2,Steady progress; needs encouragement to take up projects.
+24CIVIL020,4,3,3.6,Active in class discussions and helps peers.
+23CIVIL020,5,2,4.0,Active in class discussions and helps peers.
+25CSE021,3,3,4.1,Steady progress; needs encouragement to take up projects.
+24CSE021,4,1,2.0,Regular in mentoring sessions; no concerns raised.
+23CSE021,5,3,3.3,Struggling to cope with workload; asked about dropping a subject.
+25IT021,4,2,4.2,Steady progress; needs encouragement to take up projects.
+24IT021,4,2,2.7,Steady progress; needs encouragement to take up projects.
+23IT021,3,2,1.4,Regular in mentoring sessions; no concerns raised.
+25ECE021,4,2,5.0,Shows leadership in project work; highly motivated.
+24ECE021,4,3,4.4,Attends class regularly but participation is limited.
+23ECE021,3,3,2.7,Regular in mentoring sessions; no concerns raised.
+25MECH021,4,3,4.1,Steady progress; needs encouragement to take up projects.
+24MECH021,4,2,1.8,Steady progress; needs encouragement to take up projects.
+23MECH021,3,3,2.4,Attends class regularly but participation is limited.
+25CIVIL021,2,3,4.7,Commutes over 2 hours daily; often late for first period.
+24CIVIL021,5,2,4.7,Attends class regularly but participation is limited.
+23CIVIL021,4,2,3.6,Regular in mentoring sessions; no concerns raised.
+25CSE022,4,3,3.5,Attends class regularly but participation is limited.
+24CSE022,4,1,3.2,Steady progress; needs encouragement to take up projects.
+25IT022,4,3,4.2,Regular in mentoring sessions; no concerns raised.
+24IT022,5,3,4.0,Shows leadership in project work; highly motivated.
+23IT022,4,2,2.9,Attends class regularly but participation is limited.
+25ECE022,3,2,3.0,Attends class regularly but participation is limited.
+23ECE022,2,5,2.5,Seems withdrawn in class and avoids mentor meetings.
+25MECH022,5,3,4.1,Steady progress; needs encouragement to take up projects.
+24MECH022,3,3,3.2,Steady progress; needs encouragement to take up projects.
+23MECH022,3,2,4.6,Attends class regularly but participation is limited.
+25CIVIL022,3,2,3.8,Steady progress; needs encouragement to take up projects.
+24CIVIL022,3,1,2.9,Regular in mentoring sessions; no concerns raised.
+23CIVIL022,2,5,1.5,Regular in mentoring sessions; no concerns raised.
+25CSE023,4,3,3.7,Steady progress; needs encouragement to take up projects.
+24CSE023,2,5,3.1,Mentions financial difficulty at home; working part-time evenings.
+23CSE023,3,3,2.9,Attends class regularly but participation is limited.
+25IT023,3,3,3.7,Mentions financial difficulty at home; working part-time evenings.
+24IT023,4,2,3.1,Attends class regularly but participation is limited.
+23IT023,3,3,4.2,Regular in mentoring sessions; no concerns raised.
+25ECE023,3,2,3.0,Regular in mentoring sessions; no concerns raised.
+24ECE023,4,2,3.7,Steady progress; needs encouragement to take up projects.
+23ECE023,3,3,2.6,Seems withdrawn in class and avoids mentor meetings.
+25MECH023,3,5,2.2,Family responsibilities affecting study time.
+24MECH023,3,3,2.0,Steady progress; needs encouragement to take up projects.
+24CIVIL023,2,4,4.0,Struggling to cope with workload; asked about dropping a subject.
+23CIVIL023,5,2,3.3,Regular in mentoring sessions; no concerns raised.
+25CSE024,4,2,4.4,Attends class regularly but participation is limited.
+24CSE024,5,2,3.4,Steady progress; needs encouragement to take up projects.
+23CSE024,5,3,1.9,Regular in mentoring sessions; no concerns raised.
+25IT024,4,2,3.1,Attends class regularly but participation is limited.
+24IT024,4,2,2.3,Attends class regularly but participation is limited.
+23IT024,4,2,3.5,Regular in mentoring sessions; no concerns raised.
+25ECE024,3,3,2.1,Regular in mentoring sessions; no concerns raised.
+24ECE024,4,1,3.2,Steady progress; needs encouragement to take up projects.
+23ECE024,4,3,2.9,Steady progress; needs encouragement to take up projects.
+25MECH024,3,4,4.0,Reported health issues this semester; missed several classes.
+24MECH024,4,3,4.1,Regular in mentoring sessions; no concerns raised.
+23MECH024,4,2,2.9,Regular in mentoring sessions; no concerns raised.
+25CIVIL024,5,3,4.1,Attends class regularly but participation is limited.
+24CIVIL024,5,2,3.0,Steady progress; needs encouragement to take up projects.
+23CIVIL024,5,2,2.3,Steady progress; needs encouragement to take up projects.
+25CSE025,3,3,2.7,Commutes over 2 hours daily; often late for first period.
+24CSE025,4,1,2.9,Steady progress; needs encouragement to take up projects.
+23CSE025,5,2,4.3,Regular in mentoring sessions; no concerns raised.
+25IT025,3,3,3.9,Steady progress; needs encouragement to take up projects.
+24IT025,2,3,4.4,Mentions financial difficulty at home; working part-time evenings.
+23IT025,4,2,2.6,Attends class regularly but participation is limited.
+25ECE025,4,3,1.8,Regular in mentoring sessions; no concerns raised.
+24ECE025,4,4,2.7,Attends class regularly but participation is limited.
+23ECE025,3,4,3.9,Shows leadership in project work; highly motivated.
+25MECH025,2,3,1.7,Steady progress; needs encouragement to take up projects.
+24MECH025,4,3,4.2,Attends class regularly but participation is limited.
+25CIVIL025,3,2,3.5,Steady progress; needs encouragement to take up projects.
+24CIVIL025,3,1,4.8,Consistently curious; pursuing extra online courses.
+23CIVIL025,3,4,4.6,Active in class discussions and helps peers.
+24CSE026,5,1,3.6,Steady progress; needs encouragement to take up projects.
+23CSE026,3,2,3.3,Attends class regularly but participation is limited.
+24IT026,1,4,2.5,Seems withdrawn in class and avoids mentor meetings.
+23IT026,5,2,2.6,Attends class regularly but participation is limited.
+25ECE026,4,2,2.5,Attends class regularly but participation is limited.
+24ECE026,5,3,3.5,Steady progress; needs encouragement to take up projects.
+25MECH026,2,5,4.0,Commutes over 2 hours daily; often late for first period.
+24MECH026,4,2,1.9,Steady progress; needs encouragement to take up projects.
+23MECH026,3,3,3.1,Regular in mentoring sessions; no concerns raised.
+25CIVIL026,5,3,5.0,Consistently curious; pursuing extra online courses.
+24CIVIL026,3,4,2.5,Attends class regularly but participation is limited.
+23CIVIL026,2,5,3.0,Struggling to cope with workload; asked about dropping a subject.
+25CSE027,2,3,1.9,Regular in mentoring sessions; no concerns raised.
+24CSE027,4,3,2.5,Attends class regularly but participation is limited.
+23CSE027,4,2,4.3,Steady progress; needs encouragement to take up projects.
+25IT027,3,2,3.2,Steady progress; needs encouragement to take up projects.
+24IT027,3,3,4.2,Attends class regularly but participation is limited.
+23IT027,4,4,3.6,Consistently curious; pursuing extra online courses.
+25ECE027,3,4,3.5,Attends class regularly but participation is limited.
+24ECE027,3,3,2.7,Regular in mentoring sessions; no concerns raised.
+23ECE027,2,3,4.3,Steady progress; needs encouragement to take up projects.
+25MECH027,2,3,2.5,Regular in mentoring sessions; no concerns raised.
+24MECH027,3,3,3.5,Regular in mentoring sessions; no concerns raised.
+23MECH027,3,3,3.4,Regular in mentoring sessions; no concerns raised.
+25CIVIL027,5,2,4.5,Consistently curious; pursuing extra online courses.
+24CIVIL027,3,3,3.7,Regular in mentoring sessions; no concerns raised.
+23CIVIL027,3,3,1.4,Steady progress; needs encouragement to take up projects.
+25CSE028,4,2,4.6,Active in class discussions and helps peers.
+24CSE028,4,2,3.4,Attends class regularly but participation is limited.
+23CSE028,4,3,2.9,Steady progress; needs encouragement to take up projects.
+25IT028,4,3,2.7,Attends class regularly but participation is limited.
+24IT028,4,3,2.6,Steady progress; needs encouragement to take up projects.
+23IT028,4,2,2.5,Attends class regularly but participation is limited.
+25ECE028,3,2,1.5,Regular in mentoring sessions; no concerns raised.
+23ECE028,4,3,3.5,Consistently curious; pursuing extra online courses.
+25MECH028,3,3,1.6,Attends class regularly but participation is limited.
+24MECH028,4,2,3.7,Steady progress; needs encouragement to take up projects.
+23MECH028,4,3,1.8,Attends class regularly but participation is limited.
+25CIVIL028,3,3,2.9,Regular in mentoring sessions; no concerns raised.
+24CIVIL028,5,3,4.2,Active in class discussions and helps peers.
+23CIVIL028,3,3,2.3,Attends class regularly but participation is limited.
+24CSE029,5,2,2.4,Regular in mentoring sessions; no concerns raised.
+23CSE029,2,1,4.1,Shows leadership in project work; highly motivated.
+25IT029,3,4,4.3,Steady progress; needs encouragement to take up projects.
+24IT029,3,3,4.2,Consistently curious; pursuing extra online courses.
+23IT029,5,1,4.9,Attends class regularly but participation is limited.
+25ECE029,3,4,3.8,Steady progress; needs encouragement to take up projects.
+24ECE029,3,3,4.6,Regular in mentoring sessions; no concerns raised.
+23ECE029,4,2,1.8,Attends class regularly but participation is limited.
+24MECH029,4,2,3.9,Steady progress; needs encouragement to take up projects.
+23MECH029,3,4,3.1,Regular in mentoring sessions; no concerns raised.
+25CIVIL029,3,3,4.2,Steady progress; needs encouragement to take up projects.
+23CIVIL029,3,2,3.9,Regular in mentoring sessions; no concerns raised.
+25CSE030,4,3,1.8,Steady progress; needs encouragement to take up projects.
+24CSE030,4,2,4.2,Regular in mentoring sessions; no concerns raised.
+23CSE030,4,2,3.4,Active in class discussions and helps peers.
+25IT030,4,3,3.0,Attends class regularly but participation is limited.
+23IT030,3,4,3.8,Seems withdrawn in class and avoids mentor meetings.
+25ECE030,3,2,4.0,Attends class regularly but participation is limited.
+24ECE030,3,4,2.9,Attends class regularly but participation is limited.
+23ECE030,4,2,3.0,Steady progress; needs encouragement to take up projects.
+25MECH030,5,2,5.0,Consistently curious; pursuing extra online courses.
+24MECH030,5,1,3.4,Steady progress; needs encouragement to take up projects.
+23MECH030,5,2,3.4,Steady progress; needs encouragement to take up projects.
+25CIVIL030,4,2,2.4,Attends class regularly but participation is limited.
+24CIVIL030,4,2,5.0,Shows leadership in project work; highly motivated.
+23CIVIL030,3,2,2.8,Steady progress; needs encouragement to take up projects.
+25CSE031,4,2,3.3,Struggling to cope with workload; asked about dropping a subject.
+24CSE031,4,4,4.2,Regular in mentoring sessions; no concerns raised.
+23CSE031,3,2,3.4,Regular in mentoring sessions; no concerns raised.
+25IT031,3,4,3.2,Attends class regularly but participation is limited.
+24IT031,4,2,2.4,Attends class regularly but participation is limited.
+23IT031,2,4,2.8,Commutes over 2 hours daily; often late for first period.
+25ECE031,2,4,3.8,Reported health issues this semester; missed several classes.
+24ECE031,3,3,3.5,Regular in mentoring sessions; no concerns raised.
+23ECE031,3,2,3.2,Attends class regularly but participation is limited.
+25MECH031,4,2,1.9,Attends class regularly but participation is limited.
+23MECH031,5,2,4.6,Consistently curious; pursuing extra online courses.
+25CIVIL031,3,3,3.7,Attends class regularly but participation is limited.
+24CIVIL031,3,3,3.3,Steady progress; needs encouragement to take up projects.
+23CIVIL031,4,5,4.4,Attends class regularly but participation is limited.
+25CSE032,5,2,5.0,Shows leadership in project work; highly motivated.
+24CSE032,3,3,3.3,Struggling to cope with workload; asked about dropping a subject.
+23CSE032,5,2,2.5,Attends class regularly but participation is limited.
+25IT032,3,4,3.4,Struggling to cope with workload; asked about dropping a subject.
+24IT032,4,4,2.0,Steady progress; needs encouragement to take up projects.
+23IT032,5,1,3.6,Attends class regularly but participation is limited.
+25ECE032,4,2,4.0,Steady progress; needs encouragement to take up projects.
+25MECH032,4,2,3.0,Steady progress; needs encouragement to take up projects.
+24MECH032,3,3,1.6,Regular in mentoring sessions; no concerns raised.
+23MECH032,4,2,4.2,Shows leadership in project work; highly motivated.
+25CIVIL032,3,2,2.3,Attends class regularly but participation is limited.
+24CIVIL032,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+23CIVIL032,3,3,3.7,Steady progress; needs encouragement to take up projects.
+25CSE033,5,2,2.3,Steady progress; needs encouragement to take up projects.
+24CSE033,3,3,3.3,Regular in mentoring sessions; no concerns raised.
+24IT033,4,4,3.5,Regular in mentoring sessions; no concerns raised.
+23IT033,4,1,2.8,Steady progress; needs encouragement to take up projects.
+25ECE033,4,3,2.8,Steady progress; needs encouragement to take up projects.
+24ECE033,3,3,1.6,Steady progress; needs encouragement to take up projects.
+23ECE033,3,3,3.9,Consistently curious; pursuing extra online courses.
+25MECH033,2,4,2.2,Regular in mentoring sessions; no concerns raised.
+24MECH033,4,3,3.9,Attends class regularly but participation is limited.
+23MECH033,4,3,4.0,Active in class discussions and helps peers.
+25CIVIL033,4,2,2.1,Steady progress; needs encouragement to take up projects.
+24CIVIL033,4,3,4.2,Attends class regularly but participation is limited.
+23CIVIL033,4,2,2.4,Regular in mentoring sessions; no concerns raised.
+24CSE034,4,3,3.0,Regular in mentoring sessions; no concerns raised.
+23CSE034,3,4,2.2,Regular in mentoring sessions; no concerns raised.
+25IT034,4,3,3.9,Steady progress; needs encouragement to take up projects.
+24IT034,3,2,3.6,Steady progress; needs encouragement to take up projects.
+23IT034,3,3,4.7,Attends class regularly but participation is limited.
+25ECE034,2,4,3.6,Family responsibilities affecting study time.
+24ECE034,4,2,3.1,Attends class regularly but participation is limited.
+23ECE034,4,3,3.6,Steady progress; needs encouragement to take up projects.
+25MECH034,4,2,2.7,Steady progress; needs encouragement to take up projects.
+24MECH034,2,4,2.6,Steady progress; needs encouragement to take up projects.
+23MECH034,5,1,2.2,Attends class regularly but participation is limited.
+25CIVIL034,3,2,2.8,Attends class regularly but participation is limited.
+23CIVIL034,2,3,2.2,Steady progress; needs encouragement to take up projects.
+25CSE035,3,4,3.1,Attends class regularly but participation is limited.
+24CSE035,4,3,3.9,Steady progress; needs encouragement to take up projects.
+23CSE035,2,4,3.5,Regular in mentoring sessions; no concerns raised.
+24IT035,3,4,1.8,Regular in mentoring sessions; no concerns raised.
+23IT035,4,2,2.7,Regular in mentoring sessions; no concerns raised.
+25ECE035,3,3,1.4,Attends class regularly but participation is limited.
+24ECE035,4,4,2.7,Regular in mentoring sessions; no concerns raised.
+23ECE035,4,4,2.2,Reported health issues this semester; missed several classes.
+25MECH035,3,2,2.9,Steady progress; needs encouragement to take up projects.
+24MECH035,4,2,4.7,Regular in mentoring sessions; no concerns raised.
+23MECH035,4,3,2.7,Attends class regularly but participation is limited.
+25CIVIL035,3,3,3.1,Attends class regularly but participation is limited.
+24CIVIL035,3,3,3.7,Shows leadership in project work; highly motivated.
+23CIVIL035,4,3,3.2,Steady progress; needs encouragement to take up projects.
+25CSE036,3,2,3.0,Steady progress; needs encouragement to take up projects.
+24CSE036,3,3,3.8,Steady progress; needs encouragement to take up projects.
+23CSE036,2,4,3.9,Mentions financial difficulty at home; working part-time evenings.
+25IT036,3,2,2.1,Struggling to cope with workload; asked about dropping a subject.
+24IT036,4,3,4.8,Active in class discussions and helps peers.
+23IT036,2,3,2.5,Commutes over 2 hours daily; often late for first period.
+25ECE036,2,4,2.2,Struggling to cope with workload; asked about dropping a subject.
+23ECE036,4,1,1.1,Regular in mentoring sessions; no concerns raised.
+25MECH036,2,2,3.0,Regular in mentoring sessions; no concerns raised.
+24MECH036,4,4,3.0,Steady progress; needs encouragement to take up projects.
+23MECH036,4,3,4.1,Regular in mentoring sessions; no concerns raised.
+25CIVIL036,2,5,3.0,Family responsibilities affecting study time.
+24CIVIL036,4,1,3.5,Active in class discussions and helps peers.
+23CIVIL036,4,2,3.2,Regular in mentoring sessions; no concerns raised.
+25CSE037,2,4,2.0,Steady progress; needs encouragement to take up projects.
+23CSE037,3,3,2.8,Regular in mentoring sessions; no concerns raised.
+25IT037,4,2,2.8,Regular in mentoring sessions; no concerns raised.
+24IT037,3,4,3.2,Reported health issues this semester; missed several classes.
+23IT037,3,3,2.2,Regular in mentoring sessions; no concerns raised.
+25ECE037,5,1,3.6,Steady progress; needs encouragement to take up projects.
+24ECE037,3,2,2.2,Attends class regularly but participation is limited.
+23ECE037,5,1,3.5,Attends class regularly but participation is limited.
+25MECH037,5,3,4.2,Steady progress; needs encouragement to take up projects.
+24MECH037,5,1,5.0,Active in class discussions and helps peers.
+23MECH037,5,4,4.2,Regular in mentoring sessions; no concerns raised.
+25CIVIL037,3,4,4.0,Steady progress; needs encouragement to take up projects.
+24CIVIL037,4,3,2.5,Attends class regularly but participation is limited.
+23CIVIL037,3,3,4.3,Seems withdrawn in class and avoids mentor meetings.
+25CSE038,2,5,2.4,Attends class regularly but participation is limited.
+24CSE038,5,2,2.6,Attends class regularly but participation is limited.
+23CSE038,4,2,3.0,Regular in mentoring sessions; no concerns raised.
+25IT038,5,3,2.0,Attends class regularly but participation is limited.
+23IT038,3,3,2.1,Steady progress; needs encouragement to take up projects.
+24ECE038,4,3,1.4,Steady progress; needs encouragement to take up projects.
+23ECE038,4,1,2.9,Regular in mentoring sessions; no concerns raised.
+25MECH038,4,2,4.3,Regular in mentoring sessions; no concerns raised.
+24MECH038,4,4,3.4,Attends class regularly but participation is limited.
+23MECH038,5,2,2.4,Regular in mentoring sessions; no concerns raised.
+25CIVIL038,4,2,2.6,Steady progress; needs encouragement to take up projects.
+24CIVIL038,4,2,1.4,Steady progress; needs encouragement to take up projects.
+23CIVIL038,4,3,3.5,Attends class regularly but participation is limited.
+25CSE039,5,2,3.1,Attends class regularly but participation is limited.
+23CSE039,5,1,4.7,Consistently curious; pursuing extra online courses.
+25IT039,3,3,3.2,Steady progress; needs encouragement to take up projects.
+24IT039,2,4,4.2,Family responsibilities affecting study time.
+23IT039,4,3,3.2,Attends class regularly but participation is limited.
+25ECE039,4,2,3.4,Steady progress; needs encouragement to take up projects.
+24ECE039,2,4,2.5,Seems withdrawn in class and avoids mentor meetings.
+23ECE039,3,4,3.4,Steady progress; needs encouragement to take up projects.
+25MECH039,1,4,2.4,Regular in mentoring sessions; no concerns raised.
+24MECH039,4,1,2.4,Attends class regularly but participation is limited.
+23MECH039,4,3,1.7,Regular in mentoring sessions; no concerns raised.
+25CIVIL039,4,3,2.5,Steady progress; needs encouragement to take up projects.
+24CIVIL039,4,3,3.2,Struggling to cope with workload; asked about dropping a subject.
+23CIVIL039,4,4,3.9,Steady progress; needs encouragement to take up projects.
+25CSE040,3,4,4.5,Struggling to cope with workload; asked about dropping a subject.
+24CSE040,2,4,3.2,Mentions financial difficulty at home; working part-time evenings.
+23CSE040,3,4,2.2,Regular in mentoring sessions; no concerns raised.
+25IT040,4,2,3.3,Steady progress; needs encouragement to take up projects.
+24IT040,4,2,4.0,Active in class discussions and helps peers.
+23IT040,1,4,5.0,Struggling to cope with workload; asked about dropping a subject.
+25ECE040,3,3,2.8,Attends class regularly but participation is limited.
+23ECE040,4,3,2.1,Steady progress; needs encouragement to take up projects.
+24MECH040,2,3,3.1,Commutes over 2 hours daily; often late for first period.
+23MECH040,4,3,3.4,Attends class regularly but participation is limited.
+25CIVIL040,4,3,3.7,Attends class regularly but participation is limited.
+24CIVIL040,4,3,3.6,Regular in mentoring sessions; no concerns raised.
+23CIVIL040,3,3,4.1,Consistently curious; pursuing extra online courses.

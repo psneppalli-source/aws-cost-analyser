@@ -1,0 +1,16 @@
+{
+  "generated_by": "pipeline/generate_data.py",
+  "note": "Synthetic data. No real student information.",
+  "current_students": 600,
+  "historical_students": 900,
+  "sources": {
+    "sis_academic_records": 612,
+    "exam_internal_marks": 3600,
+    "biometric_attendance": 10800,
+    "lms_weekly_activity": 7200,
+    "engagement_activity_log": 2733,
+    "placement_cell_assessments": 615,
+    "skills_assessment": 600,
+    "student_feedback_survey": 534
+  }
+}

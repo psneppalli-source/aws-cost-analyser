@@ -1,0 +1,5401 @@
+roll_no,semester,subject,internal_marks,max_marks
+22CSE001,7,Data Structures,18.4,40
+22CSE001,7,Operating Systems,26.6,40
+22CSE001,7,DBMS,19.5,40
+22CSE001,7,Computer Networks,18.4,40
+22CSE001,7,Machine Learning,17.3,40
+22CSE001,7,Software Engg,25.1,40
+22IT001,7,Data Structures,39.0,40
+22IT001,7,Web Technologies,27.3,40
+22IT001,7,DBMS,32.9,40
+22IT001,7,Cloud Computing,31.9,40
+22IT001,7,Information Security,30.0,40
+22IT001,7,Software Engg,34.9,40
+22ECE001,7,Signals & Systems,26.8,40
+22ECE001,7,Digital Electronics,21.5,40
+22ECE001,7,Analog Circuits,20.1,40
+22ECE001,7,Microprocessors,17.3,40
+22ECE001,7,Communication Systems,18.1,40
+22ECE001,7,VLSI Design,25.8,40
+22MECH001,7,Thermodynamics,38.0,40
+22MECH001,7,Fluid Mechanics,31.8,40
+22MECH001,7,Machine Design,24.8,40
+22MECH001,7,Manufacturing Processes,26.4,40
+22MECH001,7,Heat Transfer,32.5,40
+22MECH001,7,CAD/CAM,36.2,40
+22CIVIL001,7,Structural Analysis,13.3,40
+22CIVIL001,7,Surveying,9.8,40
+22CIVIL001,7,Geotechnical Engg,13.5,40
+22CIVIL001,7,Fluid Mechanics,20.2,40
+22CIVIL001,7,Concrete Technology,13.2,40
+22CIVIL001,7,Transportation Engg,8.0,40
+22CSE002,7,Data Structures,22.7,40
+22CSE002,7,Operating Systems,24.3,40
+22CSE002,7,DBMS,22.0,40
+22CSE002,7,Computer Networks,26.8,40
+22CSE002,7,Machine Learning,19.8,40
+22CSE002,7,Software Engg,19.0,40
+22IT002,7,Data Structures,32.3,40
+22IT002,7,Web Technologies,35.2,40
+22IT002,7,DBMS,23.7,40
+22IT002,7,Cloud Computing,26.8,40
+22IT002,7,Information Security,24.2,40
+22IT002,7,Software Engg,31.6,40
+22ECE002,7,Signals & Systems,20.4,40
+22ECE002,7,Digital Electronics,21.2,40
+22ECE002,7,Analog Circuits,18.9,40
+22ECE002,7,Microprocessors,18.2,40
+22ECE002,7,Communication Systems,23.2,40
+22ECE002,7,VLSI Design,33.4,40
+22MECH002,7,Thermodynamics,25.8,40
+22MECH002,7,Fluid Mechanics,15.4,40
+22MECH002,7,Machine Design,25.9,40
+22MECH002,7,Manufacturing Processes,24.5,40
+22MECH002,7,Heat Transfer,20.7,40
+22MECH002,7,CAD/CAM,28.0,40
+22CIVIL002,7,Structural Analysis,19.4,40
+22CIVIL002,7,Surveying,20.1,40
+22CIVIL002,7,Geotechnical Engg,22.9,40
+22CIVIL002,7,Fluid Mechanics,21.4,40
+22CIVIL002,7,Concrete Technology,26.0,40
+22CIVIL002,7,Transportation Engg,18.9,40
+22CSE003,7,Data Structures,20.9,40
+22CSE003,7,Operating Systems,21.7,40
+22CSE003,7,DBMS,26.6,40
+22CSE003,7,Computer Networks,17.6,40
+22CSE003,7,Machine Learning,19.8,40
+22CSE003,7,Software Engg,22.5,40
+22IT003,7,Data Structures,20.7,40
+22IT003,7,Web Technologies,33.9,40
+22IT003,7,DBMS,23.6,40
+22IT003,7,Cloud Computing,32.1,40
+22IT003,7,Information Security,21.8,40
+22IT003,7,Software Engg,26.4,40
+22ECE003,7,Signals & Systems,24.1,40
+22ECE003,7,Digital Electronics,17.6,40
+22ECE003,7,Analog Circuits,20.7,40
+22ECE003,7,Microprocessors,22.9,40
+22ECE003,7,Communication Systems,16.9,40
+22ECE003,7,VLSI Design,14.1,40
+22MECH003,7,Thermodynamics,16.8,40
+22MECH003,7,Fluid Mechanics,19.4,40
+22MECH003,7,Machine Design,19.0,40
+22MECH003,7,Manufacturing Processes,24.1,40
+22MECH003,7,Heat Transfer,22.8,40
+22MECH003,7,CAD/CAM,15.4,40
+22CIVIL003,7,Structural Analysis,22.1,40
+22CIVIL003,7,Surveying,18.9,40
+22CIVIL003,7,Geotechnical Engg,25.6,40
+22CIVIL003,7,Fluid Mechanics,24.1,40
+22CIVIL003,7,Concrete Technology,17.9,40
+22CIVIL003,7,Transportation Engg,21.2,40
+22CSE004,7,Data Structures,29.1,40
+22CSE004,7,Operating Systems,32.1,40
+22CSE004,7,DBMS,32.6,40
+22CSE004,7,Computer Networks,34.3,40
+22CSE004,7,Machine Learning,27.9,40
+22CSE004,7,Software Engg,26.0,40
+22IT004,7,Data Structures,35.8,40
+22IT004,7,Web Technologies,28.9,40
+22IT004,7,DBMS,38.6,40
+22IT004,7,Cloud Computing,37.8,40
+22IT004,7,Information Security,36.5,40
+22IT004,7,Software Engg,35.7,40
+22ECE004,7,Signals & Systems,15.8,40
+22ECE004,7,Digital Electronics,19.3,40
+22ECE004,7,Analog Circuits,21.2,40
+22ECE004,7,Microprocessors,23.2,40
+22ECE004,7,Communication Systems,20.7,40
+22ECE004,7,VLSI Design,20.2,40
+22MECH004,7,Thermodynamics,26.1,40
+22MECH004,7,Fluid Mechanics,25.8,40
+22MECH004,7,Machine Design,24.6,40
+22MECH004,7,Manufacturing Processes,22.6,40
+22MECH004,7,Heat Transfer,19.3,40
+22MECH004,7,CAD/CAM,28.0,40
+22CIVIL004,7,Structural Analysis,18.6,40
+22CIVIL004,7,Surveying,23.1,40
+22CIVIL004,7,Geotechnical Engg,22.3,40
+22CIVIL004,7,Fluid Mechanics,22.4,40
+22CIVIL004,7,Concrete Technology,24.8,40
+22CIVIL004,7,Transportation Engg,29.2,40
+22CSE005,7,Data Structures,22.0,40
+22CSE005,7,Operating Systems,24.8,40
+22CSE005,7,DBMS,30.7,40
+22CSE005,7,Computer Networks,22.5,40
+22CSE005,7,Machine Learning,23.6,40
+22CSE005,7,Software Engg,25.0,40
+22IT005,7,Data Structures,23.0,40
+22IT005,7,Web Technologies,22.3,40
+22IT005,7,DBMS,28.8,40
+22IT005,7,Cloud Computing,22.7,40
+22IT005,7,Information Security,26.0,40
+22IT005,7,Software Engg,26.4,40
+22ECE005,7,Signals & Systems,10.5,40
+22ECE005,7,Digital Electronics,20.3,40
+22ECE005,7,Analog Circuits,9.7,40
+22ECE005,7,Microprocessors,19.3,40
+22ECE005,7,Communication Systems,11.8,40
+22ECE005,7,VLSI Design,17.3,40
+22MECH005,7,Thermodynamics,27.8,40
+22MECH005,7,Fluid Mechanics,24.8,40
+22MECH005,7,Machine Design,20.3,40
+22MECH005,7,Manufacturing Processes,20.0,40
+22MECH005,7,Heat Transfer,23.7,40
+22MECH005,7,CAD/CAM,22.6,40
+22CIVIL005,7,Structural Analysis,21.6,40
+22CIVIL005,7,Surveying,25.3,40
+22CIVIL005,7,Geotechnical Engg,32.0,40
+22CIVIL005,7,Fluid Mechanics,21.2,40
+22CIVIL005,7,Concrete Technology,27.2,40
+22CIVIL005,7,Transportation Engg,25.0,40
+22CSE006,7,Data Structures,30.1,40
+22CSE006,7,Operating Systems,40.0,40
+22CSE006,7,DBMS,36.3,40
+22CSE006,7,Computer Networks,35.0,40
+22CSE006,7,Machine Learning,36.1,40
+22CSE006,7,Software Engg,37.5,40
+22IT006,7,Data Structures,29.8,40
+22IT006,7,Web Technologies,26.4,40
+22IT006,7,DBMS,27.0,40
+22IT006,7,Cloud Computing,33.2,40
+22IT006,7,Information Security,20.7,40
+22IT006,7,Software Engg,30.4,40
+22ECE006,7,Signals & Systems,23.1,40
+22ECE006,7,Digital Electronics,24.1,40
+22ECE006,7,Analog Circuits,21.0,40
+22ECE006,7,Microprocessors,25.5,40
+22ECE006,7,Communication Systems,23.1,40
+22ECE006,7,VLSI Design,28.0,40
+22MECH006,7,Thermodynamics,30.4,40
+22MECH006,7,Fluid Mechanics,25.0,40
+22MECH006,7,Machine Design,35.0,40
+22MECH006,7,Manufacturing Processes,31.6,40
+22MECH006,7,Heat Transfer,32.1,40
+22MECH006,7,CAD/CAM,30.6,40
+22CIVIL006,7,Structural Analysis,34.4,40
+22CIVIL006,7,Surveying,23.2,40
+22CIVIL006,7,Geotechnical Engg,31.6,40
+22CIVIL006,7,Fluid Mechanics,32.1,40
+22CIVIL006,7,Concrete Technology,30.2,40
+22CIVIL006,7,Transportation Engg,33.1,40
+22CSE007,7,Data Structures,26.7,40
+22CSE007,7,Operating Systems,19.8,40
+22CSE007,7,DBMS,25.9,40
+22CSE007,7,Computer Networks,30.4,40
+22CSE007,7,Machine Learning,24.6,40
+22CSE007,7,Software Engg,19.7,40
+22IT007,7,Data Structures,16.9,40
+22IT007,7,Web Technologies,16.7,40
+22IT007,7,DBMS,8.8,40
+22IT007,7,Cloud Computing,9.3,40
+22IT007,7,Information Security,7.2,40
+22IT007,7,Software Engg,20.3,40
+22ECE007,7,Signals & Systems,28.9,40
+22ECE007,7,Digital Electronics,34.2,40
+22ECE007,7,Analog Circuits,23.9,40
+22ECE007,7,Microprocessors,28.7,40
+22ECE007,7,Communication Systems,27.9,40
+22ECE007,7,VLSI Design,23.2,40
+22MECH007,7,Thermodynamics,23.9,40
+22MECH007,7,Fluid Mechanics,28.5,40
+22MECH007,7,Machine Design,24.2,40
+22MECH007,7,Manufacturing Processes,26.3,40
+22MECH007,7,Heat Transfer,28.5,40
+22MECH007,7,CAD/CAM,27.1,40
+22CIVIL007,7,Structural Analysis,30.4,40
+22CIVIL007,7,Surveying,24.9,40
+22CIVIL007,7,Geotechnical Engg,25.2,40
+22CIVIL007,7,Fluid Mechanics,22.3,40
+22CIVIL007,7,Concrete Technology,18.5,40
+22CIVIL007,7,Transportation Engg,29.4,40
+22CSE008,7,Data Structures,27.8,40
+22CSE008,7,Operating Systems,27.8,40
+22CSE008,7,DBMS,29.1,40
+22CSE008,7,Computer Networks,19.3,40
+22CSE008,7,Machine Learning,26.8,40
+22CSE008,7,Software Engg,31.6,40
+22IT008,7,Data Structures,24.8,40
+22IT008,7,Web Technologies,30.0,40
+22IT008,7,DBMS,20.5,40
+22IT008,7,Cloud Computing,21.1,40
+22IT008,7,Information Security,15.2,40
+22IT008,7,Software Engg,16.0,40
+22ECE008,7,Signals & Systems,23.0,40
+22ECE008,7,Digital Electronics,18.6,40
+22ECE008,7,Analog Circuits,13.7,40
+22ECE008,7,Microprocessors,18.1,40
+22ECE008,7,Communication Systems,12.1,40
+22ECE008,7,VLSI Design,16.5,40
+22MECH008,7,Thermodynamics,26.3,40
+22MECH008,7,Fluid Mechanics,31.5,40
+22MECH008,7,Machine Design,25.0,40
+22MECH008,7,Manufacturing Processes,29.7,40
+22MECH008,7,Heat Transfer,25.7,40
+22MECH008,7,CAD/CAM,24.5,40
+22CIVIL008,7,Structural Analysis,9.7,40
+22CIVIL008,7,Surveying,15.1,40
+22CIVIL008,7,Geotechnical Engg,15.0,40
+22CIVIL008,7,Fluid Mechanics,17.3,40
+22CIVIL008,7,Concrete Technology,20.5,40
+22CIVIL008,7,Transportation Engg,13.9,40
+22CSE009,7,Data Structures,33.4,40
+22CSE009,7,Operating Systems,33.1,40
+22CSE009,7,DBMS,36.4,40
+22CSE009,7,Computer Networks,32.4,40
+22CSE009,7,Machine Learning,38.4,40
+22CSE009,7,Software Engg,40.0,40
+22IT009,7,Data Structures,12.9,40
+22IT009,7,Web Technologies,10.4,40
+22IT009,7,DBMS,5.5,40
+22IT009,7,Cloud Computing,10.9,40
+22IT009,7,Information Security,10.9,40
+22IT009,7,Software Engg,9.9,40
+22ECE009,7,Signals & Systems,28.3,40
+22ECE009,7,Digital Electronics,21.3,40
+22ECE009,7,Analog Circuits,29.1,40
+22ECE009,7,Microprocessors,25.2,40
+22ECE009,7,Communication Systems,29.5,40
+22ECE009,7,VLSI Design,33.9,40
+22MECH009,7,Thermodynamics,20.1,40
+22MECH009,7,Fluid Mechanics,16.4,40
+22MECH009,7,Machine Design,15.1,40
+22MECH009,7,Manufacturing Processes,13.3,40
+22MECH009,7,Heat Transfer,15.5,40
+22MECH009,7,CAD/CAM,24.6,40
+22CIVIL009,7,Structural Analysis,28.6,40
+22CIVIL009,7,Surveying,28.1,40
+22CIVIL009,7,Geotechnical Engg,27.2,40
+22CIVIL009,7,Fluid Mechanics,24.5,40
+22CIVIL009,7,Concrete Technology,31.6,40
+22CIVIL009,7,Transportation Engg,20.9,40
+22CSE010,7,Data Structures,31.5,40
+22CSE010,7,Operating Systems,19.8,40
+22CSE010,7,DBMS,29.0,40
+22CSE010,7,Computer Networks,27.2,40
+22CSE010,7,Machine Learning,28.7,40
+22CSE010,7,Software Engg,23.5,40
+22IT010,7,Data Structures,17.2,40
+22IT010,7,Web Technologies,16.2,40
+22IT010,7,DBMS,15.0,40
+22IT010,7,Cloud Computing,25.7,40
+22IT010,7,Information Security,20.4,40
+22IT010,7,Software Engg,15.2,40
+22ECE010,7,Signals & Systems,21.5,40
+22ECE010,7,Digital Electronics,25.6,40
+22ECE010,7,Analog Circuits,18.7,40
+22ECE010,7,Microprocessors,23.9,40
+22ECE010,7,Communication Systems,20.2,40
+22ECE010,7,VLSI Design,21.1,40
+22MECH010,7,Thermodynamics,22.7,40
+22MECH010,7,Fluid Mechanics,32.9,40
+22MECH010,7,Machine Design,28.2,40
+22MECH010,7,Manufacturing Processes,23.6,40
+22MECH010,7,Heat Transfer,27.5,40
+22MECH010,7,CAD/CAM,22.4,40
+22CIVIL010,7,Structural Analysis,29.2,40
+22CIVIL010,7,Surveying,25.0,40
+22CIVIL010,7,Geotechnical Engg,23.7,40
+22CIVIL010,7,Fluid Mechanics,31.8,40
+22CIVIL010,7,Concrete Technology,31.3,40
+22CIVIL010,7,Transportation Engg,29.9,40
+22CSE011,7,Data Structures,18.8,40
+22CSE011,7,Operating Systems,12.1,40
+22CSE011,7,DBMS,16.6,40
+22CSE011,7,Computer Networks,18.6,40
+22CSE011,7,Machine Learning,23.5,40
+22CSE011,7,Software Engg,22.0,40
+22IT011,7,Data Structures,13.0,40
+22IT011,7,Web Technologies,11.7,40
+22IT011,7,DBMS,18.5,40
+22IT011,7,Cloud Computing,16.6,40
+22IT011,7,Information Security,10.9,40
+22IT011,7,Software Engg,10.5,40
+22ECE011,7,Signals & Systems,22.7,40
+22ECE011,7,Digital Electronics,28.1,40
+22ECE011,7,Analog Circuits,19.7,40
+22ECE011,7,Microprocessors,28.1,40
+22ECE011,7,Communication Systems,25.9,40
+22ECE011,7,VLSI Design,26.7,40
+22MECH011,7,Thermodynamics,31.3,40
+22MECH011,7,Fluid Mechanics,32.2,40
+22MECH011,7,Machine Design,36.8,40
+22MECH011,7,Manufacturing Processes,37.2,40
+22MECH011,7,Heat Transfer,33.9,40
+22MECH011,7,CAD/CAM,34.1,40
+22CIVIL011,7,Structural Analysis,31.6,40
+22CIVIL011,7,Surveying,27.6,40
+22CIVIL011,7,Geotechnical Engg,27.7,40
+22CIVIL011,7,Fluid Mechanics,36.0,40
+22CIVIL011,7,Concrete Technology,27.9,40
+22CIVIL011,7,Transportation Engg,33.8,40
+22CSE012,7,Data Structures,17.7,40
+22CSE012,7,Operating Systems,19.6,40
+22CSE012,7,DBMS,21.4,40
+22CSE012,7,Computer Networks,24.0,40
+22CSE012,7,Machine Learning,16.2,40
+22CSE012,7,Software Engg,27.2,40
+22IT012,7,Data Structures,10.6,40
+22IT012,7,Web Technologies,10.1,40
+22IT012,7,DBMS,13.0,40
+22IT012,7,Cloud Computing,2.0,40
+22IT012,7,Information Security,10.3,40
+22IT012,7,Software Engg,12.0,40
+22ECE012,7,Signals & Systems,12.1,40
+22ECE012,7,Digital Electronics,24.5,40
+22ECE012,7,Analog Circuits,16.4,40
+22ECE012,7,Microprocessors,28.1,40
+22ECE012,7,Communication Systems,23.1,40
+22ECE012,7,VLSI Design,17.3,40
+22MECH012,7,Thermodynamics,26.0,40
+22MECH012,7,Fluid Mechanics,23.3,40
+22MECH012,7,Machine Design,34.2,40
+22MECH012,7,Manufacturing Processes,30.3,40
+22MECH012,7,Heat Transfer,29.1,40
+22MECH012,7,CAD/CAM,27.9,40
+22CIVIL012,7,Structural Analysis,17.2,40
+22CIVIL012,7,Surveying,14.4,40
+22CIVIL012,7,Geotechnical Engg,22.8,40
+22CIVIL012,7,Fluid Mechanics,15.3,40
+22CIVIL012,7,Concrete Technology,23.1,40
+22CIVIL012,7,Transportation Engg,21.1,40
+22CSE013,7,Data Structures,18.8,40
+22CSE013,7,Operating Systems,20.2,40
+22CSE013,7,DBMS,14.9,40
+22CSE013,7,Computer Networks,23.8,40
+22CSE013,7,Machine Learning,24.8,40
+22CSE013,7,Software Engg,19.4,40
+22IT013,7,Data Structures,5.5,40
+22IT013,7,Web Technologies,12.4,40
+22IT013,7,DBMS,2.7,40
+22IT013,7,Cloud Computing,11.2,40
+22IT013,7,Information Security,9.7,40
+22IT013,7,Software Engg,12.2,40
+22ECE013,7,Signals & Systems,22.0,40
+22ECE013,7,Digital Electronics,22.2,40
+22ECE013,7,Analog Circuits,18.1,40
+22ECE013,7,Microprocessors,29.7,40
+22ECE013,7,Communication Systems,22.8,40
+22ECE013,7,VLSI Design,24.6,40
+22MECH013,7,Thermodynamics,15.6,40
+22MECH013,7,Fluid Mechanics,18.8,40
+22MECH013,7,Machine Design,7.9,40
+22MECH013,7,Manufacturing Processes,12.9,40
+22MECH013,7,Heat Transfer,9.6,40
+22MECH013,7,CAD/CAM,13.5,40
+22CIVIL013,7,Structural Analysis,26.9,40
+22CIVIL013,7,Surveying,27.5,40
+22CIVIL013,7,Geotechnical Engg,32.5,40
+22CIVIL013,7,Fluid Mechanics,31.0,40
+22CIVIL013,7,Concrete Technology,30.6,40
+22CIVIL013,7,Transportation Engg,28.9,40
+22CSE014,7,Data Structures,21.8,40
+22CSE014,7,Operating Systems,24.9,40
+22CSE014,7,DBMS,24.5,40
+22CSE014,7,Computer Networks,24.7,40
+22CSE014,7,Machine Learning,19.7,40
+22CSE014,7,Software Engg,19.8,40
+22IT014,7,Data Structures,24.2,40
+22IT014,7,Web Technologies,23.9,40
+22IT014,7,DBMS,28.7,40
+22IT014,7,Cloud Computing,25.3,40
+22IT014,7,Information Security,28.6,40
+22IT014,7,Software Engg,26.2,40
+22ECE014,7,Signals & Systems,35.1,40
+22ECE014,7,Digital Electronics,33.4,40
+22ECE014,7,Analog Circuits,31.8,40
+22ECE014,7,Microprocessors,38.2,40
+22ECE014,7,Communication Systems,31.2,40
+22ECE014,7,VLSI Design,35.4,40
+22MECH014,7,Thermodynamics,21.4,40
+22MECH014,7,Fluid Mechanics,34.1,40
+22MECH014,7,Machine Design,23.6,40
+22MECH014,7,Manufacturing Processes,23.8,40
+22MECH014,7,Heat Transfer,25.9,40
+22MECH014,7,CAD/CAM,24.1,40
+22CIVIL014,7,Structural Analysis,31.8,40
+22CIVIL014,7,Surveying,38.0,40
+22CIVIL014,7,Geotechnical Engg,26.0,40
+22CIVIL014,7,Fluid Mechanics,39.5,40
+22CIVIL014,7,Concrete Technology,36.3,40
+22CIVIL014,7,Transportation Engg,28.5,40
+22CSE015,7,Data Structures,28.6,40
+22CSE015,7,Operating Systems,9.2,40
+22CSE015,7,DBMS,22.1,40
+22CSE015,7,Computer Networks,21.5,40
+22CSE015,7,Machine Learning,19.1,40
+22CSE015,7,Software Engg,16.9,40
+22IT015,7,Data Structures,19.7,40
+22IT015,7,Web Technologies,17.0,40
+22IT015,7,DBMS,15.7,40
+22IT015,7,Cloud Computing,21.8,40
+22IT015,7,Information Security,10.3,40
+22IT015,7,Software Engg,12.7,40
+22ECE015,7,Signals & Systems,15.2,40
+22ECE015,7,Digital Electronics,20.6,40
+22ECE015,7,Analog Circuits,26.9,40
+22ECE015,7,Microprocessors,24.8,40
+22ECE015,7,Communication Systems,27.6,40
+22ECE015,7,VLSI Design,20.7,40
+22MECH015,7,Thermodynamics,31.7,40
+22MECH015,7,Fluid Mechanics,29.2,40
+22MECH015,7,Machine Design,29.3,40
+22MECH015,7,Manufacturing Processes,29.6,40
+22MECH015,7,Heat Transfer,28.6,40
+22MECH015,7,CAD/CAM,26.4,40
+22CIVIL015,7,Structural Analysis,21.5,40
+22CIVIL015,7,Surveying,24.7,40
+22CIVIL015,7,Geotechnical Engg,16.3,40
+22CIVIL015,7,Fluid Mechanics,20.0,40
+22CIVIL015,7,Concrete Technology,23.8,40
+22CIVIL015,7,Transportation Engg,19.8,40
+22CSE016,7,Data Structures,24.7,40
+22CSE016,7,Operating Systems,29.5,40
+22CSE016,7,DBMS,21.5,40
+22CSE016,7,Computer Networks,23.6,40
+22CSE016,7,Machine Learning,24.7,40
+22CSE016,7,Software Engg,18.4,40
+22IT016,7,Data Structures,33.9,40
+22IT016,7,Web Technologies,29.5,40
+22IT016,7,DBMS,25.9,40
+22IT016,7,Cloud Computing,32.4,40
+22IT016,7,Information Security,35.6,40
+22IT016,7,Software Engg,33.1,40
+22ECE016,7,Signals & Systems,24.1,40
+22ECE016,7,Digital Electronics,17.9,40
+22ECE016,7,Analog Circuits,21.6,40
+22ECE016,7,Microprocessors,25.5,40
+22ECE016,7,Communication Systems,19.6,40
+22ECE016,7,VLSI Design,25.4,40
+22MECH016,7,Thermodynamics,13.7,40
+22MECH016,7,Fluid Mechanics,12.4,40
+22MECH016,7,Machine Design,15.2,40
+22MECH016,7,Manufacturing Processes,9.7,40
+22MECH016,7,Heat Transfer,20.5,40
+22MECH016,7,CAD/CAM,13.7,40
+22CIVIL016,7,Structural Analysis,24.2,40
+22CIVIL016,7,Surveying,21.5,40
+22CIVIL016,7,Geotechnical Engg,29.8,40
+22CIVIL016,7,Fluid Mechanics,24.8,40
+22CIVIL016,7,Concrete Technology,31.5,40
+22CIVIL016,7,Transportation Engg,29.5,40
+22CSE017,7,Data Structures,33.2,40
+22CSE017,7,Operating Systems,28.9,40
+22CSE017,7,DBMS,28.6,40
+22CSE017,7,Computer Networks,32.0,40
+22CSE017,7,Machine Learning,32.3,40
+22CSE017,7,Software Engg,25.1,40
+22IT017,7,Data Structures,27.3,40
+22IT017,7,Web Technologies,29.0,40
+22IT017,7,DBMS,31.5,40
+22IT017,7,Cloud Computing,24.5,40
+22IT017,7,Information Security,34.4,40
+22IT017,7,Software Engg,26.2,40
+22ECE017,7,Signals & Systems,40.0,40
+22ECE017,7,Digital Electronics,40.0,40
+22ECE017,7,Analog Circuits,38.7,40
+22ECE017,7,Microprocessors,36.6,40
+22ECE017,7,Communication Systems,40.0,40
+22ECE017,7,VLSI Design,38.3,40
+22MECH017,7,Thermodynamics,29.9,40
+22MECH017,7,Fluid Mechanics,32.4,40
+22MECH017,7,Machine Design,27.8,40
+22MECH017,7,Manufacturing Processes,25.4,40
+22MECH017,7,Heat Transfer,31.6,40
+22MECH017,7,CAD/CAM,36.7,40
+22CIVIL017,7,Structural Analysis,24.6,40
+22CIVIL017,7,Surveying,13.8,40
+22CIVIL017,7,Geotechnical Engg,14.6,40
+22CIVIL017,7,Fluid Mechanics,19.5,40
+22CIVIL017,7,Concrete Technology,26.3,40
+22CIVIL017,7,Transportation Engg,19.6,40
+22CSE018,7,Data Structures,20.0,40
+22CSE018,7,Operating Systems,19.1,40
+22CSE018,7,DBMS,20.5,40
+22CSE018,7,Computer Networks,21.6,40
+22CSE018,7,Machine Learning,21.1,40
+22CSE018,7,Software Engg,19.4,40
+22IT018,7,Data Structures,40.0,40
+22IT018,7,Web Technologies,36.1,40
+22IT018,7,DBMS,40.0,40
+22IT018,7,Cloud Computing,40.0,40
+22IT018,7,Information Security,31.1,40
+22IT018,7,Software Engg,40.0,40
+22ECE018,7,Signals & Systems,28.7,40
+22ECE018,7,Digital Electronics,21.3,40
+22ECE018,7,Analog Circuits,23.3,40
+22ECE018,7,Microprocessors,24.6,40
+22ECE018,7,Communication Systems,24.8,40
+22ECE018,7,VLSI Design,21.6,40
+22MECH018,7,Thermodynamics,21.1,40
+22MECH018,7,Fluid Mechanics,24.8,40
+22MECH018,7,Machine Design,18.7,40
+22MECH018,7,Manufacturing Processes,29.3,40
+22MECH018,7,Heat Transfer,17.9,40
+22MECH018,7,CAD/CAM,23.0,40
+22CIVIL018,7,Structural Analysis,30.1,40
+22CIVIL018,7,Surveying,32.4,40
+22CIVIL018,7,Geotechnical Engg,23.5,40
+22CIVIL018,7,Fluid Mechanics,26.1,40
+22CIVIL018,7,Concrete Technology,24.9,40
+22CIVIL018,7,Transportation Engg,28.6,40
+22CSE019,7,Data Structures,28.7,40
+22CSE019,7,Operating Systems,28.7,40
+22CSE019,7,DBMS,30.0,40
+22CSE019,7,Computer Networks,39.4,40
+22CSE019,7,Machine Learning,32.3,40
+22CSE019,7,Software Engg,25.9,40
+22IT019,7,Data Structures,13.4,40
+22IT019,7,Web Technologies,19.9,40
+22IT019,7,DBMS,22.3,40
+22IT019,7,Cloud Computing,17.9,40
+22IT019,7,Information Security,19.0,40
+22IT019,7,Software Engg,17.9,40
+22ECE019,7,Signals & Systems,40.0,40
+22ECE019,7,Digital Electronics,33.5,40
+22ECE019,7,Analog Circuits,31.8,40
+22ECE019,7,Microprocessors,34.0,40
+22ECE019,7,Communication Systems,32.2,40
+22ECE019,7,VLSI Design,26.5,40
+22MECH019,7,Thermodynamics,23.2,40
+22MECH019,7,Fluid Mechanics,26.8,40
+22MECH019,7,Machine Design,23.7,40
+22MECH019,7,Manufacturing Processes,24.8,40
+22MECH019,7,Heat Transfer,23.1,40
+22MECH019,7,CAD/CAM,23.2,40
+22CIVIL019,7,Structural Analysis,23.4,40
+22CIVIL019,7,Surveying,28.8,40
+22CIVIL019,7,Geotechnical Engg,31.4,40
+22CIVIL019,7,Fluid Mechanics,27.6,40
+22CIVIL019,7,Concrete Technology,25.2,40
+22CIVIL019,7,Transportation Engg,24.2,40
+22CSE020,7,Data Structures,25.9,40
+22CSE020,7,Operating Systems,33.1,40
+22CSE020,7,DBMS,25.5,40
+22CSE020,7,Computer Networks,27.9,40
+22CSE020,7,Machine Learning,27.8,40
+22CSE020,7,Software Engg,36.5,40
+22IT020,7,Data Structures,28.2,40
+22IT020,7,Web Technologies,25.5,40
+22IT020,7,DBMS,33.1,40
+22IT020,7,Cloud Computing,26.3,40
+22IT020,7,Information Security,30.8,40
+22IT020,7,Software Engg,26.5,40
+22ECE020,7,Signals & Systems,22.1,40
+22ECE020,7,Digital Electronics,18.6,40
+22ECE020,7,Analog Circuits,9.4,40
+22ECE020,7,Microprocessors,16.6,40
+22ECE020,7,Communication Systems,17.9,40
+22ECE020,7,VLSI Design,15.0,40
+22MECH020,7,Thermodynamics,13.0,40
+22MECH020,7,Fluid Mechanics,4.5,40
+22MECH020,7,Machine Design,6.9,40
+22MECH020,7,Manufacturing Processes,16.0,40
+22MECH020,7,Heat Transfer,11.1,40
+22MECH020,7,CAD/CAM,6.1,40
+22CIVIL020,7,Structural Analysis,20.3,40
+22CIVIL020,7,Surveying,21.5,40
+22CIVIL020,7,Geotechnical Engg,17.1,40
+22CIVIL020,7,Fluid Mechanics,23.8,40
+22CIVIL020,7,Concrete Technology,17.4,40
+22CIVIL020,7,Transportation Engg,22.8,40
+22CSE021,7,Data Structures,23.5,40
+22CSE021,7,Operating Systems,36.1,40
+22CSE021,7,DBMS,24.8,40
+22CSE021,7,Computer Networks,23.5,40
+22CSE021,7,Machine Learning,26.6,40
+22CSE021,7,Software Engg,31.3,40
+22IT021,7,Data Structures,21.4,40
+22IT021,7,Web Technologies,19.9,40
+22IT021,7,DBMS,14.9,40
+22IT021,7,Cloud Computing,16.1,40
+22IT021,7,Information Security,17.1,40
+22IT021,7,Software Engg,20.0,40
+22ECE021,7,Signals & Systems,30.2,40
+22ECE021,7,Digital Electronics,27.8,40
+22ECE021,7,Analog Circuits,27.2,40
+22ECE021,7,Microprocessors,21.4,40
+22ECE021,7,Communication Systems,22.9,40
+22ECE021,7,VLSI Design,33.8,40
+22MECH021,7,Thermodynamics,21.7,40
+22MECH021,7,Fluid Mechanics,13.3,40
+22MECH021,7,Machine Design,21.2,40
+22MECH021,7,Manufacturing Processes,21.0,40
+22MECH021,7,Heat Transfer,21.3,40
+22MECH021,7,CAD/CAM,16.8,40
+22CIVIL021,7,Structural Analysis,19.5,40
+22CIVIL021,7,Surveying,23.0,40
+22CIVIL021,7,Geotechnical Engg,19.9,40
+22CIVIL021,7,Fluid Mechanics,20.9,40
+22CIVIL021,7,Concrete Technology,22.7,40
+22CIVIL021,7,Transportation Engg,21.3,40
+22CSE022,7,Data Structures,15.5,40
+22CSE022,7,Operating Systems,18.9,40
+22CSE022,7,DBMS,13.3,40
+22CSE022,7,Computer Networks,26.5,40
+22CSE022,7,Machine Learning,17.7,40
+22CSE022,7,Software Engg,27.9,40
+22IT022,7,Data Structures,17.2,40
+22IT022,7,Web Technologies,24.5,40
+22IT022,7,DBMS,25.3,40
+22IT022,7,Cloud Computing,19.1,40
+22IT022,7,Information Security,25.9,40
+22IT022,7,Software Engg,34.3,40
+22ECE022,7,Signals & Systems,31.0,40
+22ECE022,7,Digital Electronics,32.9,40
+22ECE022,7,Analog Circuits,34.0,40
+22ECE022,7,Microprocessors,33.0,40
+22ECE022,7,Communication Systems,26.4,40
+22ECE022,7,VLSI Design,23.9,40
+22MECH022,7,Thermodynamics,27.3,40
+22MECH022,7,Fluid Mechanics,18.0,40
+22MECH022,7,Machine Design,23.3,40
+22MECH022,7,Manufacturing Processes,12.8,40
+22MECH022,7,Heat Transfer,20.5,40
+22MECH022,7,CAD/CAM,26.2,40
+22CIVIL022,7,Structural Analysis,36.8,40
+22CIVIL022,7,Surveying,32.9,40
+22CIVIL022,7,Geotechnical Engg,27.4,40
+22CIVIL022,7,Fluid Mechanics,34.7,40
+22CIVIL022,7,Concrete Technology,38.7,40
+22CIVIL022,7,Transportation Engg,40.0,40
+22CSE023,7,Data Structures,35.2,40
+22CSE023,7,Operating Systems,32.1,40
+22CSE023,7,DBMS,37.2,40
+22CSE023,7,Computer Networks,31.5,40
+22CSE023,7,Machine Learning,30.0,40
+22CSE023,7,Software Engg,30.3,40
+22IT023,7,Data Structures,31.3,40
+22IT023,7,Web Technologies,20.4,40
+22IT023,7,DBMS,30.1,40
+22IT023,7,Cloud Computing,35.4,40
+22IT023,7,Information Security,25.5,40
+22IT023,7,Software Engg,21.3,40
+22ECE023,7,Signals & Systems,30.9,40
+22ECE023,7,Digital Electronics,23.6,40
+22ECE023,7,Analog Circuits,22.9,40
+22ECE023,7,Microprocessors,28.4,40
+22ECE023,7,Communication Systems,24.3,40
+22ECE023,7,VLSI Design,22.9,40
+22MECH023,7,Thermodynamics,25.6,40
+22MECH023,7,Fluid Mechanics,23.3,40
+22MECH023,7,Machine Design,23.4,40
+22MECH023,7,Manufacturing Processes,22.1,40
+22MECH023,7,Heat Transfer,24.4,40
+22MECH023,7,CAD/CAM,24.1,40
+22CIVIL023,7,Structural Analysis,30.8,40
+22CIVIL023,7,Surveying,23.9,40
+22CIVIL023,7,Geotechnical Engg,24.7,40
+22CIVIL023,7,Fluid Mechanics,26.0,40
+22CIVIL023,7,Concrete Technology,26.3,40
+22CIVIL023,7,Transportation Engg,22.3,40
+22CSE024,7,Data Structures,29.8,40
+22CSE024,7,Operating Systems,25.8,40
+22CSE024,7,DBMS,28.0,40
+22CSE024,7,Computer Networks,32.4,40
+22CSE024,7,Machine Learning,26.2,40
+22CSE024,7,Software Engg,28.8,40
+22IT024,7,Data Structures,18.2,40
+22IT024,7,Web Technologies,16.0,40
+22IT024,7,DBMS,11.6,40
+22IT024,7,Cloud Computing,14.9,40
+22IT024,7,Information Security,17.4,40
+22IT024,7,Software Engg,15.6,40
+22ECE024,7,Signals & Systems,24.9,40
+22ECE024,7,Digital Electronics,16.0,40
+22ECE024,7,Analog Circuits,30.0,40
+22ECE024,7,Microprocessors,19.2,40
+22ECE024,7,Communication Systems,25.3,40
+22ECE024,7,VLSI Design,20.7,40
+22MECH024,7,Thermodynamics,34.0,40
+22MECH024,7,Fluid Mechanics,22.1,40
+22MECH024,7,Machine Design,31.0,40
+22MECH024,7,Manufacturing Processes,30.0,40
+22MECH024,7,Heat Transfer,31.9,40
+22MECH024,7,CAD/CAM,29.0,40
+22CIVIL024,7,Structural Analysis,30.7,40
+22CIVIL024,7,Surveying,31.3,40
+22CIVIL024,7,Geotechnical Engg,31.4,40
+22CIVIL024,7,Fluid Mechanics,39.0,40
+22CIVIL024,7,Concrete Technology,33.0,40
+22CIVIL024,7,Transportation Engg,27.2,40
+22CSE025,7,Data Structures,35.7,40
+22CSE025,7,Operating Systems,38.4,40
+22CSE025,7,DBMS,40.0,40
+22CSE025,7,Computer Networks,34.4,40
+22CSE025,7,Machine Learning,40.0,40
+22CSE025,7,Software Engg,39.3,40
+22IT025,7,Data Structures,22.8,40
+22IT025,7,Web Technologies,16.8,40
+22IT025,7,DBMS,15.7,40
+22IT025,7,Cloud Computing,17.4,40
+22IT025,7,Information Security,20.7,40
+22IT025,7,Software Engg,16.9,40
+22ECE025,7,Signals & Systems,36.5,40
+22ECE025,7,Digital Electronics,32.9,40
+22ECE025,7,Analog Circuits,32.5,40
+22ECE025,7,Microprocessors,31.0,40
+22ECE025,7,Communication Systems,33.8,40
+22ECE025,7,VLSI Design,29.5,40
+22MECH025,7,Thermodynamics,23.7,40
+22MECH025,7,Fluid Mechanics,36.2,40
+22MECH025,7,Machine Design,25.1,40
+22MECH025,7,Manufacturing Processes,33.2,40
+22MECH025,7,Heat Transfer,27.0,40
+22MECH025,7,CAD/CAM,27.6,40
+22CIVIL025,7,Structural Analysis,28.1,40
+22CIVIL025,7,Surveying,26.4,40
+22CIVIL025,7,Geotechnical Engg,21.4,40
+22CIVIL025,7,Fluid Mechanics,24.5,40
+22CIVIL025,7,Concrete Technology,18.1,40
+22CIVIL025,7,Transportation Engg,15.0,40
+22CSE026,7,Data Structures,19.0,40
+22CSE026,7,Operating Systems,17.8,40
+22CSE026,7,DBMS,6.3,40
+22CSE026,7,Computer Networks,17.2,40
+22CSE026,7,Machine Learning,8.1,40
+22CSE026,7,Software Engg,8.8,40
+22IT026,7,Data Structures,27.5,40
+22IT026,7,Web Technologies,33.5,40
+22IT026,7,DBMS,28.1,40
+22IT026,7,Cloud Computing,29.4,40
+22IT026,7,Information Security,31.8,40
+22IT026,7,Software Engg,28.9,40
+22ECE026,7,Signals & Systems,25.3,40
+22ECE026,7,Digital Electronics,26.4,40
+22ECE026,7,Analog Circuits,26.5,40
+22ECE026,7,Microprocessors,30.4,40
+22ECE026,7,Communication Systems,24.1,40
+22ECE026,7,VLSI Design,22.4,40
+22MECH026,7,Thermodynamics,19.1,40
+22MECH026,7,Fluid Mechanics,23.7,40
+22MECH026,7,Machine Design,22.9,40
+22MECH026,7,Manufacturing Processes,18.4,40
+22MECH026,7,Heat Transfer,31.2,40
+22MECH026,7,CAD/CAM,28.3,40
+22CIVIL026,7,Structural Analysis,33.0,40
+22CIVIL026,7,Surveying,40.0,40
+22CIVIL026,7,Geotechnical Engg,29.0,40
+22CIVIL026,7,Fluid Mechanics,27.9,40
+22CIVIL026,7,Concrete Technology,34.1,40
+22CIVIL026,7,Transportation Engg,33.2,40
+22CSE027,7,Data Structures,13.0,40
+22CSE027,7,Operating Systems,12.5,40
+22CSE027,7,DBMS,17.9,40
+22CSE027,7,Computer Networks,19.4,40
+22CSE027,7,Machine Learning,17.7,40
+22CSE027,7,Software Engg,17.1,40
+22IT027,7,Data Structures,14.6,40
+22IT027,7,Web Technologies,14.8,40
+22IT027,7,DBMS,12.1,40
+22IT027,7,Cloud Computing,15.6,40
+22IT027,7,Information Security,8.6,40
+22IT027,7,Software Engg,23.1,40
+22ECE027,7,Signals & Systems,25.8,40
+22ECE027,7,Digital Electronics,30.6,40
+22ECE027,7,Analog Circuits,33.7,40
+22ECE027,7,Microprocessors,27.7,40
+22ECE027,7,Communication Systems,25.2,40
+22ECE027,7,VLSI Design,28.2,40
+22MECH027,7,Thermodynamics,27.4,40
+22MECH027,7,Fluid Mechanics,12.6,40
+22MECH027,7,Machine Design,20.0,40
+22MECH027,7,Manufacturing Processes,21.2,40
+22MECH027,7,Heat Transfer,18.3,40
+22MECH027,7,CAD/CAM,20.2,40
+22CIVIL027,7,Structural Analysis,14.6,40
+22CIVIL027,7,Surveying,20.6,40
+22CIVIL027,7,Geotechnical Engg,24.4,40
+22CIVIL027,7,Fluid Mechanics,25.7,40
+22CIVIL027,7,Concrete Technology,17.8,40
+22CIVIL027,7,Transportation Engg,22.7,40
+22CSE028,7,Data Structures,11.1,40
+22CSE028,7,Operating Systems,17.4,40
+22CSE028,7,DBMS,16.7,40
+22CSE028,7,Computer Networks,12.8,40
+22CSE028,7,Machine Learning,23.1,40
+22CSE028,7,Software Engg,18.3,40
+22IT028,7,Data Structures,22.3,40
+22IT028,7,Web Technologies,30.3,40
+22IT028,7,DBMS,31.1,40
+22IT028,7,Cloud Computing,28.8,40
+22IT028,7,Information Security,25.1,40
+22IT028,7,Software Engg,25.2,40
+22ECE028,7,Signals & Systems,22.6,40
+22ECE028,7,Digital Electronics,21.6,40
+22ECE028,7,Analog Circuits,24.8,40
+22ECE028,7,Microprocessors,23.1,40
+22ECE028,7,Communication Systems,23.1,40
+22ECE028,7,VLSI Design,12.7,40
+22MECH028,7,Thermodynamics,25.5,40
+22MECH028,7,Fluid Mechanics,28.1,40
+22MECH028,7,Machine Design,32.2,40
+22MECH028,7,Manufacturing Processes,39.5,40
+22MECH028,7,Heat Transfer,31.3,40
+22MECH028,7,CAD/CAM,29.0,40
+22CIVIL028,7,Structural Analysis,25.3,40
+22CIVIL028,7,Surveying,21.1,40
+22CIVIL028,7,Geotechnical Engg,21.3,40
+22CIVIL028,7,Fluid Mechanics,20.3,40
+22CIVIL028,7,Concrete Technology,19.6,40
+22CIVIL028,7,Transportation Engg,16.4,40
+22CSE029,7,Data Structures,23.4,40
+22CSE029,7,Operating Systems,22.0,40
+22CSE029,7,DBMS,31.4,40
+22CSE029,7,Computer Networks,28.3,40
+22CSE029,7,Machine Learning,14.9,40
+22CSE029,7,Software Engg,23.7,40
+22IT029,7,Data Structures,30.2,40
+22IT029,7,Web Technologies,35.2,40
+22IT029,7,DBMS,33.5,40
+22IT029,7,Cloud Computing,33.8,40
+22IT029,7,Information Security,34.9,40
+22IT029,7,Software Engg,33.1,40
+22ECE029,7,Signals & Systems,22.4,40
+22ECE029,7,Digital Electronics,21.4,40
+22ECE029,7,Analog Circuits,23.2,40
+22ECE029,7,Microprocessors,18.2,40
+22ECE029,7,Communication Systems,19.5,40
+22ECE029,7,VLSI Design,21.0,40
+22MECH029,7,Thermodynamics,22.6,40
+22MECH029,7,Fluid Mechanics,23.0,40
+22MECH029,7,Machine Design,19.5,40
+22MECH029,7,Manufacturing Processes,25.1,40
+22MECH029,7,Heat Transfer,18.8,40
+22MECH029,7,CAD/CAM,20.4,40
+22CIVIL029,7,Structural Analysis,21.0,40
+22CIVIL029,7,Surveying,21.6,40
+22CIVIL029,7,Geotechnical Engg,21.3,40
+22CIVIL029,7,Fluid Mechanics,12.8,40
+22CIVIL029,7,Concrete Technology,23.1,40
+22CIVIL029,7,Transportation Engg,10.7,40
+22CSE030,7,Data Structures,19.7,40
+22CSE030,7,Operating Systems,23.8,40
+22CSE030,7,DBMS,20.7,40
+22CSE030,7,Computer Networks,19.5,40
+22CSE030,7,Machine Learning,25.8,40
+22CSE030,7,Software Engg,33.0,40
+22IT030,7,Data Structures,18.7,40
+22IT030,7,Web Technologies,20.8,40
+22IT030,7,DBMS,20.1,40
+22IT030,7,Cloud Computing,29.7,40
+22IT030,7,Information Security,19.4,40
+22IT030,7,Software Engg,29.3,40
+22ECE030,7,Signals & Systems,26.5,40
+22ECE030,7,Digital Electronics,32.5,40
+22ECE030,7,Analog Circuits,30.0,40
+22ECE030,7,Microprocessors,31.3,40
+22ECE030,7,Communication Systems,26.8,40
+22ECE030,7,VLSI Design,28.8,40
+22MECH030,7,Thermodynamics,38.4,40
+22MECH030,7,Fluid Mechanics,36.7,40
+22MECH030,7,Machine Design,30.4,40
+22MECH030,7,Manufacturing Processes,34.1,40
+22MECH030,7,Heat Transfer,27.0,40
+22MECH030,7,CAD/CAM,30.4,40
+22CIVIL030,7,Structural Analysis,20.1,40
+22CIVIL030,7,Surveying,31.4,40
+22CIVIL030,7,Geotechnical Engg,25.0,40
+22CIVIL030,7,Fluid Mechanics,25.1,40
+22CIVIL030,7,Concrete Technology,16.9,40
+22CIVIL030,7,Transportation Engg,23.7,40
+22CSE031,7,Data Structures,17.0,40
+22CSE031,7,Operating Systems,21.6,40
+22CSE031,7,DBMS,18.2,40
+22CSE031,7,Computer Networks,23.2,40
+22CSE031,7,Machine Learning,25.5,40
+22CSE031,7,Software Engg,12.1,40
+22IT031,7,Data Structures,25.8,40
+22IT031,7,Web Technologies,26.7,40
+22IT031,7,DBMS,26.2,40
+22IT031,7,Cloud Computing,30.3,40
+22IT031,7,Information Security,23.5,40
+22IT031,7,Software Engg,23.0,40
+22ECE031,7,Signals & Systems,37.0,40
+22ECE031,7,Digital Electronics,24.0,40
+22ECE031,7,Analog Circuits,26.5,40
+22ECE031,7,Microprocessors,18.0,40
+22ECE031,7,Communication Systems,23.8,40
+22ECE031,7,VLSI Design,30.8,40
+22MECH031,7,Thermodynamics,15.6,40
+22MECH031,7,Fluid Mechanics,13.4,40
+22MECH031,7,Machine Design,18.0,40
+22MECH031,7,Manufacturing Processes,16.4,40
+22MECH031,7,Heat Transfer,12.7,40
+22MECH031,7,CAD/CAM,9.8,40
+22CIVIL031,7,Structural Analysis,24.5,40
+22CIVIL031,7,Surveying,26.0,40
+22CIVIL031,7,Geotechnical Engg,31.4,40
+22CIVIL031,7,Fluid Mechanics,30.6,40
+22CIVIL031,7,Concrete Technology,30.0,40
+22CIVIL031,7,Transportation Engg,30.5,40
+22CSE032,7,Data Structures,23.4,40
+22CSE032,7,Operating Systems,15.7,40
+22CSE032,7,DBMS,13.6,40
+22CSE032,7,Computer Networks,21.1,40
+22CSE032,7,Machine Learning,16.4,40
+22CSE032,7,Software Engg,18.6,40
+22IT032,7,Data Structures,21.4,40
+22IT032,7,Web Technologies,29.3,40
+22IT032,7,DBMS,34.8,40
+22IT032,7,Cloud Computing,28.4,40
+22IT032,7,Information Security,25.5,40
+22IT032,7,Software Engg,24.4,40
+22ECE032,7,Signals & Systems,34.1,40
+22ECE032,7,Digital Electronics,30.7,40
+22ECE032,7,Analog Circuits,33.1,40
+22ECE032,7,Microprocessors,34.7,40
+22ECE032,7,Communication Systems,31.8,40
+22ECE032,7,VLSI Design,26.1,40
+22MECH032,7,Thermodynamics,32.7,40
+22MECH032,7,Fluid Mechanics,35.2,40
+22MECH032,7,Machine Design,22.9,40
+22MECH032,7,Manufacturing Processes,35.3,40
+22MECH032,7,Heat Transfer,29.9,40
+22MECH032,7,CAD/CAM,30.0,40
+22CIVIL032,7,Structural Analysis,26.9,40
+22CIVIL032,7,Surveying,24.1,40
+22CIVIL032,7,Geotechnical Engg,28.7,40
+22CIVIL032,7,Fluid Mechanics,23.2,40
+22CIVIL032,7,Concrete Technology,25.8,40
+22CIVIL032,7,Transportation Engg,32.0,40
+22CSE033,7,Data Structures,19.5,40
+22CSE033,7,Operating Systems,16.9,40
+22CSE033,7,DBMS,18.5,40
+22CSE033,7,Computer Networks,26.5,40
+22CSE033,7,Machine Learning,24.9,40
+22CSE033,7,Software Engg,18.6,40
+22IT033,7,Data Structures,16.6,40
+22IT033,7,Web Technologies,21.9,40
+22IT033,7,DBMS,15.6,40
+22IT033,7,Cloud Computing,12.9,40
+22IT033,7,Information Security,16.9,40
+22IT033,7,Software Engg,20.1,40
+22ECE033,7,Signals & Systems,28.4,40
+22ECE033,7,Digital Electronics,25.1,40
+22ECE033,7,Analog Circuits,24.8,40
+22ECE033,7,Microprocessors,25.8,40
+22ECE033,7,Communication Systems,24.5,40
+22ECE033,7,VLSI Design,26.7,40
+22MECH033,7,Thermodynamics,37.1,40
+22MECH033,7,Fluid Mechanics,35.0,40
+22MECH033,7,Machine Design,29.0,40
+22MECH033,7,Manufacturing Processes,33.7,40
+22MECH033,7,Heat Transfer,35.1,40
+22MECH033,7,CAD/CAM,36.1,40
+22CIVIL033,7,Structural Analysis,14.7,40
+22CIVIL033,7,Surveying,14.9,40
+22CIVIL033,7,Geotechnical Engg,19.7,40
+22CIVIL033,7,Fluid Mechanics,19.9,40
+22CIVIL033,7,Concrete Technology,23.8,40
+22CIVIL033,7,Transportation Engg,16.2,40
+22CSE034,7,Data Structures,35.6,40
+22CSE034,7,Operating Systems,37.6,40
+22CSE034,7,DBMS,36.2,40
+22CSE034,7,Computer Networks,29.4,40
+22CSE034,7,Machine Learning,35.0,40
+22CSE034,7,Software Engg,38.3,40
+22IT034,7,Data Structures,20.0,40
+22IT034,7,Web Technologies,21.5,40
+22IT034,7,DBMS,13.3,40
+22IT034,7,Cloud Computing,18.0,40
+22IT034,7,Information Security,19.4,40
+22IT034,7,Software Engg,13.5,40
+22ECE034,7,Signals & Systems,13.0,40
+22ECE034,7,Digital Electronics,9.8,40
+22ECE034,7,Analog Circuits,14.9,40
+22ECE034,7,Microprocessors,13.1,40
+22ECE034,7,Communication Systems,12.5,40
+22ECE034,7,VLSI Design,13.0,40
+22MECH034,7,Thermodynamics,28.7,40
+22MECH034,7,Fluid Mechanics,27.7,40
+22MECH034,7,Machine Design,31.0,40
+22MECH034,7,Manufacturing Processes,36.0,40
+22MECH034,7,Heat Transfer,27.8,40
+22MECH034,7,CAD/CAM,24.7,40
+22CIVIL034,7,Structural Analysis,22.4,40
+22CIVIL034,7,Surveying,26.4,40
+22CIVIL034,7,Geotechnical Engg,40.0,40
+22CIVIL034,7,Fluid Mechanics,26.7,40
+22CIVIL034,7,Concrete Technology,27.5,40
+22CIVIL034,7,Transportation Engg,29.9,40
+22CSE035,7,Data Structures,22.6,40
+22CSE035,7,Operating Systems,32.6,40
+22CSE035,7,DBMS,27.0,40
+22CSE035,7,Computer Networks,28.7,40
+22CSE035,7,Machine Learning,27.6,40
+22CSE035,7,Software Engg,32.4,40
+22IT035,7,Data Structures,26.0,40
+22IT035,7,Web Technologies,17.1,40
+22IT035,7,DBMS,27.7,40
+22IT035,7,Cloud Computing,21.6,40
+22IT035,7,Information Security,27.3,40
+22IT035,7,Software Engg,27.3,40
+22ECE035,7,Signals & Systems,24.1,40
+22ECE035,7,Digital Electronics,26.5,40
+22ECE035,7,Analog Circuits,32.2,40
+22ECE035,7,Microprocessors,26.3,40
+22ECE035,7,Communication Systems,29.0,40
+22ECE035,7,VLSI Design,27.9,40
+22MECH035,7,Thermodynamics,21.6,40
+22MECH035,7,Fluid Mechanics,28.3,40
+22MECH035,7,Machine Design,22.6,40
+22MECH035,7,Manufacturing Processes,22.7,40
+22MECH035,7,Heat Transfer,26.5,40
+22MECH035,7,CAD/CAM,34.4,40
+22CIVIL035,7,Structural Analysis,20.9,40
+22CIVIL035,7,Surveying,20.7,40
+22CIVIL035,7,Geotechnical Engg,26.6,40
+22CIVIL035,7,Fluid Mechanics,17.8,40
+22CIVIL035,7,Concrete Technology,24.4,40
+22CIVIL035,7,Transportation Engg,19.4,40
+22CSE036,7,Data Structures,16.2,40
+22CSE036,7,Operating Systems,16.0,40
+22CSE036,7,DBMS,23.0,40
+22CSE036,7,Computer Networks,23.0,40
+22CSE036,7,Machine Learning,23.5,40
+22CSE036,7,Software Engg,14.0,40
+22IT036,7,Data Structures,30.7,40
+22IT036,7,Web Technologies,36.3,40
+22IT036,7,DBMS,24.8,40
+22IT036,7,Cloud Computing,30.9,40
+22IT036,7,Information Security,30.2,40
+22IT036,7,Software Engg,29.1,40
+22ECE036,7,Signals & Systems,27.8,40
+22ECE036,7,Digital Electronics,28.1,40
+22ECE036,7,Analog Circuits,25.7,40
+22ECE036,7,Microprocessors,27.0,40
+22ECE036,7,Communication Systems,40.0,40
+22ECE036,7,VLSI Design,31.2,40
+22MECH036,7,Thermodynamics,18.7,40
+22MECH036,7,Fluid Mechanics,17.3,40
+22MECH036,7,Machine Design,19.4,40
+22MECH036,7,Manufacturing Processes,16.2,40
+22MECH036,7,Heat Transfer,20.6,40
+22MECH036,7,CAD/CAM,11.6,40
+22CIVIL036,7,Structural Analysis,15.8,40
+22CIVIL036,7,Surveying,20.2,40
+22CIVIL036,7,Geotechnical Engg,30.5,40
+22CIVIL036,7,Fluid Mechanics,24.6,40
+22CIVIL036,7,Concrete Technology,16.1,40
+22CIVIL036,7,Transportation Engg,13.1,40
+22CSE037,7,Data Structures,17.9,40
+22CSE037,7,Operating Systems,22.4,40
+22CSE037,7,DBMS,21.5,40
+22CSE037,7,Computer Networks,17.3,40
+22CSE037,7,Machine Learning,16.5,40
+22CSE037,7,Software Engg,14.4,40
+22IT037,7,Data Structures,22.9,40
+22IT037,7,Web Technologies,30.2,40
+22IT037,7,DBMS,33.6,40
+22IT037,7,Cloud Computing,24.3,40
+22IT037,7,Information Security,24.9,40
+22IT037,7,Software Engg,33.6,40
+22ECE037,7,Signals & Systems,26.6,40
+22ECE037,7,Digital Electronics,20.0,40
+22ECE037,7,Analog Circuits,18.1,40
+22ECE037,7,Microprocessors,23.6,40
+22ECE037,7,Communication Systems,17.5,40
+22ECE037,7,VLSI Design,16.7,40
+22MECH037,7,Thermodynamics,21.1,40
+22MECH037,7,Fluid Mechanics,27.7,40
+22MECH037,7,Machine Design,18.7,40
+22MECH037,7,Manufacturing Processes,22.2,40
+22MECH037,7,Heat Transfer,22.2,40
+22MECH037,7,CAD/CAM,20.8,40
+22CIVIL037,7,Structural Analysis,20.1,40
+22CIVIL037,7,Surveying,24.4,40
+22CIVIL037,7,Geotechnical Engg,15.0,40
+22CIVIL037,7,Fluid Mechanics,25.3,40
+22CIVIL037,7,Concrete Technology,17.9,40
+22CIVIL037,7,Transportation Engg,19.1,40
+22CSE038,7,Data Structures,20.8,40
+22CSE038,7,Operating Systems,22.5,40
+22CSE038,7,DBMS,25.2,40
+22CSE038,7,Computer Networks,24.1,40
+22CSE038,7,Machine Learning,29.6,40
+22CSE038,7,Software Engg,20.6,40
+22IT038,7,Data Structures,18.8,40
+22IT038,7,Web Technologies,17.3,40
+22IT038,7,DBMS,16.3,40
+22IT038,7,Cloud Computing,24.5,40
+22IT038,7,Information Security,21.6,40
+22IT038,7,Software Engg,31.3,40
+22ECE038,7,Signals & Systems,30.7,40
+22ECE038,7,Digital Electronics,30.1,40
+22ECE038,7,Analog Circuits,24.9,40
+22ECE038,7,Microprocessors,31.5,40
+22ECE038,7,Communication Systems,31.0,40
+22ECE038,7,VLSI Design,29.2,40
+22MECH038,7,Thermodynamics,37.7,40
+22MECH038,7,Fluid Mechanics,36.6,40
+22MECH038,7,Machine Design,37.1,40
+22MECH038,7,Manufacturing Processes,40.0,40
+22MECH038,7,Heat Transfer,33.3,40
+22MECH038,7,CAD/CAM,28.4,40
+22CIVIL038,7,Structural Analysis,11.6,40
+22CIVIL038,7,Surveying,10.8,40
+22CIVIL038,7,Geotechnical Engg,23.8,40
+22CIVIL038,7,Fluid Mechanics,25.9,40
+22CIVIL038,7,Concrete Technology,20.9,40
+22CIVIL038,7,Transportation Engg,23.0,40
+22CSE039,7,Data Structures,22.7,40
+22CSE039,7,Operating Systems,30.0,40
+22CSE039,7,DBMS,23.0,40
+22CSE039,7,Computer Networks,14.0,40
+22CSE039,7,Machine Learning,25.3,40
+22CSE039,7,Software Engg,16.9,40
+22IT039,7,Data Structures,17.9,40
+22IT039,7,Web Technologies,12.9,40
+22IT039,7,DBMS,11.9,40
+22IT039,7,Cloud Computing,16.2,40
+22IT039,7,Information Security,23.2,40
+22IT039,7,Software Engg,15.2,40
+22ECE039,7,Signals & Systems,15.3,40
+22ECE039,7,Digital Electronics,26.0,40
+22ECE039,7,Analog Circuits,14.8,40
+22ECE039,7,Microprocessors,23.8,40
+22ECE039,7,Communication Systems,20.3,40
+22ECE039,7,VLSI Design,29.5,40
+22MECH039,7,Thermodynamics,29.8,40
+22MECH039,7,Fluid Mechanics,34.3,40
+22MECH039,7,Machine Design,29.8,40
+22MECH039,7,Manufacturing Processes,26.2,40
+22MECH039,7,Heat Transfer,31.7,40
+22MECH039,7,CAD/CAM,24.7,40
+22CIVIL039,7,Structural Analysis,20.3,40
+22CIVIL039,7,Surveying,28.6,40
+22CIVIL039,7,Geotechnical Engg,26.2,40
+22CIVIL039,7,Fluid Mechanics,22.4,40
+22CIVIL039,7,Concrete Technology,23.8,40
+22CIVIL039,7,Transportation Engg,19.9,40
+22CSE040,7,Data Structures,28.2,40
+22CSE040,7,Operating Systems,29.7,40
+22CSE040,7,DBMS,25.1,40
+22CSE040,7,Computer Networks,29.6,40
+22CSE040,7,Machine Learning,29.2,40
+22CSE040,7,Software Engg,23.1,40
+22IT040,7,Data Structures,31.1,40
+22IT040,7,Web Technologies,30.1,40
+22IT040,7,DBMS,19.0,40
+22IT040,7,Cloud Computing,26.9,40
+22IT040,7,Information Security,28.5,40
+22IT040,7,Software Engg,32.4,40
+22ECE040,7,Signals & Systems,26.3,40
+22ECE040,7,Digital Electronics,30.0,40
+22ECE040,7,Analog Circuits,20.9,40
+22ECE040,7,Microprocessors,25.5,40
+22ECE040,7,Communication Systems,29.2,40
+22ECE040,7,VLSI Design,25.1,40
+22MECH040,7,Thermodynamics,29.3,40
+22MECH040,7,Fluid Mechanics,17.9,40
+22MECH040,7,Machine Design,25.3,40
+22MECH040,7,Manufacturing Processes,19.2,40
+22MECH040,7,Heat Transfer,19.4,40
+22MECH040,7,CAD/CAM,23.8,40
+22CIVIL040,7,Structural Analysis,25.0,40
+22CIVIL040,7,Surveying,21.1,40
+22CIVIL040,7,Geotechnical Engg,27.2,40
+22CIVIL040,7,Fluid Mechanics,13.6,40
+22CIVIL040,7,Concrete Technology,26.6,40
+22CIVIL040,7,Transportation Engg,27.1,40
+22CSE041,7,Data Structures,16.8,40
+22CSE041,7,Operating Systems,3.8,40
+22CSE041,7,DBMS,10.9,40
+22CSE041,7,Computer Networks,10.2,40
+22CSE041,7,Machine Learning,8.5,40
+22CSE041,7,Software Engg,9.2,40
+22IT041,7,Data Structures,21.6,40
+22IT041,7,Web Technologies,20.9,40
+22IT041,7,DBMS,25.2,40
+22IT041,7,Cloud Computing,27.4,40
+22IT041,7,Information Security,14.4,40
+22IT041,7,Software Engg,17.6,40
+22ECE041,7,Signals & Systems,16.3,40
+22ECE041,7,Digital Electronics,17.1,40
+22ECE041,7,Analog Circuits,15.4,40
+22ECE041,7,Microprocessors,14.8,40
+22ECE041,7,Communication Systems,20.0,40
+22ECE041,7,VLSI Design,16.8,40
+22MECH041,7,Thermodynamics,23.8,40
+22MECH041,7,Fluid Mechanics,28.8,40
+22MECH041,7,Machine Design,20.7,40
+22MECH041,7,Manufacturing Processes,29.0,40
+22MECH041,7,Heat Transfer,27.1,40
+22MECH041,7,CAD/CAM,26.7,40
+22CIVIL041,7,Structural Analysis,26.4,40
+22CIVIL041,7,Surveying,29.6,40
+22CIVIL041,7,Geotechnical Engg,23.4,40
+22CIVIL041,7,Fluid Mechanics,31.0,40
+22CIVIL041,7,Concrete Technology,24.8,40
+22CIVIL041,7,Transportation Engg,24.3,40
+22CSE042,7,Data Structures,35.6,40
+22CSE042,7,Operating Systems,30.6,40
+22CSE042,7,DBMS,32.7,40
+22CSE042,7,Computer Networks,11.4,40
+22CSE042,7,Machine Learning,32.4,40
+22CSE042,7,Software Engg,25.1,40
+22IT042,7,Data Structures,25.2,40
+22IT042,7,Web Technologies,23.3,40
+22IT042,7,DBMS,30.4,40
+22IT042,7,Cloud Computing,24.9,40
+22IT042,7,Information Security,22.0,40
+22IT042,7,Software Engg,26.1,40
+22ECE042,7,Signals & Systems,17.5,40
+22ECE042,7,Digital Electronics,24.2,40
+22ECE042,7,Analog Circuits,18.5,40
+22ECE042,7,Microprocessors,23.2,40
+22ECE042,7,Communication Systems,24.0,40
+22ECE042,7,VLSI Design,25.7,40
+22MECH042,7,Thermodynamics,27.9,40
+22MECH042,7,Fluid Mechanics,28.3,40
+22MECH042,7,Machine Design,27.5,40
+22MECH042,7,Manufacturing Processes,21.9,40
+22MECH042,7,Heat Transfer,22.2,40
+22MECH042,7,CAD/CAM,22.0,40
+22CIVIL042,7,Structural Analysis,17.1,40
+22CIVIL042,7,Surveying,16.9,40
+22CIVIL042,7,Geotechnical Engg,33.7,40
+22CIVIL042,7,Fluid Mechanics,27.1,40
+22CIVIL042,7,Concrete Technology,28.3,40
+22CIVIL042,7,Transportation Engg,21.1,40
+22CSE043,7,Data Structures,20.7,40
+22CSE043,7,Operating Systems,22.4,40
+22CSE043,7,DBMS,24.2,40
+22CSE043,7,Computer Networks,27.0,40
+22CSE043,7,Machine Learning,25.0,40
+22CSE043,7,Software Engg,24.3,40
+22IT043,7,Data Structures,32.7,40
+22IT043,7,Web Technologies,18.5,40
+22IT043,7,DBMS,26.6,40
+22IT043,7,Cloud Computing,26.9,40
+22IT043,7,Information Security,31.1,40
+22IT043,7,Software Engg,30.8,40
+22ECE043,7,Signals & Systems,40.0,40
+22ECE043,7,Digital Electronics,30.7,40
+22ECE043,7,Analog Circuits,40.0,40
+22ECE043,7,Microprocessors,36.1,40
+22ECE043,7,Communication Systems,38.1,40
+22ECE043,7,VLSI Design,40.0,40
+22MECH043,7,Thermodynamics,26.7,40
+22MECH043,7,Fluid Mechanics,23.7,40
+22MECH043,7,Machine Design,24.7,40
+22MECH043,7,Manufacturing Processes,23.7,40
+22MECH043,7,Heat Transfer,33.8,40
+22MECH043,7,CAD/CAM,35.5,40
+22CIVIL043,7,Structural Analysis,18.8,40
+22CIVIL043,7,Surveying,20.7,40
+22CIVIL043,7,Geotechnical Engg,22.2,40
+22CIVIL043,7,Fluid Mechanics,22.5,40
+22CIVIL043,7,Concrete Technology,21.5,40
+22CIVIL043,7,Transportation Engg,24.4,40
+22CSE044,7,Data Structures,31.0,40
+22CSE044,7,Operating Systems,40.0,40
+22CSE044,7,DBMS,36.4,40
+22CSE044,7,Computer Networks,28.4,40
+22CSE044,7,Machine Learning,34.6,40
+22CSE044,7,Software Engg,33.0,40
+22IT044,7,Data Structures,15.8,40
+22IT044,7,Web Technologies,21.9,40
+22IT044,7,DBMS,13.1,40
+22IT044,7,Cloud Computing,18.4,40
+22IT044,7,Information Security,13.8,40
+22IT044,7,Software Engg,18.3,40
+22ECE044,7,Signals & Systems,24.8,40
+22ECE044,7,Digital Electronics,23.6,40
+22ECE044,7,Analog Circuits,20.3,40
+22ECE044,7,Microprocessors,12.5,40
+22ECE044,7,Communication Systems,27.6,40
+22ECE044,7,VLSI Design,17.3,40
+22MECH044,7,Thermodynamics,29.9,40
+22MECH044,7,Fluid Mechanics,17.4,40
+22MECH044,7,Machine Design,16.6,40
+22MECH044,7,Manufacturing Processes,25.7,40
+22MECH044,7,Heat Transfer,21.4,40
+22MECH044,7,CAD/CAM,27.7,40
+22CIVIL044,7,Structural Analysis,19.7,40
+22CIVIL044,7,Surveying,19.1,40
+22CIVIL044,7,Geotechnical Engg,15.5,40
+22CIVIL044,7,Fluid Mechanics,14.3,40
+22CIVIL044,7,Concrete Technology,18.7,40
+22CIVIL044,7,Transportation Engg,17.7,40
+22CSE045,7,Data Structures,25.7,40
+22CSE045,7,Operating Systems,24.1,40
+22CSE045,7,DBMS,25.2,40
+22CSE045,7,Computer Networks,23.1,40
+22CSE045,7,Machine Learning,20.3,40
+22CSE045,7,Software Engg,21.3,40
+22IT045,7,Data Structures,26.1,40
+22IT045,7,Web Technologies,26.0,40
+22IT045,7,DBMS,35.5,40
+22IT045,7,Cloud Computing,28.3,40
+22IT045,7,Information Security,27.0,40
+22IT045,7,Software Engg,26.2,40
+22ECE045,7,Signals & Systems,10.4,40
+22ECE045,7,Digital Electronics,15.1,40
+22ECE045,7,Analog Circuits,19.8,40
+22ECE045,7,Microprocessors,9.9,40
+22ECE045,7,Communication Systems,8.5,40
+22ECE045,7,VLSI Design,8.3,40
+22MECH045,7,Thermodynamics,19.1,40
+22MECH045,7,Fluid Mechanics,18.0,40
+22MECH045,7,Machine Design,24.0,40
+22MECH045,7,Manufacturing Processes,23.0,40
+22MECH045,7,Heat Transfer,22.8,40
+22MECH045,7,CAD/CAM,27.1,40
+22CIVIL045,7,Structural Analysis,17.6,40
+22CIVIL045,7,Surveying,23.4,40
+22CIVIL045,7,Geotechnical Engg,20.0,40
+22CIVIL045,7,Fluid Mechanics,27.4,40
+22CIVIL045,7,Concrete Technology,20.4,40
+22CIVIL045,7,Transportation Engg,19.4,40
+22CSE046,7,Data Structures,16.3,40
+22CSE046,7,Operating Systems,22.2,40
+22CSE046,7,DBMS,21.3,40
+22CSE046,7,Computer Networks,18.0,40
+22CSE046,7,Machine Learning,13.9,40
+22CSE046,7,Software Engg,24.2,40
+22IT046,7,Data Structures,27.5,40
+22IT046,7,Web Technologies,23.5,40
+22IT046,7,DBMS,24.4,40
+22IT046,7,Cloud Computing,26.7,40
+22IT046,7,Information Security,30.0,40
+22IT046,7,Software Engg,26.6,40
+22ECE046,7,Signals & Systems,23.9,40
+22ECE046,7,Digital Electronics,14.1,40
+22ECE046,7,Analog Circuits,18.7,40
+22ECE046,7,Microprocessors,18.0,40
+22ECE046,7,Communication Systems,28.8,40
+22ECE046,7,VLSI Design,21.3,40
+22MECH046,7,Thermodynamics,12.1,40
+22MECH046,7,Fluid Mechanics,17.4,40
+22MECH046,7,Machine Design,18.0,40
+22MECH046,7,Manufacturing Processes,15.1,40
+22MECH046,7,Heat Transfer,11.6,40
+22MECH046,7,CAD/CAM,14.1,40
+22CIVIL046,7,Structural Analysis,13.1,40
+22CIVIL046,7,Surveying,14.3,40
+22CIVIL046,7,Geotechnical Engg,21.1,40
+22CIVIL046,7,Fluid Mechanics,19.7,40
+22CIVIL046,7,Concrete Technology,18.9,40
+22CIVIL046,7,Transportation Engg,23.3,40
+22CSE047,7,Data Structures,18.9,40
+22CSE047,7,Operating Systems,20.4,40
+22CSE047,7,DBMS,26.3,40
+22CSE047,7,Computer Networks,22.5,40
+22CSE047,7,Machine Learning,17.5,40
+22CSE047,7,Software Engg,27.7,40
+22IT047,7,Data Structures,16.0,40
+22IT047,7,Web Technologies,12.9,40
+22IT047,7,DBMS,26.8,40
+22IT047,7,Cloud Computing,18.0,40
+22IT047,7,Information Security,16.1,40
+22IT047,7,Software Engg,17.3,40
+22ECE047,7,Signals & Systems,29.5,40
+22ECE047,7,Digital Electronics,28.8,40
+22ECE047,7,Analog Circuits,29.0,40
+22ECE047,7,Microprocessors,23.2,40
+22ECE047,7,Communication Systems,28.8,40
+22ECE047,7,VLSI Design,31.7,40
+22MECH047,7,Thermodynamics,27.5,40
+22MECH047,7,Fluid Mechanics,30.0,40
+22MECH047,7,Machine Design,21.3,40
+22MECH047,7,Manufacturing Processes,27.6,40
+22MECH047,7,Heat Transfer,30.0,40
+22MECH047,7,CAD/CAM,30.4,40
+22CIVIL047,7,Structural Analysis,26.9,40
+22CIVIL047,7,Surveying,20.2,40
+22CIVIL047,7,Geotechnical Engg,20.2,40
+22CIVIL047,7,Fluid Mechanics,24.1,40
+22CIVIL047,7,Concrete Technology,23.7,40
+22CIVIL047,7,Transportation Engg,17.7,40
+22CSE048,7,Data Structures,25.8,40
+22CSE048,7,Operating Systems,22.9,40
+22CSE048,7,DBMS,25.2,40
+22CSE048,7,Computer Networks,25.9,40
+22CSE048,7,Machine Learning,26.9,40
+22CSE048,7,Software Engg,27.1,40
+22IT048,7,Data Structures,21.5,40
+22IT048,7,Web Technologies,14.9,40
+22IT048,7,DBMS,26.8,40
+22IT048,7,Cloud Computing,23.9,40
+22IT048,7,Information Security,24.0,40
+22IT048,7,Software Engg,16.6,40
+22ECE048,7,Signals & Systems,21.2,40
+22ECE048,7,Digital Electronics,25.9,40
+22ECE048,7,Analog Circuits,20.8,40
+22ECE048,7,Microprocessors,20.3,40
+22ECE048,7,Communication Systems,24.5,40
+22ECE048,7,VLSI Design,20.1,40
+22MECH048,7,Thermodynamics,28.6,40
+22MECH048,7,Fluid Mechanics,22.1,40
+22MECH048,7,Machine Design,28.5,40
+22MECH048,7,Manufacturing Processes,23.7,40
+22MECH048,7,Heat Transfer,24.1,40
+22MECH048,7,CAD/CAM,31.0,40
+22CIVIL048,7,Structural Analysis,19.8,40
+22CIVIL048,7,Surveying,18.5,40
+22CIVIL048,7,Geotechnical Engg,18.8,40
+22CIVIL048,7,Fluid Mechanics,15.5,40
+22CIVIL048,7,Concrete Technology,17.2,40
+22CIVIL048,7,Transportation Engg,17.5,40
+22CSE049,7,Data Structures,29.5,40
+22CSE049,7,Operating Systems,30.5,40
+22CSE049,7,DBMS,29.9,40
+22CSE049,7,Computer Networks,38.3,40
+22CSE049,7,Machine Learning,23.7,40
+22CSE049,7,Software Engg,27.3,40
+22IT049,7,Data Structures,28.5,40
+22IT049,7,Web Technologies,32.5,40
+22IT049,7,DBMS,37.4,40
+22IT049,7,Cloud Computing,27.1,40
+22IT049,7,Information Security,26.8,40
+22IT049,7,Software Engg,27.0,40
+22ECE049,7,Signals & Systems,28.1,40
+22ECE049,7,Digital Electronics,26.5,40
+22ECE049,7,Analog Circuits,24.4,40
+22ECE049,7,Microprocessors,26.0,40
+22ECE049,7,Communication Systems,25.3,40
+22ECE049,7,VLSI Design,25.1,40
+22MECH049,7,Thermodynamics,25.2,40
+22MECH049,7,Fluid Mechanics,25.5,40
+22MECH049,7,Machine Design,28.9,40
+22MECH049,7,Manufacturing Processes,22.5,40
+22MECH049,7,Heat Transfer,22.3,40
+22MECH049,7,CAD/CAM,21.7,40
+22CIVIL049,7,Structural Analysis,34.7,40
+22CIVIL049,7,Surveying,28.7,40
+22CIVIL049,7,Geotechnical Engg,33.5,40
+22CIVIL049,7,Fluid Mechanics,21.7,40
+22CIVIL049,7,Concrete Technology,26.0,40
+22CIVIL049,7,Transportation Engg,30.5,40
+22CSE050,7,Data Structures,25.2,40
+22CSE050,7,Operating Systems,27.8,40
+22CSE050,7,DBMS,24.4,40
+22CSE050,7,Computer Networks,33.1,40
+22CSE050,7,Machine Learning,30.4,40
+22CSE050,7,Software Engg,34.6,40
+22IT050,7,Data Structures,27.5,40
+22IT050,7,Web Technologies,29.1,40
+22IT050,7,DBMS,26.4,40
+22IT050,7,Cloud Computing,34.0,40
+22IT050,7,Information Security,33.0,40
+22IT050,7,Software Engg,28.7,40
+22ECE050,7,Signals & Systems,35.8,40
+22ECE050,7,Digital Electronics,32.6,40
+22ECE050,7,Analog Circuits,39.4,40
+22ECE050,7,Microprocessors,40.0,40
+22ECE050,7,Communication Systems,30.0,40
+22ECE050,7,VLSI Design,30.5,40
+22MECH050,7,Thermodynamics,17.1,40
+22MECH050,7,Fluid Mechanics,23.0,40
+22MECH050,7,Machine Design,21.4,40
+22MECH050,7,Manufacturing Processes,20.8,40
+22MECH050,7,Heat Transfer,20.6,40
+22MECH050,7,CAD/CAM,19.6,40
+22CIVIL050,7,Structural Analysis,36.6,40
+22CIVIL050,7,Surveying,35.7,40
+22CIVIL050,7,Geotechnical Engg,35.0,40
+22CIVIL050,7,Fluid Mechanics,37.7,40
+22CIVIL050,7,Concrete Technology,32.6,40
+22CIVIL050,7,Transportation Engg,31.9,40
+22CSE051,7,Data Structures,21.5,40
+22CSE051,7,Operating Systems,33.7,40
+22CSE051,7,DBMS,19.4,40
+22CSE051,7,Computer Networks,33.0,40
+22CSE051,7,Machine Learning,29.6,40
+22CSE051,7,Software Engg,26.3,40
+22IT051,7,Data Structures,20.1,40
+22IT051,7,Web Technologies,20.6,40
+22IT051,7,DBMS,27.6,40
+22IT051,7,Cloud Computing,27.4,40
+22IT051,7,Information Security,23.2,40
+22IT051,7,Software Engg,20.2,40
+22ECE051,7,Signals & Systems,36.6,40
+22ECE051,7,Digital Electronics,25.7,40
+22ECE051,7,Analog Circuits,30.2,40
+22ECE051,7,Microprocessors,31.6,40
+22ECE051,7,Communication Systems,30.3,40
+22ECE051,7,VLSI Design,23.1,40
+22MECH051,7,Thermodynamics,35.4,40
+22MECH051,7,Fluid Mechanics,40.0,40
+22MECH051,7,Machine Design,40.0,40
+22MECH051,7,Manufacturing Processes,40.0,40
+22MECH051,7,Heat Transfer,38.3,40
+22MECH051,7,CAD/CAM,40.0,40
+22CIVIL051,7,Structural Analysis,40.0,40
+22CIVIL051,7,Surveying,36.9,40
+22CIVIL051,7,Geotechnical Engg,33.8,40
+22CIVIL051,7,Fluid Mechanics,40.0,40
+22CIVIL051,7,Concrete Technology,33.3,40
+22CIVIL051,7,Transportation Engg,29.3,40
+22CSE052,7,Data Structures,35.9,40
+22CSE052,7,Operating Systems,25.9,40
+22CSE052,7,DBMS,34.3,40
+22CSE052,7,Computer Networks,37.6,40
+22CSE052,7,Machine Learning,36.4,40
+22CSE052,7,Software Engg,29.9,40
+22IT052,7,Data Structures,15.6,40
+22IT052,7,Web Technologies,11.3,40
+22IT052,7,DBMS,20.9,40
+22IT052,7,Cloud Computing,20.1,40
+22IT052,7,Information Security,18.3,40
+22IT052,7,Software Engg,15.0,40
+22ECE052,7,Signals & Systems,5.3,40
+22ECE052,7,Digital Electronics,13.1,40
+22ECE052,7,Analog Circuits,16.9,40
+22ECE052,7,Microprocessors,14.9,40
+22ECE052,7,Communication Systems,10.5,40
+22ECE052,7,VLSI Design,18.3,40
+22MECH052,7,Thermodynamics,27.6,40
+22MECH052,7,Fluid Mechanics,24.9,40
+22MECH052,7,Machine Design,25.8,40
+22MECH052,7,Manufacturing Processes,22.2,40
+22MECH052,7,Heat Transfer,27.9,40
+22MECH052,7,CAD/CAM,29.0,40
+22CIVIL052,7,Structural Analysis,21.1,40
+22CIVIL052,7,Surveying,24.4,40
+22CIVIL052,7,Geotechnical Engg,24.5,40
+22CIVIL052,7,Fluid Mechanics,27.6,40
+22CIVIL052,7,Concrete Technology,24.0,40
+22CIVIL052,7,Transportation Engg,20.5,40
+22CSE053,7,Data Structures,19.7,40
+22CSE053,7,Operating Systems,17.9,40
+22CSE053,7,DBMS,23.0,40
+22CSE053,7,Computer Networks,29.5,40
+22CSE053,7,Machine Learning,26.2,40
+22CSE053,7,Software Engg,25.9,40
+22IT053,7,Data Structures,31.9,40
+22IT053,7,Web Technologies,20.9,40
+22IT053,7,DBMS,22.0,40
+22IT053,7,Cloud Computing,23.6,40
+22IT053,7,Information Security,21.1,40
+22IT053,7,Software Engg,29.3,40
+22ECE053,7,Signals & Systems,39.0,40
+22ECE053,7,Digital Electronics,30.0,40
+22ECE053,7,Analog Circuits,33.1,40
+22ECE053,7,Microprocessors,36.1,40
+22ECE053,7,Communication Systems,32.5,40
+22ECE053,7,VLSI Design,35.9,40
+22MECH053,7,Thermodynamics,30.3,40
+22MECH053,7,Fluid Mechanics,33.4,40
+22MECH053,7,Machine Design,25.1,40
+22MECH053,7,Manufacturing Processes,32.6,40
+22MECH053,7,Heat Transfer,31.1,40
+22MECH053,7,CAD/CAM,29.6,40
+22CIVIL053,7,Structural Analysis,23.0,40
+22CIVIL053,7,Surveying,23.3,40
+22CIVIL053,7,Geotechnical Engg,25.0,40
+22CIVIL053,7,Fluid Mechanics,28.8,40
+22CIVIL053,7,Concrete Technology,21.6,40
+22CIVIL053,7,Transportation Engg,28.0,40
+22CSE054,7,Data Structures,24.3,40
+22CSE054,7,Operating Systems,25.1,40
+22CSE054,7,DBMS,22.6,40
+22CSE054,7,Computer Networks,25.5,40
+22CSE054,7,Machine Learning,13.3,40
+22CSE054,7,Software Engg,18.4,40
+22IT054,7,Data Structures,30.5,40
+22IT054,7,Web Technologies,26.7,40
+22IT054,7,DBMS,27.0,40
+22IT054,7,Cloud Computing,25.2,40
+22IT054,7,Information Security,29.5,40
+22IT054,7,Software Engg,28.2,40
+22ECE054,7,Signals & Systems,34.2,40
+22ECE054,7,Digital Electronics,40.0,40
+22ECE054,7,Analog Circuits,40.0,40
+22ECE054,7,Microprocessors,40.0,40
+22ECE054,7,Communication Systems,39.3,40
+22ECE054,7,VLSI Design,40.0,40
+22MECH054,7,Thermodynamics,7.3,40
+22MECH054,7,Fluid Mechanics,9.1,40
+22MECH054,7,Machine Design,16.8,40
+22MECH054,7,Manufacturing Processes,11.1,40
+22MECH054,7,Heat Transfer,5.6,40
+22MECH054,7,CAD/CAM,9.1,40
+22CIVIL054,7,Structural Analysis,16.9,40
+22CIVIL054,7,Surveying,16.2,40
+22CIVIL054,7,Geotechnical Engg,13.8,40
+22CIVIL054,7,Fluid Mechanics,18.0,40
+22CIVIL054,7,Concrete Technology,20.9,40
+22CIVIL054,7,Transportation Engg,26.2,40
+22CSE055,7,Data Structures,19.4,40
+22CSE055,7,Operating Systems,21.6,40
+22CSE055,7,DBMS,31.1,40
+22CSE055,7,Computer Networks,22.8,40
+22CSE055,7,Machine Learning,27.2,40
+22CSE055,7,Software Engg,25.2,40
+22IT055,7,Data Structures,27.7,40
+22IT055,7,Web Technologies,35.7,40
+22IT055,7,DBMS,25.4,40
+22IT055,7,Cloud Computing,28.2,40
+22IT055,7,Information Security,31.7,40
+22IT055,7,Software Engg,31.0,40
+22ECE055,7,Signals & Systems,15.6,40
+22ECE055,7,Digital Electronics,16.1,40
+22ECE055,7,Analog Circuits,21.8,40
+22ECE055,7,Microprocessors,23.8,40
+22ECE055,7,Communication Systems,17.9,40
+22ECE055,7,VLSI Design,28.8,40
+22MECH055,7,Thermodynamics,20.6,40
+22MECH055,7,Fluid Mechanics,25.5,40
+22MECH055,7,Machine Design,19.9,40
+22MECH055,7,Manufacturing Processes,15.5,40
+22MECH055,7,Heat Transfer,26.0,40
+22MECH055,7,CAD/CAM,22.2,40
+22CIVIL055,7,Structural Analysis,29.3,40
+22CIVIL055,7,Surveying,22.2,40
+22CIVIL055,7,Geotechnical Engg,29.1,40
+22CIVIL055,7,Fluid Mechanics,28.8,40
+22CIVIL055,7,Concrete Technology,31.7,40
+22CIVIL055,7,Transportation Engg,36.3,40
+22CSE056,7,Data Structures,16.9,40
+22CSE056,7,Operating Systems,32.0,40
+22CSE056,7,DBMS,26.8,40
+22CSE056,7,Computer Networks,30.5,40
+22CSE056,7,Machine Learning,29.5,40
+22CSE056,7,Software Engg,29.4,40
+22IT056,7,Data Structures,13.2,40
+22IT056,7,Web Technologies,9.2,40
+22IT056,7,DBMS,5.1,40
+22IT056,7,Cloud Computing,13.8,40
+22IT056,7,Information Security,13.7,40
+22IT056,7,Software Engg,7.9,40
+22ECE056,7,Signals & Systems,31.6,40
+22ECE056,7,Digital Electronics,33.8,40
+22ECE056,7,Analog Circuits,31.2,40
+22ECE056,7,Microprocessors,37.5,40
+22ECE056,7,Communication Systems,33.1,40
+22ECE056,7,VLSI Design,35.2,40
+22MECH056,7,Thermodynamics,17.0,40
+22MECH056,7,Fluid Mechanics,26.0,40
+22MECH056,7,Machine Design,17.0,40
+22MECH056,7,Manufacturing Processes,23.2,40
+22MECH056,7,Heat Transfer,21.5,40
+22MECH056,7,CAD/CAM,19.7,40
+22CIVIL056,7,Structural Analysis,37.1,40
+22CIVIL056,7,Surveying,37.3,40
+22CIVIL056,7,Geotechnical Engg,40.0,40
+22CIVIL056,7,Fluid Mechanics,30.9,40
+22CIVIL056,7,Concrete Technology,33.8,40
+22CIVIL056,7,Transportation Engg,34.0,40
+22CSE057,7,Data Structures,32.6,40
+22CSE057,7,Operating Systems,33.2,40
+22CSE057,7,DBMS,31.9,40
+22CSE057,7,Computer Networks,29.8,40
+22CSE057,7,Machine Learning,28.7,40
+22CSE057,7,Software Engg,28.2,40
+22IT057,7,Data Structures,15.3,40
+22IT057,7,Web Technologies,18.1,40
+22IT057,7,DBMS,17.5,40
+22IT057,7,Cloud Computing,12.3,40
+22IT057,7,Information Security,12.0,40
+22IT057,7,Software Engg,19.0,40
+22ECE057,7,Signals & Systems,31.1,40
+22ECE057,7,Digital Electronics,35.3,40
+22ECE057,7,Analog Circuits,31.1,40
+22ECE057,7,Microprocessors,26.6,40
+22ECE057,7,Communication Systems,26.5,40
+22ECE057,7,VLSI Design,30.0,40
+22MECH057,7,Thermodynamics,14.7,40
+22MECH057,7,Fluid Mechanics,16.5,40
+22MECH057,7,Machine Design,13.8,40
+22MECH057,7,Manufacturing Processes,17.1,40
+22MECH057,7,Heat Transfer,20.4,40
+22MECH057,7,CAD/CAM,19.2,40
+22CIVIL057,7,Structural Analysis,2.0,40
+22CIVIL057,7,Surveying,2.0,40
+22CIVIL057,7,Geotechnical Engg,2.0,40
+22CIVIL057,7,Fluid Mechanics,2.0,40
+22CIVIL057,7,Concrete Technology,2.5,40
+22CIVIL057,7,Transportation Engg,8.0,40
+22CSE058,7,Data Structures,24.7,40
+22CSE058,7,Operating Systems,30.4,40
+22CSE058,7,DBMS,23.5,40
+22CSE058,7,Computer Networks,28.7,40
+22CSE058,7,Machine Learning,30.5,40
+22CSE058,7,Software Engg,31.6,40
+22IT058,7,Data Structures,21.8,40
+22IT058,7,Web Technologies,19.2,40
+22IT058,7,DBMS,19.5,40
+22IT058,7,Cloud Computing,28.7,40
+22IT058,7,Information Security,23.2,40
+22IT058,7,Software Engg,21.1,40
+22ECE058,7,Signals & Systems,39.0,40
+22ECE058,7,Digital Electronics,29.1,40
+22ECE058,7,Analog Circuits,22.3,40
+22ECE058,7,Microprocessors,27.3,40
+22ECE058,7,Communication Systems,31.2,40
+22ECE058,7,VLSI Design,23.5,40
+22MECH058,7,Thermodynamics,26.2,40
+22MECH058,7,Fluid Mechanics,21.2,40
+22MECH058,7,Machine Design,26.5,40
+22MECH058,7,Manufacturing Processes,17.1,40
+22MECH058,7,Heat Transfer,19.5,40
+22MECH058,7,CAD/CAM,21.4,40
+22CIVIL058,7,Structural Analysis,21.7,40
+22CIVIL058,7,Surveying,18.0,40
+22CIVIL058,7,Geotechnical Engg,14.6,40
+22CIVIL058,7,Fluid Mechanics,18.4,40
+22CIVIL058,7,Concrete Technology,20.0,40
+22CIVIL058,7,Transportation Engg,19.9,40
+22CSE059,7,Data Structures,20.7,40
+22CSE059,7,Operating Systems,22.9,40
+22CSE059,7,DBMS,21.0,40
+22CSE059,7,Computer Networks,22.6,40
+22CSE059,7,Machine Learning,20.6,40
+22CSE059,7,Software Engg,23.8,40
+22IT059,7,Data Structures,30.2,40
+22IT059,7,Web Technologies,24.5,40
+22IT059,7,DBMS,26.1,40
+22IT059,7,Cloud Computing,21.8,40
+22IT059,7,Information Security,26.8,40
+22IT059,7,Software Engg,21.1,40
+22ECE059,7,Signals & Systems,36.4,40
+22ECE059,7,Digital Electronics,20.0,40
+22ECE059,7,Analog Circuits,27.8,40
+22ECE059,7,Microprocessors,32.0,40
+22ECE059,7,Communication Systems,31.5,40
+22ECE059,7,VLSI Design,26.3,40
+22MECH059,7,Thermodynamics,30.2,40
+22MECH059,7,Fluid Mechanics,26.2,40
+22MECH059,7,Machine Design,32.6,40
+22MECH059,7,Manufacturing Processes,28.6,40
+22MECH059,7,Heat Transfer,30.9,40
+22MECH059,7,CAD/CAM,29.6,40
+22CIVIL059,7,Structural Analysis,11.3,40
+22CIVIL059,7,Surveying,14.1,40
+22CIVIL059,7,Geotechnical Engg,18.1,40
+22CIVIL059,7,Fluid Mechanics,14.7,40
+22CIVIL059,7,Concrete Technology,10.1,40
+22CIVIL059,7,Transportation Engg,10.2,40
+22CSE060,7,Data Structures,24.8,40
+22CSE060,7,Operating Systems,28.7,40
+22CSE060,7,DBMS,28.1,40
+22CSE060,7,Computer Networks,23.4,40
+22CSE060,7,Machine Learning,27.2,40
+22CSE060,7,Software Engg,31.4,40
+22IT060,7,Data Structures,26.8,40
+22IT060,7,Web Technologies,30.6,40
+22IT060,7,DBMS,28.8,40
+22IT060,7,Cloud Computing,29.2,40
+22IT060,7,Information Security,34.8,40
+22IT060,7,Software Engg,21.0,40
+22ECE060,7,Signals & Systems,15.6,40
+22ECE060,7,Digital Electronics,22.9,40
+22ECE060,7,Analog Circuits,13.9,40
+22ECE060,7,Microprocessors,19.6,40
+22ECE060,7,Communication Systems,20.8,40
+22ECE060,7,VLSI Design,14.8,40
+22MECH060,7,Thermodynamics,25.1,40
+22MECH060,7,Fluid Mechanics,33.6,40
+22MECH060,7,Machine Design,20.7,40
+22MECH060,7,Manufacturing Processes,35.0,40
+22MECH060,7,Heat Transfer,23.0,40
+22MECH060,7,CAD/CAM,32.8,40
+22CIVIL060,7,Structural Analysis,26.8,40
+22CIVIL060,7,Surveying,27.3,40
+22CIVIL060,7,Geotechnical Engg,28.6,40
+22CIVIL060,7,Fluid Mechanics,28.9,40
+22CIVIL060,7,Concrete Technology,34.3,40
+22CIVIL060,7,Transportation Engg,29.6,40
+22CSE061,7,Data Structures,20.2,40
+22CSE061,7,Operating Systems,13.8,40
+22CSE061,7,DBMS,13.1,40
+22CSE061,7,Computer Networks,16.8,40
+22CSE061,7,Machine Learning,7.1,40
+22CSE061,7,Software Engg,15.7,40
+22IT061,7,Data Structures,21.1,40
+22IT061,7,Web Technologies,26.2,40
+22IT061,7,DBMS,23.2,40
+22IT061,7,Cloud Computing,21.1,40
+22IT061,7,Information Security,22.9,40
+22IT061,7,Software Engg,17.7,40
+22ECE061,7,Signals & Systems,21.9,40
+22ECE061,7,Digital Electronics,26.5,40
+22ECE061,7,Analog Circuits,21.7,40
+22ECE061,7,Microprocessors,25.0,40
+22ECE061,7,Communication Systems,33.3,40
+22ECE061,7,VLSI Design,26.1,40
+22MECH061,7,Thermodynamics,34.2,40
+22MECH061,7,Fluid Mechanics,38.0,40
+22MECH061,7,Machine Design,35.7,40
+22MECH061,7,Manufacturing Processes,32.1,40
+22MECH061,7,Heat Transfer,29.8,40
+22MECH061,7,CAD/CAM,37.4,40
+22CIVIL061,7,Structural Analysis,18.8,40
+22CIVIL061,7,Surveying,11.7,40
+22CIVIL061,7,Geotechnical Engg,15.8,40
+22CIVIL061,7,Fluid Mechanics,13.2,40
+22CIVIL061,7,Concrete Technology,17.8,40
+22CIVIL061,7,Transportation Engg,13.8,40
+22CSE062,7,Data Structures,16.8,40
+22CSE062,7,Operating Systems,21.2,40
+22CSE062,7,DBMS,18.0,40
+22CSE062,7,Computer Networks,15.7,40
+22CSE062,7,Machine Learning,17.4,40
+22CSE062,7,Software Engg,19.4,40
+22IT062,7,Data Structures,19.3,40
+22IT062,7,Web Technologies,10.6,40
+22IT062,7,DBMS,19.2,40
+22IT062,7,Cloud Computing,13.8,40
+22IT062,7,Information Security,17.6,40
+22IT062,7,Software Engg,10.8,40
+22ECE062,7,Signals & Systems,34.6,40
+22ECE062,7,Digital Electronics,40.0,40
+22ECE062,7,Analog Circuits,40.0,40
+22ECE062,7,Microprocessors,38.3,40
+22ECE062,7,Communication Systems,29.2,40
+22ECE062,7,VLSI Design,37.9,40
+22MECH062,7,Thermodynamics,28.6,40
+22MECH062,7,Fluid Mechanics,26.5,40
+22MECH062,7,Machine Design,34.2,40
+22MECH062,7,Manufacturing Processes,32.0,40
+22MECH062,7,Heat Transfer,36.8,40
+22MECH062,7,CAD/CAM,34.5,40
+22CIVIL062,7,Structural Analysis,31.8,40
+22CIVIL062,7,Surveying,27.7,40
+22CIVIL062,7,Geotechnical Engg,31.4,40
+22CIVIL062,7,Fluid Mechanics,27.0,40
+22CIVIL062,7,Concrete Technology,32.7,40
+22CIVIL062,7,Transportation Engg,30.0,40
+22CSE063,7,Data Structures,28.4,40
+22CSE063,7,Operating Systems,24.1,40
+22CSE063,7,DBMS,30.3,40
+22CSE063,7,Computer Networks,29.3,40
+22CSE063,7,Machine Learning,23.0,40
+22CSE063,7,Software Engg,32.8,40
+22IT063,7,Data Structures,23.1,40
+22IT063,7,Web Technologies,20.1,40
+22IT063,7,DBMS,25.7,40
+22IT063,7,Cloud Computing,33.0,40
+22IT063,7,Information Security,25.3,40
+22IT063,7,Software Engg,19.6,40
+22ECE063,7,Signals & Systems,21.5,40
+22ECE063,7,Digital Electronics,22.3,40
+22ECE063,7,Analog Circuits,21.8,40
+22ECE063,7,Microprocessors,26.5,40
+22ECE063,7,Communication Systems,24.6,40
+22ECE063,7,VLSI Design,25.1,40
+22MECH063,7,Thermodynamics,25.4,40
+22MECH063,7,Fluid Mechanics,22.0,40
+22MECH063,7,Machine Design,21.4,40
+22MECH063,7,Manufacturing Processes,21.9,40
+22MECH063,7,Heat Transfer,22.7,40
+22MECH063,7,CAD/CAM,29.0,40
+22CIVIL063,7,Structural Analysis,13.4,40
+22CIVIL063,7,Surveying,20.1,40
+22CIVIL063,7,Geotechnical Engg,20.3,40
+22CIVIL063,7,Fluid Mechanics,23.2,40
+22CIVIL063,7,Concrete Technology,18.2,40
+22CIVIL063,7,Transportation Engg,27.0,40
+22CSE064,7,Data Structures,31.7,40
+22CSE064,7,Operating Systems,20.8,40
+22CSE064,7,DBMS,32.8,40
+22CSE064,7,Computer Networks,20.7,40
+22CSE064,7,Machine Learning,28.6,40
+22CSE064,7,Software Engg,31.8,40
+22IT064,7,Data Structures,26.1,40
+22IT064,7,Web Technologies,40.0,40
+22IT064,7,DBMS,39.0,40
+22IT064,7,Cloud Computing,37.5,40
+22IT064,7,Information Security,36.8,40
+22IT064,7,Software Engg,37.8,40
+22ECE064,7,Signals & Systems,27.6,40
+22ECE064,7,Digital Electronics,21.3,40
+22ECE064,7,Analog Circuits,24.9,40
+22ECE064,7,Microprocessors,18.8,40
+22ECE064,7,Communication Systems,22.6,40
+22ECE064,7,VLSI Design,20.3,40
+22MECH064,7,Thermodynamics,22.7,40
+22MECH064,7,Fluid Mechanics,14.2,40
+22MECH064,7,Machine Design,28.2,40
+22MECH064,7,Manufacturing Processes,18.6,40
+22MECH064,7,Heat Transfer,16.8,40
+22MECH064,7,CAD/CAM,17.2,40
+22CIVIL064,7,Structural Analysis,29.6,40
+22CIVIL064,7,Surveying,24.7,40
+22CIVIL064,7,Geotechnical Engg,24.1,40
+22CIVIL064,7,Fluid Mechanics,28.6,40
+22CIVIL064,7,Concrete Technology,28.4,40
+22CIVIL064,7,Transportation Engg,33.5,40
+22CSE065,7,Data Structures,14.2,40
+22CSE065,7,Operating Systems,14.0,40
+22CSE065,7,DBMS,22.0,40
+22CSE065,7,Computer Networks,15.2,40
+22CSE065,7,Machine Learning,10.6,40
+22CSE065,7,Software Engg,29.0,40
+22IT065,7,Data Structures,29.4,40
+22IT065,7,Web Technologies,25.1,40
+22IT065,7,DBMS,21.8,40
+22IT065,7,Cloud Computing,23.3,40
+22IT065,7,Information Security,27.0,40
+22IT065,7,Software Engg,27.4,40
+22ECE065,7,Signals & Systems,34.4,40
+22ECE065,7,Digital Electronics,32.2,40
+22ECE065,7,Analog Circuits,31.5,40
+22ECE065,7,Microprocessors,23.7,40
+22ECE065,7,Communication Systems,33.4,40
+22ECE065,7,VLSI Design,26.8,40
+22MECH065,7,Thermodynamics,24.8,40
+22MECH065,7,Fluid Mechanics,28.5,40
+22MECH065,7,Machine Design,27.1,40
+22MECH065,7,Manufacturing Processes,24.2,40
+22MECH065,7,Heat Transfer,23.9,40
+22MECH065,7,CAD/CAM,21.1,40
+22CIVIL065,7,Structural Analysis,24.9,40
+22CIVIL065,7,Surveying,23.3,40
+22CIVIL065,7,Geotechnical Engg,21.3,40
+22CIVIL065,7,Fluid Mechanics,27.7,40
+22CIVIL065,7,Concrete Technology,25.0,40
+22CIVIL065,7,Transportation Engg,23.8,40
+22CSE066,7,Data Structures,40.0,40
+22CSE066,7,Operating Systems,38.0,40
+22CSE066,7,DBMS,39.1,40
+22CSE066,7,Computer Networks,40.0,40
+22CSE066,7,Machine Learning,38.1,40
+22CSE066,7,Software Engg,40.0,40
+22IT066,7,Data Structures,29.2,40
+22IT066,7,Web Technologies,31.7,40
+22IT066,7,DBMS,31.8,40
+22IT066,7,Cloud Computing,23.8,40
+22IT066,7,Information Security,31.9,40
+22IT066,7,Software Engg,27.3,40
+22ECE066,7,Signals & Systems,20.7,40
+22ECE066,7,Digital Electronics,22.9,40
+22ECE066,7,Analog Circuits,23.8,40
+22ECE066,7,Microprocessors,29.8,40
+22ECE066,7,Communication Systems,15.6,40
+22ECE066,7,VLSI Design,15.9,40
+22MECH066,7,Thermodynamics,27.3,40
+22MECH066,7,Fluid Mechanics,22.8,40
+22MECH066,7,Machine Design,27.9,40
+22MECH066,7,Manufacturing Processes,25.5,40
+22MECH066,7,Heat Transfer,25.6,40
+22MECH066,7,CAD/CAM,32.5,40
+22CIVIL066,7,Structural Analysis,31.4,40
+22CIVIL066,7,Surveying,31.4,40
+22CIVIL066,7,Geotechnical Engg,23.5,40
+22CIVIL066,7,Fluid Mechanics,30.9,40
+22CIVIL066,7,Concrete Technology,25.8,40
+22CIVIL066,7,Transportation Engg,23.0,40
+22CSE067,7,Data Structures,25.0,40
+22CSE067,7,Operating Systems,33.1,40
+22CSE067,7,DBMS,37.9,40
+22CSE067,7,Computer Networks,33.6,40
+22CSE067,7,Machine Learning,30.5,40
+22CSE067,7,Software Engg,33.3,40
+22IT067,7,Data Structures,30.1,40
+22IT067,7,Web Technologies,28.0,40
+22IT067,7,DBMS,28.8,40
+22IT067,7,Cloud Computing,35.6,40
+22IT067,7,Information Security,35.9,40
+22IT067,7,Software Engg,23.1,40
+22ECE067,7,Signals & Systems,27.7,40
+22ECE067,7,Digital Electronics,31.5,40
+22ECE067,7,Analog Circuits,30.7,40
+22ECE067,7,Microprocessors,30.1,40
+22ECE067,7,Communication Systems,32.2,40
+22ECE067,7,VLSI Design,29.5,40
+22MECH067,7,Thermodynamics,24.2,40
+22MECH067,7,Fluid Mechanics,26.1,40
+22MECH067,7,Machine Design,24.9,40
+22MECH067,7,Manufacturing Processes,28.3,40
+22MECH067,7,Heat Transfer,29.6,40
+22MECH067,7,CAD/CAM,24.9,40
+22CIVIL067,7,Structural Analysis,30.8,40
+22CIVIL067,7,Surveying,24.2,40
+22CIVIL067,7,Geotechnical Engg,27.5,40
+22CIVIL067,7,Fluid Mechanics,30.9,40
+22CIVIL067,7,Concrete Technology,24.6,40
+22CIVIL067,7,Transportation Engg,28.5,40
+22CSE068,7,Data Structures,26.2,40
+22CSE068,7,Operating Systems,24.0,40
+22CSE068,7,DBMS,25.0,40
+22CSE068,7,Computer Networks,24.9,40
+22CSE068,7,Machine Learning,22.4,40
+22CSE068,7,Software Engg,24.4,40
+22IT068,7,Data Structures,28.2,40
+22IT068,7,Web Technologies,28.8,40
+22IT068,7,DBMS,28.8,40
+22IT068,7,Cloud Computing,33.5,40
+22IT068,7,Information Security,25.8,40
+22IT068,7,Software Engg,30.1,40
+22ECE068,7,Signals & Systems,39.0,40
+22ECE068,7,Digital Electronics,39.0,40
+22ECE068,7,Analog Circuits,37.3,40
+22ECE068,7,Microprocessors,33.0,40
+22ECE068,7,Communication Systems,30.3,40
+22ECE068,7,VLSI Design,28.2,40
+22MECH068,7,Thermodynamics,31.2,40
+22MECH068,7,Fluid Mechanics,26.6,40
+22MECH068,7,Machine Design,34.0,40
+22MECH068,7,Manufacturing Processes,28.0,40
+22MECH068,7,Heat Transfer,30.7,40
+22MECH068,7,CAD/CAM,25.3,40
+22CIVIL068,7,Structural Analysis,29.3,40
+22CIVIL068,7,Surveying,20.4,40
+22CIVIL068,7,Geotechnical Engg,23.8,40
+22CIVIL068,7,Fluid Mechanics,34.7,40
+22CIVIL068,7,Concrete Technology,23.2,40
+22CIVIL068,7,Transportation Engg,24.9,40
+22CSE069,7,Data Structures,35.0,40
+22CSE069,7,Operating Systems,40.0,40
+22CSE069,7,DBMS,40.0,40
+22CSE069,7,Computer Networks,40.0,40
+22CSE069,7,Machine Learning,39.2,40
+22CSE069,7,Software Engg,39.0,40
+22IT069,7,Data Structures,2.4,40
+22IT069,7,Web Technologies,7.4,40
+22IT069,7,DBMS,4.5,40
+22IT069,7,Cloud Computing,2.6,40
+22IT069,7,Information Security,5.9,40
+22IT069,7,Software Engg,10.6,40
+22ECE069,7,Signals & Systems,20.8,40
+22ECE069,7,Digital Electronics,29.2,40
+22ECE069,7,Analog Circuits,26.4,40
+22ECE069,7,Microprocessors,23.9,40
+22ECE069,7,Communication Systems,23.4,40
+22ECE069,7,VLSI Design,21.0,40
+22MECH069,7,Thermodynamics,27.0,40
+22MECH069,7,Fluid Mechanics,24.0,40
+22MECH069,7,Machine Design,20.9,40
+22MECH069,7,Manufacturing Processes,25.4,40
+22MECH069,7,Heat Transfer,22.0,40
+22MECH069,7,CAD/CAM,26.9,40
+22CIVIL069,7,Structural Analysis,18.9,40
+22CIVIL069,7,Surveying,19.9,40
+22CIVIL069,7,Geotechnical Engg,19.3,40
+22CIVIL069,7,Fluid Mechanics,20.2,40
+22CIVIL069,7,Concrete Technology,20.1,40
+22CIVIL069,7,Transportation Engg,20.3,40
+22CSE070,7,Data Structures,29.0,40
+22CSE070,7,Operating Systems,31.3,40
+22CSE070,7,DBMS,28.6,40
+22CSE070,7,Computer Networks,35.4,40
+22CSE070,7,Machine Learning,26.0,40
+22CSE070,7,Software Engg,24.9,40
+22IT070,7,Data Structures,27.8,40
+22IT070,7,Web Technologies,22.7,40
+22IT070,7,DBMS,23.0,40
+22IT070,7,Cloud Computing,26.2,40
+22IT070,7,Information Security,28.8,40
+22IT070,7,Software Engg,25.2,40
+22ECE070,7,Signals & Systems,17.6,40
+22ECE070,7,Digital Electronics,28.5,40
+22ECE070,7,Analog Circuits,14.9,40
+22ECE070,7,Microprocessors,21.7,40
+22ECE070,7,Communication Systems,28.4,40
+22ECE070,7,VLSI Design,27.6,40
+22MECH070,7,Thermodynamics,35.3,40
+22MECH070,7,Fluid Mechanics,23.4,40
+22MECH070,7,Machine Design,28.0,40
+22MECH070,7,Manufacturing Processes,30.0,40
+22MECH070,7,Heat Transfer,34.3,40
+22MECH070,7,CAD/CAM,35.2,40
+22CIVIL070,7,Structural Analysis,26.1,40
+22CIVIL070,7,Surveying,26.4,40
+22CIVIL070,7,Geotechnical Engg,25.7,40
+22CIVIL070,7,Fluid Mechanics,29.3,40
+22CIVIL070,7,Concrete Technology,28.6,40
+22CIVIL070,7,Transportation Engg,23.4,40
+22CSE071,7,Data Structures,15.4,40
+22CSE071,7,Operating Systems,14.7,40
+22CSE071,7,DBMS,14.8,40
+22CSE071,7,Computer Networks,16.9,40
+22CSE071,7,Machine Learning,16.7,40
+22CSE071,7,Software Engg,16.5,40
+22IT071,7,Data Structures,24.7,40
+22IT071,7,Web Technologies,15.7,40
+22IT071,7,DBMS,20.3,40
+22IT071,7,Cloud Computing,30.4,40
+22IT071,7,Information Security,24.3,40
+22IT071,7,Software Engg,15.8,40
+22ECE071,7,Signals & Systems,22.4,40
+22ECE071,7,Digital Electronics,25.7,40
+22ECE071,7,Analog Circuits,26.9,40
+22ECE071,7,Microprocessors,15.7,40
+22ECE071,7,Communication Systems,23.5,40
+22ECE071,7,VLSI Design,22.2,40
+22MECH071,7,Thermodynamics,26.4,40
+22MECH071,7,Fluid Mechanics,17.3,40
+22MECH071,7,Machine Design,19.8,40
+22MECH071,7,Manufacturing Processes,20.8,40
+22MECH071,7,Heat Transfer,23.6,40
+22MECH071,7,CAD/CAM,31.2,40
+22CIVIL071,7,Structural Analysis,23.0,40
+22CIVIL071,7,Surveying,34.6,40
+22CIVIL071,7,Geotechnical Engg,31.6,40
+22CIVIL071,7,Fluid Mechanics,25.8,40
+22CIVIL071,7,Concrete Technology,25.6,40
+22CIVIL071,7,Transportation Engg,27.7,40
+22CSE072,7,Data Structures,20.3,40
+22CSE072,7,Operating Systems,13.6,40
+22CSE072,7,DBMS,13.4,40
+22CSE072,7,Computer Networks,16.3,40
+22CSE072,7,Machine Learning,25.6,40
+22CSE072,7,Software Engg,14.5,40
+22IT072,7,Data Structures,33.4,40
+22IT072,7,Web Technologies,31.6,40
+22IT072,7,DBMS,21.9,40
+22IT072,7,Cloud Computing,31.4,40
+22IT072,7,Information Security,32.9,40
+22IT072,7,Software Engg,29.6,40
+22ECE072,7,Signals & Systems,23.8,40
+22ECE072,7,Digital Electronics,28.6,40
+22ECE072,7,Analog Circuits,29.1,40
+22ECE072,7,Microprocessors,31.9,40
+22ECE072,7,Communication Systems,31.4,40
+22ECE072,7,VLSI Design,27.2,40
+22MECH072,7,Thermodynamics,31.5,40
+22MECH072,7,Fluid Mechanics,27.1,40
+22MECH072,7,Machine Design,37.2,40
+22MECH072,7,Manufacturing Processes,31.2,40
+22MECH072,7,Heat Transfer,28.9,40
+22MECH072,7,CAD/CAM,31.8,40
+22CIVIL072,7,Structural Analysis,24.7,40
+22CIVIL072,7,Surveying,24.4,40
+22CIVIL072,7,Geotechnical Engg,27.9,40
+22CIVIL072,7,Fluid Mechanics,21.3,40
+22CIVIL072,7,Concrete Technology,17.0,40
+22CIVIL072,7,Transportation Engg,20.1,40
+22CSE073,7,Data Structures,25.0,40
+22CSE073,7,Operating Systems,17.0,40
+22CSE073,7,DBMS,26.8,40
+22CSE073,7,Computer Networks,25.7,40
+22CSE073,7,Machine Learning,16.2,40
+22CSE073,7,Software Engg,23.3,40
+22IT073,7,Data Structures,22.2,40
+22IT073,7,Web Technologies,20.7,40
+22IT073,7,DBMS,22.8,40
+22IT073,7,Cloud Computing,20.9,40
+22IT073,7,Information Security,21.1,40
+22IT073,7,Software Engg,25.9,40
+22ECE073,7,Signals & Systems,23.8,40
+22ECE073,7,Digital Electronics,12.8,40
+22ECE073,7,Analog Circuits,28.6,40
+22ECE073,7,Microprocessors,13.7,40
+22ECE073,7,Communication Systems,13.0,40
+22ECE073,7,VLSI Design,15.8,40
+22MECH073,7,Thermodynamics,26.2,40
+22MECH073,7,Fluid Mechanics,39.6,40
+22MECH073,7,Machine Design,24.0,40
+22MECH073,7,Manufacturing Processes,25.1,40
+22MECH073,7,Heat Transfer,26.9,40
+22MECH073,7,CAD/CAM,29.9,40
+22CIVIL073,7,Structural Analysis,29.1,40
+22CIVIL073,7,Surveying,31.2,40
+22CIVIL073,7,Geotechnical Engg,28.6,40
+22CIVIL073,7,Fluid Mechanics,36.5,40
+22CIVIL073,7,Concrete Technology,25.9,40
+22CIVIL073,7,Transportation Engg,28.9,40
+22CSE074,7,Data Structures,29.5,40
+22CSE074,7,Operating Systems,37.4,40
+22CSE074,7,DBMS,40.0,40
+22CSE074,7,Computer Networks,32.3,40
+22CSE074,7,Machine Learning,39.7,40
+22CSE074,7,Software Engg,34.9,40
+22IT074,7,Data Structures,9.3,40
+22IT074,7,Web Technologies,8.4,40
+22IT074,7,DBMS,10.6,40
+22IT074,7,Cloud Computing,14.4,40
+22IT074,7,Information Security,6.8,40
+22IT074,7,Software Engg,5.5,40
+22ECE074,7,Signals & Systems,18.4,40
+22ECE074,7,Digital Electronics,12.9,40
+22ECE074,7,Analog Circuits,20.6,40
+22ECE074,7,Microprocessors,17.6,40
+22ECE074,7,Communication Systems,19.4,40
+22ECE074,7,VLSI Design,21.4,40
+22MECH074,7,Thermodynamics,27.9,40
+22MECH074,7,Fluid Mechanics,25.0,40
+22MECH074,7,Machine Design,23.3,40
+22MECH074,7,Manufacturing Processes,25.6,40
+22MECH074,7,Heat Transfer,20.7,40
+22MECH074,7,CAD/CAM,19.2,40
+22CIVIL074,7,Structural Analysis,20.3,40
+22CIVIL074,7,Surveying,18.0,40
+22CIVIL074,7,Geotechnical Engg,25.8,40
+22CIVIL074,7,Fluid Mechanics,24.2,40
+22CIVIL074,7,Concrete Technology,18.5,40
+22CIVIL074,7,Transportation Engg,25.3,40
+22CSE075,7,Data Structures,22.4,40
+22CSE075,7,Operating Systems,21.7,40
+22CSE075,7,DBMS,22.7,40
+22CSE075,7,Computer Networks,22.9,40
+22CSE075,7,Machine Learning,29.2,40
+22CSE075,7,Software Engg,21.9,40
+22IT075,7,Data Structures,25.1,40
+22IT075,7,Web Technologies,15.9,40
+22IT075,7,DBMS,22.7,40
+22IT075,7,Cloud Computing,20.7,40
+22IT075,7,Information Security,19.1,40
+22IT075,7,Software Engg,29.8,40
+22ECE075,7,Signals & Systems,20.2,40
+22ECE075,7,Digital Electronics,33.9,40
+22ECE075,7,Analog Circuits,31.9,40
+22ECE075,7,Microprocessors,29.2,40
+22ECE075,7,Communication Systems,25.0,40
+22ECE075,7,VLSI Design,35.1,40
+22MECH075,7,Thermodynamics,24.9,40
+22MECH075,7,Fluid Mechanics,34.3,40
+22MECH075,7,Machine Design,20.5,40
+22MECH075,7,Manufacturing Processes,26.1,40
+22MECH075,7,Heat Transfer,25.0,40
+22MECH075,7,CAD/CAM,30.8,40
+22CIVIL075,7,Structural Analysis,26.4,40
+22CIVIL075,7,Surveying,25.3,40
+22CIVIL075,7,Geotechnical Engg,20.3,40
+22CIVIL075,7,Fluid Mechanics,28.4,40
+22CIVIL075,7,Concrete Technology,33.3,40
+22CIVIL075,7,Transportation Engg,27.0,40
+22CSE076,7,Data Structures,14.3,40
+22CSE076,7,Operating Systems,17.7,40
+22CSE076,7,DBMS,17.4,40
+22CSE076,7,Computer Networks,24.4,40
+22CSE076,7,Machine Learning,19.8,40
+22CSE076,7,Software Engg,22.2,40
+22IT076,7,Data Structures,31.3,40
+22IT076,7,Web Technologies,26.9,40
+22IT076,7,DBMS,22.3,40
+22IT076,7,Cloud Computing,31.0,40
+22IT076,7,Information Security,25.4,40
+22IT076,7,Software Engg,26.9,40
+22ECE076,7,Signals & Systems,21.1,40
+22ECE076,7,Digital Electronics,25.3,40
+22ECE076,7,Analog Circuits,22.5,40
+22ECE076,7,Microprocessors,17.2,40
+22ECE076,7,Communication Systems,24.7,40
+22ECE076,7,VLSI Design,20.5,40
+22MECH076,7,Thermodynamics,25.9,40
+22MECH076,7,Fluid Mechanics,20.2,40
+22MECH076,7,Machine Design,17.6,40
+22MECH076,7,Manufacturing Processes,29.4,40
+22MECH076,7,Heat Transfer,26.9,40
+22MECH076,7,CAD/CAM,27.2,40
+22CIVIL076,7,Structural Analysis,23.8,40
+22CIVIL076,7,Surveying,31.4,40
+22CIVIL076,7,Geotechnical Engg,27.8,40
+22CIVIL076,7,Fluid Mechanics,27.7,40
+22CIVIL076,7,Concrete Technology,31.7,40
+22CIVIL076,7,Transportation Engg,22.9,40
+22CSE077,7,Data Structures,29.5,40
+22CSE077,7,Operating Systems,30.8,40
+22CSE077,7,DBMS,23.7,40
+22CSE077,7,Computer Networks,27.2,40
+22CSE077,7,Machine Learning,17.9,40
+22CSE077,7,Software Engg,22.9,40
+22IT077,7,Data Structures,27.6,40
+22IT077,7,Web Technologies,31.2,40
+22IT077,7,DBMS,30.6,40
+22IT077,7,Cloud Computing,31.8,40
+22IT077,7,Information Security,28.9,40
+22IT077,7,Software Engg,29.2,40
+22ECE077,7,Signals & Systems,5.0,40
+22ECE077,7,Digital Electronics,9.3,40
+22ECE077,7,Analog Circuits,23.2,40
+22ECE077,7,Microprocessors,18.9,40
+22ECE077,7,Communication Systems,18.7,40
+22ECE077,7,VLSI Design,19.6,40
+22MECH077,7,Thermodynamics,27.3,40
+22MECH077,7,Fluid Mechanics,27.2,40
+22MECH077,7,Machine Design,27.4,40
+22MECH077,7,Manufacturing Processes,22.0,40
+22MECH077,7,Heat Transfer,25.6,40
+22MECH077,7,CAD/CAM,27.7,40
+22CIVIL077,7,Structural Analysis,26.4,40
+22CIVIL077,7,Surveying,20.3,40
+22CIVIL077,7,Geotechnical Engg,22.9,40
+22CIVIL077,7,Fluid Mechanics,22.9,40
+22CIVIL077,7,Concrete Technology,32.5,40
+22CIVIL077,7,Transportation Engg,21.2,40
+22CSE078,7,Data Structures,33.8,40
+22CSE078,7,Operating Systems,37.4,40
+22CSE078,7,DBMS,29.7,40
+22CSE078,7,Computer Networks,33.9,40
+22CSE078,7,Machine Learning,33.7,40
+22CSE078,7,Software Engg,35.5,40
+22IT078,7,Data Structures,26.3,40
+22IT078,7,Web Technologies,12.4,40
+22IT078,7,DBMS,24.9,40
+22IT078,7,Cloud Computing,20.4,40
+22IT078,7,Information Security,23.1,40
+22IT078,7,Software Engg,20.1,40
+22ECE078,7,Signals & Systems,25.0,40
+22ECE078,7,Digital Electronics,15.8,40
+22ECE078,7,Analog Circuits,19.5,40
+22ECE078,7,Microprocessors,23.8,40
+22ECE078,7,Communication Systems,27.6,40
+22ECE078,7,VLSI Design,21.4,40
+22MECH078,7,Thermodynamics,20.6,40
+22MECH078,7,Fluid Mechanics,14.5,40
+22MECH078,7,Machine Design,27.3,40
+22MECH078,7,Manufacturing Processes,18.4,40
+22MECH078,7,Heat Transfer,31.0,40
+22MECH078,7,CAD/CAM,26.8,40
+22CIVIL078,7,Structural Analysis,26.1,40
+22CIVIL078,7,Surveying,35.2,40
+22CIVIL078,7,Geotechnical Engg,28.0,40
+22CIVIL078,7,Fluid Mechanics,27.9,40
+22CIVIL078,7,Concrete Technology,22.8,40
+22CIVIL078,7,Transportation Engg,30.1,40
+22CSE079,7,Data Structures,39.3,40
+22CSE079,7,Operating Systems,36.7,40
+22CSE079,7,DBMS,31.4,40
+22CSE079,7,Computer Networks,29.5,40
+22CSE079,7,Machine Learning,30.8,40
+22CSE079,7,Software Engg,28.1,40
+22IT079,7,Data Structures,29.6,40
+22IT079,7,Web Technologies,34.6,40
+22IT079,7,DBMS,24.7,40
+22IT079,7,Cloud Computing,31.4,40
+22IT079,7,Information Security,27.3,40
+22IT079,7,Software Engg,19.7,40
+22ECE079,7,Signals & Systems,14.4,40
+22ECE079,7,Digital Electronics,14.8,40
+22ECE079,7,Analog Circuits,21.1,40
+22ECE079,7,Microprocessors,18.5,40
+22ECE079,7,Communication Systems,14.6,40
+22ECE079,7,VLSI Design,10.0,40
+22MECH079,7,Thermodynamics,20.1,40
+22MECH079,7,Fluid Mechanics,21.6,40
+22MECH079,7,Machine Design,29.9,40
+22MECH079,7,Manufacturing Processes,24.0,40
+22MECH079,7,Heat Transfer,32.3,40
+22MECH079,7,CAD/CAM,23.9,40
+22CIVIL079,7,Structural Analysis,26.4,40
+22CIVIL079,7,Surveying,29.9,40
+22CIVIL079,7,Geotechnical Engg,25.4,40
+22CIVIL079,7,Fluid Mechanics,24.3,40
+22CIVIL079,7,Concrete Technology,27.7,40
+22CIVIL079,7,Transportation Engg,34.3,40
+22CSE080,7,Data Structures,26.4,40
+22CSE080,7,Operating Systems,25.3,40
+22CSE080,7,DBMS,22.9,40
+22CSE080,7,Computer Networks,22.8,40
+22CSE080,7,Machine Learning,25.4,40
+22CSE080,7,Software Engg,22.2,40
+22IT080,7,Data Structures,17.5,40
+22IT080,7,Web Technologies,17.7,40
+22IT080,7,DBMS,25.1,40
+22IT080,7,Cloud Computing,19.5,40
+22IT080,7,Information Security,23.6,40
+22IT080,7,Software Engg,20.4,40
+22ECE080,7,Signals & Systems,24.4,40
+22ECE080,7,Digital Electronics,30.1,40
+22ECE080,7,Analog Circuits,26.0,40
+22ECE080,7,Microprocessors,30.1,40
+22ECE080,7,Communication Systems,30.5,40
+22ECE080,7,VLSI Design,23.5,40
+22MECH080,7,Thermodynamics,34.2,40
+22MECH080,7,Fluid Mechanics,29.1,40
+22MECH080,7,Machine Design,32.0,40
+22MECH080,7,Manufacturing Processes,27.9,40
+22MECH080,7,Heat Transfer,26.0,40
+22MECH080,7,CAD/CAM,30.4,40
+22CIVIL080,7,Structural Analysis,26.9,40
+22CIVIL080,7,Surveying,18.9,40
+22CIVIL080,7,Geotechnical Engg,25.5,40
+22CIVIL080,7,Fluid Mechanics,24.9,40
+22CIVIL080,7,Concrete Technology,18.1,40
+22CIVIL080,7,Transportation Engg,18.5,40
+22CSE081,7,Data Structures,27.0,40
+22CSE081,7,Operating Systems,31.2,40
+22CSE081,7,DBMS,30.1,40
+22CSE081,7,Computer Networks,27.2,40
+22CSE081,7,Machine Learning,25.5,40
+22CSE081,7,Software Engg,26.9,40
+22IT081,7,Data Structures,33.3,40
+22IT081,7,Web Technologies,26.6,40
+22IT081,7,DBMS,31.3,40
+22IT081,7,Cloud Computing,16.6,40
+22IT081,7,Information Security,18.7,40
+22IT081,7,Software Engg,19.0,40
+22ECE081,7,Signals & Systems,17.5,40
+22ECE081,7,Digital Electronics,23.1,40
+22ECE081,7,Analog Circuits,23.8,40
+22ECE081,7,Microprocessors,25.5,40
+22ECE081,7,Communication Systems,23.4,40
+22ECE081,7,VLSI Design,20.5,40
+22MECH081,7,Thermodynamics,20.6,40
+22MECH081,7,Fluid Mechanics,30.7,40
+22MECH081,7,Machine Design,24.9,40
+22MECH081,7,Manufacturing Processes,29.0,40
+22MECH081,7,Heat Transfer,28.3,40
+22MECH081,7,CAD/CAM,29.5,40
+22CIVIL081,7,Structural Analysis,21.0,40
+22CIVIL081,7,Surveying,15.6,40
+22CIVIL081,7,Geotechnical Engg,22.3,40
+22CIVIL081,7,Fluid Mechanics,21.4,40
+22CIVIL081,7,Concrete Technology,19.5,40
+22CIVIL081,7,Transportation Engg,24.5,40
+22CSE082,7,Data Structures,25.6,40
+22CSE082,7,Operating Systems,20.2,40
+22CSE082,7,DBMS,25.9,40
+22CSE082,7,Computer Networks,22.6,40
+22CSE082,7,Machine Learning,24.8,40
+22CSE082,7,Software Engg,24.9,40
+22IT082,7,Data Structures,15.3,40
+22IT082,7,Web Technologies,19.3,40
+22IT082,7,DBMS,19.1,40
+22IT082,7,Cloud Computing,10.7,40
+22IT082,7,Information Security,13.6,40
+22IT082,7,Software Engg,14.5,40
+22ECE082,7,Signals & Systems,22.4,40
+22ECE082,7,Digital Electronics,13.7,40
+22ECE082,7,Analog Circuits,16.2,40
+22ECE082,7,Microprocessors,18.4,40
+22ECE082,7,Communication Systems,14.5,40
+22ECE082,7,VLSI Design,12.2,40
+22MECH082,7,Thermodynamics,22.1,40
+22MECH082,7,Fluid Mechanics,17.8,40
+22MECH082,7,Machine Design,19.8,40
+22MECH082,7,Manufacturing Processes,20.9,40
+22MECH082,7,Heat Transfer,25.8,40
+22MECH082,7,CAD/CAM,24.0,40
+22CIVIL082,7,Structural Analysis,29.5,40
+22CIVIL082,7,Surveying,32.5,40
+22CIVIL082,7,Geotechnical Engg,36.1,40
+22CIVIL082,7,Fluid Mechanics,28.7,40
+22CIVIL082,7,Concrete Technology,33.1,40
+22CIVIL082,7,Transportation Engg,28.8,40
+22CSE083,7,Data Structures,26.8,40
+22CSE083,7,Operating Systems,19.1,40
+22CSE083,7,DBMS,20.9,40
+22CSE083,7,Computer Networks,20.2,40
+22CSE083,7,Machine Learning,30.4,40
+22CSE083,7,Software Engg,24.0,40
+22IT083,7,Data Structures,28.7,40
+22IT083,7,Web Technologies,32.2,40
+22IT083,7,DBMS,23.6,40
+22IT083,7,Cloud Computing,22.1,40
+22IT083,7,Information Security,30.9,40
+22IT083,7,Software Engg,19.1,40
+22ECE083,7,Signals & Systems,39.4,40
+22ECE083,7,Digital Electronics,31.6,40
+22ECE083,7,Analog Circuits,35.4,40
+22ECE083,7,Microprocessors,36.0,40
+22ECE083,7,Communication Systems,37.1,40
+22ECE083,7,VLSI Design,40.0,40
+22MECH083,7,Thermodynamics,20.9,40
+22MECH083,7,Fluid Mechanics,14.5,40
+22MECH083,7,Machine Design,24.9,40
+22MECH083,7,Manufacturing Processes,19.7,40
+22MECH083,7,Heat Transfer,29.4,40
+22MECH083,7,CAD/CAM,26.1,40
+22CIVIL083,7,Structural Analysis,17.2,40
+22CIVIL083,7,Surveying,17.0,40
+22CIVIL083,7,Geotechnical Engg,13.8,40
+22CIVIL083,7,Fluid Mechanics,15.5,40
+22CIVIL083,7,Concrete Technology,19.6,40
+22CIVIL083,7,Transportation Engg,13.0,40
+22CSE084,7,Data Structures,22.6,40
+22CSE084,7,Operating Systems,26.0,40
+22CSE084,7,DBMS,19.5,40
+22CSE084,7,Computer Networks,23.1,40
+22CSE084,7,Machine Learning,24.1,40
+22CSE084,7,Software Engg,22.4,40
+22IT084,7,Data Structures,23.8,40
+22IT084,7,Web Technologies,30.0,40
+22IT084,7,DBMS,33.6,40
+22IT084,7,Cloud Computing,27.8,40
+22IT084,7,Information Security,28.2,40
+22IT084,7,Software Engg,24.8,40
+22ECE084,7,Signals & Systems,25.1,40
+22ECE084,7,Digital Electronics,31.5,40
+22ECE084,7,Analog Circuits,17.1,40
+22ECE084,7,Microprocessors,23.3,40
+22ECE084,7,Communication Systems,30.2,40
+22ECE084,7,VLSI Design,27.6,40
+22MECH084,7,Thermodynamics,29.8,40
+22MECH084,7,Fluid Mechanics,27.3,40
+22MECH084,7,Machine Design,31.6,40
+22MECH084,7,Manufacturing Processes,28.4,40
+22MECH084,7,Heat Transfer,16.8,40
+22MECH084,7,CAD/CAM,34.0,40
+22CIVIL084,7,Structural Analysis,26.7,40
+22CIVIL084,7,Surveying,27.2,40
+22CIVIL084,7,Geotechnical Engg,27.0,40
+22CIVIL084,7,Fluid Mechanics,19.8,40
+22CIVIL084,7,Concrete Technology,31.9,40
+22CIVIL084,7,Transportation Engg,21.5,40
+22CSE085,7,Data Structures,24.3,40
+22CSE085,7,Operating Systems,22.6,40
+22CSE085,7,DBMS,28.2,40
+22CSE085,7,Computer Networks,16.9,40
+22CSE085,7,Machine Learning,30.9,40
+22CSE085,7,Software Engg,21.4,40
+22IT085,7,Data Structures,25.0,40
+22IT085,7,Web Technologies,21.3,40
+22IT085,7,DBMS,21.6,40
+22IT085,7,Cloud Computing,23.0,40
+22IT085,7,Information Security,28.9,40
+22IT085,7,Software Engg,31.6,40
+22ECE085,7,Signals & Systems,19.6,40
+22ECE085,7,Digital Electronics,14.5,40
+22ECE085,7,Analog Circuits,24.0,40
+22ECE085,7,Microprocessors,21.5,40
+22ECE085,7,Communication Systems,19.7,40
+22ECE085,7,VLSI Design,26.3,40
+22MECH085,7,Thermodynamics,28.2,40
+22MECH085,7,Fluid Mechanics,27.3,40
+22MECH085,7,Machine Design,28.1,40
+22MECH085,7,Manufacturing Processes,33.0,40
+22MECH085,7,Heat Transfer,20.1,40
+22MECH085,7,CAD/CAM,18.6,40
+22CIVIL085,7,Structural Analysis,25.5,40
+22CIVIL085,7,Surveying,20.3,40
+22CIVIL085,7,Geotechnical Engg,22.0,40
+22CIVIL085,7,Fluid Mechanics,15.1,40
+22CIVIL085,7,Concrete Technology,25.3,40
+22CIVIL085,7,Transportation Engg,18.5,40
+22CSE086,7,Data Structures,17.5,40
+22CSE086,7,Operating Systems,9.5,40
+22CSE086,7,DBMS,15.5,40
+22CSE086,7,Computer Networks,14.9,40
+22CSE086,7,Machine Learning,19.9,40
+22CSE086,7,Software Engg,16.2,40
+22IT086,7,Data Structures,21.8,40
+22IT086,7,Web Technologies,22.6,40
+22IT086,7,DBMS,16.3,40
+22IT086,7,Cloud Computing,25.1,40
+22IT086,7,Information Security,21.8,40
+22IT086,7,Software Engg,25.3,40
+22ECE086,7,Signals & Systems,19.7,40
+22ECE086,7,Digital Electronics,17.1,40
+22ECE086,7,Analog Circuits,23.2,40
+22ECE086,7,Microprocessors,19.3,40
+22ECE086,7,Communication Systems,18.3,40
+22ECE086,7,VLSI Design,21.7,40
+22MECH086,7,Thermodynamics,33.3,40
+22MECH086,7,Fluid Mechanics,37.6,40
+22MECH086,7,Machine Design,24.6,40
+22MECH086,7,Manufacturing Processes,23.9,40
+22MECH086,7,Heat Transfer,29.7,40
+22MECH086,7,CAD/CAM,29.9,40
+22CIVIL086,7,Structural Analysis,22.9,40
+22CIVIL086,7,Surveying,15.4,40
+22CIVIL086,7,Geotechnical Engg,16.3,40
+22CIVIL086,7,Fluid Mechanics,16.7,40
+22CIVIL086,7,Concrete Technology,18.5,40
+22CIVIL086,7,Transportation Engg,17.8,40
+22CSE087,7,Data Structures,40.0,40
+22CSE087,7,Operating Systems,29.1,40
+22CSE087,7,DBMS,23.4,40
+22CSE087,7,Computer Networks,28.3,40
+22CSE087,7,Machine Learning,33.7,40
+22CSE087,7,Software Engg,30.7,40
+22IT087,7,Data Structures,20.2,40
+22IT087,7,Web Technologies,19.1,40
+22IT087,7,DBMS,22.6,40
+22IT087,7,Cloud Computing,19.5,40
+22IT087,7,Information Security,20.3,40
+22IT087,7,Software Engg,17.8,40
+22ECE087,7,Signals & Systems,13.5,40
+22ECE087,7,Digital Electronics,23.8,40
+22ECE087,7,Analog Circuits,19.8,40
+22ECE087,7,Microprocessors,30.5,40
+22ECE087,7,Communication Systems,20.0,40
+22ECE087,7,VLSI Design,24.5,40
+22MECH087,7,Thermodynamics,36.5,40
+22MECH087,7,Fluid Mechanics,31.8,40
+22MECH087,7,Machine Design,31.2,40
+22MECH087,7,Manufacturing Processes,36.4,40
+22MECH087,7,Heat Transfer,24.3,40
+22MECH087,7,CAD/CAM,36.0,40
+22CIVIL087,7,Structural Analysis,16.6,40
+22CIVIL087,7,Surveying,20.8,40
+22CIVIL087,7,Geotechnical Engg,22.1,40
+22CIVIL087,7,Fluid Mechanics,15.3,40
+22CIVIL087,7,Concrete Technology,24.4,40
+22CIVIL087,7,Transportation Engg,20.1,40
+22CSE088,7,Data Structures,30.3,40
+22CSE088,7,Operating Systems,29.0,40
+22CSE088,7,DBMS,28.0,40
+22CSE088,7,Computer Networks,20.7,40
+22CSE088,7,Machine Learning,24.8,40
+22CSE088,7,Software Engg,32.0,40
+22IT088,7,Data Structures,33.0,40
+22IT088,7,Web Technologies,33.1,40
+22IT088,7,DBMS,34.7,40
+22IT088,7,Cloud Computing,31.9,40
+22IT088,7,Information Security,26.3,40
+22IT088,7,Software Engg,29.5,40
+22ECE088,7,Signals & Systems,35.8,40
+22ECE088,7,Digital Electronics,32.9,40
+22ECE088,7,Analog Circuits,30.0,40
+22ECE088,7,Microprocessors,31.9,40
+22ECE088,7,Communication Systems,23.5,40
+22ECE088,7,VLSI Design,24.2,40
+22MECH088,7,Thermodynamics,30.1,40
+22MECH088,7,Fluid Mechanics,32.6,40
+22MECH088,7,Machine Design,22.4,40
+22MECH088,7,Manufacturing Processes,28.5,40
+22MECH088,7,Heat Transfer,31.2,40
+22MECH088,7,CAD/CAM,31.7,40
+22CIVIL088,7,Structural Analysis,20.4,40
+22CIVIL088,7,Surveying,19.4,40
+22CIVIL088,7,Geotechnical Engg,15.3,40
+22CIVIL088,7,Fluid Mechanics,18.4,40
+22CIVIL088,7,Concrete Technology,22.6,40
+22CIVIL088,7,Transportation Engg,11.3,40
+22CSE089,7,Data Structures,20.3,40
+22CSE089,7,Operating Systems,22.8,40
+22CSE089,7,DBMS,20.8,40
+22CSE089,7,Computer Networks,22.9,40
+22CSE089,7,Machine Learning,23.7,40
+22CSE089,7,Software Engg,27.6,40
+22IT089,7,Data Structures,18.1,40
+22IT089,7,Web Technologies,17.9,40
+22IT089,7,DBMS,25.4,40
+22IT089,7,Cloud Computing,17.5,40
+22IT089,7,Information Security,18.7,40
+22IT089,7,Software Engg,17.9,40
+22ECE089,7,Signals & Systems,24.1,40
+22ECE089,7,Digital Electronics,23.5,40
+22ECE089,7,Analog Circuits,32.8,40
+22ECE089,7,Microprocessors,27.6,40
+22ECE089,7,Communication Systems,31.3,40
+22ECE089,7,VLSI Design,26.9,40
+22MECH089,7,Thermodynamics,26.7,40
+22MECH089,7,Fluid Mechanics,32.7,40
+22MECH089,7,Machine Design,25.0,40
+22MECH089,7,Manufacturing Processes,31.9,40
+22MECH089,7,Heat Transfer,29.3,40
+22MECH089,7,CAD/CAM,28.5,40
+22CIVIL089,7,Structural Analysis,17.0,40
+22CIVIL089,7,Surveying,17.7,40
+22CIVIL089,7,Geotechnical Engg,16.7,40
+22CIVIL089,7,Fluid Mechanics,20.6,40
+22CIVIL089,7,Concrete Technology,22.7,40
+22CIVIL089,7,Transportation Engg,23.1,40
+22CSE090,7,Data Structures,33.2,40
+22CSE090,7,Operating Systems,34.8,40
+22CSE090,7,DBMS,22.5,40
+22CSE090,7,Computer Networks,34.8,40
+22CSE090,7,Machine Learning,34.0,40
+22CSE090,7,Software Engg,33.0,40
+22IT090,7,Data Structures,24.4,40
+22IT090,7,Web Technologies,30.5,40
+22IT090,7,DBMS,24.8,40
+22IT090,7,Cloud Computing,28.1,40
+22IT090,7,Information Security,31.6,40
+22IT090,7,Software Engg,22.4,40
+22ECE090,7,Signals & Systems,16.5,40
+22ECE090,7,Digital Electronics,11.5,40
+22ECE090,7,Analog Circuits,18.0,40
+22ECE090,7,Microprocessors,18.2,40
+22ECE090,7,Communication Systems,19.0,40
+22ECE090,7,VLSI Design,19.6,40
+22MECH090,7,Thermodynamics,18.9,40
+22MECH090,7,Fluid Mechanics,15.6,40
+22MECH090,7,Machine Design,18.6,40
+22MECH090,7,Manufacturing Processes,21.1,40
+22MECH090,7,Heat Transfer,23.8,40
+22MECH090,7,CAD/CAM,24.7,40
+22CIVIL090,7,Structural Analysis,26.6,40
+22CIVIL090,7,Surveying,26.9,40
+22CIVIL090,7,Geotechnical Engg,32.0,40
+22CIVIL090,7,Fluid Mechanics,28.4,40
+22CIVIL090,7,Concrete Technology,30.8,40
+22CIVIL090,7,Transportation Engg,25.2,40
+22CSE091,7,Data Structures,17.6,40
+22CSE091,7,Operating Systems,17.1,40
+22CSE091,7,DBMS,17.9,40
+22CSE091,7,Computer Networks,22.5,40
+22CSE091,7,Machine Learning,20.6,40
+22CSE091,7,Software Engg,26.7,40
+22IT091,7,Data Structures,23.0,40
+22IT091,7,Web Technologies,13.4,40
+22IT091,7,DBMS,17.5,40
+22IT091,7,Cloud Computing,22.7,40
+22IT091,7,Information Security,16.3,40
+22IT091,7,Software Engg,23.5,40
+22ECE091,7,Signals & Systems,15.6,40
+22ECE091,7,Digital Electronics,30.3,40
+22ECE091,7,Analog Circuits,25.9,40
+22ECE091,7,Microprocessors,21.8,40
+22ECE091,7,Communication Systems,24.2,40
+22ECE091,7,VLSI Design,19.4,40
+22MECH091,7,Thermodynamics,14.8,40
+22MECH091,7,Fluid Mechanics,17.3,40
+22MECH091,7,Machine Design,13.5,40
+22MECH091,7,Manufacturing Processes,12.8,40
+22MECH091,7,Heat Transfer,17.1,40
+22MECH091,7,CAD/CAM,14.1,40
+22CIVIL091,7,Structural Analysis,28.3,40
+22CIVIL091,7,Surveying,32.1,40
+22CIVIL091,7,Geotechnical Engg,31.4,40
+22CIVIL091,7,Fluid Mechanics,31.7,40
+22CIVIL091,7,Concrete Technology,40.0,40
+22CIVIL091,7,Transportation Engg,35.5,40
+22CSE092,7,Data Structures,15.3,40
+22CSE092,7,Operating Systems,24.0,40
+22CSE092,7,DBMS,20.9,40
+22CSE092,7,Computer Networks,20.1,40
+22CSE092,7,Machine Learning,15.6,40
+22CSE092,7,Software Engg,18.3,40
+22IT092,7,Data Structures,29.7,40
+22IT092,7,Web Technologies,30.8,40
+22IT092,7,DBMS,34.4,40
+22IT092,7,Cloud Computing,29.3,40
+22IT092,7,Information Security,37.1,40
+22IT092,7,Software Engg,33.8,40
+22ECE092,7,Signals & Systems,21.6,40
+22ECE092,7,Digital Electronics,20.1,40
+22ECE092,7,Analog Circuits,27.3,40
+22ECE092,7,Microprocessors,24.2,40
+22ECE092,7,Communication Systems,20.0,40
+22ECE092,7,VLSI Design,25.2,40
+22MECH092,7,Thermodynamics,21.6,40
+22MECH092,7,Fluid Mechanics,20.9,40
+22MECH092,7,Machine Design,21.0,40
+22MECH092,7,Manufacturing Processes,17.6,40
+22MECH092,7,Heat Transfer,22.5,40
+22MECH092,7,CAD/CAM,23.6,40
+22CIVIL092,7,Structural Analysis,28.9,40
+22CIVIL092,7,Surveying,17.8,40
+22CIVIL092,7,Geotechnical Engg,17.2,40
+22CIVIL092,7,Fluid Mechanics,23.8,40
+22CIVIL092,7,Concrete Technology,23.0,40
+22CIVIL092,7,Transportation Engg,20.2,40
+22CSE093,7,Data Structures,26.7,40
+22CSE093,7,Operating Systems,29.6,40
+22CSE093,7,DBMS,24.3,40
+22CSE093,7,Computer Networks,26.7,40
+22CSE093,7,Machine Learning,28.4,40
+22CSE093,7,Software Engg,28.2,40
+22IT093,7,Data Structures,34.3,40
+22IT093,7,Web Technologies,36.6,40
+22IT093,7,DBMS,34.4,40
+22IT093,7,Cloud Computing,30.9,40
+22IT093,7,Information Security,38.4,40
+22IT093,7,Software Engg,40.0,40
+22ECE093,7,Signals & Systems,18.3,40
+22ECE093,7,Digital Electronics,17.8,40
+22ECE093,7,Analog Circuits,22.6,40
+22ECE093,7,Microprocessors,25.6,40
+22ECE093,7,Communication Systems,16.2,40
+22ECE093,7,VLSI Design,22.0,40
+22MECH093,7,Thermodynamics,20.6,40
+22MECH093,7,Fluid Mechanics,29.3,40
+22MECH093,7,Machine Design,31.2,40
+22MECH093,7,Manufacturing Processes,18.8,40
+22MECH093,7,Heat Transfer,34.9,40
+22MECH093,7,CAD/CAM,25.9,40
+22CIVIL093,7,Structural Analysis,24.8,40
+22CIVIL093,7,Surveying,20.1,40
+22CIVIL093,7,Geotechnical Engg,30.6,40
+22CIVIL093,7,Fluid Mechanics,22.7,40
+22CIVIL093,7,Concrete Technology,27.2,40
+22CIVIL093,7,Transportation Engg,29.3,40
+22CSE094,7,Data Structures,19.0,40
+22CSE094,7,Operating Systems,16.2,40
+22CSE094,7,DBMS,12.0,40
+22CSE094,7,Computer Networks,15.6,40
+22CSE094,7,Machine Learning,9.3,40
+22CSE094,7,Software Engg,23.1,40
+22IT094,7,Data Structures,26.9,40
+22IT094,7,Web Technologies,21.8,40
+22IT094,7,DBMS,24.3,40
+22IT094,7,Cloud Computing,18.3,40
+22IT094,7,Information Security,29.8,40
+22IT094,7,Software Engg,23.0,40
+22ECE094,7,Signals & Systems,27.5,40
+22ECE094,7,Digital Electronics,21.4,40
+22ECE094,7,Analog Circuits,17.7,40
+22ECE094,7,Microprocessors,21.5,40
+22ECE094,7,Communication Systems,20.4,40
+22ECE094,7,VLSI Design,19.5,40
+22MECH094,7,Thermodynamics,24.1,40
+22MECH094,7,Fluid Mechanics,13.4,40
+22MECH094,7,Machine Design,21.7,40
+22MECH094,7,Manufacturing Processes,13.5,40
+22MECH094,7,Heat Transfer,19.4,40
+22MECH094,7,CAD/CAM,17.3,40
+22CIVIL094,7,Structural Analysis,30.2,40
+22CIVIL094,7,Surveying,23.1,40
+22CIVIL094,7,Geotechnical Engg,29.5,40
+22CIVIL094,7,Fluid Mechanics,20.1,40
+22CIVIL094,7,Concrete Technology,22.9,40
+22CIVIL094,7,Transportation Engg,30.3,40
+22CSE095,7,Data Structures,21.1,40
+22CSE095,7,Operating Systems,29.3,40
+22CSE095,7,DBMS,26.0,40
+22CSE095,7,Computer Networks,23.3,40
+22CSE095,7,Machine Learning,26.8,40
+22CSE095,7,Software Engg,23.3,40
+22IT095,7,Data Structures,13.6,40
+22IT095,7,Web Technologies,14.1,40
+22IT095,7,DBMS,11.1,40
+22IT095,7,Cloud Computing,15.5,40
+22IT095,7,Information Security,13.7,40
+22IT095,7,Software Engg,11.9,40
+22ECE095,7,Signals & Systems,26.9,40
+22ECE095,7,Digital Electronics,23.7,40
+22ECE095,7,Analog Circuits,18.1,40
+22ECE095,7,Microprocessors,24.4,40
+22ECE095,7,Communication Systems,21.1,40
+22ECE095,7,VLSI Design,24.4,40
+22MECH095,7,Thermodynamics,31.4,40
+22MECH095,7,Fluid Mechanics,28.2,40
+22MECH095,7,Machine Design,26.9,40
+22MECH095,7,Manufacturing Processes,23.3,40
+22MECH095,7,Heat Transfer,23.2,40
+22MECH095,7,CAD/CAM,30.3,40
+22CIVIL095,7,Structural Analysis,13.3,40
+22CIVIL095,7,Surveying,17.0,40
+22CIVIL095,7,Geotechnical Engg,19.9,40
+22CIVIL095,7,Fluid Mechanics,15.7,40
+22CIVIL095,7,Concrete Technology,21.5,40
+22CIVIL095,7,Transportation Engg,16.1,40
+22CSE096,7,Data Structures,26.0,40
+22CSE096,7,Operating Systems,34.3,40
+22CSE096,7,DBMS,27.7,40
+22CSE096,7,Computer Networks,30.3,40
+22CSE096,7,Machine Learning,32.2,40
+22CSE096,7,Software Engg,30.9,40
+22IT096,7,Data Structures,32.2,40
+22IT096,7,Web Technologies,25.1,40
+22IT096,7,DBMS,30.4,40
+22IT096,7,Cloud Computing,29.8,40
+22IT096,7,Information Security,30.1,40
+22IT096,7,Software Engg,24.5,40
+22ECE096,7,Signals & Systems,15.4,40
+22ECE096,7,Digital Electronics,4.2,40
+22ECE096,7,Analog Circuits,17.2,40
+22ECE096,7,Microprocessors,10.4,40
+22ECE096,7,Communication Systems,5.3,40
+22ECE096,7,VLSI Design,8.7,40
+22MECH096,7,Thermodynamics,19.4,40
+22MECH096,7,Fluid Mechanics,4.1,40
+22MECH096,7,Machine Design,13.5,40
+22MECH096,7,Manufacturing Processes,14.7,40
+22MECH096,7,Heat Transfer,22.2,40
+22MECH096,7,CAD/CAM,13.0,40
+22CIVIL096,7,Structural Analysis,14.5,40
+22CIVIL096,7,Surveying,18.0,40
+22CIVIL096,7,Geotechnical Engg,13.7,40
+22CIVIL096,7,Fluid Mechanics,18.1,40
+22CIVIL096,7,Concrete Technology,22.8,40
+22CIVIL096,7,Transportation Engg,19.9,40
+22CSE097,7,Data Structures,30.9,40
+22CSE097,7,Operating Systems,29.7,40
+22CSE097,7,DBMS,25.0,40
+22CSE097,7,Computer Networks,30.6,40
+22CSE097,7,Machine Learning,30.3,40
+22CSE097,7,Software Engg,29.2,40
+22IT097,7,Data Structures,40.0,40
+22IT097,7,Web Technologies,35.4,40
+22IT097,7,DBMS,32.5,40
+22IT097,7,Cloud Computing,28.7,40
+22IT097,7,Information Security,34.2,40
+22IT097,7,Software Engg,29.7,40
+22ECE097,7,Signals & Systems,31.5,40
+22ECE097,7,Digital Electronics,33.3,40
+22ECE097,7,Analog Circuits,28.2,40
+22ECE097,7,Microprocessors,25.6,40
+22ECE097,7,Communication Systems,20.7,40
+22ECE097,7,VLSI Design,24.1,40
+22MECH097,7,Thermodynamics,24.5,40
+22MECH097,7,Fluid Mechanics,24.1,40
+22MECH097,7,Machine Design,22.4,40
+22MECH097,7,Manufacturing Processes,30.3,40
+22MECH097,7,Heat Transfer,22.3,40
+22MECH097,7,CAD/CAM,23.0,40
+22CIVIL097,7,Structural Analysis,24.8,40
+22CIVIL097,7,Surveying,21.5,40
+22CIVIL097,7,Geotechnical Engg,19.2,40
+22CIVIL097,7,Fluid Mechanics,22.8,40
+22CIVIL097,7,Concrete Technology,25.9,40
+22CIVIL097,7,Transportation Engg,27.8,40
+22CSE098,7,Data Structures,18.4,40
+22CSE098,7,Operating Systems,23.0,40
+22CSE098,7,DBMS,11.4,40
+22CSE098,7,Computer Networks,22.0,40
+22CSE098,7,Machine Learning,13.3,40
+22CSE098,7,Software Engg,19.1,40
+22IT098,7,Data Structures,21.5,40
+22IT098,7,Web Technologies,25.2,40
+22IT098,7,DBMS,28.9,40
+22IT098,7,Cloud Computing,19.9,40
+22IT098,7,Information Security,27.1,40
+22IT098,7,Software Engg,18.9,40
+22ECE098,7,Signals & Systems,21.1,40
+22ECE098,7,Digital Electronics,23.9,40
+22ECE098,7,Analog Circuits,10.8,40
+22ECE098,7,Microprocessors,21.7,40
+22ECE098,7,Communication Systems,19.1,40
+22ECE098,7,VLSI Design,25.4,40
+22MECH098,7,Thermodynamics,21.8,40
+22MECH098,7,Fluid Mechanics,22.3,40
+22MECH098,7,Machine Design,21.1,40
+22MECH098,7,Manufacturing Processes,24.8,40
+22MECH098,7,Heat Transfer,28.2,40
+22MECH098,7,CAD/CAM,18.8,40
+22CIVIL098,7,Structural Analysis,32.9,40
+22CIVIL098,7,Surveying,28.2,40
+22CIVIL098,7,Geotechnical Engg,32.3,40
+22CIVIL098,7,Fluid Mechanics,28.1,40
+22CIVIL098,7,Concrete Technology,31.9,40
+22CIVIL098,7,Transportation Engg,28.4,40
+22CSE099,7,Data Structures,19.8,40
+22CSE099,7,Operating Systems,17.7,40
+22CSE099,7,DBMS,24.4,40
+22CSE099,7,Computer Networks,18.4,40
+22CSE099,7,Machine Learning,25.8,40
+22CSE099,7,Software Engg,23.8,40
+22IT099,7,Data Structures,20.3,40
+22IT099,7,Web Technologies,16.2,40
+22IT099,7,DBMS,25.9,40
+22IT099,7,Cloud Computing,17.7,40
+22IT099,7,Information Security,29.5,40
+22IT099,7,Software Engg,23.5,40
+22ECE099,7,Signals & Systems,30.7,40
+22ECE099,7,Digital Electronics,28.5,40
+22ECE099,7,Analog Circuits,20.0,40
+22ECE099,7,Microprocessors,19.3,40
+22ECE099,7,Communication Systems,21.2,40
+22ECE099,7,VLSI Design,26.8,40
+22MECH099,7,Thermodynamics,16.7,40
+22MECH099,7,Fluid Mechanics,25.8,40
+22MECH099,7,Machine Design,26.1,40
+22MECH099,7,Manufacturing Processes,15.1,40
+22MECH099,7,Heat Transfer,17.2,40
+22MECH099,7,CAD/CAM,23.0,40
+22CIVIL099,7,Structural Analysis,33.9,40
+22CIVIL099,7,Surveying,28.1,40
+22CIVIL099,7,Geotechnical Engg,31.9,40
+22CIVIL099,7,Fluid Mechanics,30.8,40
+22CIVIL099,7,Concrete Technology,34.9,40
+22CIVIL099,7,Transportation Engg,26.8,40
+22CSE100,7,Data Structures,18.7,40
+22CSE100,7,Operating Systems,23.2,40
+22CSE100,7,DBMS,28.1,40
+22CSE100,7,Computer Networks,17.9,40
+22CSE100,7,Machine Learning,15.3,40
+22CSE100,7,Software Engg,18.9,40
+22IT100,7,Data Structures,25.3,40
+22IT100,7,Web Technologies,27.0,40
+22IT100,7,DBMS,24.1,40
+22IT100,7,Cloud Computing,18.8,40
+22IT100,7,Information Security,18.4,40
+22IT100,7,Software Engg,21.3,40
+22ECE100,7,Signals & Systems,24.9,40
+22ECE100,7,Digital Electronics,23.3,40
+22ECE100,7,Analog Circuits,25.3,40
+22ECE100,7,Microprocessors,21.2,40
+22ECE100,7,Communication Systems,26.0,40
+22ECE100,7,VLSI Design,29.5,40
+22MECH100,7,Thermodynamics,29.4,40
+22MECH100,7,Fluid Mechanics,37.5,40
+22MECH100,7,Machine Design,40.0,40
+22MECH100,7,Manufacturing Processes,37.6,40
+22MECH100,7,Heat Transfer,29.5,40
+22MECH100,7,CAD/CAM,35.2,40
+22CIVIL100,7,Structural Analysis,17.0,40
+22CIVIL100,7,Surveying,18.6,40
+22CIVIL100,7,Geotechnical Engg,18.7,40
+22CIVIL100,7,Fluid Mechanics,9.1,40
+22CIVIL100,7,Concrete Technology,11.6,40
+22CIVIL100,7,Transportation Engg,24.9,40
+22CSE101,7,Data Structures,28.2,40
+22CSE101,7,Operating Systems,38.2,40
+22CSE101,7,DBMS,36.8,40
+22CSE101,7,Computer Networks,40.0,40
+22CSE101,7,Machine Learning,40.0,40
+22CSE101,7,Software Engg,40.0,40
+22IT101,7,Data Structures,35.1,40
+22IT101,7,Web Technologies,33.8,40
+22IT101,7,DBMS,27.6,40
+22IT101,7,Cloud Computing,29.6,40
+22IT101,7,Information Security,34.2,40
+22IT101,7,Software Engg,39.2,40
+22ECE101,7,Signals & Systems,29.9,40
+22ECE101,7,Digital Electronics,35.8,40
+22ECE101,7,Analog Circuits,33.9,40
+22ECE101,7,Microprocessors,34.0,40
+22ECE101,7,Communication Systems,39.0,40
+22ECE101,7,VLSI Design,38.0,40
+22MECH101,7,Thermodynamics,36.7,40
+22MECH101,7,Fluid Mechanics,40.0,40
+22MECH101,7,Machine Design,33.1,40
+22MECH101,7,Manufacturing Processes,30.4,40
+22MECH101,7,Heat Transfer,35.5,40
+22MECH101,7,CAD/CAM,33.5,40
+22CIVIL101,7,Structural Analysis,24.7,40
+22CIVIL101,7,Surveying,25.3,40
+22CIVIL101,7,Geotechnical Engg,26.4,40
+22CIVIL101,7,Fluid Mechanics,17.5,40
+22CIVIL101,7,Concrete Technology,33.1,40
+22CIVIL101,7,Transportation Engg,23.1,40
+22CSE102,7,Data Structures,12.9,40
+22CSE102,7,Operating Systems,20.7,40
+22CSE102,7,DBMS,18.4,40
+22CSE102,7,Computer Networks,19.9,40
+22CSE102,7,Machine Learning,25.2,40
+22CSE102,7,Software Engg,18.3,40
+22IT102,7,Data Structures,21.5,40
+22IT102,7,Web Technologies,18.7,40
+22IT102,7,DBMS,17.2,40
+22IT102,7,Cloud Computing,25.0,40
+22IT102,7,Information Security,18.2,40
+22IT102,7,Software Engg,24.0,40
+22ECE102,7,Signals & Systems,32.6,40
+22ECE102,7,Digital Electronics,23.3,40
+22ECE102,7,Analog Circuits,23.8,40
+22ECE102,7,Microprocessors,21.5,40
+22ECE102,7,Communication Systems,21.1,40
+22ECE102,7,VLSI Design,17.9,40
+22MECH102,7,Thermodynamics,30.9,40
+22MECH102,7,Fluid Mechanics,34.3,40
+22MECH102,7,Machine Design,30.1,40
+22MECH102,7,Manufacturing Processes,36.7,40
+22MECH102,7,Heat Transfer,36.7,40
+22MECH102,7,CAD/CAM,36.8,40
+22CIVIL102,7,Structural Analysis,27.8,40
+22CIVIL102,7,Surveying,24.6,40
+22CIVIL102,7,Geotechnical Engg,17.7,40
+22CIVIL102,7,Fluid Mechanics,32.7,40
+22CIVIL102,7,Concrete Technology,22.4,40
+22CIVIL102,7,Transportation Engg,23.1,40
+22CSE103,7,Data Structures,30.6,40
+22CSE103,7,Operating Systems,33.5,40
+22CSE103,7,DBMS,29.6,40
+22CSE103,7,Computer Networks,25.7,40
+22CSE103,7,Machine Learning,22.2,40
+22CSE103,7,Software Engg,23.4,40
+22IT103,7,Data Structures,23.3,40
+22IT103,7,Web Technologies,20.0,40
+22IT103,7,DBMS,21.7,40
+22IT103,7,Cloud Computing,17.7,40
+22IT103,7,Information Security,15.9,40
+22IT103,7,Software Engg,31.1,40
+22ECE103,7,Signals & Systems,28.2,40
+22ECE103,7,Digital Electronics,24.1,40
+22ECE103,7,Analog Circuits,20.9,40
+22ECE103,7,Microprocessors,23.1,40
+22ECE103,7,Communication Systems,14.8,40
+22ECE103,7,VLSI Design,26.8,40
+22MECH103,7,Thermodynamics,25.3,40
+22MECH103,7,Fluid Mechanics,25.5,40
+22MECH103,7,Machine Design,24.0,40
+22MECH103,7,Manufacturing Processes,25.1,40
+22MECH103,7,Heat Transfer,21.9,40
+22MECH103,7,CAD/CAM,22.8,40
+22CIVIL103,7,Structural Analysis,31.7,40
+22CIVIL103,7,Surveying,32.9,40
+22CIVIL103,7,Geotechnical Engg,29.9,40
+22CIVIL103,7,Fluid Mechanics,33.4,40
+22CIVIL103,7,Concrete Technology,37.1,40
+22CIVIL103,7,Transportation Engg,30.3,40
+22CSE104,7,Data Structures,17.8,40
+22CSE104,7,Operating Systems,16.9,40
+22CSE104,7,DBMS,23.4,40
+22CSE104,7,Computer Networks,25.5,40
+22CSE104,7,Machine Learning,24.6,40
+22CSE104,7,Software Engg,23.7,40
+22IT104,7,Data Structures,40.0,40
+22IT104,7,Web Technologies,32.3,40
+22IT104,7,DBMS,32.0,40
+22IT104,7,Cloud Computing,33.8,40
+22IT104,7,Information Security,26.8,40
+22IT104,7,Software Engg,31.9,40
+22ECE104,7,Signals & Systems,24.2,40
+22ECE104,7,Digital Electronics,31.9,40
+22ECE104,7,Analog Circuits,26.5,40
+22ECE104,7,Microprocessors,36.1,40
+22ECE104,7,Communication Systems,36.8,40
+22ECE104,7,VLSI Design,30.2,40
+22MECH104,7,Thermodynamics,15.3,40
+22MECH104,7,Fluid Mechanics,17.4,40
+22MECH104,7,Machine Design,19.1,40
+22MECH104,7,Manufacturing Processes,15.3,40
+22MECH104,7,Heat Transfer,12.6,40
+22MECH104,7,CAD/CAM,21.2,40
+22CIVIL104,7,Structural Analysis,40.0,40
+22CIVIL104,7,Surveying,30.7,40
+22CIVIL104,7,Geotechnical Engg,31.1,40
+22CIVIL104,7,Fluid Mechanics,40.0,40
+22CIVIL104,7,Concrete Technology,32.2,40
+22CIVIL104,7,Transportation Engg,27.1,40
+22CSE105,7,Data Structures,19.3,40
+22CSE105,7,Operating Systems,29.0,40
+22CSE105,7,DBMS,24.9,40
+22CSE105,7,Computer Networks,18.8,40
+22CSE105,7,Machine Learning,25.0,40
+22CSE105,7,Software Engg,18.3,40
+22IT105,7,Data Structures,20.0,40
+22IT105,7,Web Technologies,21.2,40
+22IT105,7,DBMS,21.6,40
+22IT105,7,Cloud Computing,15.4,40
+22IT105,7,Information Security,22.4,40
+22IT105,7,Software Engg,14.1,40
+22ECE105,7,Signals & Systems,6.6,40
+22ECE105,7,Digital Electronics,17.4,40
+22ECE105,7,Analog Circuits,13.5,40
+22ECE105,7,Microprocessors,15.8,40
+22ECE105,7,Communication Systems,8.2,40
+22ECE105,7,VLSI Design,8.8,40
+22MECH105,7,Thermodynamics,26.5,40
+22MECH105,7,Fluid Mechanics,31.7,40
+22MECH105,7,Machine Design,32.3,40
+22MECH105,7,Manufacturing Processes,28.0,40
+22MECH105,7,Heat Transfer,28.8,40
+22MECH105,7,CAD/CAM,27.1,40
+22CIVIL105,7,Structural Analysis,29.5,40
+22CIVIL105,7,Surveying,27.9,40
+22CIVIL105,7,Geotechnical Engg,26.7,40
+22CIVIL105,7,Fluid Mechanics,26.8,40
+22CIVIL105,7,Concrete Technology,27.6,40
+22CIVIL105,7,Transportation Engg,26.3,40
+22CSE106,7,Data Structures,21.8,40
+22CSE106,7,Operating Systems,21.5,40
+22CSE106,7,DBMS,18.8,40
+22CSE106,7,Computer Networks,25.4,40
+22CSE106,7,Machine Learning,22.9,40
+22CSE106,7,Software Engg,22.7,40
+22IT106,7,Data Structures,29.3,40
+22IT106,7,Web Technologies,20.9,40
+22IT106,7,DBMS,26.2,40
+22IT106,7,Cloud Computing,26.7,40
+22IT106,7,Information Security,23.2,40
+22IT106,7,Software Engg,24.9,40
+22ECE106,7,Signals & Systems,28.7,40
+22ECE106,7,Digital Electronics,26.0,40
+22ECE106,7,Analog Circuits,23.7,40
+22ECE106,7,Microprocessors,33.7,40
+22ECE106,7,Communication Systems,26.1,40
+22ECE106,7,VLSI Design,29.8,40
+22MECH106,7,Thermodynamics,23.8,40
+22MECH106,7,Fluid Mechanics,19.1,40
+22MECH106,7,Machine Design,21.0,40
+22MECH106,7,Manufacturing Processes,20.6,40
+22MECH106,7,Heat Transfer,24.8,40
+22MECH106,7,CAD/CAM,26.7,40
+22CIVIL106,7,Structural Analysis,31.3,40
+22CIVIL106,7,Surveying,25.5,40
+22CIVIL106,7,Geotechnical Engg,28.8,40
+22CIVIL106,7,Fluid Mechanics,22.5,40
+22CIVIL106,7,Concrete Technology,26.3,40
+22CIVIL106,7,Transportation Engg,28.1,40
+22CSE107,7,Data Structures,34.3,40
+22CSE107,7,Operating Systems,38.2,40
+22CSE107,7,DBMS,38.7,40
+22CSE107,7,Computer Networks,37.7,40
+22CSE107,7,Machine Learning,34.5,40
+22CSE107,7,Software Engg,37.7,40
+22IT107,7,Data Structures,29.4,40
+22IT107,7,Web Technologies,32.3,40
+22IT107,7,DBMS,24.5,40
+22IT107,7,Cloud Computing,32.0,40
+22IT107,7,Information Security,24.1,40
+22IT107,7,Software Engg,30.0,40
+22ECE107,7,Signals & Systems,28.3,40
+22ECE107,7,Digital Electronics,22.7,40
+22ECE107,7,Analog Circuits,30.3,40
+22ECE107,7,Microprocessors,27.3,40
+22ECE107,7,Communication Systems,29.9,40
+22ECE107,7,VLSI Design,29.4,40
+22MECH107,7,Thermodynamics,19.3,40
+22MECH107,7,Fluid Mechanics,30.4,40
+22MECH107,7,Machine Design,27.6,40
+22MECH107,7,Manufacturing Processes,24.4,40
+22MECH107,7,Heat Transfer,28.7,40
+22MECH107,7,CAD/CAM,20.9,40
+22CIVIL107,7,Structural Analysis,35.2,40
+22CIVIL107,7,Surveying,33.7,40
+22CIVIL107,7,Geotechnical Engg,29.7,40
+22CIVIL107,7,Fluid Mechanics,37.7,40
+22CIVIL107,7,Concrete Technology,35.9,40
+22CIVIL107,7,Transportation Engg,40.0,40
+22CSE108,7,Data Structures,29.3,40
+22CSE108,7,Operating Systems,8.5,40
+22CSE108,7,DBMS,10.1,40
+22CSE108,7,Computer Networks,19.8,40
+22CSE108,7,Machine Learning,22.4,40
+22CSE108,7,Software Engg,15.5,40
+22IT108,7,Data Structures,12.4,40
+22IT108,7,Web Technologies,10.6,40
+22IT108,7,DBMS,12.0,40
+22IT108,7,Cloud Computing,19.0,40
+22IT108,7,Information Security,13.2,40
+22IT108,7,Software Engg,6.8,40
+22ECE108,7,Signals & Systems,22.2,40
+22ECE108,7,Digital Electronics,28.3,40
+22ECE108,7,Analog Circuits,28.6,40
+22ECE108,7,Microprocessors,20.5,40
+22ECE108,7,Communication Systems,26.1,40
+22ECE108,7,VLSI Design,28.0,40
+22MECH108,7,Thermodynamics,21.5,40
+22MECH108,7,Fluid Mechanics,25.6,40
+22MECH108,7,Machine Design,20.1,40
+22MECH108,7,Manufacturing Processes,26.6,40
+22MECH108,7,Heat Transfer,28.9,40
+22MECH108,7,CAD/CAM,19.3,40
+22CIVIL108,7,Structural Analysis,31.1,40
+22CIVIL108,7,Surveying,20.8,40
+22CIVIL108,7,Geotechnical Engg,27.6,40
+22CIVIL108,7,Fluid Mechanics,23.6,40
+22CIVIL108,7,Concrete Technology,28.2,40
+22CIVIL108,7,Transportation Engg,29.9,40
+22CSE109,7,Data Structures,25.3,40
+22CSE109,7,Operating Systems,17.1,40
+22CSE109,7,DBMS,17.3,40
+22CSE109,7,Computer Networks,17.8,40
+22CSE109,7,Machine Learning,25.8,40
+22CSE109,7,Software Engg,15.4,40
+22IT109,7,Data Structures,33.9,40
+22IT109,7,Web Technologies,29.6,40
+22IT109,7,DBMS,33.7,40
+22IT109,7,Cloud Computing,30.6,40
+22IT109,7,Information Security,21.2,40
+22IT109,7,Software Engg,34.6,40
+22ECE109,7,Signals & Systems,35.5,40
+22ECE109,7,Digital Electronics,31.1,40
+22ECE109,7,Analog Circuits,32.2,40
+22ECE109,7,Microprocessors,35.6,40
+22ECE109,7,Communication Systems,32.0,40
+22ECE109,7,VLSI Design,30.3,40
+22MECH109,7,Thermodynamics,28.9,40
+22MECH109,7,Fluid Mechanics,25.7,40
+22MECH109,7,Machine Design,27.9,40
+22MECH109,7,Manufacturing Processes,28.6,40
+22MECH109,7,Heat Transfer,33.5,40
+22MECH109,7,CAD/CAM,31.7,40
+22CIVIL109,7,Structural Analysis,12.3,40
+22CIVIL109,7,Surveying,24.2,40
+22CIVIL109,7,Geotechnical Engg,19.2,40
+22CIVIL109,7,Fluid Mechanics,16.2,40
+22CIVIL109,7,Concrete Technology,17.4,40
+22CIVIL109,7,Transportation Engg,13.4,40
+22CSE110,7,Data Structures,25.6,40
+22CSE110,7,Operating Systems,23.5,40
+22CSE110,7,DBMS,25.3,40
+22CSE110,7,Computer Networks,23.6,40
+22CSE110,7,Machine Learning,18.8,40
+22CSE110,7,Software Engg,22.3,40
+22IT110,7,Data Structures,25.4,40
+22IT110,7,Web Technologies,20.2,40
+22IT110,7,DBMS,19.7,40
+22IT110,7,Cloud Computing,15.4,40
+22IT110,7,Information Security,15.8,40
+22IT110,7,Software Engg,26.3,40
+22ECE110,7,Signals & Systems,32.0,40
+22ECE110,7,Digital Electronics,25.2,40
+22ECE110,7,Analog Circuits,24.4,40
+22ECE110,7,Microprocessors,23.2,40
+22ECE110,7,Communication Systems,24.5,40
+22ECE110,7,VLSI Design,17.9,40
+22MECH110,7,Thermodynamics,26.4,40
+22MECH110,7,Fluid Mechanics,23.5,40
+22MECH110,7,Machine Design,22.2,40
+22MECH110,7,Manufacturing Processes,20.8,40
+22MECH110,7,Heat Transfer,23.5,40
+22MECH110,7,CAD/CAM,23.4,40
+22CIVIL110,7,Structural Analysis,19.2,40
+22CIVIL110,7,Surveying,32.0,40
+22CIVIL110,7,Geotechnical Engg,17.4,40
+22CIVIL110,7,Fluid Mechanics,23.6,40
+22CIVIL110,7,Concrete Technology,12.3,40
+22CIVIL110,7,Transportation Engg,24.2,40
+22CSE111,7,Data Structures,21.4,40
+22CSE111,7,Operating Systems,20.9,40
+22CSE111,7,DBMS,26.2,40
+22CSE111,7,Computer Networks,24.5,40
+22CSE111,7,Machine Learning,27.8,40
+22CSE111,7,Software Engg,14.7,40
+22IT111,7,Data Structures,26.6,40
+22IT111,7,Web Technologies,16.7,40
+22IT111,7,DBMS,32.1,40
+22IT111,7,Cloud Computing,18.2,40
+22IT111,7,Information Security,29.6,40
+22IT111,7,Software Engg,26.6,40
+22ECE111,7,Signals & Systems,32.3,40
+22ECE111,7,Digital Electronics,24.3,40
+22ECE111,7,Analog Circuits,34.8,40
+22ECE111,7,Microprocessors,31.9,40
+22ECE111,7,Communication Systems,25.5,40
+22ECE111,7,VLSI Design,30.4,40
+22MECH111,7,Thermodynamics,32.7,40
+22MECH111,7,Fluid Mechanics,32.3,40
+22MECH111,7,Machine Design,28.7,40
+22MECH111,7,Manufacturing Processes,26.2,40
+22MECH111,7,Heat Transfer,36.3,40
+22MECH111,7,CAD/CAM,31.1,40
+22CIVIL111,7,Structural Analysis,19.8,40
+22CIVIL111,7,Surveying,17.9,40
+22CIVIL111,7,Geotechnical Engg,29.1,40
+22CIVIL111,7,Fluid Mechanics,14.0,40
+22CIVIL111,7,Concrete Technology,23.3,40
+22CIVIL111,7,Transportation Engg,15.7,40
+22CSE112,7,Data Structures,15.9,40
+22CSE112,7,Operating Systems,13.9,40
+22CSE112,7,DBMS,10.6,40
+22CSE112,7,Computer Networks,9.7,40
+22CSE112,7,Machine Learning,10.6,40
+22CSE112,7,Software Engg,11.5,40
+22IT112,7,Data Structures,35.7,40
+22IT112,7,Web Technologies,32.4,40
+22IT112,7,DBMS,32.7,40
+22IT112,7,Cloud Computing,34.8,40
+22IT112,7,Information Security,28.5,40
+22IT112,7,Software Engg,37.0,40
+22ECE112,7,Signals & Systems,29.5,40
+22ECE112,7,Digital Electronics,20.7,40
+22ECE112,7,Analog Circuits,24.3,40
+22ECE112,7,Microprocessors,27.1,40
+22ECE112,7,Communication Systems,22.6,40
+22ECE112,7,VLSI Design,27.5,40
+22MECH112,7,Thermodynamics,39.3,40
+22MECH112,7,Fluid Mechanics,27.3,40
+22MECH112,7,Machine Design,21.3,40
+22MECH112,7,Manufacturing Processes,21.2,40
+22MECH112,7,Heat Transfer,36.5,40
+22MECH112,7,CAD/CAM,20.7,40
+22CIVIL112,7,Structural Analysis,22.1,40
+22CIVIL112,7,Surveying,23.8,40
+22CIVIL112,7,Geotechnical Engg,30.9,40
+22CIVIL112,7,Fluid Mechanics,29.7,40
+22CIVIL112,7,Concrete Technology,18.8,40
+22CIVIL112,7,Transportation Engg,25.5,40
+22CSE113,7,Data Structures,27.1,40
+22CSE113,7,Operating Systems,27.2,40
+22CSE113,7,DBMS,25.0,40
+22CSE113,7,Computer Networks,28.8,40
+22CSE113,7,Machine Learning,26.9,40
+22CSE113,7,Software Engg,19.6,40
+22IT113,7,Data Structures,19.2,40
+22IT113,7,Web Technologies,19.7,40
+22IT113,7,DBMS,20.0,40
+22IT113,7,Cloud Computing,15.1,40
+22IT113,7,Information Security,19.3,40
+22IT113,7,Software Engg,15.6,40
+22ECE113,7,Signals & Systems,15.4,40
+22ECE113,7,Digital Electronics,22.9,40
+22ECE113,7,Analog Circuits,24.7,40
+22ECE113,7,Microprocessors,24.0,40
+22ECE113,7,Communication Systems,31.6,40
+22ECE113,7,VLSI Design,31.9,40
+22MECH113,7,Thermodynamics,30.6,40
+22MECH113,7,Fluid Mechanics,25.3,40
+22MECH113,7,Machine Design,26.4,40
+22MECH113,7,Manufacturing Processes,21.8,40
+22MECH113,7,Heat Transfer,22.8,40
+22MECH113,7,CAD/CAM,21.2,40
+22CIVIL113,7,Structural Analysis,38.5,40
+22CIVIL113,7,Surveying,33.5,40
+22CIVIL113,7,Geotechnical Engg,39.5,40
+22CIVIL113,7,Fluid Mechanics,35.3,40
+22CIVIL113,7,Concrete Technology,39.5,40
+22CIVIL113,7,Transportation Engg,36.5,40
+22CSE114,7,Data Structures,27.8,40
+22CSE114,7,Operating Systems,21.9,40
+22CSE114,7,DBMS,17.3,40
+22CSE114,7,Computer Networks,26.3,40
+22CSE114,7,Machine Learning,26.4,40
+22CSE114,7,Software Engg,24.1,40
+22IT114,7,Data Structures,31.7,40
+22IT114,7,Web Technologies,26.2,40
+22IT114,7,DBMS,24.5,40
+22IT114,7,Cloud Computing,31.2,40
+22IT114,7,Information Security,19.3,40
+22IT114,7,Software Engg,32.0,40
+22ECE114,7,Signals & Systems,19.1,40
+22ECE114,7,Digital Electronics,18.6,40
+22ECE114,7,Analog Circuits,25.0,40
+22ECE114,7,Microprocessors,27.0,40
+22ECE114,7,Communication Systems,16.6,40
+22ECE114,7,VLSI Design,12.7,40
+22MECH114,7,Thermodynamics,40.0,40
+22MECH114,7,Fluid Mechanics,39.4,40
+22MECH114,7,Machine Design,40.0,40
+22MECH114,7,Manufacturing Processes,36.3,40
+22MECH114,7,Heat Transfer,36.3,40
+22MECH114,7,CAD/CAM,40.0,40
+22CIVIL114,7,Structural Analysis,24.4,40
+22CIVIL114,7,Surveying,31.1,40
+22CIVIL114,7,Geotechnical Engg,31.1,40
+22CIVIL114,7,Fluid Mechanics,33.6,40
+22CIVIL114,7,Concrete Technology,33.2,40
+22CIVIL114,7,Transportation Engg,34.8,40
+22CSE115,7,Data Structures,27.2,40
+22CSE115,7,Operating Systems,34.2,40
+22CSE115,7,DBMS,37.4,40
+22CSE115,7,Computer Networks,31.7,40
+22CSE115,7,Machine Learning,32.6,40
+22CSE115,7,Software Engg,34.0,40
+22IT115,7,Data Structures,28.5,40
+22IT115,7,Web Technologies,20.9,40
+22IT115,7,DBMS,24.5,40
+22IT115,7,Cloud Computing,25.7,40
+22IT115,7,Information Security,26.3,40
+22IT115,7,Software Engg,22.4,40
+22ECE115,7,Signals & Systems,28.4,40
+22ECE115,7,Digital Electronics,32.3,40
+22ECE115,7,Analog Circuits,30.3,40
+22ECE115,7,Microprocessors,40.0,40
+22ECE115,7,Communication Systems,33.5,40
+22ECE115,7,VLSI Design,29.1,40
+22MECH115,7,Thermodynamics,19.2,40
+22MECH115,7,Fluid Mechanics,17.4,40
+22MECH115,7,Machine Design,19.1,40
+22MECH115,7,Manufacturing Processes,21.6,40
+22MECH115,7,Heat Transfer,26.2,40
+22MECH115,7,CAD/CAM,28.3,40
+22CIVIL115,7,Structural Analysis,17.2,40
+22CIVIL115,7,Surveying,15.2,40
+22CIVIL115,7,Geotechnical Engg,16.3,40
+22CIVIL115,7,Fluid Mechanics,15.7,40
+22CIVIL115,7,Concrete Technology,19.6,40
+22CIVIL115,7,Transportation Engg,18.0,40
+22CSE116,7,Data Structures,32.6,40
+22CSE116,7,Operating Systems,27.9,40
+22CSE116,7,DBMS,29.4,40
+22CSE116,7,Computer Networks,28.8,40
+22CSE116,7,Machine Learning,23.2,40
+22CSE116,7,Software Engg,34.2,40
+22IT116,7,Data Structures,23.6,40
+22IT116,7,Web Technologies,17.8,40
+22IT116,7,DBMS,20.8,40
+22IT116,7,Cloud Computing,24.3,40
+22IT116,7,Information Security,22.7,40
+22IT116,7,Software Engg,20.3,40
+22ECE116,7,Signals & Systems,20.6,40
+22ECE116,7,Digital Electronics,26.7,40
+22ECE116,7,Analog Circuits,28.6,40
+22ECE116,7,Microprocessors,24.1,40
+22ECE116,7,Communication Systems,26.0,40
+22ECE116,7,VLSI Design,20.3,40
+22MECH116,7,Thermodynamics,24.7,40
+22MECH116,7,Fluid Mechanics,26.6,40
+22MECH116,7,Machine Design,31.1,40
+22MECH116,7,Manufacturing Processes,29.3,40
+22MECH116,7,Heat Transfer,23.0,40
+22MECH116,7,CAD/CAM,20.1,40
+22CIVIL116,7,Structural Analysis,18.2,40
+22CIVIL116,7,Surveying,23.7,40
+22CIVIL116,7,Geotechnical Engg,19.7,40
+22CIVIL116,7,Fluid Mechanics,23.9,40
+22CIVIL116,7,Concrete Technology,18.1,40
+22CIVIL116,7,Transportation Engg,27.1,40
+22CSE117,7,Data Structures,16.9,40
+22CSE117,7,Operating Systems,17.9,40
+22CSE117,7,DBMS,24.2,40
+22CSE117,7,Computer Networks,20.3,40
+22CSE117,7,Machine Learning,21.8,40
+22CSE117,7,Software Engg,12.1,40
+22IT117,7,Data Structures,16.6,40
+22IT117,7,Web Technologies,24.5,40
+22IT117,7,DBMS,22.4,40
+22IT117,7,Cloud Computing,17.2,40
+22IT117,7,Information Security,17.5,40
+22IT117,7,Software Engg,17.8,40
+22ECE117,7,Signals & Systems,28.0,40
+22ECE117,7,Digital Electronics,37.6,40
+22ECE117,7,Analog Circuits,27.9,40
+22ECE117,7,Microprocessors,27.6,40
+22ECE117,7,Communication Systems,27.1,40
+22ECE117,7,VLSI Design,30.9,40
+22MECH117,7,Thermodynamics,17.9,40
+22MECH117,7,Fluid Mechanics,21.6,40
+22MECH117,7,Machine Design,23.0,40
+22MECH117,7,Manufacturing Processes,17.9,40
+22MECH117,7,Heat Transfer,18.6,40
+22MECH117,7,CAD/CAM,20.2,40
+22CIVIL117,7,Structural Analysis,20.8,40
+22CIVIL117,7,Surveying,21.4,40
+22CIVIL117,7,Geotechnical Engg,24.7,40
+22CIVIL117,7,Fluid Mechanics,24.2,40
+22CIVIL117,7,Concrete Technology,21.4,40
+22CIVIL117,7,Transportation Engg,15.2,40
+22CSE118,7,Data Structures,4.6,40
+22CSE118,7,Operating Systems,15.2,40
+22CSE118,7,DBMS,13.5,40
+22CSE118,7,Computer Networks,17.5,40
+22CSE118,7,Machine Learning,14.5,40
+22CSE118,7,Software Engg,13.7,40
+22IT118,7,Data Structures,23.3,40
+22IT118,7,Web Technologies,12.5,40
+22IT118,7,DBMS,19.5,40
+22IT118,7,Cloud Computing,25.3,40
+22IT118,7,Information Security,22.7,40
+22IT118,7,Software Engg,18.8,40
+22ECE118,7,Signals & Systems,22.4,40
+22ECE118,7,Digital Electronics,24.0,40
+22ECE118,7,Analog Circuits,19.6,40
+22ECE118,7,Microprocessors,26.9,40
+22ECE118,7,Communication Systems,26.9,40
+22ECE118,7,VLSI Design,17.1,40
+22MECH118,7,Thermodynamics,15.3,40
+22MECH118,7,Fluid Mechanics,22.6,40
+22MECH118,7,Machine Design,24.4,40
+22MECH118,7,Manufacturing Processes,15.1,40
+22MECH118,7,Heat Transfer,19.9,40
+22MECH118,7,CAD/CAM,9.6,40
+22CIVIL118,7,Structural Analysis,15.7,40
+22CIVIL118,7,Surveying,19.2,40
+22CIVIL118,7,Geotechnical Engg,26.0,40
+22CIVIL118,7,Fluid Mechanics,20.8,40
+22CIVIL118,7,Concrete Technology,24.3,40
+22CIVIL118,7,Transportation Engg,15.1,40
+22CSE119,7,Data Structures,26.9,40
+22CSE119,7,Operating Systems,16.1,40
+22CSE119,7,DBMS,16.6,40
+22CSE119,7,Computer Networks,9.6,40
+22CSE119,7,Machine Learning,12.8,40
+22CSE119,7,Software Engg,12.1,40
+22IT119,7,Data Structures,17.2,40
+22IT119,7,Web Technologies,14.4,40
+22IT119,7,DBMS,17.9,40
+22IT119,7,Cloud Computing,16.5,40
+22IT119,7,Information Security,12.7,40
+22IT119,7,Software Engg,12.8,40
+22ECE119,7,Signals & Systems,23.9,40
+22ECE119,7,Digital Electronics,23.6,40
+22ECE119,7,Analog Circuits,25.5,40
+22ECE119,7,Microprocessors,24.5,40
+22ECE119,7,Communication Systems,22.4,40
+22ECE119,7,VLSI Design,21.2,40
+22MECH119,7,Thermodynamics,27.2,40
+22MECH119,7,Fluid Mechanics,26.0,40
+22MECH119,7,Machine Design,13.9,40
+22MECH119,7,Manufacturing Processes,15.0,40
+22MECH119,7,Heat Transfer,14.4,40
+22MECH119,7,CAD/CAM,24.0,40
+22CIVIL119,7,Structural Analysis,26.7,40
+22CIVIL119,7,Surveying,24.7,40
+22CIVIL119,7,Geotechnical Engg,23.3,40
+22CIVIL119,7,Fluid Mechanics,28.8,40
+22CIVIL119,7,Concrete Technology,20.9,40
+22CIVIL119,7,Transportation Engg,21.6,40
+22CSE120,7,Data Structures,18.1,40
+22CSE120,7,Operating Systems,23.5,40
+22CSE120,7,DBMS,20.0,40
+22CSE120,7,Computer Networks,16.8,40
+22CSE120,7,Machine Learning,22.4,40
+22CSE120,7,Software Engg,19.3,40
+22IT120,7,Data Structures,29.6,40
+22IT120,7,Web Technologies,28.8,40
+22IT120,7,DBMS,29.3,40
+22IT120,7,Cloud Computing,27.9,40
+22IT120,7,Information Security,30.3,40
+22IT120,7,Software Engg,27.0,40
+22ECE120,7,Signals & Systems,30.8,40
+22ECE120,7,Digital Electronics,18.7,40
+22ECE120,7,Analog Circuits,31.4,40
+22ECE120,7,Microprocessors,35.7,40
+22ECE120,7,Communication Systems,25.0,40
+22ECE120,7,VLSI Design,34.0,40
+22MECH120,7,Thermodynamics,20.9,40
+22MECH120,7,Fluid Mechanics,11.4,40
+22MECH120,7,Machine Design,24.5,40
+22MECH120,7,Manufacturing Processes,23.2,40
+22MECH120,7,Heat Transfer,17.6,40
+22MECH120,7,CAD/CAM,18.9,40
+22CIVIL120,7,Structural Analysis,38.3,40
+22CIVIL120,7,Surveying,35.8,40
+22CIVIL120,7,Geotechnical Engg,29.5,40
+22CIVIL120,7,Fluid Mechanics,33.4,40
+22CIVIL120,7,Concrete Technology,36.7,40
+22CIVIL120,7,Transportation Engg,31.6,40
+22CSE121,7,Data Structures,26.7,40
+22CSE121,7,Operating Systems,32.2,40
+22CSE121,7,DBMS,29.5,40
+22CSE121,7,Computer Networks,20.7,40
+22CSE121,7,Machine Learning,25.1,40
+22CSE121,7,Software Engg,33.4,40
+22IT121,7,Data Structures,19.2,40
+22IT121,7,Web Technologies,26.4,40
+22IT121,7,DBMS,27.9,40
+22IT121,7,Cloud Computing,17.2,40
+22IT121,7,Information Security,17.6,40
+22IT121,7,Software Engg,20.4,40
+22ECE121,7,Signals & Systems,19.9,40
+22ECE121,7,Digital Electronics,20.4,40
+22ECE121,7,Analog Circuits,16.0,40
+22ECE121,7,Microprocessors,20.6,40
+22ECE121,7,Communication Systems,17.3,40
+22ECE121,7,VLSI Design,23.6,40
+22MECH121,7,Thermodynamics,35.3,40
+22MECH121,7,Fluid Mechanics,26.0,40
+22MECH121,7,Machine Design,37.3,40
+22MECH121,7,Manufacturing Processes,28.8,40
+22MECH121,7,Heat Transfer,28.5,40
+22MECH121,7,CAD/CAM,25.1,40
+22CIVIL121,7,Structural Analysis,20.5,40
+22CIVIL121,7,Surveying,22.9,40
+22CIVIL121,7,Geotechnical Engg,13.3,40
+22CIVIL121,7,Fluid Mechanics,13.3,40
+22CIVIL121,7,Concrete Technology,21.1,40
+22CIVIL121,7,Transportation Engg,15.3,40
+22CSE122,7,Data Structures,26.9,40
+22CSE122,7,Operating Systems,26.9,40
+22CSE122,7,DBMS,27.5,40
+22CSE122,7,Computer Networks,28.3,40
+22CSE122,7,Machine Learning,34.6,40
+22CSE122,7,Software Engg,28.0,40
+22IT122,7,Data Structures,25.3,40
+22IT122,7,Web Technologies,16.2,40
+22IT122,7,DBMS,29.3,40
+22IT122,7,Cloud Computing,20.8,40
+22IT122,7,Information Security,23.0,40
+22IT122,7,Software Engg,23.7,40
+22ECE122,7,Signals & Systems,17.9,40
+22ECE122,7,Digital Electronics,9.0,40
+22ECE122,7,Analog Circuits,18.1,40
+22ECE122,7,Microprocessors,19.8,40
+22ECE122,7,Communication Systems,17.2,40
+22ECE122,7,VLSI Design,13.0,40
+22MECH122,7,Thermodynamics,19.9,40
+22MECH122,7,Fluid Mechanics,17.3,40
+22MECH122,7,Machine Design,31.4,40
+22MECH122,7,Manufacturing Processes,23.9,40
+22MECH122,7,Heat Transfer,23.9,40
+22MECH122,7,CAD/CAM,21.4,40
+22CIVIL122,7,Structural Analysis,22.2,40
+22CIVIL122,7,Surveying,29.0,40
+22CIVIL122,7,Geotechnical Engg,21.6,40
+22CIVIL122,7,Fluid Mechanics,25.8,40
+22CIVIL122,7,Concrete Technology,28.8,40
+22CIVIL122,7,Transportation Engg,22.2,40
+22CSE123,7,Data Structures,26.2,40
+22CSE123,7,Operating Systems,22.3,40
+22CSE123,7,DBMS,20.8,40
+22CSE123,7,Computer Networks,24.9,40
+22CSE123,7,Machine Learning,19.9,40
+22CSE123,7,Software Engg,24.2,40
+22IT123,7,Data Structures,27.0,40
+22IT123,7,Web Technologies,25.0,40
+22IT123,7,DBMS,22.6,40
+22IT123,7,Cloud Computing,23.4,40
+22IT123,7,Information Security,18.8,40
+22IT123,7,Software Engg,25.3,40
+22ECE123,7,Signals & Systems,26.6,40
+22ECE123,7,Digital Electronics,20.0,40
+22ECE123,7,Analog Circuits,26.5,40
+22ECE123,7,Microprocessors,27.6,40
+22ECE123,7,Communication Systems,21.8,40
+22ECE123,7,VLSI Design,29.6,40
+22MECH123,7,Thermodynamics,25.7,40
+22MECH123,7,Fluid Mechanics,26.7,40
+22MECH123,7,Machine Design,28.2,40
+22MECH123,7,Manufacturing Processes,30.6,40
+22MECH123,7,Heat Transfer,30.0,40
+22MECH123,7,CAD/CAM,34.7,40
+22CIVIL123,7,Structural Analysis,33.1,40
+22CIVIL123,7,Surveying,34.8,40
+22CIVIL123,7,Geotechnical Engg,38.7,40
+22CIVIL123,7,Fluid Mechanics,35.6,40
+22CIVIL123,7,Concrete Technology,31.6,40
+22CIVIL123,7,Transportation Engg,36.3,40
+22CSE124,7,Data Structures,19.1,40
+22CSE124,7,Operating Systems,26.0,40
+22CSE124,7,DBMS,22.4,40
+22CSE124,7,Computer Networks,30.1,40
+22CSE124,7,Machine Learning,25.9,40
+22CSE124,7,Software Engg,25.5,40
+22IT124,7,Data Structures,37.3,40
+22IT124,7,Web Technologies,33.1,40
+22IT124,7,DBMS,40.0,40
+22IT124,7,Cloud Computing,37.8,40
+22IT124,7,Information Security,37.0,40
+22IT124,7,Software Engg,31.4,40
+22ECE124,7,Signals & Systems,27.0,40
+22ECE124,7,Digital Electronics,17.0,40
+22ECE124,7,Analog Circuits,26.3,40
+22ECE124,7,Microprocessors,24.3,40
+22ECE124,7,Communication Systems,21.6,40
+22ECE124,7,VLSI Design,31.5,40
+22MECH124,7,Thermodynamics,16.2,40
+22MECH124,7,Fluid Mechanics,23.4,40
+22MECH124,7,Machine Design,13.8,40
+22MECH124,7,Manufacturing Processes,15.6,40
+22MECH124,7,Heat Transfer,19.4,40
+22MECH124,7,CAD/CAM,10.2,40
+22CIVIL124,7,Structural Analysis,35.6,40
+22CIVIL124,7,Surveying,32.3,40
+22CIVIL124,7,Geotechnical Engg,37.7,40
+22CIVIL124,7,Fluid Mechanics,30.7,40
+22CIVIL124,7,Concrete Technology,33.1,40
+22CIVIL124,7,Transportation Engg,36.4,40
+22CSE125,7,Data Structures,34.8,40
+22CSE125,7,Operating Systems,28.1,40
+22CSE125,7,DBMS,31.9,40
+22CSE125,7,Computer Networks,36.9,40
+22CSE125,7,Machine Learning,34.0,40
+22CSE125,7,Software Engg,27.2,40
+22IT125,7,Data Structures,24.6,40
+22IT125,7,Web Technologies,20.9,40
+22IT125,7,DBMS,34.3,40
+22IT125,7,Cloud Computing,18.6,40
+22IT125,7,Information Security,28.4,40
+22IT125,7,Software Engg,27.4,40
+22ECE125,7,Signals & Systems,25.3,40
+22ECE125,7,Digital Electronics,21.4,40
+22ECE125,7,Analog Circuits,21.3,40
+22ECE125,7,Microprocessors,21.9,40
+22ECE125,7,Communication Systems,23.1,40
+22ECE125,7,VLSI Design,22.2,40
+22MECH125,7,Thermodynamics,25.5,40
+22MECH125,7,Fluid Mechanics,21.8,40
+22MECH125,7,Machine Design,20.8,40
+22MECH125,7,Manufacturing Processes,30.1,40
+22MECH125,7,Heat Transfer,23.3,40
+22MECH125,7,CAD/CAM,22.2,40
+22CIVIL125,7,Structural Analysis,24.0,40
+22CIVIL125,7,Surveying,13.7,40
+22CIVIL125,7,Geotechnical Engg,26.9,40
+22CIVIL125,7,Fluid Mechanics,23.2,40
+22CIVIL125,7,Concrete Technology,4.6,40
+22CIVIL125,7,Transportation Engg,24.0,40
+22CSE126,7,Data Structures,20.9,40
+22CSE126,7,Operating Systems,20.0,40
+22CSE126,7,DBMS,16.2,40
+22CSE126,7,Computer Networks,20.3,40
+22CSE126,7,Machine Learning,23.7,40
+22CSE126,7,Software Engg,21.2,40
+22IT126,7,Data Structures,23.9,40
+22IT126,7,Web Technologies,13.6,40
+22IT126,7,DBMS,17.1,40
+22IT126,7,Cloud Computing,12.5,40
+22IT126,7,Information Security,23.0,40
+22IT126,7,Software Engg,15.4,40
+22ECE126,7,Signals & Systems,27.9,40
+22ECE126,7,Digital Electronics,17.5,40
+22ECE126,7,Analog Circuits,20.6,40
+22ECE126,7,Microprocessors,26.9,40
+22ECE126,7,Communication Systems,17.6,40
+22ECE126,7,VLSI Design,24.1,40
+22MECH126,7,Thermodynamics,23.2,40
+22MECH126,7,Fluid Mechanics,23.2,40
+22MECH126,7,Machine Design,21.2,40
+22MECH126,7,Manufacturing Processes,21.5,40
+22MECH126,7,Heat Transfer,15.7,40
+22MECH126,7,CAD/CAM,18.9,40
+22CIVIL126,7,Structural Analysis,18.1,40
+22CIVIL126,7,Surveying,19.8,40
+22CIVIL126,7,Geotechnical Engg,21.3,40
+22CIVIL126,7,Fluid Mechanics,19.4,40
+22CIVIL126,7,Concrete Technology,12.6,40
+22CIVIL126,7,Transportation Engg,11.6,40
+22CSE127,7,Data Structures,28.4,40
+22CSE127,7,Operating Systems,24.7,40
+22CSE127,7,DBMS,23.7,40
+22CSE127,7,Computer Networks,27.3,40
+22CSE127,7,Machine Learning,29.3,40
+22CSE127,7,Software Engg,20.2,40
+22IT127,7,Data Structures,31.8,40
+22IT127,7,Web Technologies,31.2,40
+22IT127,7,DBMS,30.4,40
+22IT127,7,Cloud Computing,34.3,40
+22IT127,7,Information Security,38.4,40
+22IT127,7,Software Engg,37.6,40
+22ECE127,7,Signals & Systems,28.8,40
+22ECE127,7,Digital Electronics,30.2,40
+22ECE127,7,Analog Circuits,26.9,40
+22ECE127,7,Microprocessors,29.8,40
+22ECE127,7,Communication Systems,25.2,40
+22ECE127,7,VLSI Design,28.9,40
+22MECH127,7,Thermodynamics,28.5,40
+22MECH127,7,Fluid Mechanics,17.5,40
+22MECH127,7,Machine Design,26.1,40
+22MECH127,7,Manufacturing Processes,30.3,40
+22MECH127,7,Heat Transfer,27.5,40
+22MECH127,7,CAD/CAM,30.6,40
+22CIVIL127,7,Structural Analysis,33.2,40
+22CIVIL127,7,Surveying,28.2,40
+22CIVIL127,7,Geotechnical Engg,32.7,40
+22CIVIL127,7,Fluid Mechanics,28.1,40
+22CIVIL127,7,Concrete Technology,27.6,40
+22CIVIL127,7,Transportation Engg,27.0,40
+22CSE128,7,Data Structures,28.3,40
+22CSE128,7,Operating Systems,31.3,40
+22CSE128,7,DBMS,35.1,40
+22CSE128,7,Computer Networks,27.1,40
+22CSE128,7,Machine Learning,26.2,40
+22CSE128,7,Software Engg,32.9,40
+22IT128,7,Data Structures,19.7,40
+22IT128,7,Web Technologies,21.5,40
+22IT128,7,DBMS,22.1,40
+22IT128,7,Cloud Computing,22.1,40
+22IT128,7,Information Security,23.5,40
+22IT128,7,Software Engg,25.3,40
+22ECE128,7,Signals & Systems,27.6,40
+22ECE128,7,Digital Electronics,20.6,40
+22ECE128,7,Analog Circuits,31.9,40
+22ECE128,7,Microprocessors,32.2,40
+22ECE128,7,Communication Systems,25.8,40
+22ECE128,7,VLSI Design,34.9,40
+22MECH128,7,Thermodynamics,35.9,40
+22MECH128,7,Fluid Mechanics,32.2,40
+22MECH128,7,Machine Design,29.5,40
+22MECH128,7,Manufacturing Processes,31.7,40
+22MECH128,7,Heat Transfer,28.9,40
+22MECH128,7,CAD/CAM,31.9,40
+22CIVIL128,7,Structural Analysis,32.9,40
+22CIVIL128,7,Surveying,32.0,40
+22CIVIL128,7,Geotechnical Engg,38.6,40
+22CIVIL128,7,Fluid Mechanics,32.3,40
+22CIVIL128,7,Concrete Technology,31.7,40
+22CIVIL128,7,Transportation Engg,31.2,40
+22CSE129,7,Data Structures,26.1,40
+22CSE129,7,Operating Systems,23.8,40
+22CSE129,7,DBMS,32.3,40
+22CSE129,7,Computer Networks,15.3,40
+22CSE129,7,Machine Learning,32.2,40
+22CSE129,7,Software Engg,25.1,40
+22IT129,7,Data Structures,20.9,40
+22IT129,7,Web Technologies,19.3,40
+22IT129,7,DBMS,18.1,40
+22IT129,7,Cloud Computing,23.5,40
+22IT129,7,Information Security,20.4,40
+22IT129,7,Software Engg,17.8,40
+22ECE129,7,Signals & Systems,28.4,40
+22ECE129,7,Digital Electronics,23.7,40
+22ECE129,7,Analog Circuits,28.0,40
+22ECE129,7,Microprocessors,30.9,40
+22ECE129,7,Communication Systems,26.3,40
+22ECE129,7,VLSI Design,19.8,40
+22MECH129,7,Thermodynamics,32.8,40
+22MECH129,7,Fluid Mechanics,26.0,40
+22MECH129,7,Machine Design,24.6,40
+22MECH129,7,Manufacturing Processes,38.0,40
+22MECH129,7,Heat Transfer,27.5,40
+22MECH129,7,CAD/CAM,33.1,40
+22CIVIL129,7,Structural Analysis,24.8,40
+22CIVIL129,7,Surveying,18.2,40
+22CIVIL129,7,Geotechnical Engg,19.1,40
+22CIVIL129,7,Fluid Mechanics,15.5,40
+22CIVIL129,7,Concrete Technology,15.9,40
+22CIVIL129,7,Transportation Engg,16.3,40
+22CSE130,7,Data Structures,12.0,40
+22CSE130,7,Operating Systems,23.3,40
+22CSE130,7,DBMS,15.9,40
+22CSE130,7,Computer Networks,9.3,40
+22CSE130,7,Machine Learning,15.6,40
+22CSE130,7,Software Engg,18.4,40
+22IT130,7,Data Structures,23.0,40
+22IT130,7,Web Technologies,21.8,40
+22IT130,7,DBMS,26.6,40
+22IT130,7,Cloud Computing,22.6,40
+22IT130,7,Information Security,27.4,40
+22IT130,7,Software Engg,27.6,40
+22ECE130,7,Signals & Systems,17.7,40
+22ECE130,7,Digital Electronics,19.0,40
+22ECE130,7,Analog Circuits,17.5,40
+22ECE130,7,Microprocessors,23.0,40
+22ECE130,7,Communication Systems,19.0,40
+22ECE130,7,VLSI Design,16.9,40
+22MECH130,7,Thermodynamics,21.8,40
+22MECH130,7,Fluid Mechanics,22.6,40
+22MECH130,7,Machine Design,12.9,40
+22MECH130,7,Manufacturing Processes,26.9,40
+22MECH130,7,Heat Transfer,18.9,40
+22MECH130,7,CAD/CAM,22.3,40
+22CIVIL130,7,Structural Analysis,34.2,40
+22CIVIL130,7,Surveying,38.0,40
+22CIVIL130,7,Geotechnical Engg,37.8,40
+22CIVIL130,7,Fluid Mechanics,28.2,40
+22CIVIL130,7,Concrete Technology,37.3,40
+22CIVIL130,7,Transportation Engg,31.5,40
+22CSE131,7,Data Structures,12.9,40
+22CSE131,7,Operating Systems,17.2,40
+22CSE131,7,DBMS,17.9,40
+22CSE131,7,Computer Networks,15.5,40
+22CSE131,7,Machine Learning,17.1,40
+22CSE131,7,Software Engg,16.3,40
+22IT131,7,Data Structures,16.4,40
+22IT131,7,Web Technologies,17.2,40
+22IT131,7,DBMS,18.0,40
+22IT131,7,Cloud Computing,22.5,40
+22IT131,7,Information Security,24.1,40
+22IT131,7,Software Engg,19.3,40
+22ECE131,7,Signals & Systems,8.9,40
+22ECE131,7,Digital Electronics,8.3,40
+22ECE131,7,Analog Circuits,17.3,40
+22ECE131,7,Microprocessors,12.1,40
+22ECE131,7,Communication Systems,10.9,40
+22ECE131,7,VLSI Design,10.0,40
+22MECH131,7,Thermodynamics,13.9,40
+22MECH131,7,Fluid Mechanics,15.9,40
+22MECH131,7,Machine Design,12.1,40
+22MECH131,7,Manufacturing Processes,17.1,40
+22MECH131,7,Heat Transfer,12.3,40
+22MECH131,7,CAD/CAM,11.0,40
+22CIVIL131,7,Structural Analysis,27.2,40
+22CIVIL131,7,Surveying,23.4,40
+22CIVIL131,7,Geotechnical Engg,23.4,40
+22CIVIL131,7,Fluid Mechanics,26.6,40
+22CIVIL131,7,Concrete Technology,32.5,40
+22CIVIL131,7,Transportation Engg,27.6,40
+22CSE132,7,Data Structures,35.1,40
+22CSE132,7,Operating Systems,32.4,40
+22CSE132,7,DBMS,29.0,40
+22CSE132,7,Computer Networks,35.1,40
+22CSE132,7,Machine Learning,33.8,40
+22CSE132,7,Software Engg,34.6,40
+22IT132,7,Data Structures,17.1,40
+22IT132,7,Web Technologies,17.5,40
+22IT132,7,DBMS,7.9,40
+22IT132,7,Cloud Computing,18.2,40
+22IT132,7,Information Security,15.2,40
+22IT132,7,Software Engg,15.3,40
+22ECE132,7,Signals & Systems,26.5,40
+22ECE132,7,Digital Electronics,23.0,40
+22ECE132,7,Analog Circuits,25.9,40
+22ECE132,7,Microprocessors,20.7,40
+22ECE132,7,Communication Systems,27.1,40
+22ECE132,7,VLSI Design,21.3,40
+22MECH132,7,Thermodynamics,24.3,40
+22MECH132,7,Fluid Mechanics,36.9,40
+22MECH132,7,Machine Design,35.5,40
+22MECH132,7,Manufacturing Processes,23.0,40
+22MECH132,7,Heat Transfer,23.5,40
+22MECH132,7,CAD/CAM,31.2,40
+22CIVIL132,7,Structural Analysis,26.6,40
+22CIVIL132,7,Surveying,19.5,40
+22CIVIL132,7,Geotechnical Engg,15.7,40
+22CIVIL132,7,Fluid Mechanics,12.8,40
+22CIVIL132,7,Concrete Technology,15.6,40
+22CIVIL132,7,Transportation Engg,13.3,40
+22CSE133,7,Data Structures,28.9,40
+22CSE133,7,Operating Systems,26.8,40
+22CSE133,7,DBMS,27.3,40
+22CSE133,7,Computer Networks,26.9,40
+22CSE133,7,Machine Learning,27.0,40
+22CSE133,7,Software Engg,32.6,40
+22IT133,7,Data Structures,16.6,40
+22IT133,7,Web Technologies,18.1,40
+22IT133,7,DBMS,18.0,40
+22IT133,7,Cloud Computing,18.5,40
+22IT133,7,Information Security,16.1,40
+22IT133,7,Software Engg,19.5,40
+22ECE133,7,Signals & Systems,34.9,40
+22ECE133,7,Digital Electronics,35.4,40
+22ECE133,7,Analog Circuits,26.4,40
+22ECE133,7,Microprocessors,28.9,40
+22ECE133,7,Communication Systems,35.7,40
+22ECE133,7,VLSI Design,33.6,40
+22MECH133,7,Thermodynamics,32.7,40
+22MECH133,7,Fluid Mechanics,29.1,40
+22MECH133,7,Machine Design,30.7,40
+22MECH133,7,Manufacturing Processes,29.0,40
+22MECH133,7,Heat Transfer,29.1,40
+22MECH133,7,CAD/CAM,32.7,40
+22CIVIL133,7,Structural Analysis,28.7,40
+22CIVIL133,7,Surveying,30.4,40
+22CIVIL133,7,Geotechnical Engg,31.7,40
+22CIVIL133,7,Fluid Mechanics,34.1,40
+22CIVIL133,7,Concrete Technology,31.5,40
+22CIVIL133,7,Transportation Engg,22.5,40
+22CSE134,7,Data Structures,26.2,40
+22CSE134,7,Operating Systems,25.9,40
+22CSE134,7,DBMS,26.0,40
+22CSE134,7,Computer Networks,25.6,40
+22CSE134,7,Machine Learning,25.5,40
+22CSE134,7,Software Engg,29.4,40
+22IT134,7,Data Structures,21.2,40
+22IT134,7,Web Technologies,17.8,40
+22IT134,7,DBMS,26.1,40
+22IT134,7,Cloud Computing,18.8,40
+22IT134,7,Information Security,22.5,40
+22IT134,7,Software Engg,18.5,40
+22ECE134,7,Signals & Systems,30.1,40
+22ECE134,7,Digital Electronics,23.5,40
+22ECE134,7,Analog Circuits,25.9,40
+22ECE134,7,Microprocessors,21.7,40
+22ECE134,7,Communication Systems,22.3,40
+22ECE134,7,VLSI Design,17.6,40
+22MECH134,7,Thermodynamics,23.3,40
+22MECH134,7,Fluid Mechanics,26.2,40
+22MECH134,7,Machine Design,31.2,40
+22MECH134,7,Manufacturing Processes,20.2,40
+22MECH134,7,Heat Transfer,31.4,40
+22MECH134,7,CAD/CAM,30.8,40
+22CIVIL134,7,Structural Analysis,17.4,40
+22CIVIL134,7,Surveying,20.8,40
+22CIVIL134,7,Geotechnical Engg,22.7,40
+22CIVIL134,7,Fluid Mechanics,14.6,40
+22CIVIL134,7,Concrete Technology,16.0,40
+22CIVIL134,7,Transportation Engg,13.1,40
+22CSE135,7,Data Structures,30.6,40
+22CSE135,7,Operating Systems,26.3,40
+22CSE135,7,DBMS,28.3,40
+22CSE135,7,Computer Networks,33.2,40
+22CSE135,7,Machine Learning,24.5,40
+22CSE135,7,Software Engg,25.4,40
+22IT135,7,Data Structures,32.2,40
+22IT135,7,Web Technologies,36.8,40
+22IT135,7,DBMS,26.1,40
+22IT135,7,Cloud Computing,20.9,40
+22IT135,7,Information Security,20.3,40
+22IT135,7,Software Engg,28.4,40
+22ECE135,7,Signals & Systems,20.3,40
+22ECE135,7,Digital Electronics,32.1,40
+22ECE135,7,Analog Circuits,27.9,40
+22ECE135,7,Microprocessors,27.1,40
+22ECE135,7,Communication Systems,25.6,40
+22ECE135,7,VLSI Design,34.2,40
+22MECH135,7,Thermodynamics,36.5,40
+22MECH135,7,Fluid Mechanics,40.0,40
+22MECH135,7,Machine Design,38.6,40
+22MECH135,7,Manufacturing Processes,33.0,40
+22MECH135,7,Heat Transfer,31.4,40
+22MECH135,7,CAD/CAM,36.3,40
+22CIVIL135,7,Structural Analysis,27.7,40
+22CIVIL135,7,Surveying,35.6,40
+22CIVIL135,7,Geotechnical Engg,24.5,40
+22CIVIL135,7,Fluid Mechanics,27.8,40
+22CIVIL135,7,Concrete Technology,19.1,40
+22CIVIL135,7,Transportation Engg,22.9,40
+22CSE136,7,Data Structures,16.4,40
+22CSE136,7,Operating Systems,22.7,40
+22CSE136,7,DBMS,14.9,40
+22CSE136,7,Computer Networks,18.1,40
+22CSE136,7,Machine Learning,14.2,40
+22CSE136,7,Software Engg,18.9,40
+22IT136,7,Data Structures,17.5,40
+22IT136,7,Web Technologies,16.7,40
+22IT136,7,DBMS,18.5,40
+22IT136,7,Cloud Computing,20.2,40
+22IT136,7,Information Security,21.8,40
+22IT136,7,Software Engg,20.4,40
+22ECE136,7,Signals & Systems,21.4,40
+22ECE136,7,Digital Electronics,19.4,40
+22ECE136,7,Analog Circuits,22.9,40
+22ECE136,7,Microprocessors,24.3,40
+22ECE136,7,Communication Systems,23.2,40
+22ECE136,7,VLSI Design,18.0,40
+22MECH136,7,Thermodynamics,22.5,40
+22MECH136,7,Fluid Mechanics,24.8,40
+22MECH136,7,Machine Design,26.3,40
+22MECH136,7,Manufacturing Processes,23.9,40
+22MECH136,7,Heat Transfer,20.4,40
+22MECH136,7,CAD/CAM,27.1,40
+22CIVIL136,7,Structural Analysis,30.0,40
+22CIVIL136,7,Surveying,21.7,40
+22CIVIL136,7,Geotechnical Engg,23.7,40
+22CIVIL136,7,Fluid Mechanics,21.9,40
+22CIVIL136,7,Concrete Technology,19.0,40
+22CIVIL136,7,Transportation Engg,17.0,40
+22CSE137,7,Data Structures,28.9,40
+22CSE137,7,Operating Systems,39.1,40
+22CSE137,7,DBMS,34.9,40
+22CSE137,7,Computer Networks,28.4,40
+22CSE137,7,Machine Learning,25.6,40
+22CSE137,7,Software Engg,34.0,40
+22IT137,7,Data Structures,20.8,40
+22IT137,7,Web Technologies,32.4,40
+22IT137,7,DBMS,32.7,40
+22IT137,7,Cloud Computing,23.0,40
+22IT137,7,Information Security,31.9,40
+22IT137,7,Software Engg,24.0,40
+22ECE137,7,Signals & Systems,20.2,40
+22ECE137,7,Digital Electronics,23.1,40
+22ECE137,7,Analog Circuits,14.7,40
+22ECE137,7,Microprocessors,15.4,40
+22ECE137,7,Communication Systems,18.0,40
+22ECE137,7,VLSI Design,20.6,40
+22MECH137,7,Thermodynamics,27.0,40
+22MECH137,7,Fluid Mechanics,37.8,40
+22MECH137,7,Machine Design,31.8,40
+22MECH137,7,Manufacturing Processes,34.7,40
+22MECH137,7,Heat Transfer,35.2,40
+22MECH137,7,CAD/CAM,27.2,40
+22CIVIL137,7,Structural Analysis,18.3,40
+22CIVIL137,7,Surveying,18.4,40
+22CIVIL137,7,Geotechnical Engg,20.0,40
+22CIVIL137,7,Fluid Mechanics,12.2,40
+22CIVIL137,7,Concrete Technology,16.6,40
+22CIVIL137,7,Transportation Engg,24.9,40
+22CSE138,7,Data Structures,30.0,40
+22CSE138,7,Operating Systems,33.0,40
+22CSE138,7,DBMS,33.6,40
+22CSE138,7,Computer Networks,28.3,40
+22CSE138,7,Machine Learning,25.9,40
+22CSE138,7,Software Engg,20.5,40
+22IT138,7,Data Structures,7.2,40
+22IT138,7,Web Technologies,8.2,40
+22IT138,7,DBMS,7.5,40
+22IT138,7,Cloud Computing,5.3,40
+22IT138,7,Information Security,12.1,40
+22IT138,7,Software Engg,5.9,40
+22ECE138,7,Signals & Systems,37.4,40
+22ECE138,7,Digital Electronics,33.0,40
+22ECE138,7,Analog Circuits,33.7,40
+22ECE138,7,Microprocessors,27.0,40
+22ECE138,7,Communication Systems,36.7,40
+22ECE138,7,VLSI Design,36.0,40
+22MECH138,7,Thermodynamics,20.9,40
+22MECH138,7,Fluid Mechanics,19.3,40
+22MECH138,7,Machine Design,21.5,40
+22MECH138,7,Manufacturing Processes,16.5,40
+22MECH138,7,Heat Transfer,16.6,40
+22MECH138,7,CAD/CAM,17.9,40
+22CIVIL138,7,Structural Analysis,21.6,40
+22CIVIL138,7,Surveying,23.7,40
+22CIVIL138,7,Geotechnical Engg,23.7,40
+22CIVIL138,7,Fluid Mechanics,25.6,40
+22CIVIL138,7,Concrete Technology,23.3,40
+22CIVIL138,7,Transportation Engg,24.2,40
+22CSE139,7,Data Structures,35.2,40
+22CSE139,7,Operating Systems,30.7,40
+22CSE139,7,DBMS,27.0,40
+22CSE139,7,Computer Networks,24.4,40
+22CSE139,7,Machine Learning,35.0,40
+22CSE139,7,Software Engg,29.9,40
+22IT139,7,Data Structures,27.7,40
+22IT139,7,Web Technologies,30.8,40
+22IT139,7,DBMS,27.9,40
+22IT139,7,Cloud Computing,23.7,40
+22IT139,7,Information Security,25.9,40
+22IT139,7,Software Engg,23.3,40
+22ECE139,7,Signals & Systems,29.9,40
+22ECE139,7,Digital Electronics,29.9,40
+22ECE139,7,Analog Circuits,31.6,40
+22ECE139,7,Microprocessors,33.5,40
+22ECE139,7,Communication Systems,30.6,40
+22ECE139,7,VLSI Design,28.5,40
+22MECH139,7,Thermodynamics,32.2,40
+22MECH139,7,Fluid Mechanics,36.0,40
+22MECH139,7,Machine Design,27.5,40
+22MECH139,7,Manufacturing Processes,32.5,40
+22MECH139,7,Heat Transfer,26.8,40
+22MECH139,7,CAD/CAM,27.8,40
+22CIVIL139,7,Structural Analysis,23.6,40
+22CIVIL139,7,Surveying,25.7,40
+22CIVIL139,7,Geotechnical Engg,23.8,40
+22CIVIL139,7,Fluid Mechanics,20.6,40
+22CIVIL139,7,Concrete Technology,20.0,40
+22CIVIL139,7,Transportation Engg,27.0,40
+22CSE140,7,Data Structures,25.9,40
+22CSE140,7,Operating Systems,35.6,40
+22CSE140,7,DBMS,33.6,40
+22CSE140,7,Computer Networks,30.0,40
+22CSE140,7,Machine Learning,35.2,40
+22CSE140,7,Software Engg,31.5,40
+22IT140,7,Data Structures,26.5,40
+22IT140,7,Web Technologies,21.2,40
+22IT140,7,DBMS,17.8,40
+22IT140,7,Cloud Computing,12.8,40
+22IT140,7,Information Security,27.2,40
+22IT140,7,Software Engg,25.6,40
+22ECE140,7,Signals & Systems,28.3,40
+22ECE140,7,Digital Electronics,26.4,40
+22ECE140,7,Analog Circuits,29.8,40
+22ECE140,7,Microprocessors,18.3,40
+22ECE140,7,Communication Systems,31.3,40
+22ECE140,7,VLSI Design,28.5,40
+22MECH140,7,Thermodynamics,18.5,40
+22MECH140,7,Fluid Mechanics,23.1,40
+22MECH140,7,Machine Design,18.1,40
+22MECH140,7,Manufacturing Processes,22.8,40
+22MECH140,7,Heat Transfer,18.5,40
+22MECH140,7,CAD/CAM,24.5,40
+22CIVIL140,7,Structural Analysis,20.4,40
+22CIVIL140,7,Surveying,24.2,40
+22CIVIL140,7,Geotechnical Engg,33.1,40
+22CIVIL140,7,Fluid Mechanics,19.2,40
+22CIVIL140,7,Concrete Technology,23.7,40
+22CIVIL140,7,Transportation Engg,19.4,40
+22CSE141,7,Data Structures,21.7,40
+22CSE141,7,Operating Systems,17.9,40
+22CSE141,7,DBMS,15.0,40
+22CSE141,7,Computer Networks,7.3,40
+22CSE141,7,Machine Learning,18.0,40
+22CSE141,7,Software Engg,22.3,40
+22IT141,7,Data Structures,24.5,40
+22IT141,7,Web Technologies,23.4,40
+22IT141,7,DBMS,28.0,40
+22IT141,7,Cloud Computing,28.4,40
+22IT141,7,Information Security,24.3,40
+22IT141,7,Software Engg,23.7,40
+22ECE141,7,Signals & Systems,16.7,40
+22ECE141,7,Digital Electronics,21.0,40
+22ECE141,7,Analog Circuits,13.9,40
+22ECE141,7,Microprocessors,10.5,40
+22ECE141,7,Communication Systems,16.1,40
+22ECE141,7,VLSI Design,13.0,40
+22MECH141,7,Thermodynamics,30.2,40
+22MECH141,7,Fluid Mechanics,26.6,40
+22MECH141,7,Machine Design,31.5,40
+22MECH141,7,Manufacturing Processes,35.8,40
+22MECH141,7,Heat Transfer,32.0,40
+22MECH141,7,CAD/CAM,34.6,40
+22CIVIL141,7,Structural Analysis,40.0,40
+22CIVIL141,7,Surveying,32.8,40
+22CIVIL141,7,Geotechnical Engg,33.4,40
+22CIVIL141,7,Fluid Mechanics,40.0,40
+22CIVIL141,7,Concrete Technology,38.7,40
+22CIVIL141,7,Transportation Engg,40.0,40
+22CSE142,7,Data Structures,16.3,40
+22CSE142,7,Operating Systems,12.9,40
+22CSE142,7,DBMS,20.8,40
+22CSE142,7,Computer Networks,19.6,40
+22CSE142,7,Machine Learning,12.8,40
+22CSE142,7,Software Engg,15.1,40
+22IT142,7,Data Structures,31.8,40
+22IT142,7,Web Technologies,26.3,40
+22IT142,7,DBMS,28.0,40
+22IT142,7,Cloud Computing,25.2,40
+22IT142,7,Information Security,29.4,40
+22IT142,7,Software Engg,20.0,40
+22ECE142,7,Signals & Systems,29.2,40
+22ECE142,7,Digital Electronics,33.3,40
+22ECE142,7,Analog Circuits,34.7,40
+22ECE142,7,Microprocessors,33.9,40
+22ECE142,7,Communication Systems,26.5,40
+22ECE142,7,VLSI Design,24.7,40
+22MECH142,7,Thermodynamics,15.4,40
+22MECH142,7,Fluid Mechanics,15.0,40
+22MECH142,7,Machine Design,16.1,40
+22MECH142,7,Manufacturing Processes,10.6,40
+22MECH142,7,Heat Transfer,11.8,40
+22MECH142,7,CAD/CAM,16.8,40
+22CIVIL142,7,Structural Analysis,30.3,40
+22CIVIL142,7,Surveying,28.2,40
+22CIVIL142,7,Geotechnical Engg,27.4,40
+22CIVIL142,7,Fluid Mechanics,22.2,40
+22CIVIL142,7,Concrete Technology,30.5,40
+22CIVIL142,7,Transportation Engg,30.8,40
+22CSE143,7,Data Structures,28.5,40
+22CSE143,7,Operating Systems,21.3,40
+22CSE143,7,DBMS,30.8,40
+22CSE143,7,Computer Networks,28.6,40
+22CSE143,7,Machine Learning,29.2,40
+22CSE143,7,Software Engg,29.5,40
+22IT143,7,Data Structures,18.2,40
+22IT143,7,Web Technologies,15.8,40
+22IT143,7,DBMS,21.9,40
+22IT143,7,Cloud Computing,21.3,40
+22IT143,7,Information Security,15.0,40
+22IT143,7,Software Engg,21.7,40
+22ECE143,7,Signals & Systems,19.8,40
+22ECE143,7,Digital Electronics,26.6,40
+22ECE143,7,Analog Circuits,20.1,40
+22ECE143,7,Microprocessors,26.4,40
+22ECE143,7,Communication Systems,25.6,40
+22ECE143,7,VLSI Design,23.0,40
+22MECH143,7,Thermodynamics,24.3,40
+22MECH143,7,Fluid Mechanics,22.7,40
+22MECH143,7,Machine Design,18.8,40
+22MECH143,7,Manufacturing Processes,19.0,40
+22MECH143,7,Heat Transfer,27.5,40
+22MECH143,7,CAD/CAM,21.1,40
+22CIVIL143,7,Structural Analysis,16.6,40
+22CIVIL143,7,Surveying,21.2,40
+22CIVIL143,7,Geotechnical Engg,25.4,40
+22CIVIL143,7,Fluid Mechanics,22.9,40
+22CIVIL143,7,Concrete Technology,14.8,40
+22CIVIL143,7,Transportation Engg,19.1,40
+22CSE144,7,Data Structures,19.9,40
+22CSE144,7,Operating Systems,17.6,40
+22CSE144,7,DBMS,22.7,40
+22CSE144,7,Computer Networks,17.0,40
+22CSE144,7,Machine Learning,20.4,40
+22CSE144,7,Software Engg,24.1,40
+22IT144,7,Data Structures,9.3,40
+22IT144,7,Web Technologies,27.3,40
+22IT144,7,DBMS,22.9,40
+22IT144,7,Cloud Computing,25.8,40
+22IT144,7,Information Security,22.6,40
+22IT144,7,Software Engg,25.6,40
+22ECE144,7,Signals & Systems,3.4,40
+22ECE144,7,Digital Electronics,14.2,40
+22ECE144,7,Analog Circuits,8.1,40
+22ECE144,7,Microprocessors,15.3,40
+22ECE144,7,Communication Systems,10.6,40
+22ECE144,7,VLSI Design,13.7,40
+22MECH144,7,Thermodynamics,23.5,40
+22MECH144,7,Fluid Mechanics,7.5,40
+22MECH144,7,Machine Design,15.1,40
+22MECH144,7,Manufacturing Processes,22.6,40
+22MECH144,7,Heat Transfer,16.6,40
+22MECH144,7,CAD/CAM,11.3,40
+22CIVIL144,7,Structural Analysis,7.8,40
+22CIVIL144,7,Surveying,14.2,40
+22CIVIL144,7,Geotechnical Engg,8.3,40
+22CIVIL144,7,Fluid Mechanics,10.0,40
+22CIVIL144,7,Concrete Technology,17.3,40
+22CIVIL144,7,Transportation Engg,11.1,40
+22CSE145,7,Data Structures,19.7,40
+22CSE145,7,Operating Systems,20.0,40
+22CSE145,7,DBMS,21.9,40
+22CSE145,7,Computer Networks,26.4,40
+22CSE145,7,Machine Learning,15.1,40
+22CSE145,7,Software Engg,21.6,40
+22IT145,7,Data Structures,25.0,40
+22IT145,7,Web Technologies,31.5,40
+22IT145,7,DBMS,22.5,40
+22IT145,7,Cloud Computing,24.9,40
+22IT145,7,Information Security,18.5,40
+22IT145,7,Software Engg,23.5,40
+22ECE145,7,Signals & Systems,30.9,40
+22ECE145,7,Digital Electronics,25.8,40
+22ECE145,7,Analog Circuits,17.8,40
+22ECE145,7,Microprocessors,24.1,40
+22ECE145,7,Communication Systems,28.4,40
+22ECE145,7,VLSI Design,24.0,40
+22MECH145,7,Thermodynamics,21.9,40
+22MECH145,7,Fluid Mechanics,30.2,40
+22MECH145,7,Machine Design,23.0,40
+22MECH145,7,Manufacturing Processes,23.7,40
+22MECH145,7,Heat Transfer,27.7,40
+22MECH145,7,CAD/CAM,15.9,40
+22CIVIL145,7,Structural Analysis,35.7,40
+22CIVIL145,7,Surveying,34.0,40
+22CIVIL145,7,Geotechnical Engg,37.9,40
+22CIVIL145,7,Fluid Mechanics,31.0,40
+22CIVIL145,7,Concrete Technology,37.3,40
+22CIVIL145,7,Transportation Engg,40.0,40
+22CSE146,7,Data Structures,26.6,40
+22CSE146,7,Operating Systems,13.5,40
+22CSE146,7,DBMS,18.3,40
+22CSE146,7,Computer Networks,10.4,40
+22CSE146,7,Machine Learning,19.2,40
+22CSE146,7,Software Engg,22.2,40
+22IT146,7,Data Structures,22.9,40
+22IT146,7,Web Technologies,16.9,40
+22IT146,7,DBMS,26.6,40
+22IT146,7,Cloud Computing,20.8,40
+22IT146,7,Information Security,18.2,40
+22IT146,7,Software Engg,25.9,40
+22ECE146,7,Signals & Systems,27.0,40
+22ECE146,7,Digital Electronics,25.1,40
+22ECE146,7,Analog Circuits,25.8,40
+22ECE146,7,Microprocessors,24.1,40
+22ECE146,7,Communication Systems,26.1,40
+22ECE146,7,VLSI Design,28.4,40
+22MECH146,7,Thermodynamics,33.4,40
+22MECH146,7,Fluid Mechanics,37.8,40
+22MECH146,7,Machine Design,33.3,40
+22MECH146,7,Manufacturing Processes,34.1,40
+22MECH146,7,Heat Transfer,31.4,40
+22MECH146,7,CAD/CAM,38.7,40
+22CIVIL146,7,Structural Analysis,29.0,40
+22CIVIL146,7,Surveying,26.6,40
+22CIVIL146,7,Geotechnical Engg,26.8,40
+22CIVIL146,7,Fluid Mechanics,31.5,40
+22CIVIL146,7,Concrete Technology,21.0,40
+22CIVIL146,7,Transportation Engg,26.1,40
+22CSE147,7,Data Structures,17.8,40
+22CSE147,7,Operating Systems,28.1,40
+22CSE147,7,DBMS,21.5,40
+22CSE147,7,Computer Networks,22.0,40
+22CSE147,7,Machine Learning,19.6,40
+22CSE147,7,Software Engg,18.7,40
+22IT147,7,Data Structures,18.5,40
+22IT147,7,Web Technologies,23.7,40
+22IT147,7,DBMS,24.1,40
+22IT147,7,Cloud Computing,15.3,40
+22IT147,7,Information Security,29.5,40
+22IT147,7,Software Engg,20.0,40
+22ECE147,7,Signals & Systems,21.1,40
+22ECE147,7,Digital Electronics,23.2,40
+22ECE147,7,Analog Circuits,26.4,40
+22ECE147,7,Microprocessors,23.6,40
+22ECE147,7,Communication Systems,14.5,40
+22ECE147,7,VLSI Design,23.6,40
+22MECH147,7,Thermodynamics,11.6,40
+22MECH147,7,Fluid Mechanics,11.6,40
+22MECH147,7,Machine Design,16.7,40
+22MECH147,7,Manufacturing Processes,21.7,40
+22MECH147,7,Heat Transfer,15.2,40
+22MECH147,7,CAD/CAM,11.4,40
+22CIVIL147,7,Structural Analysis,24.0,40
+22CIVIL147,7,Surveying,6.3,40
+22CIVIL147,7,Geotechnical Engg,18.7,40
+22CIVIL147,7,Fluid Mechanics,23.3,40
+22CIVIL147,7,Concrete Technology,23.5,40
+22CIVIL147,7,Transportation Engg,20.9,40
+22CSE148,7,Data Structures,31.8,40
+22CSE148,7,Operating Systems,29.9,40
+22CSE148,7,DBMS,31.0,40
+22CSE148,7,Computer Networks,28.4,40
+22CSE148,7,Machine Learning,24.6,40
+22CSE148,7,Software Engg,29.9,40
+22IT148,7,Data Structures,17.0,40
+22IT148,7,Web Technologies,24.8,40
+22IT148,7,DBMS,13.7,40
+22IT148,7,Cloud Computing,18.5,40
+22IT148,7,Information Security,21.4,40
+22IT148,7,Software Engg,20.0,40
+22ECE148,7,Signals & Systems,28.6,40
+22ECE148,7,Digital Electronics,21.2,40
+22ECE148,7,Analog Circuits,23.7,40
+22ECE148,7,Microprocessors,33.1,40
+22ECE148,7,Communication Systems,29.6,40
+22ECE148,7,VLSI Design,36.1,40
+22MECH148,7,Thermodynamics,21.9,40
+22MECH148,7,Fluid Mechanics,27.7,40
+22MECH148,7,Machine Design,21.9,40
+22MECH148,7,Manufacturing Processes,18.4,40
+22MECH148,7,Heat Transfer,21.1,40
+22MECH148,7,CAD/CAM,28.9,40
+22CIVIL148,7,Structural Analysis,20.4,40
+22CIVIL148,7,Surveying,28.1,40
+22CIVIL148,7,Geotechnical Engg,27.6,40
+22CIVIL148,7,Fluid Mechanics,27.0,40
+22CIVIL148,7,Concrete Technology,20.3,40
+22CIVIL148,7,Transportation Engg,23.3,40
+22CSE149,7,Data Structures,33.8,40
+22CSE149,7,Operating Systems,37.6,40
+22CSE149,7,DBMS,28.8,40
+22CSE149,7,Computer Networks,32.7,40
+22CSE149,7,Machine Learning,30.7,40
+22CSE149,7,Software Engg,27.9,40
+22IT149,7,Data Structures,19.3,40
+22IT149,7,Web Technologies,19.5,40
+22IT149,7,DBMS,19.6,40
+22IT149,7,Cloud Computing,24.9,40
+22IT149,7,Information Security,20.9,40
+22IT149,7,Software Engg,19.5,40
+22ECE149,7,Signals & Systems,18.5,40
+22ECE149,7,Digital Electronics,24.2,40
+22ECE149,7,Analog Circuits,21.1,40
+22ECE149,7,Microprocessors,18.5,40
+22ECE149,7,Communication Systems,23.0,40
+22ECE149,7,VLSI Design,25.3,40
+22MECH149,7,Thermodynamics,2.4,40
+22MECH149,7,Fluid Mechanics,4.0,40
+22MECH149,7,Machine Design,9.3,40
+22MECH149,7,Manufacturing Processes,5.0,40
+22MECH149,7,Heat Transfer,3.8,40
+22MECH149,7,CAD/CAM,5.7,40
+22CIVIL149,7,Structural Analysis,30.1,40
+22CIVIL149,7,Surveying,19.5,40
+22CIVIL149,7,Geotechnical Engg,32.3,40
+22CIVIL149,7,Fluid Mechanics,20.4,40
+22CIVIL149,7,Concrete Technology,24.8,40
+22CIVIL149,7,Transportation Engg,28.8,40
+22CSE150,7,Data Structures,13.4,40
+22CSE150,7,Operating Systems,8.6,40
+22CSE150,7,DBMS,11.0,40
+22CSE150,7,Computer Networks,15.5,40
+22CSE150,7,Machine Learning,11.9,40
+22CSE150,7,Software Engg,8.2,40
+22IT150,7,Data Structures,12.4,40
+22IT150,7,Web Technologies,8.8,40
+22IT150,7,DBMS,16.3,40
+22IT150,7,Cloud Computing,8.9,40
+22IT150,7,Information Security,6.7,40
+22IT150,7,Software Engg,6.6,40
+22ECE150,7,Signals & Systems,17.6,40
+22ECE150,7,Digital Electronics,18.1,40
+22ECE150,7,Analog Circuits,20.5,40
+22ECE150,7,Microprocessors,25.1,40
+22ECE150,7,Communication Systems,21.6,40
+22ECE150,7,VLSI Design,12.2,40
+22MECH150,7,Thermodynamics,27.7,40
+22MECH150,7,Fluid Mechanics,33.1,40
+22MECH150,7,Machine Design,32.5,40
+22MECH150,7,Manufacturing Processes,31.6,40
+22MECH150,7,Heat Transfer,26.3,40
+22MECH150,7,CAD/CAM,34.7,40
+22CIVIL150,7,Structural Analysis,26.8,40
+22CIVIL150,7,Surveying,27.3,40
+22CIVIL150,7,Geotechnical Engg,30.3,40
+22CIVIL150,7,Fluid Mechanics,24.2,40
+22CIVIL150,7,Concrete Technology,23.9,40
+22CIVIL150,7,Transportation Engg,25.0,40
+22CSE151,7,Data Structures,29.2,40
+22CSE151,7,Operating Systems,24.3,40
+22CSE151,7,DBMS,27.6,40
+22CSE151,7,Computer Networks,21.0,40
+22CSE151,7,Machine Learning,30.8,40
+22CSE151,7,Software Engg,20.5,40
+22IT151,7,Data Structures,22.8,40
+22IT151,7,Web Technologies,25.6,40
+22IT151,7,DBMS,20.1,40
+22IT151,7,Cloud Computing,15.2,40
+22IT151,7,Information Security,25.1,40
+22IT151,7,Software Engg,16.8,40
+22ECE151,7,Signals & Systems,27.6,40
+22ECE151,7,Digital Electronics,25.2,40
+22ECE151,7,Analog Circuits,21.3,40
+22ECE151,7,Microprocessors,33.0,40
+22ECE151,7,Communication Systems,27.7,40
+22ECE151,7,VLSI Design,24.9,40
+22MECH151,7,Thermodynamics,28.3,40
+22MECH151,7,Fluid Mechanics,28.6,40
+22MECH151,7,Machine Design,30.0,40
+22MECH151,7,Manufacturing Processes,28.7,40
+22MECH151,7,Heat Transfer,24.5,40
+22MECH151,7,CAD/CAM,30.7,40
+22CIVIL151,7,Structural Analysis,13.4,40
+22CIVIL151,7,Surveying,19.5,40
+22CIVIL151,7,Geotechnical Engg,23.6,40
+22CIVIL151,7,Fluid Mechanics,20.4,40
+22CIVIL151,7,Concrete Technology,21.4,40
+22CIVIL151,7,Transportation Engg,16.6,40
+22CSE152,7,Data Structures,20.0,40
+22CSE152,7,Operating Systems,15.7,40
+22CSE152,7,DBMS,23.3,40
+22CSE152,7,Computer Networks,15.8,40
+22CSE152,7,Machine Learning,16.6,40
+22CSE152,7,Software Engg,15.1,40
+22IT152,7,Data Structures,22.0,40
+22IT152,7,Web Technologies,15.3,40
+22IT152,7,DBMS,17.0,40
+22IT152,7,Cloud Computing,13.7,40
+22IT152,7,Information Security,20.9,40
+22IT152,7,Software Engg,13.5,40
+22ECE152,7,Signals & Systems,17.2,40
+22ECE152,7,Digital Electronics,26.4,40
+22ECE152,7,Analog Circuits,25.1,40
+22ECE152,7,Microprocessors,17.3,40
+22ECE152,7,Communication Systems,22.8,40
+22ECE152,7,VLSI Design,24.7,40
+22MECH152,7,Thermodynamics,24.1,40
+22MECH152,7,Fluid Mechanics,26.0,40
+22MECH152,7,Machine Design,19.2,40
+22MECH152,7,Manufacturing Processes,20.6,40
+22MECH152,7,Heat Transfer,17.0,40
+22MECH152,7,CAD/CAM,17.8,40
+22CIVIL152,7,Structural Analysis,24.8,40
+22CIVIL152,7,Surveying,32.8,40
+22CIVIL152,7,Geotechnical Engg,29.3,40
+22CIVIL152,7,Fluid Mechanics,24.7,40
+22CIVIL152,7,Concrete Technology,29.7,40
+22CIVIL152,7,Transportation Engg,37.2,40
+22CSE153,7,Data Structures,12.6,40
+22CSE153,7,Operating Systems,19.0,40
+22CSE153,7,DBMS,17.5,40
+22CSE153,7,Computer Networks,17.0,40
+22CSE153,7,Machine Learning,17.7,40
+22CSE153,7,Software Engg,16.6,40
+22IT153,7,Data Structures,36.9,40
+22IT153,7,Web Technologies,40.0,40
+22IT153,7,DBMS,39.7,40
+22IT153,7,Cloud Computing,39.4,40
+22IT153,7,Information Security,33.7,40
+22IT153,7,Software Engg,40.0,40
+22ECE153,7,Signals & Systems,14.1,40
+22ECE153,7,Digital Electronics,19.9,40
+22ECE153,7,Analog Circuits,17.3,40
+22ECE153,7,Microprocessors,11.2,40
+22ECE153,7,Communication Systems,27.1,40
+22ECE153,7,VLSI Design,24.5,40
+22MECH153,7,Thermodynamics,30.9,40
+22MECH153,7,Fluid Mechanics,32.7,40
+22MECH153,7,Machine Design,25.4,40
+22MECH153,7,Manufacturing Processes,27.5,40
+22MECH153,7,Heat Transfer,22.8,40
+22MECH153,7,CAD/CAM,19.0,40
+22CIVIL153,7,Structural Analysis,33.3,40
+22CIVIL153,7,Surveying,30.2,40
+22CIVIL153,7,Geotechnical Engg,33.0,40
+22CIVIL153,7,Fluid Mechanics,34.5,40
+22CIVIL153,7,Concrete Technology,33.0,40
+22CIVIL153,7,Transportation Engg,27.0,40
+22CSE154,7,Data Structures,22.3,40
+22CSE154,7,Operating Systems,23.5,40
+22CSE154,7,DBMS,29.2,40
+22CSE154,7,Computer Networks,31.6,40
+22CSE154,7,Machine Learning,22.4,40
+22CSE154,7,Software Engg,28.6,40
+22IT154,7,Data Structures,21.2,40
+22IT154,7,Web Technologies,19.7,40
+22IT154,7,DBMS,25.1,40
+22IT154,7,Cloud Computing,21.3,40
+22IT154,7,Information Security,13.2,40
+22IT154,7,Software Engg,23.2,40
+22ECE154,7,Signals & Systems,39.1,40
+22ECE154,7,Digital Electronics,38.8,40
+22ECE154,7,Analog Circuits,38.4,40
+22ECE154,7,Microprocessors,35.8,40
+22ECE154,7,Communication Systems,35.9,40
+22ECE154,7,VLSI Design,40.0,40
+22MECH154,7,Thermodynamics,12.1,40
+22MECH154,7,Fluid Mechanics,7.5,40
+22MECH154,7,Machine Design,14.3,40
+22MECH154,7,Manufacturing Processes,13.7,40
+22MECH154,7,Heat Transfer,7.7,40
+22MECH154,7,CAD/CAM,16.7,40
+22CIVIL154,7,Structural Analysis,31.1,40
+22CIVIL154,7,Surveying,27.3,40
+22CIVIL154,7,Geotechnical Engg,33.6,40
+22CIVIL154,7,Fluid Mechanics,34.7,40
+22CIVIL154,7,Concrete Technology,26.0,40
+22CIVIL154,7,Transportation Engg,29.8,40
+22CSE155,7,Data Structures,24.0,40
+22CSE155,7,Operating Systems,20.9,40
+22CSE155,7,DBMS,20.7,40
+22CSE155,7,Computer Networks,26.0,40
+22CSE155,7,Machine Learning,23.0,40
+22CSE155,7,Software Engg,26.2,40
+22IT155,7,Data Structures,29.9,40
+22IT155,7,Web Technologies,24.6,40
+22IT155,7,DBMS,30.2,40
+22IT155,7,Cloud Computing,34.0,40
+22IT155,7,Information Security,33.2,40
+22IT155,7,Software Engg,26.2,40
+22ECE155,7,Signals & Systems,28.4,40
+22ECE155,7,Digital Electronics,31.4,40
+22ECE155,7,Analog Circuits,28.9,40
+22ECE155,7,Microprocessors,31.0,40
+22ECE155,7,Communication Systems,27.5,40
+22ECE155,7,VLSI Design,25.9,40
+22MECH155,7,Thermodynamics,33.6,40
+22MECH155,7,Fluid Mechanics,31.3,40
+22MECH155,7,Machine Design,31.3,40
+22MECH155,7,Manufacturing Processes,33.5,40
+22MECH155,7,Heat Transfer,27.7,40
+22MECH155,7,CAD/CAM,30.0,40
+22CIVIL155,7,Structural Analysis,24.4,40
+22CIVIL155,7,Surveying,14.9,40
+22CIVIL155,7,Geotechnical Engg,23.5,40
+22CIVIL155,7,Fluid Mechanics,25.2,40
+22CIVIL155,7,Concrete Technology,26.0,40
+22CIVIL155,7,Transportation Engg,28.3,40
+22CSE156,7,Data Structures,25.5,40
+22CSE156,7,Operating Systems,26.2,40
+22CSE156,7,DBMS,19.2,40
+22CSE156,7,Computer Networks,27.8,40
+22CSE156,7,Machine Learning,23.6,40
+22CSE156,7,Software Engg,21.0,40
+22IT156,7,Data Structures,25.6,40
+22IT156,7,Web Technologies,19.4,40
+22IT156,7,DBMS,21.3,40
+22IT156,7,Cloud Computing,15.7,40
+22IT156,7,Information Security,18.2,40
+22IT156,7,Software Engg,18.5,40
+22ECE156,7,Signals & Systems,29.8,40
+22ECE156,7,Digital Electronics,30.2,40
+22ECE156,7,Analog Circuits,34.1,40
+22ECE156,7,Microprocessors,32.7,40
+22ECE156,7,Communication Systems,32.5,40
+22ECE156,7,VLSI Design,28.9,40
+22MECH156,7,Thermodynamics,24.6,40
+22MECH156,7,Fluid Mechanics,23.6,40
+22MECH156,7,Machine Design,29.4,40
+22MECH156,7,Manufacturing Processes,22.9,40
+22MECH156,7,Heat Transfer,26.2,40
+22MECH156,7,CAD/CAM,22.9,40
+22CIVIL156,7,Structural Analysis,24.7,40
+22CIVIL156,7,Surveying,29.2,40
+22CIVIL156,7,Geotechnical Engg,25.9,40
+22CIVIL156,7,Fluid Mechanics,31.0,40
+22CIVIL156,7,Concrete Technology,26.3,40
+22CIVIL156,7,Transportation Engg,21.5,40
+22CSE157,7,Data Structures,16.7,40
+22CSE157,7,Operating Systems,24.9,40
+22CSE157,7,DBMS,21.2,40
+22CSE157,7,Computer Networks,22.7,40
+22CSE157,7,Machine Learning,14.4,40
+22CSE157,7,Software Engg,31.2,40
+22IT157,7,Data Structures,25.1,40
+22IT157,7,Web Technologies,24.5,40
+22IT157,7,DBMS,29.4,40
+22IT157,7,Cloud Computing,25.1,40
+22IT157,7,Information Security,26.6,40
+22IT157,7,Software Engg,27.0,40
+22ECE157,7,Signals & Systems,28.7,40
+22ECE157,7,Digital Electronics,33.7,40
+22ECE157,7,Analog Circuits,29.2,40
+22ECE157,7,Microprocessors,33.8,40
+22ECE157,7,Communication Systems,25.4,40
+22ECE157,7,VLSI Design,28.7,40
+22MECH157,7,Thermodynamics,22.1,40
+22MECH157,7,Fluid Mechanics,19.9,40
+22MECH157,7,Machine Design,27.9,40
+22MECH157,7,Manufacturing Processes,30.2,40
+22MECH157,7,Heat Transfer,27.2,40
+22MECH157,7,CAD/CAM,24.0,40
+22CIVIL157,7,Structural Analysis,16.0,40
+22CIVIL157,7,Surveying,21.0,40
+22CIVIL157,7,Geotechnical Engg,26.5,40
+22CIVIL157,7,Fluid Mechanics,20.1,40
+22CIVIL157,7,Concrete Technology,18.7,40
+22CIVIL157,7,Transportation Engg,14.0,40
+22CSE158,7,Data Structures,8.8,40
+22CSE158,7,Operating Systems,15.5,40
+22CSE158,7,DBMS,24.9,40
+22CSE158,7,Computer Networks,19.2,40
+22CSE158,7,Machine Learning,21.7,40
+22CSE158,7,Software Engg,20.4,40
+22IT158,7,Data Structures,18.1,40
+22IT158,7,Web Technologies,23.8,40
+22IT158,7,DBMS,28.0,40
+22IT158,7,Cloud Computing,27.6,40
+22IT158,7,Information Security,28.0,40
+22IT158,7,Software Engg,21.5,40
+22ECE158,7,Signals & Systems,27.0,40
+22ECE158,7,Digital Electronics,36.4,40
+22ECE158,7,Analog Circuits,26.9,40
+22ECE158,7,Microprocessors,35.3,40
+22ECE158,7,Communication Systems,21.0,40
+22ECE158,7,VLSI Design,40.0,40
+22MECH158,7,Thermodynamics,33.1,40
+22MECH158,7,Fluid Mechanics,35.6,40
+22MECH158,7,Machine Design,35.2,40
+22MECH158,7,Manufacturing Processes,34.8,40
+22MECH158,7,Heat Transfer,28.8,40
+22MECH158,7,CAD/CAM,37.2,40
+22CIVIL158,7,Structural Analysis,18.8,40
+22CIVIL158,7,Surveying,31.7,40
+22CIVIL158,7,Geotechnical Engg,20.8,40
+22CIVIL158,7,Fluid Mechanics,21.6,40
+22CIVIL158,7,Concrete Technology,21.1,40
+22CIVIL158,7,Transportation Engg,17.8,40
+22CSE159,7,Data Structures,22.1,40
+22CSE159,7,Operating Systems,27.3,40
+22CSE159,7,DBMS,29.7,40
+22CSE159,7,Computer Networks,30.9,40
+22CSE159,7,Machine Learning,22.1,40
+22CSE159,7,Software Engg,38.4,40
+22IT159,7,Data Structures,28.2,40
+22IT159,7,Web Technologies,29.8,40
+22IT159,7,DBMS,26.2,40
+22IT159,7,Cloud Computing,22.9,40
+22IT159,7,Information Security,23.9,40
+22IT159,7,Software Engg,29.5,40
+22ECE159,7,Signals & Systems,32.8,40
+22ECE159,7,Digital Electronics,25.8,40
+22ECE159,7,Analog Circuits,28.7,40
+22ECE159,7,Microprocessors,27.6,40
+22ECE159,7,Communication Systems,16.7,40
+22ECE159,7,VLSI Design,25.9,40
+22MECH159,7,Thermodynamics,24.9,40
+22MECH159,7,Fluid Mechanics,28.0,40
+22MECH159,7,Machine Design,34.3,40
+22MECH159,7,Manufacturing Processes,36.0,40
+22MECH159,7,Heat Transfer,31.9,40
+22MECH159,7,CAD/CAM,25.1,40
+22CIVIL159,7,Structural Analysis,17.0,40
+22CIVIL159,7,Surveying,24.1,40
+22CIVIL159,7,Geotechnical Engg,24.1,40
+22CIVIL159,7,Fluid Mechanics,26.2,40
+22CIVIL159,7,Concrete Technology,19.7,40
+22CIVIL159,7,Transportation Engg,29.2,40
+22CSE160,7,Data Structures,38.0,40
+22CSE160,7,Operating Systems,31.5,40
+22CSE160,7,DBMS,40.0,40
+22CSE160,7,Computer Networks,33.1,40
+22CSE160,7,Machine Learning,36.3,40
+22CSE160,7,Software Engg,32.8,40
+22IT160,7,Data Structures,25.4,40
+22IT160,7,Web Technologies,23.9,40
+22IT160,7,DBMS,22.4,40
+22IT160,7,Cloud Computing,21.0,40
+22IT160,7,Information Security,26.2,40
+22IT160,7,Software Engg,30.0,40
+22ECE160,7,Signals & Systems,25.3,40
+22ECE160,7,Digital Electronics,21.0,40
+22ECE160,7,Analog Circuits,33.7,40
+22ECE160,7,Microprocessors,34.1,40
+22ECE160,7,Communication Systems,26.1,40
+22ECE160,7,VLSI Design,27.1,40
+22MECH160,7,Thermodynamics,25.3,40
+22MECH160,7,Fluid Mechanics,17.8,40
+22MECH160,7,Machine Design,29.2,40
+22MECH160,7,Manufacturing Processes,20.4,40
+22MECH160,7,Heat Transfer,26.7,40
+22MECH160,7,CAD/CAM,24.7,40
+22CIVIL160,7,Structural Analysis,15.6,40
+22CIVIL160,7,Surveying,25.9,40
+22CIVIL160,7,Geotechnical Engg,25.7,40
+22CIVIL160,7,Fluid Mechanics,34.5,40
+22CIVIL160,7,Concrete Technology,20.8,40
+22CIVIL160,7,Transportation Engg,23.9,40
+22CSE161,7,Data Structures,27.5,40
+22CSE161,7,Operating Systems,28.8,40
+22CSE161,7,DBMS,24.8,40
+22CSE161,7,Computer Networks,21.5,40
+22CSE161,7,Machine Learning,20.5,40
+22CSE161,7,Software Engg,31.4,40
+22IT161,7,Data Structures,3.7,40
+22IT161,7,Web Technologies,10.1,40
+22IT161,7,DBMS,16.7,40
+22IT161,7,Cloud Computing,12.0,40
+22IT161,7,Information Security,12.1,40
+22IT161,7,Software Engg,14.3,40
+22ECE161,7,Signals & Systems,14.5,40
+22ECE161,7,Digital Electronics,19.9,40
+22ECE161,7,Analog Circuits,30.7,40
+22ECE161,7,Microprocessors,33.6,40
+22ECE161,7,Communication Systems,26.7,40
+22ECE161,7,VLSI Design,22.9,40
+22MECH161,7,Thermodynamics,15.3,40
+22MECH161,7,Fluid Mechanics,18.6,40
+22MECH161,7,Machine Design,10.8,40
+22MECH161,7,Manufacturing Processes,18.3,40
+22MECH161,7,Heat Transfer,13.7,40
+22MECH161,7,CAD/CAM,17.0,40
+22CIVIL161,7,Structural Analysis,23.6,40
+22CIVIL161,7,Surveying,19.0,40
+22CIVIL161,7,Geotechnical Engg,16.6,40
+22CIVIL161,7,Fluid Mechanics,16.3,40
+22CIVIL161,7,Concrete Technology,21.9,40
+22CIVIL161,7,Transportation Engg,20.1,40
+22CSE162,7,Data Structures,26.4,40
+22CSE162,7,Operating Systems,22.6,40
+22CSE162,7,DBMS,26.6,40
+22CSE162,7,Computer Networks,32.7,40
+22CSE162,7,Machine Learning,28.6,40
+22CSE162,7,Software Engg,23.0,40
+22IT162,7,Data Structures,24.3,40
+22IT162,7,Web Technologies,25.0,40
+22IT162,7,DBMS,26.4,40
+22IT162,7,Cloud Computing,30.8,40
+22IT162,7,Information Security,28.5,40
+22IT162,7,Software Engg,33.9,40
+22ECE162,7,Signals & Systems,33.0,40
+22ECE162,7,Digital Electronics,36.2,40
+22ECE162,7,Analog Circuits,29.5,40
+22ECE162,7,Microprocessors,29.6,40
+22ECE162,7,Communication Systems,34.4,40
+22ECE162,7,VLSI Design,33.7,40
+22MECH162,7,Thermodynamics,16.9,40
+22MECH162,7,Fluid Mechanics,13.3,40
+22MECH162,7,Machine Design,18.2,40
+22MECH162,7,Manufacturing Processes,19.4,40
+22MECH162,7,Heat Transfer,17.4,40
+22MECH162,7,CAD/CAM,15.1,40
+22CIVIL162,7,Structural Analysis,23.9,40
+22CIVIL162,7,Surveying,25.2,40
+22CIVIL162,7,Geotechnical Engg,35.0,40
+22CIVIL162,7,Fluid Mechanics,33.2,40
+22CIVIL162,7,Concrete Technology,33.3,40
+22CIVIL162,7,Transportation Engg,33.1,40
+22CSE163,7,Data Structures,27.6,40
+22CSE163,7,Operating Systems,19.6,40
+22CSE163,7,DBMS,19.0,40
+22CSE163,7,Computer Networks,27.5,40
+22CSE163,7,Machine Learning,27.8,40
+22CSE163,7,Software Engg,27.0,40
+22IT163,7,Data Structures,14.9,40
+22IT163,7,Web Technologies,23.1,40
+22IT163,7,DBMS,26.2,40
+22IT163,7,Cloud Computing,11.5,40
+22IT163,7,Information Security,18.0,40
+22IT163,7,Software Engg,13.9,40
+22ECE163,7,Signals & Systems,19.4,40
+22ECE163,7,Digital Electronics,28.9,40
+22ECE163,7,Analog Circuits,20.3,40
+22ECE163,7,Microprocessors,22.8,40
+22ECE163,7,Communication Systems,26.5,40
+22ECE163,7,VLSI Design,26.0,40
+22MECH163,7,Thermodynamics,27.6,40
+22MECH163,7,Fluid Mechanics,29.4,40
+22MECH163,7,Machine Design,30.2,40
+22MECH163,7,Manufacturing Processes,28.7,40
+22MECH163,7,Heat Transfer,25.8,40
+22MECH163,7,CAD/CAM,27.8,40
+22CIVIL163,7,Structural Analysis,13.7,40
+22CIVIL163,7,Surveying,13.3,40
+22CIVIL163,7,Geotechnical Engg,11.4,40
+22CIVIL163,7,Fluid Mechanics,14.4,40
+22CIVIL163,7,Concrete Technology,11.0,40
+22CIVIL163,7,Transportation Engg,25.1,40
+22CSE164,7,Data Structures,25.0,40
+22CSE164,7,Operating Systems,22.3,40
+22CSE164,7,DBMS,29.8,40
+22CSE164,7,Computer Networks,27.5,40
+22CSE164,7,Machine Learning,27.1,40
+22CSE164,7,Software Engg,21.5,40
+22IT164,7,Data Structures,35.4,40
+22IT164,7,Web Technologies,32.1,40
+22IT164,7,DBMS,35.0,40
+22IT164,7,Cloud Computing,30.4,40
+22IT164,7,Information Security,33.3,40
+22IT164,7,Software Engg,36.4,40
+22ECE164,7,Signals & Systems,23.1,40
+22ECE164,7,Digital Electronics,16.2,40
+22ECE164,7,Analog Circuits,22.6,40
+22ECE164,7,Microprocessors,19.6,40
+22ECE164,7,Communication Systems,18.1,40
+22ECE164,7,VLSI Design,22.2,40
+22MECH164,7,Thermodynamics,25.7,40
+22MECH164,7,Fluid Mechanics,29.9,40
+22MECH164,7,Machine Design,30.7,40
+22MECH164,7,Manufacturing Processes,30.1,40
+22MECH164,7,Heat Transfer,27.4,40
+22MECH164,7,CAD/CAM,25.2,40
+22CIVIL164,7,Structural Analysis,26.5,40
+22CIVIL164,7,Surveying,27.8,40
+22CIVIL164,7,Geotechnical Engg,27.4,40
+22CIVIL164,7,Fluid Mechanics,28.7,40
+22CIVIL164,7,Concrete Technology,22.7,40
+22CIVIL164,7,Transportation Engg,24.1,40
+22CSE165,7,Data Structures,22.2,40
+22CSE165,7,Operating Systems,23.8,40
+22CSE165,7,DBMS,16.4,40
+22CSE165,7,Computer Networks,24.9,40
+22CSE165,7,Machine Learning,20.5,40
+22CSE165,7,Software Engg,25.4,40
+22IT165,7,Data Structures,26.4,40
+22IT165,7,Web Technologies,20.4,40
+22IT165,7,DBMS,17.6,40
+22IT165,7,Cloud Computing,20.3,40
+22IT165,7,Information Security,20.9,40
+22IT165,7,Software Engg,24.2,40
+22ECE165,7,Signals & Systems,25.0,40
+22ECE165,7,Digital Electronics,28.7,40
+22ECE165,7,Analog Circuits,26.2,40
+22ECE165,7,Microprocessors,26.8,40
+22ECE165,7,Communication Systems,31.6,40
+22ECE165,7,VLSI Design,37.3,40
+22MECH165,7,Thermodynamics,27.7,40
+22MECH165,7,Fluid Mechanics,26.6,40
+22MECH165,7,Machine Design,29.2,40
+22MECH165,7,Manufacturing Processes,26.3,40
+22MECH165,7,Heat Transfer,31.2,40
+22MECH165,7,CAD/CAM,26.7,40
+22CIVIL165,7,Structural Analysis,27.6,40
+22CIVIL165,7,Surveying,21.4,40
+22CIVIL165,7,Geotechnical Engg,27.6,40
+22CIVIL165,7,Fluid Mechanics,23.8,40
+22CIVIL165,7,Concrete Technology,21.2,40
+22CIVIL165,7,Transportation Engg,26.5,40
+22CSE166,7,Data Structures,23.6,40
+22CSE166,7,Operating Systems,32.6,40
+22CSE166,7,DBMS,26.0,40
+22CSE166,7,Computer Networks,26.2,40
+22CSE166,7,Machine Learning,22.2,40
+22CSE166,7,Software Engg,34.2,40
+22IT166,7,Data Structures,7.5,40
+22IT166,7,Web Technologies,14.8,40
+22IT166,7,DBMS,20.1,40
+22IT166,7,Cloud Computing,19.9,40
+22IT166,7,Information Security,10.0,40
+22IT166,7,Software Engg,11.4,40
+22ECE166,7,Signals & Systems,24.3,40
+22ECE166,7,Digital Electronics,31.3,40
+22ECE166,7,Analog Circuits,32.9,40
+22ECE166,7,Microprocessors,19.3,40
+22ECE166,7,Communication Systems,32.4,40
+22ECE166,7,VLSI Design,25.3,40
+22MECH166,7,Thermodynamics,23.1,40
+22MECH166,7,Fluid Mechanics,21.8,40
+22MECH166,7,Machine Design,20.2,40
+22MECH166,7,Manufacturing Processes,26.4,40
+22MECH166,7,Heat Transfer,17.6,40
+22MECH166,7,CAD/CAM,22.1,40
+22CIVIL166,7,Structural Analysis,29.7,40
+22CIVIL166,7,Surveying,32.4,40
+22CIVIL166,7,Geotechnical Engg,35.4,40
+22CIVIL166,7,Fluid Mechanics,35.2,40
+22CIVIL166,7,Concrete Technology,28.4,40
+22CIVIL166,7,Transportation Engg,29.3,40
+22CSE167,7,Data Structures,22.9,40
+22CSE167,7,Operating Systems,25.5,40
+22CSE167,7,DBMS,32.2,40
+22CSE167,7,Computer Networks,22.6,40
+22CSE167,7,Machine Learning,26.5,40
+22CSE167,7,Software Engg,22.4,40
+22IT167,7,Data Structures,28.9,40
+22IT167,7,Web Technologies,20.1,40
+22IT167,7,DBMS,23.5,40
+22IT167,7,Cloud Computing,30.9,40
+22IT167,7,Information Security,19.2,40
+22IT167,7,Software Engg,27.4,40
+22ECE167,7,Signals & Systems,26.5,40
+22ECE167,7,Digital Electronics,32.8,40
+22ECE167,7,Analog Circuits,34.5,40
+22ECE167,7,Microprocessors,30.1,40
+22ECE167,7,Communication Systems,27.3,40
+22ECE167,7,VLSI Design,26.9,40
+22MECH167,7,Thermodynamics,20.4,40
+22MECH167,7,Fluid Mechanics,24.8,40
+22MECH167,7,Machine Design,22.8,40
+22MECH167,7,Manufacturing Processes,18.0,40
+22MECH167,7,Heat Transfer,22.9,40
+22MECH167,7,CAD/CAM,19.7,40
+22CIVIL167,7,Structural Analysis,23.1,40
+22CIVIL167,7,Surveying,23.8,40
+22CIVIL167,7,Geotechnical Engg,17.9,40
+22CIVIL167,7,Fluid Mechanics,23.4,40
+22CIVIL167,7,Concrete Technology,14.3,40
+22CIVIL167,7,Transportation Engg,19.3,40
+22CSE168,7,Data Structures,21.3,40
+22CSE168,7,Operating Systems,23.9,40
+22CSE168,7,DBMS,25.7,40
+22CSE168,7,Computer Networks,24.2,40
+22CSE168,7,Machine Learning,27.2,40
+22CSE168,7,Software Engg,26.3,40
+22IT168,7,Data Structures,26.7,40
+22IT168,7,Web Technologies,26.2,40
+22IT168,7,DBMS,23.9,40
+22IT168,7,Cloud Computing,17.2,40
+22IT168,7,Information Security,23.6,40
+22IT168,7,Software Engg,23.3,40
+22ECE168,7,Signals & Systems,23.0,40
+22ECE168,7,Digital Electronics,20.9,40
+22ECE168,7,Analog Circuits,20.0,40
+22ECE168,7,Microprocessors,18.9,40
+22ECE168,7,Communication Systems,22.2,40
+22ECE168,7,VLSI Design,17.9,40
+22MECH168,7,Thermodynamics,21.9,40
+22MECH168,7,Fluid Mechanics,26.9,40
+22MECH168,7,Machine Design,28.9,40
+22MECH168,7,Manufacturing Processes,33.9,40
+22MECH168,7,Heat Transfer,32.8,40
+22MECH168,7,CAD/CAM,21.6,40
+22CIVIL168,7,Structural Analysis,30.5,40
+22CIVIL168,7,Surveying,32.6,40
+22CIVIL168,7,Geotechnical Engg,29.0,40
+22CIVIL168,7,Fluid Mechanics,18.9,40
+22CIVIL168,7,Concrete Technology,36.4,40
+22CIVIL168,7,Transportation Engg,30.2,40
+22CSE169,7,Data Structures,25.2,40
+22CSE169,7,Operating Systems,24.5,40
+22CSE169,7,DBMS,30.2,40
+22CSE169,7,Computer Networks,22.5,40
+22CSE169,7,Machine Learning,32.8,40
+22CSE169,7,Software Engg,28.6,40
+22IT169,7,Data Structures,26.5,40
+22IT169,7,Web Technologies,14.6,40
+22IT169,7,DBMS,14.5,40
+22IT169,7,Cloud Computing,19.8,40
+22IT169,7,Information Security,23.8,40
+22IT169,7,Software Engg,24.7,40
+22ECE169,7,Signals & Systems,28.9,40
+22ECE169,7,Digital Electronics,37.4,40
+22ECE169,7,Analog Circuits,32.9,40
+22ECE169,7,Microprocessors,34.4,40
+22ECE169,7,Communication Systems,32.4,40
+22ECE169,7,VLSI Design,25.2,40
+22MECH169,7,Thermodynamics,28.4,40
+22MECH169,7,Fluid Mechanics,25.6,40
+22MECH169,7,Machine Design,33.5,40
+22MECH169,7,Manufacturing Processes,27.1,40
+22MECH169,7,Heat Transfer,25.3,40
+22MECH169,7,CAD/CAM,16.4,40
+22CIVIL169,7,Structural Analysis,28.3,40
+22CIVIL169,7,Surveying,24.8,40
+22CIVIL169,7,Geotechnical Engg,33.8,40
+22CIVIL169,7,Fluid Mechanics,29.1,40
+22CIVIL169,7,Concrete Technology,37.0,40
+22CIVIL169,7,Transportation Engg,36.5,40
+22CSE170,7,Data Structures,25.1,40
+22CSE170,7,Operating Systems,26.0,40
+22CSE170,7,DBMS,27.5,40
+22CSE170,7,Computer Networks,28.0,40
+22CSE170,7,Machine Learning,26.3,40
+22CSE170,7,Software Engg,30.0,40
+22IT170,7,Data Structures,11.9,40
+22IT170,7,Web Technologies,7.4,40
+22IT170,7,DBMS,4.9,40
+22IT170,7,Cloud Computing,8.5,40
+22IT170,7,Information Security,11.8,40
+22IT170,7,Software Engg,12.1,40
+22ECE170,7,Signals & Systems,32.9,40
+22ECE170,7,Digital Electronics,31.1,40
+22ECE170,7,Analog Circuits,33.3,40
+22ECE170,7,Microprocessors,36.7,40
+22ECE170,7,Communication Systems,34.5,40
+22ECE170,7,VLSI Design,36.8,40
+22MECH170,7,Thermodynamics,36.4,40
+22MECH170,7,Fluid Mechanics,40.0,40
+22MECH170,7,Machine Design,32.7,40
+22MECH170,7,Manufacturing Processes,35.8,40
+22MECH170,7,Heat Transfer,31.8,40
+22MECH170,7,CAD/CAM,40.0,40
+22CIVIL170,7,Structural Analysis,19.3,40
+22CIVIL170,7,Surveying,21.0,40
+22CIVIL170,7,Geotechnical Engg,19.6,40
+22CIVIL170,7,Fluid Mechanics,18.4,40
+22CIVIL170,7,Concrete Technology,20.6,40
+22CIVIL170,7,Transportation Engg,23.3,40
+22CSE171,7,Data Structures,27.3,40
+22CSE171,7,Operating Systems,29.0,40
+22CSE171,7,DBMS,31.4,40
+22CSE171,7,Computer Networks,31.9,40
+22CSE171,7,Machine Learning,32.5,40
+22CSE171,7,Software Engg,23.3,40
+22IT171,7,Data Structures,34.6,40
+22IT171,7,Web Technologies,33.0,40
+22IT171,7,DBMS,29.4,40
+22IT171,7,Cloud Computing,39.4,40
+22IT171,7,Information Security,30.9,40
+22IT171,7,Software Engg,37.4,40
+22ECE171,7,Signals & Systems,24.9,40
+22ECE171,7,Digital Electronics,23.2,40
+22ECE171,7,Analog Circuits,17.3,40
+22ECE171,7,Microprocessors,23.6,40
+22ECE171,7,Communication Systems,20.6,40
+22ECE171,7,VLSI Design,26.9,40
+22MECH171,7,Thermodynamics,10.3,40
+22MECH171,7,Fluid Mechanics,17.8,40
+22MECH171,7,Machine Design,13.2,40
+22MECH171,7,Manufacturing Processes,17.2,40
+22MECH171,7,Heat Transfer,13.1,40
+22MECH171,7,CAD/CAM,12.1,40
+22CIVIL171,7,Structural Analysis,39.6,40
+22CIVIL171,7,Surveying,33.8,40
+22CIVIL171,7,Geotechnical Engg,28.6,40
+22CIVIL171,7,Fluid Mechanics,32.8,40
+22CIVIL171,7,Concrete Technology,36.7,40
+22CIVIL171,7,Transportation Engg,34.8,40
+22CSE172,7,Data Structures,23.8,40
+22CSE172,7,Operating Systems,22.0,40
+22CSE172,7,DBMS,27.4,40
+22CSE172,7,Computer Networks,30.7,40
+22CSE172,7,Machine Learning,26.1,40
+22CSE172,7,Software Engg,26.6,40
+22IT172,7,Data Structures,35.5,40
+22IT172,7,Web Technologies,38.3,40
+22IT172,7,DBMS,30.0,40
+22IT172,7,Cloud Computing,27.1,40
+22IT172,7,Information Security,31.5,40
+22IT172,7,Software Engg,28.2,40
+22ECE172,7,Signals & Systems,21.0,40
+22ECE172,7,Digital Electronics,24.6,40
+22ECE172,7,Analog Circuits,18.7,40
+22ECE172,7,Microprocessors,27.0,40
+22ECE172,7,Communication Systems,18.3,40
+22ECE172,7,VLSI Design,15.2,40
+22MECH172,7,Thermodynamics,19.1,40
+22MECH172,7,Fluid Mechanics,22.2,40
+22MECH172,7,Machine Design,13.2,40
+22MECH172,7,Manufacturing Processes,19.2,40
+22MECH172,7,Heat Transfer,22.1,40
+22MECH172,7,CAD/CAM,16.2,40
+22CIVIL172,7,Structural Analysis,31.3,40
+22CIVIL172,7,Surveying,28.7,40
+22CIVIL172,7,Geotechnical Engg,36.2,40
+22CIVIL172,7,Fluid Mechanics,39.0,40
+22CIVIL172,7,Concrete Technology,31.7,40
+22CIVIL172,7,Transportation Engg,30.9,40
+22CSE173,7,Data Structures,29.7,40
+22CSE173,7,Operating Systems,39.6,40
+22CSE173,7,DBMS,38.0,40
+22CSE173,7,Computer Networks,40.0,40
+22CSE173,7,Machine Learning,32.5,40
+22CSE173,7,Software Engg,26.5,40
+22IT173,7,Data Structures,27.6,40
+22IT173,7,Web Technologies,32.4,40
+22IT173,7,DBMS,25.8,40
+22IT173,7,Cloud Computing,32.8,40
+22IT173,7,Information Security,16.4,40
+22IT173,7,Software Engg,20.5,40
+22ECE173,7,Signals & Systems,5.9,40
+22ECE173,7,Digital Electronics,16.5,40
+22ECE173,7,Analog Circuits,10.4,40
+22ECE173,7,Microprocessors,10.3,40
+22ECE173,7,Communication Systems,13.0,40
+22ECE173,7,VLSI Design,16.1,40
+22MECH173,7,Thermodynamics,26.1,40
+22MECH173,7,Fluid Mechanics,33.0,40
+22MECH173,7,Machine Design,23.0,40
+22MECH173,7,Manufacturing Processes,18.8,40
+22MECH173,7,Heat Transfer,27.6,40
+22MECH173,7,CAD/CAM,23.0,40
+22CIVIL173,7,Structural Analysis,27.8,40
+22CIVIL173,7,Surveying,31.9,40
+22CIVIL173,7,Geotechnical Engg,28.2,40
+22CIVIL173,7,Fluid Mechanics,32.3,40
+22CIVIL173,7,Concrete Technology,31.0,40
+22CIVIL173,7,Transportation Engg,33.5,40
+22CSE174,7,Data Structures,10.5,40
+22CSE174,7,Operating Systems,11.7,40
+22CSE174,7,DBMS,19.0,40
+22CSE174,7,Computer Networks,19.9,40
+22CSE174,7,Machine Learning,16.3,40
+22CSE174,7,Software Engg,18.1,40
+22IT174,7,Data Structures,39.6,40
+22IT174,7,Web Technologies,39.1,40
+22IT174,7,DBMS,40.0,40
+22IT174,7,Cloud Computing,36.1,40
+22IT174,7,Information Security,33.3,40
+22IT174,7,Software Engg,31.4,40
+22ECE174,7,Signals & Systems,24.2,40
+22ECE174,7,Digital Electronics,22.2,40
+22ECE174,7,Analog Circuits,22.1,40
+22ECE174,7,Microprocessors,12.6,40
+22ECE174,7,Communication Systems,22.5,40
+22ECE174,7,VLSI Design,17.7,40
+22MECH174,7,Thermodynamics,40.0,40
+22MECH174,7,Fluid Mechanics,33.0,40
+22MECH174,7,Machine Design,32.1,40
+22MECH174,7,Manufacturing Processes,38.0,40
+22MECH174,7,Heat Transfer,33.6,40
+22MECH174,7,CAD/CAM,27.7,40
+22CIVIL174,7,Structural Analysis,25.9,40
+22CIVIL174,7,Surveying,24.7,40
+22CIVIL174,7,Geotechnical Engg,21.4,40
+22CIVIL174,7,Fluid Mechanics,23.1,40
+22CIVIL174,7,Concrete Technology,32.5,40
+22CIVIL174,7,Transportation Engg,17.0,40
+22CSE175,7,Data Structures,12.8,40
+22CSE175,7,Operating Systems,19.9,40
+22CSE175,7,DBMS,21.8,40
+22CSE175,7,Computer Networks,17.9,40
+22CSE175,7,Machine Learning,13.2,40
+22CSE175,7,Software Engg,19.1,40
+22IT175,7,Data Structures,29.7,40
+22IT175,7,Web Technologies,23.4,40
+22IT175,7,DBMS,26.2,40
+22IT175,7,Cloud Computing,26.6,40
+22IT175,7,Information Security,23.9,40
+22IT175,7,Software Engg,26.6,40
+22ECE175,7,Signals & Systems,27.0,40
+22ECE175,7,Digital Electronics,17.2,40
+22ECE175,7,Analog Circuits,25.5,40
+22ECE175,7,Microprocessors,22.6,40
+22ECE175,7,Communication Systems,18.6,40
+22ECE175,7,VLSI Design,15.4,40
+22MECH175,7,Thermodynamics,22.8,40
+22MECH175,7,Fluid Mechanics,21.4,40
+22MECH175,7,Machine Design,22.1,40
+22MECH175,7,Manufacturing Processes,15.6,40
+22MECH175,7,Heat Transfer,25.6,40
+22MECH175,7,CAD/CAM,22.9,40
+22CIVIL175,7,Structural Analysis,17.2,40
+22CIVIL175,7,Surveying,12.4,40
+22CIVIL175,7,Geotechnical Engg,18.0,40
+22CIVIL175,7,Fluid Mechanics,23.9,40
+22CIVIL175,7,Concrete Technology,16.3,40
+22CIVIL175,7,Transportation Engg,5.3,40
+22CSE176,7,Data Structures,37.8,40
+22CSE176,7,Operating Systems,33.9,40
+22CSE176,7,DBMS,38.1,40
+22CSE176,7,Computer Networks,37.6,40
+22CSE176,7,Machine Learning,33.0,40
+22CSE176,7,Software Engg,31.5,40
+22IT176,7,Data Structures,28.6,40
+22IT176,7,Web Technologies,26.5,40
+22IT176,7,DBMS,26.7,40
+22IT176,7,Cloud Computing,25.5,40
+22IT176,7,Information Security,26.2,40
+22IT176,7,Software Engg,25.8,40
+22ECE176,7,Signals & Systems,16.9,40
+22ECE176,7,Digital Electronics,19.8,40
+22ECE176,7,Analog Circuits,18.0,40
+22ECE176,7,Microprocessors,20.1,40
+22ECE176,7,Communication Systems,22.5,40
+22ECE176,7,VLSI Design,18.7,40
+22MECH176,7,Thermodynamics,37.5,40
+22MECH176,7,Fluid Mechanics,36.8,40
+22MECH176,7,Machine Design,37.3,40
+22MECH176,7,Manufacturing Processes,40.0,40
+22MECH176,7,Heat Transfer,37.4,40
+22MECH176,7,CAD/CAM,40.0,40
+22CIVIL176,7,Structural Analysis,18.5,40
+22CIVIL176,7,Surveying,22.3,40
+22CIVIL176,7,Geotechnical Engg,20.0,40
+22CIVIL176,7,Fluid Mechanics,21.4,40
+22CIVIL176,7,Concrete Technology,24.2,40
+22CIVIL176,7,Transportation Engg,26.6,40
+22CSE177,7,Data Structures,30.2,40
+22CSE177,7,Operating Systems,37.5,40
+22CSE177,7,DBMS,34.2,40
+22CSE177,7,Computer Networks,32.4,40
+22CSE177,7,Machine Learning,36.5,40
+22CSE177,7,Software Engg,33.6,40
+22IT177,7,Data Structures,25.7,40
+22IT177,7,Web Technologies,28.0,40
+22IT177,7,DBMS,28.7,40
+22IT177,7,Cloud Computing,30.5,40
+22IT177,7,Information Security,35.2,40
+22IT177,7,Software Engg,31.0,40
+22ECE177,7,Signals & Systems,26.9,40
+22ECE177,7,Digital Electronics,23.7,40
+22ECE177,7,Analog Circuits,15.5,40
+22ECE177,7,Microprocessors,19.5,40
+22ECE177,7,Communication Systems,13.8,40
+22ECE177,7,VLSI Design,25.4,40
+22MECH177,7,Thermodynamics,27.6,40
+22MECH177,7,Fluid Mechanics,30.9,40
+22MECH177,7,Machine Design,33.8,40
+22MECH177,7,Manufacturing Processes,36.3,40
+22MECH177,7,Heat Transfer,35.0,40
+22MECH177,7,CAD/CAM,23.6,40
+22CIVIL177,7,Structural Analysis,31.1,40
+22CIVIL177,7,Surveying,26.0,40
+22CIVIL177,7,Geotechnical Engg,28.6,40
+22CIVIL177,7,Fluid Mechanics,30.3,40
+22CIVIL177,7,Concrete Technology,31.2,40
+22CIVIL177,7,Transportation Engg,34.5,40
+22CSE178,7,Data Structures,29.2,40
+22CSE178,7,Operating Systems,20.6,40
+22CSE178,7,DBMS,29.2,40
+22CSE178,7,Computer Networks,28.0,40
+22CSE178,7,Machine Learning,27.5,40
+22CSE178,7,Software Engg,23.6,40
+22IT178,7,Data Structures,23.6,40
+22IT178,7,Web Technologies,25.7,40
+22IT178,7,DBMS,22.5,40
+22IT178,7,Cloud Computing,21.9,40
+22IT178,7,Information Security,26.5,40
+22IT178,7,Software Engg,18.0,40
+22ECE178,7,Signals & Systems,17.1,40
+22ECE178,7,Digital Electronics,32.8,40
+22ECE178,7,Analog Circuits,26.8,40
+22ECE178,7,Microprocessors,25.6,40
+22ECE178,7,Communication Systems,29.2,40
+22ECE178,7,VLSI Design,26.2,40
+22MECH178,7,Thermodynamics,14.8,40
+22MECH178,7,Fluid Mechanics,19.0,40
+22MECH178,7,Machine Design,24.4,40
+22MECH178,7,Manufacturing Processes,18.8,40
+22MECH178,7,Heat Transfer,19.7,40
+22MECH178,7,CAD/CAM,15.6,40
+22CIVIL178,7,Structural Analysis,13.8,40
+22CIVIL178,7,Surveying,16.3,40
+22CIVIL178,7,Geotechnical Engg,16.2,40
+22CIVIL178,7,Fluid Mechanics,18.9,40
+22CIVIL178,7,Concrete Technology,14.7,40
+22CIVIL178,7,Transportation Engg,18.1,40
+22CSE179,7,Data Structures,26.4,40
+22CSE179,7,Operating Systems,25.9,40
+22CSE179,7,DBMS,23.0,40
+22CSE179,7,Computer Networks,23.8,40
+22CSE179,7,Machine Learning,23.6,40
+22CSE179,7,Software Engg,20.6,40
+22IT179,7,Data Structures,37.9,40
+22IT179,7,Web Technologies,31.4,40
+22IT179,7,DBMS,36.7,40
+22IT179,7,Cloud Computing,24.6,40
+22IT179,7,Information Security,30.7,40
+22IT179,7,Software Engg,29.3,40
+22ECE179,7,Signals & Systems,14.6,40
+22ECE179,7,Digital Electronics,17.4,40
+22ECE179,7,Analog Circuits,17.6,40
+22ECE179,7,Microprocessors,14.2,40
+22ECE179,7,Communication Systems,9.6,40
+22ECE179,7,VLSI Design,16.5,40
+22MECH179,7,Thermodynamics,26.0,40
+22MECH179,7,Fluid Mechanics,22.8,40
+22MECH179,7,Machine Design,19.6,40
+22MECH179,7,Manufacturing Processes,20.6,40
+22MECH179,7,Heat Transfer,24.4,40
+22MECH179,7,CAD/CAM,21.3,40
+22CIVIL179,7,Structural Analysis,33.3,40
+22CIVIL179,7,Surveying,36.6,40
+22CIVIL179,7,Geotechnical Engg,36.5,40
+22CIVIL179,7,Fluid Mechanics,40.0,40
+22CIVIL179,7,Concrete Technology,36.7,40
+22CIVIL179,7,Transportation Engg,33.6,40
+22CSE180,7,Data Structures,26.1,40
+22CSE180,7,Operating Systems,26.4,40
+22CSE180,7,DBMS,33.3,40
+22CSE180,7,Computer Networks,35.6,40
+22CSE180,7,Machine Learning,30.3,40
+22CSE180,7,Software Engg,32.6,40
+22IT180,7,Data Structures,22.4,40
+22IT180,7,Web Technologies,17.9,40
+22IT180,7,DBMS,16.7,40
+22IT180,7,Cloud Computing,13.4,40
+22IT180,7,Information Security,21.3,40
+22IT180,7,Software Engg,16.6,40
+22ECE180,7,Signals & Systems,28.2,40
+22ECE180,7,Digital Electronics,22.5,40
+22ECE180,7,Analog Circuits,31.9,40
+22ECE180,7,Microprocessors,21.3,40
+22ECE180,7,Communication Systems,32.7,40
+22ECE180,7,VLSI Design,22.0,40
+22MECH180,7,Thermodynamics,17.8,40
+22MECH180,7,Fluid Mechanics,28.7,40
+22MECH180,7,Machine Design,31.0,40
+22MECH180,7,Manufacturing Processes,28.2,40
+22MECH180,7,Heat Transfer,21.1,40
+22MECH180,7,CAD/CAM,21.6,40
+22CIVIL180,7,Structural Analysis,20.7,40
+22CIVIL180,7,Surveying,19.5,40
+22CIVIL180,7,Geotechnical Engg,21.3,40
+22CIVIL180,7,Fluid Mechanics,19.7,40
+22CIVIL180,7,Concrete Technology,20.7,40
+22CIVIL180,7,Transportation Engg,14.5,40

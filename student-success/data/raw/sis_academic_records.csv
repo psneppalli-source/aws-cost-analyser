@@ -1,0 +1,613 @@
+Roll No,Student Name,Department,Current Year,Gender,CGPA,Active Backlogs,Hosteller,SGPA_S1,SGPA_S2,SGPA_S3,SGPA_S4,SGPA_S5,SGPA_S6
+25ECE013,Krishna Mehta,E.C.E,2,M,7.4,0,Y,7.64,7.17,,,,
+24MECH027,SIDDHARTH MEHTA,Mechanical,3,M,5.31,1,Y,5.46,4.97,5.84,4.97,,
+23CIVIL035,Manav Kulkarni,Civil Engg,4,F,7.79,0,Y,7.82,8.2,8.1,7.69,7.43,7.48
+24CIVIL011,Karthik Pillai,Civil Engg,3,M,6.8,0,Y,6.83,6.66,7.02,6.71,,
+23IT014,Meera Nair,IT,4,M,7.47,0,N,7.0,7.88,7.52,7.64,7.35,7.44
+23CIVIL025,Isha Naidu,Civil Engg,4,F,8.42,0,Y,8.27,8.34,8.59,8.29,8.51,8.52
+24ECE001,Pari Joshi,Electronics & Communication,3,M,7.71,0,Y,7.63,7.51,7.68,8.03,,
+24CSE005,Pranav Das,Computer Science,3,F,5.42,1,Y,5.59,5.57,5.54,4.99,,
+23CIVIL001,Pari Rao,CIVIL,4,F,6.77,0,Y,7.36,6.13,6.46,6.87,6.96,6.87
+25ECE009,Reyansh Iyer,E.C.E,2,M,6.29,0,N,6.79,5.78,,,,
+24IT039,Manav Verma,Information Technology,3,F,7.75,0,N,7.05,8.21,8.27,7.48,,
+24CIVIL024,Vivaan Kumar,CIVIL,3,M,7.08,0,Y,7.22,6.95,7.58,6.56,,
+24ECE016,Lakshmi Naidu,E.C.E,3,M,8.15,0,Y,8.42,8.16,8.43,7.59,,
+23IT003,Abhinav Nair,I.T.,4,M,7.36,0,Y,7.66,7.28,6.85,7.39,7.63,7.34
+23MECH023,Shreya Singh,Mechanical Engg,4,F,7.02,0,N,6.7,7.3,7.06,7.5,6.62,6.93
+25ECE037,Lakshmi Iyer,E.C.E,2,M,8.09,0,N,8.29,7.9,,,,
+24CIVIL021,Ananya Joshi,CIVIL,3,M,6.88,0,Y,6.75,6.44,7.16,7.15,,
+24CIVIL014,Ananya Agarwal,Civil Engg,3,F,7.79,0,N,7.59,7.19,7.88,8.51,,
+23CIVIL024,Isha Rao,CIVIL,4,F,5.58,1,Y,5.58,5.58,6.29,5.69,5.12,5.2
+24CSE033,Vihaan Chopra,C.S.E,3,M,6.84,0,N,7.2,6.85,6.25,7.05,,
+24IT032,Lakshmi Rao,IT,3,F,5.96,2,Y,5.94,5.95,5.68,6.26,,
+24IT031,NISHA CHOPRA,I.T.,3,F,7.07,0,Y,7.28,7.46,6.81,6.72,,
+23ECE024,Ananya Chopra,Electronics & Communication,4,M,7.57,0,Y,7.16,7.26,7.94,7.78,7.39,7.91
+25CSE037,Harsh Patel,CSE,2,F,7.0,0,N,6.79,7.2,,,,
+23MECH001,NISHA CHOPRA,Mechanical,4,M,7.36,0,N,7.62,7.28,7.6,6.68,7.55,7.42
+25ECE011,Diya Reddy,Electronics & Communication,2,F,6.61,0,N,7.08,6.13,,,,
+25CSE038,Ishaan Agarwal,Computer Science,2,M,6.38,0,N,5.82,6.94,,,,
+24IT024,Reyansh Rao,IT,3,M,7.29,0,N,7.19,6.81,7.72,7.43,,
+24ECE019,Divya Iyer,Electronics & Communication,3,F,7.92,0,Y,8.24,7.69,8.05,7.68,,
+25ECE010,Pari Nair,Electronics & Communication,2,M,5.71,1,N,6.01,5.42,,,,
+25CSE040,VIHAAN REDDY,Computer Science & Engg,2,M,6.67,0,N,6.97,6.38,,,,
+23MECH034,NIKHIL SINGH,MECH,4,M,8.13,0,N,7.97,7.87,8.3,8.43,7.99,8.23
+24CIVIL031,Swathi Agarwal,CIVIL,3,F,4.97,1,Y,4.63,5.16,5.2,4.91,,
+23ECE007,Rohan Nair,ECE,4,M,5.75,2,N,5.51,4.94,6.2,5.96,6.04,5.82
+23ECE039,Swathi Chopra,E.C.E,4,F,7.17,0,N,6.52,7.56,7.33,7.59,6.85,7.16
+25CIVIL014,Lakshmi Chopra,CIVIL,2,M,7.93,0,N,8.2,7.67,,,,
+25IT014,Manav Bose,IT,2,F,7.21,0,N,7.69,6.73,,,,
+24CIVIL025,Krishna Kulkarni,Civil,3,F,9.2,0,Y,9.59,8.66,8.86,9.68,,
+23MECH021,Neha Naidu,Mechanical,4,M,7.02,0,N,6.54,6.75,7.75,6.75,7.32,7.03
+25IT035,Priya Naidu,Information Technology,2,M,7.33,0,N,7.28,7.38,,,,
+24CIVIL012,KAVYA SHARMA,Civil,3,M,6.93,0,Y,7.22,6.62,7.01,6.88,,
+25CIVIL016,Rahul Menon,Civil,2,F,7.41,0,Y,7.58,7.24,,,,
+25CSE031,Ananya Rao,C.S.E,2,F,5.87,0,N,6.73,5.01,,,,
+23CSE010,Riya Verma,Computer Science & Engg,4,F,8.78,0,Y,8.7,8.26,8.53,8.89,8.93,9.34
+24ECE033,Divya Das,ECE,3,M,7.32,0,Y,7.57,7.15,7.15,7.4,,
+25MECH031,PRIYA CHOPRA,MECH,2,F,5.46,3,N,5.2,5.72,,,,
+25IT020,Reyansh Joshi,Information Technology,2,F,8.31,0,N,8.26,8.36,,,,
+24ECE036,Divya Nair,ECE,3,M,4.67,0,Y,4.74,5.02,4.44,4.49,,
+23IT039,TANVI SINGH,I.T.,4,M,5.82,0,Y,5.77,5.52,5.91,6.1,5.39,6.2
+23ECE008,Aarav Bose,E.C.E,4,M,5.85,1,N,6.06,5.76,6.16,5.88,5.29,5.96
+24CIVIL017,Ishaan Naidu,Civil Engg,3,M,6.72,0,Y,6.9,6.82,6.26,6.91,,
+25CSE011,Kavya Menon,C.S.E,2,M,6.04,0,N,6.03,6.04,,,,
+25ECE039,Isha Verma,E.C.E,2,M,6.81,0,N,6.75,6.88,,,,
+23MECH033,Rohan Gupta,Mechanical,4,F,6.53,0,Y,6.76,6.94,6.57,6.44,6.74,5.73
+23ECE005,Ananya Kumar,Electronics & Communication,4,F,5.65,0,N,4.93,5.69,6.45,5.73,5.48,5.61
+25CSE039,Sneha Singh,Computer Science,2,F,7.03,0,N,7.29,6.77,,,,
+23MECH038,KRISHNA AGARWAL,MECH,4,F,7.35,0,N,7.56,7.39,7.34,7.83,7.24,6.73
+25CSE012,Tanvi Patel,Computer Science,2,F,6.61,0,N,6.43,6.79,,,,
+23ECE037,Arjun Joshi,ECE,4,M,5.6,1,N,6.1,5.69,5.63,5.44,5.23,5.49
+24MECH006,Riya Verma,Mechanical,3,F,5.77,0,Y,5.68,5.86,6.04,5.5,,
+25ECE038,Meera Agarwal,Electronics & Communication,2,M,7.04,0,N,6.81,7.28,,,,
+24CIVIL012,KAVYA SHARMA,Civil,3,M,6.93,0,Y,7.22,6.62,7.01,6.88,,
+24CSE037,NISHA SHARMA,CSE,3,M,4.92,5,N,4.75,5.21,4.99,4.74,,
+23ECE021,Diya Singh,E.C.E,4,M,5.96,2,N,5.82,6.07,5.74,6.0,6.18,5.96
+25MECH013,Pari Sharma,Mechanical,2,F,7.57,0,N,7.35,7.79,,,,
+25CIVIL012,VIHAAN VERMA,Civil,2,M,6.01,1,N,5.83,6.19,,,,
+24MECH022,Swathi Das,Mechanical,3,M,6.23,0,Y,5.94,6.07,6.68,6.22,,
+25CIVIL008,ANANYA SINGH,Civil,2,M,7.29,0,N,7.7,6.89,,,,
+24CIVIL019,Harsh Pillai,Civil Engg,3,M,5.77,0,N,6.24,5.21,5.67,5.98,,
+23CIVIL002,Swathi Das,Civil Engg,4,M,7.43,0,Y,7.75,7.31,7.38,7.51,7.33,7.33
+24CSE023,Pari Singh,Computer Science,3,F,7.11,0,Y,7.38,6.95,7.21,6.9,,
+25CIVIL038,Arjun Mehta,Civil,2,M,8.04,0,N,7.94,8.13,,,,
+23IT040,Rahul Menon,IT,4,M,6.78,0,N,6.59,6.41,6.85,7.04,6.86,6.93
+24ECE009,Yash Sharma,ECE,3,M,8.36,0,N,8.23,8.59,8.4,8.2,,
+23ECE022,Pranav Menon,E.C.E,4,M,6.53,0,Y,6.4,5.91,6.6,6.79,6.42,7.05
+24CIVIL020,Aditi Pillai,Civil,3,F,8.07,0,N,8.5,7.73,7.88,8.18,,
+24CIVIL013,Rahul Pillai,Civil,3,M,7.29,0,Y,7.56,6.96,7.3,7.34,,
+23CSE023,Sneha Gupta,C.S.E,4,M,7.22,0,Y,7.45,7.76,7.14,7.36,6.99,6.64
+23CSE026,PRANAV BOSE,CSE,4,M,7.68,0,N,7.33,8.05,7.48,7.78,7.77,7.69
+25IT024,Isha Joshi,Information Technology,2,M,4.46,3,Y,4.5,4.42,,,,
+23MECH030,Tanvi Chopra,MECH,4,M,6.03,0,N,6.04,5.94,5.48,6.54,6.21,5.96
+25MECH034,Saanvi Naidu,Mechanical,2,F,5.82,0,N,5.97,5.67,,,,
+24IT012,Aditi Kulkarni,Information Technology,3,F,8.93,0,Y,8.95,9.07,9.06,8.66,,
+24IT004,Tanvi Joshi,I.T.,3,M,9.47,0,N,9.09,9.88,9.36,9.55,,
+23CIVIL022,Priya Agarwal,Civil Engg,4,F,7.36,0,N,8.2,6.77,7.41,7.61,6.97,7.19
+25ECE022,Pranav Nair,Electronics & Communication,2,F,7.51,0,N,7.65,7.36,,,,
+24MECH005,ADITI JOSHI,MECH,3,M,5.67,1,N,5.08,6.21,5.91,5.5,,
+24MECH035,Nisha Naidu,Mechanical Engg,3,M,7.97,0,N,8.41,7.77,8.05,7.66,,
+23CIVIL033,Nisha Naidu,CIVIL,4,F,6.64,0,Y,6.92,6.41,6.58,6.28,6.8,6.84
+23MECH004,Arjun Iyer,Mechanical,4,F,6.25,1,Y,6.72,6.3,6.37,5.71,6.02,6.35
+25CIVIL021,Abhinav Naidu,CIVIL,2,M,6.41,0,N,5.93,6.89,,,,
+25CSE036,Vivaan Gupta,CSE,2,M,7.74,0,Y,8.08,7.4,,,,
+23CIVIL034,Vivaan Reddy,Civil,4,M,6.87,0,N,7.29,7.13,7.16,6.12,7.05,6.46
+25MECH036,Meera Sharma,Mechanical,2,M,5.42,0,N,5.72,5.12,,,,
+23MECH022,Pooja Rao,Mechanical Engg,4,F,6.24,1,N,5.98,5.97,6.53,5.99,6.39,6.56
+24CIVIL036,Karthik Patel,Civil,3,F,7.64,0,N,7.44,8.09,7.55,7.48,,
+24MECH003,Varun Pillai,Mechanical Engg,3,F,6.98,0,N,6.84,6.75,6.82,7.52,,
+23MECH006,Neha Joshi,Mechanical,4,M,6.73,0,N,6.35,6.63,7.47,6.64,6.67,6.6
+23ECE012,Pari Gupta,ECE,4,F,7.65,0,Y,7.98,7.42,7.64,7.34,7.9,7.6
+23CIVIL027,Reyansh Sharma,Civil Engg,4,F,8.0,0,N,8.89,8.21,8.13,7.74,7.61,7.43
+25MECH025,Shreya Gupta,Mechanical Engg,2,M,5.95,0,Y,5.97,5.93,,,,
+24IT018,Aarav Agarwal,I.T.,3,M,6.04,0,Y,6.01,6.0,5.93,6.21,,
+23ECE040,Karthik Reddy,E.C.E,4,F,6.02,2,N,6.16,5.77,5.39,6.6,6.16,6.01
+25CSE003,Saanvi Agarwal,Computer Science & Engg,2,F,5.66,3,N,5.41,5.91,,,,
+24CIVIL037,Karthik Gupta,CIVIL,3,M,5.11,2,Y,5.35,5.04,5.53,4.51,,
+24IT034,Reyansh Pillai,I.T.,3,M,8.93,0,Y,9.12,8.97,9.07,8.57,,
+23IT027,Yash Joshi,I.T.,4,M,7.68,0,N,7.64,7.87,7.19,7.67,7.73,8.01
+23CIVIL030,Isha Bose,Civil Engg,4,F,6.53,0,N,6.96,6.13,6.63,6.24,6.19,7.01
+25MECH007,Aditya Rao,Mechanical Engg,2,M,6.33,0,N,6.32,6.35,,,,
+25IT005,Riya Kumar,Information Technology,2,M,6.05,1,Y,5.99,6.11,,,,
+24MECH038,Manav Sharma,Mechanical Engg,3,M,7.27,0,Y,7.66,6.9,7.3,7.21,,
+24CIVIL019,Harsh Pillai,Civil Engg,3,M,5.77,0,N,6.24,5.21,5.67,5.98,,
+25MECH024,Riya Kumar,Mechanical,2,M,7.89,0,Y,7.94,7.85,,,,
+25MECH018,Rahul Verma,MECH,2,M,6.8,0,N,7.18,6.43,,,,
+23CIVIL023,Isha Kulkarni,CIVIL,4,F,6.6,0,Y,6.51,6.5,6.53,6.94,6.88,6.25
+25CSE007,Manav Das,CSE,2,F,7.46,0,N,7.34,7.57,,,,
+23IT036,RAHUL AGARWAL,IT,4,F,7.67,0,Y,7.78,8.1,7.49,7.67,8.27,6.68
+25ECE005,Yash Das,ECE,2,M,5.3,0,Y,4.95,5.66,,,,
+23CSE035,LAKSHMI MEHTA,Computer Science,4,F,6.86,0,N,7.0,7.06,6.56,7.09,6.83,6.65
+25IT028,Kavya Agarwal,Information Technology,2,F,6.63,0,N,6.52,6.74,,,,
+25IT037,Shreya Bose,IT,2,F,7.99,0,N,8.11,7.87,,,,
+25CIVIL019,NEHA JOSHI,CIVIL,2,F,7.78,1,N,7.96,7.59,,,,
+24IT021,Pranav Sharma,I.T.,3,M,7.17,0,Y,7.0,7.4,7.64,6.64,,
+25ECE004,Kavya Menon,E.C.E,2,M,6.5,0,Y,7.09,5.92,,,,
+24IT014,Siddharth Agarwal,I.T.,3,M,7.3,0,N,7.61,7.22,7.14,7.23,,
+24CSE030,Sai Chopra,Computer Science,3,F,7.35,0,Y,7.13,7.14,7.85,7.29,,
+25IT004,Aditi Pillai,Information Technology,2,F,8.09,0,Y,8.22,7.95,,,,
+23CSE015,Aditya Kumar,Computer Science & Engg,4,M,6.86,0,Y,7.42,6.53,7.51,6.97,6.27,6.44
+25ECE020,Divya Joshi,E.C.E,2,F,5.64,1,N,5.61,5.67,,,,
+25MECH009,ROHAN PATEL,Mechanical Engg,2,M,5.97,0,N,6.1,5.84,,,,
+25CIVIL020,Riya Kulkarni,CIVIL,2,M,9.82,0,Y,9.63,10.0,,,,
+23CSE032,Abhinav Pillai,Computer Science & Engg,4,M,4.77,0,N,4.73,4.11,4.97,4.92,5.02,4.87
+23MECH028,Karthik Patel,Mechanical,4,F,6.37,1,Y,6.46,6.17,6.55,6.88,5.92,6.24
+24MECH008,Ananya Agarwal,Mechanical,3,M,8.43,0,N,8.86,7.91,8.18,8.79,,
+23MECH025,Isha Verma,Mechanical Engg,4,M,6.98,0,N,6.6,6.64,6.85,7.23,7.03,7.51
+24MECH023,Priya Das,Mechanical Engg,3,F,5.83,1,N,5.99,5.6,6.29,5.45,,
+23CIVIL036,Shreya Sharma,CIVIL,4,F,6.78,0,N,7.02,6.62,6.58,6.95,7.12,6.38
+23MECH019,Vivaan Singh,Mechanical Engg,4,M,7.48,0,N,7.88,7.75,7.5,6.7,7.35,7.71
+24MECH037,Harsh Mehta,Mechanical Engg,3,M,7.09,0,N,6.87,7.19,7.54,6.75,,
+23MECH018,Rohan Rao,Mechanical,4,M,5.02,2,Y,4.81,5.22,5.17,4.89,5.05,4.96
+24ECE018,Aarav Naidu,E.C.E,3,M,5.27,1,Y,5.05,5.54,5.63,4.86,,
+23CIVIL004,Aarav Naidu,Civil Engg,4,F,6.66,0,N,6.82,6.72,6.41,6.86,6.49,6.64
+25CIVIL027,Aarav Menon,CIVIL,2,M,7.72,0,Y,7.57,7.88,,,,
+25MECH014,Aditi Chopra,MECH,2,F,7.43,0,N,7.91,6.95,,,,
+23CSE005,Vivaan Patel,CSE,4,F,6.33,0,N,5.85,5.75,6.82,6.57,6.68,6.3
+24CIVIL003,Rohan Gupta,Civil Engg,3,M,8.25,0,N,8.28,8.37,8.57,7.8,,
+23IT005,ADITI KULKARNI,IT,4,M,7.94,0,N,8.04,7.74,7.96,8.31,8.18,7.4
+24ECE020,LAKSHMI RAO,ECE,3,M,7.5,0,N,7.43,7.14,7.39,8.04,,
+23IT037,Reyansh Das,I.T.,4,M,6.69,0,Y,7.13,6.28,6.34,7.22,6.76,6.41
+25ECE012,Aadhya Menon,ECE,2,M,7.25,0,N,7.04,7.46,,,,
+23CIVIL028,Rohan Iyer,CIVIL,4,M,7.47,0,N,7.49,7.27,7.44,7.34,7.27,7.99
+23ECE020,Vihaan Menon,E.C.E,4,M,6.7,0,N,6.92,6.66,6.92,6.61,7.22,5.89
+23ECE010,Aditi Singh,Electronics & Communication,4,F,5.63,0,Y,6.06,5.74,5.99,5.42,5.01,5.56
+25CIVIL023,Diya Chopra,Civil,2,M,7.09,0,N,7.41,6.77,,,,
+23MECH015,Priya Agarwal,Mechanical Engg,4,M,5.46,4,Y,5.85,6.08,5.64,5.31,4.93,4.94
+24CSE017,Nisha Chopra,C.S.E,3,F,7.75,1,N,8.07,8.04,7.42,7.47,,
+25ECE021,Ananya Gupta,E.C.E,2,F,6.95,0,Y,7.06,6.84,,,,
+24CIVIL033,Manav Menon,Civil Engg,3,M,8.07,0,Y,7.99,7.98,8.36,7.94,,
+24MECH025,Kavya Agarwal,MECH,3,F,6.45,0,Y,6.42,6.68,6.69,6.0,,
+24ECE003,Lakshmi Patel,Electronics & Communication,3,M,6.88,0,Y,7.28,6.67,6.92,6.67,,
+24CSE014,Harsh Chopra,C.S.E,3,M,5.11,2,N,4.95,5.04,5.34,5.1,,
+23IT022,Varun Agarwal,I.T.,4,F,5.22,1,Y,5.62,5.4,5.66,5.62,4.51,4.48
+23MECH005,Vihaan Joshi,Mechanical,4,M,5.42,0,N,5.58,5.17,5.12,6.29,5.05,5.33
+25MECH023,Neha Patel,Mechanical,2,M,3.8,5,Y,3.8,3.8,,,,
+24CSE025,Ananya Chopra,CSE,3,M,6.35,1,N,6.63,6.75,6.07,5.94,,
+23IT033,Swathi Nair,IT,4,F,7.33,0,N,7.5,7.49,6.59,7.48,7.77,7.13
+25ECE017,Aadhya Menon,E.C.E,2,F,7.78,0,N,7.39,8.17,,,,
+24CIVIL005,VARUN SHARMA,CIVIL,3,M,6.22,0,Y,5.95,6.16,6.62,6.17,,
+24CSE022,TANVI SHARMA,C.S.E,3,M,5.84,2,N,6.82,5.72,5.59,5.24,,
+25MECH027,Pranav Chopra,Mechanical,2,M,5.87,0,N,5.82,5.92,,,,
+23CSE018,Manav Gupta,Computer Science & Engg,4,M,9.45,0,Y,9.35,8.85,9.9,9.2,9.59,9.83
+24ECE007,Swathi Kumar,Electronics & Communication,3,M,6.83,0,Y,6.13,7.5,7.12,6.56,,
+24CIVIL006,Shreya Chopra,CIVIL,3,M,6.9,0,Y,6.42,6.8,6.79,7.6,,
+25ECE026,Shreya Reddy,E.C.E,2,M,5.15,0,N,5.54,4.77,,,,
+25CIVIL034,Vihaan Naidu,Civil,2,M,4.63,2,N,4.6,4.67,,,,
+23CSE040,Kavya Naidu,CSE,4,M,4.72,3,Y,5.02,4.34,4.98,4.34,4.73,4.93
+23MECH032,Lakshmi Pillai,Mechanical,4,F,7.63,0,N,7.04,7.35,7.81,7.42,8.37,7.79
+25MECH038,Karthik Pillai,MECH,2,M,9.35,0,N,9.37,9.33,,,,
+24CSE016,Siddharth Patel,Computer Science,3,M,5.59,2,N,5.62,5.59,5.73,5.43,,
+24ECE024,Krishna Kumar,ECE,3,M,8.74,0,N,8.69,9.44,8.43,8.42,,
+25CSE040,VIHAAN REDDY,Computer Science & Engg,2,M,6.67,0,N,6.97,6.38,,,,
+24MECH033,Aadhya Naidu,Mechanical Engg,3,M,7.02,0,Y,6.66,7.35,6.74,7.33,,
+25IT001,Saanvi Naidu,Information Technology,2,M,7.78,0,N,7.68,7.88,,,,
+24MECH004,Harsh Joshi,Mechanical Engg,3,M,6.79,0,N,6.65,7.41,6.73,6.39,,
+25IT021,Rohan Menon,I.T.,2,M,8.68,0,N,8.61,8.75,,,,
+25ECE031,Swathi Iyer,Electronics & Communication,2,M,6.17,0,N,6.16,6.17,,,,
+23CSE006,NIKHIL BOSE,Computer Science,4,F,6.34,1,Y,6.08,6.34,6.88,6.03,6.18,6.56
+24ECE022,Pooja Menon,Electronics & Communication,3,M,8.57,1,Y,7.99,8.5,8.83,8.96,,
+23CIVIL031,KARTHIK BOSE,CIVIL,4,F,6.77,0,Y,6.35,6.62,7.0,6.89,6.52,7.23
+23MECH007,TANVI MEHTA,Mechanical Engg,4,F,6.52,0,N,6.34,6.97,6.36,6.67,6.48,6.31
+24MECH030,ISHAAN REDDY,MECH,3,M,7.29,0,N,7.46,6.86,7.25,7.59,,
+24CSE001,Pari Menon,C.S.E,3,M,6.95,0,Y,7.19,7.17,6.62,6.82,,
+23ECE029,Nikhil Reddy,E.C.E,4,F,6.92,0,N,6.85,6.58,6.42,6.98,7.31,7.41
+23CIVIL018,Aditi Menon,Civil,4,M,6.61,0,N,6.67,6.93,6.79,6.67,6.42,6.2
+25CSE021,Vivaan Das,Computer Science & Engg,2,F,NA,0,Y,7.6,7.57,,,,
+24CIVIL032,Yash Kulkarni,Civil Engg,3,F,5.9,3,N,5.66,5.73,6.02,6.2,,
+23IT009,Shreya Sharma,Information Technology,4,M,8.09,0,Y,8.38,7.62,8.3,8.19,8.46,7.59
+23CSE009,Saanvi Nair,CSE,4,F,6.07,0,Y,6.63,5.98,6.48,5.93,5.85,5.57
+23IT011,Diya Agarwal,Information Technology,4,F,5.53,2,Y,5.99,5.13,5.18,5.45,5.79,5.62
+24CSE035,Aditya Agarwal,Computer Science,3,F,10.0,0,N,10.0,10.0,10.0,10.0,,
+25CSE006,Shreya Rao,Computer Science & Engg,2,F,6.11,1,N,6.49,5.73,,,,
+24IT036,RAHUL MENON,I.T.,3,M,7.57,0,N,7.81,7.83,7.17,7.47,,
+24CIVIL028,Nisha Pillai,Civil,3,F,7.62,0,Y,7.03,7.93,7.67,7.86,,
+25MECH016,Yash Bose,Mechanical Engg,2,F,8.94,0,N,8.8,9.08,,,,
+23CIVIL032,Vivaan Verma,Civil,4,M,6.9,0,N,7.18,7.22,6.46,6.72,7.62,6.2
+25CSE032,Vihaan Naidu,CSE,2,M,8.93,0,Y,9.02,8.85,,,,
+24ECE027,Saanvi Mehta,E.C.E,3,M,5.44,1,Y,5.71,5.33,6.02,4.71,,
+25IT022,Reyansh Patel,Information Technology,2,M,7.44,0,N,7.13,7.75,,,,
+23CIVIL008,Saanvi Verma,CIVIL,4,M,6.61,0,N,6.94,6.69,7.19,6.41,6.78,5.66
+24MECH036,Vihaan Kulkarni,Mechanical,3,F,6.54,0,Y,6.82,6.73,6.4,6.22,,
+24IT009,Swathi Rao,Information Technology,3,M,8.35,0,N,7.87,8.22,8.78,8.53,,
+24ECE023,Nikhil Agarwal,ECE,3,F,6.13,1,N,6.49,5.77,6.13,6.12,,
+23ECE027,Harsh Singh,E.C.E,4,M,7.38,0,N,7.43,7.47,7.08,7.79,7.4,7.09
+23IT031,Divya Naidu,Information Technology,4,M,5.16,1,N,5.08,5.06,5.65,4.92,5.18,5.04
+24IT016,Yash Kulkarni,IT,3,M,6.51,0,N,6.59,6.73,6.67,6.06,,
+24IT006,Nikhil Rao,Information Technology,3,F,7.42,0,N,6.96,7.4,7.69,7.63,,
+24CIVIL035,Karthik Gupta,Civil,3,M,7.19,0,N,7.61,6.99,7.13,7.03,,
+24MECH039,Aadhya Singh,Mechanical,3,M,7.46,1,N,7.81,7.26,7.39,7.4,,
+24MECH020,Tanvi Agarwal,MECH,3,F,6.58,0,N,6.29,6.58,6.57,6.86,,
+25MECH039,SWATHI SHARMA,Mechanical,2,M,6.49,0,N,5.96,7.02,,,,
+23MECH031,Nikhil Gupta,MECH,4,F,7.48,0,Y,7.63,7.98,7.18,7.39,7.35,7.35
+23MECH036,Aditya Reddy,MECH,4,M,6.5,0,Y,6.72,6.49,6.74,6.78,6.01,6.24
+25MECH017,Sai Gupta,MECH,2,M,7.36,0,N,7.48,7.24,,,,
+25MECH040,DIYA VERMA,Mechanical,2,F,6.46,0,N,6.42,6.51,,,,
+23MECH008,Neha Reddy,Mechanical Engg,4,M,6.65,0,N,6.21,6.45,6.89,6.12,7.1,7.1
+23ECE003,Aadhya Nair,Electronics & Communication,4,F,7.45,0,N,7.11,7.35,8.12,7.14,7.14,7.87
+24CIVIL018,Siddharth Nair,CIVIL,3,F,6.41,0,Y,6.83,6.35,6.21,6.25,,
+23ECE030,Rohan Agarwal,Electronics & Communication,4,F,6.26,1,N,6.52,6.08,6.05,6.76,6.22,5.91
+23CSE003,Lakshmi Kulkarni,Computer Science & Engg,4,M,8.18,0,Y,7.63,7.24,9.0,8.16,8.53,8.51
+24MECH028,Harsh Joshi,MECH,3,F,6.4,0,Y,6.44,6.69,6.13,6.35,,
+25MECH011,Divya Gupta,MECH,2,M,8.43,0,N,8.68,8.19,,,,
+24ECE017,Lakshmi Das,E.C.E,3,F,5.64,0,N,5.71,5.98,4.98,5.87,,
+25CSE008,Nisha Reddy,Computer Science,2,M,7.81,0,Y,7.79,7.84,,,,
+24IT010,Abhinav Menon,IT,3,M,4.06,2,Y,4.12,3.8,4.2,4.13,,
+24MECH007,Aditya Naidu,Mechanical Engg,3,M,4.36,2,N,4.45,4.65,4.54,3.8,,
+25ECE014,Sai Joshi,ECE,2,M,7.42,0,N,7.92,6.93,,,,
+24ECE021,Varun Naidu,Electronics & Communication,3,M,5.47,2,Y,5.79,5.44,4.99,5.66,,
+24CIVIL029,Tanvi Chopra,Civil,3,M,7.41,0,Y,7.58,7.22,7.39,7.45,,
+23CSE031,RAHUL MEHTA,Computer Science & Engg,4,M,6.0,1,Y,5.56,6.23,5.98,6.4,6.12,5.74
+24MECH001,Lakshmi Gupta,MECH,3,F,6.93,0,N,6.37,7.59,7.28,6.47,,
+24IT022,Swathi Joshi,I.T.,3,M,6.31,0,Y,6.23,6.47,6.58,5.94,,
+23IT019,Swathi Menon,I.T.,4,F,6.83,0,Y,6.36,7.13,6.72,6.69,7.33,6.74
+23MECH027,Divya Naidu,Mechanical,4,F,6.08,0,N,5.82,5.59,6.16,5.69,6.39,6.84
+23CIVIL015,MEERA KULKARNI,Civil,4,F,7.14,0,Y,7.22,6.94,7.42,7.29,6.54,7.45
+25ECE033,Lakshmi Reddy,ECE,2,F,6.63,0,N,6.57,6.7,,,,
+24MECH031,Reyansh Reddy,Mechanical,3,M,9.26,0,N,9.05,9.38,9.28,9.32,,
+24CSE019,Harsh Naidu,CSE,3,F,8.75,1,Y,8.73,8.66,8.83,8.78,,
+24MECH018,Isha Mehta,Mechanical,3,F,6.98,0,Y,7.06,7.3,6.77,6.81,,
+23IT034,Divya Bose,I.T.,4,M,9.26,0,Y,9.57,9.33,9.14,9.23,9.17,9.12
+23CIVIL005,Aditi Nair,CIVIL,4,F,7.9,0,N,7.69,7.54,8.0,8.54,8.08,7.54
+25CIVIL009,Neha Mehta,Civil Engg,2,M,7.72,0,N,8.06,7.39,,,,
+23ECE035,Aadhya Gupta,E.C.E,4,M,7.19,0,N,7.78,7.15,7.7,7.32,7.12,6.05
+23CSE029,Reyansh Naidu,Computer Science,4,M,8.2,0,N,7.94,8.07,8.13,8.5,8.46,8.12
+24IT029,Meera Bose,I.T.,3,F,7.92,0,N,7.54,7.95,7.75,8.45,,
+23CSE013,ARJUN KULKARNI,Computer Science & Engg,4,M,8.12,0,N,7.79,8.04,8.46,7.95,8.33,8.12
+24CIVIL030,Riya Sharma,Civil Engg,3,F,7.65,0,N,7.46,7.54,7.62,7.99,,
+24CIVIL010,Lakshmi Agarwal,Civil,3,F,6.46,0,N,6.11,7.27,6.21,6.24,,
+24CIVIL034,YASH MEHTA,Civil Engg,3,M,8.63,0,N,8.22,8.99,8.49,8.83,,
+23MECH003,SNEHA VERMA,Mechanical Engg,4,M,6.6,0,N,6.81,6.58,6.84,6.24,6.39,6.75
+25CSE014,Pari Singh,C.S.E,2,F,5.79,2,N,5.55,6.02,,,,
+25CIVIL039,NEHA MEHTA,Civil Engg,2,F,6.12,0,Y,6.13,6.11,,,,
+24CIVIL022,Sai Mehta,Civil Engg,3,F,6.07,0,Y,5.93,6.33,5.68,6.36,,
+23ECE018,KAVYA BOSE,E.C.E,4,F,7.64,0,N,7.34,8.1,7.59,7.73,7.36,7.73
+24IT007,Sneha Iyer,IT,3,F,7.27,0,N,7.01,8.09,6.79,7.19,,
+25IT027,Ishaan Naidu,Information Technology,2,M,8.57,0,Y,8.87,8.28,,,,
+23IT025,Ananya Bose,I.T.,4,M,6.83,0,Y,7.43,6.35,6.67,6.66,6.98,6.91
+23ECE015,Aditi Sharma,E.C.E,4,F,4.43,2,Y,4.84,5.35,3.91,3.99,4.24,4.23
+25CIVIL036,Vihaan Verma,CIVIL,2,M,6.96,0,N,6.84,7.07,,,,
+25CSE010,Vihaan Joshi,Computer Science,2,M,9.53,0,N,9.55,9.5,,,,
+24ECE030,KRISHNA IYER,ECE,3,M,NA,0,N,7.38,7.41,7.46,7.04,,
+25ECE016,MANAV SHARMA,Electronics & Communication,2,M,8.91,0,N,8.32,9.51,,,,
+23IT010,Reyansh Kulkarni,Information Technology,4,M,8.8,0,N,9.5,8.64,8.57,9.39,8.37,8.32
+25IT006,Divya Kulkarni,I.T.,2,F,8.54,0,Y,8.35,8.72,,,,
+25CIVIL032,Pranav Pillai,Civil Engg,2,M,5.21,0,N,5.02,5.41,,,,
+24CSE013,ADITI VERMA,Computer Science,3,M,7.56,0,N,7.52,7.74,7.46,7.53,,
+24CIVIL002,Sai Patel,CIVIL,3,F,5.82,0,N,6.05,5.34,5.93,5.96,,
+23CSE025,Aditi Rao,Computer Science & Engg,4,M,6.75,0,N,6.44,6.96,6.53,6.48,6.74,7.35
+23CSE016,Karthik Mehta,Computer Science & Engg,4,M,5.52,2,N,5.47,5.58,5.4,5.24,5.93,5.47
+23MECH040,Varun Pillai,MECH,4,F,7.85,0,Y,7.6,7.49,8.07,8.05,7.92,7.98
+25CIVIL006,Kavya Agarwal,Civil Engg,2,M,6.42,0,N,6.33,6.52,,,,
+24CIVIL001,Krishna Mehta,Civil Engg,3,M,7.8,0,Y,7.01,7.91,8.14,8.15,,
+23ECE036,SNEHA IYER,Electronics & Communication,4,M,7.49,0,Y,7.46,7.01,8.01,7.5,7.53,7.43
+25ECE018,Shreya Nair,ECE,2,F,5.83,4,N,6.6,5.07,,,,
+23CSE004,Pooja Agarwal,Computer Science,4,F,6.02,0,Y,5.9,5.25,6.19,6.37,6.28,6.13
+23ECE025,Shreya Kulkarni,Electronics & Communication,4,F,5.61,2,Y,5.97,5.66,5.61,5.63,5.18,5.59
+23ECE017,ANANYA PILLAI,ECE,4,F,6.11,1,Y,6.07,6.52,6.2,6.01,6.32,5.57
+25ECE032,SHREYA SINGH,ECE,2,M,7.36,0,N,7.31,7.41,,,,
+23IT008,Neha Reddy,IT,4,F,6.63,0,Y,5.98,6.57,6.71,7.06,7.29,6.18
+24MECH029,Saanvi Menon,MECH,3,F,8.98,0,N,9.28,8.31,9.08,9.25,,
+25MECH004,Sai Agarwal,MECH,2,M,6.49,0,N,6.56,6.42,,,,
+24CSE002,Abhinav Das,Computer Science,3,M,7.08,0,N,7.4,6.94,7.45,6.53,,
+25MECH021,ADITYA MEHTA,Mechanical Engg,2,M,6.65,1,Y,6.77,6.53,,,,
+25MECH015,Tanvi Rao,Mechanical,2,M,5.62,1,N,5.62,5.62,,,,
+24IT011,Isha Reddy,I.T.,3,F,8.3,0,Y,8.13,8.41,7.99,8.68,,
+24ECE032,Riya Rao,ECE,3,M,6.85,0,N,6.86,7.16,6.8,6.59,,
+24MECH013,Vivaan Iyer,Mechanical,3,F,7.45,0,N,7.01,7.44,7.66,7.69,,
+24CSE011,Vivaan Pillai,CSE,3,M,6.76,0,Y,7.15,7.05,6.38,6.46,,
+23IT021,Rahul Kumar,Information Technology,4,F,7.94,0,N,7.54,8.11,7.88,8.52,8.04,7.56
+23CIVIL011,RAHUL MEHTA,CIVIL,4,M,9.63,0,N,9.99,9.83,9.17,9.65,9.14,10.0
+24IT028,Krishna Kulkarni,Information Technology,3,F,5.77,1,Y,5.53,6.25,5.98,5.3,,
+24CSE006,Diya Iyer,C.S.E,3,M,7.24,0,Y,6.96,7.36,7.52,7.13,,
+23ECE002,Vivaan Gupta,ECE,4,F,6.95,0,N,6.97,7.12,7.38,6.81,6.59,6.81
+25MECH003,Krishna Kumar,MECH,2,F,7.96,0,Y,8.16,7.75,,,,
+25MECH029,Krishna Bose,MECH,2,M,9.2,0,Y,9.16,9.23,,,,
+25CSE026,VIHAAN SINGH,C.S.E,2,F,6.92,0,N,6.81,7.04,,,,
+25CIVIL005,Tanvi Patel,Civil Engg,2,M,9.02,0,Y,8.87,9.16,,,,
+24MECH040,Rohan Patel,Mechanical,3,M,6.01,1,N,5.9,6.05,5.66,6.43,,
+25CSE034,Manav Naidu,Computer Science,2,M,3.8,2,N,3.8,3.8,,,,
+24CSE031,Aditi Gupta,Computer Science & Engg,3,M,6.22,0,N,5.94,5.58,6.25,7.11,,
+25CIVIL011,Nikhil Patel,Civil Engg,2,F,7.34,0,N,7.24,7.44,,,,
+23CIVIL038,Diya Reddy,Civil Engg,4,M,7.92,0,N,7.71,7.97,8.38,7.94,8.01,7.53
+25MECH022,Aadhya Menon,Mechanical Engg,2,M,6.23,0,Y,6.05,6.42,,,,
+23IT035,KAVYA IYER,I.T.,4,M,6.27,0,N,6.31,6.73,6.26,5.93,6.51,5.88
+25MECH026,Aadhya Kumar,MECH,2,M,6.08,0,N,6.24,5.91,,,,
+24MECH016,Kavya Agarwal,Mechanical Engg,3,M,4.44,3,N,4.64,4.37,4.56,4.17,,
+23ECE013,Siddharth Patel,E.C.E,4,M,3.8,4,N,3.8,3.8,3.8,3.8,3.8,3.8
+24MECH011,Varun Agarwal,Mechanical,3,M,6.95,1,Y,6.58,7.19,7.33,6.71,,
+25MECH019,Karthik Bose,Mechanical Engg,2,F,7.78,0,N,7.45,8.1,,,,
+25CSE028,Siddharth Menon,Computer Science,2,M,7.23,0,N,7.16,7.3,,,,
+25ECE029,Meera Patel,ECE,2,M,7.06,0,Y,6.91,7.22,,,,
+24CIVIL007,Shreya Kulkarni,CIVIL,3,M,6.79,0,Y,6.86,6.55,6.68,7.09,,
+23MECH016,Karthik Menon,Mechanical,4,F,7.1,0,N,7.22,7.2,7.38,6.78,6.87,7.13
+25IT007,Harsh Bose,I.T.,2,F,4.98,1,Y,5.09,4.88,,,,
+24ECE005,VIVAAN NAIDU,E.C.E,3,M,7.64,0,N,7.42,7.79,7.69,7.67,,
+24MECH024,Siddharth Agarwal,Mechanical Engg,3,M,8.71,0,N,8.62,8.42,8.96,8.85,,
+24ECE014,Kavya Kumar,Electronics & Communication,3,F,6.83,0,Y,7.15,6.88,6.96,6.33,,
+25CSE016,RAHUL IYER,CSE,2,M,6.12,0,N,6.03,6.21,,,,
+24CIVIL015,Vihaan Chopra,CIVIL,3,M,6.28,0,N,5.88,6.36,6.24,6.63,,
+23MECH035,Arjun Mehta,Mechanical Engg,4,F,6.76,0,Y,6.87,7.05,6.78,6.92,6.66,6.3
+25ECE024,Vivaan Mehta,ECE,2,F,7.7,0,N,7.79,7.6,,,,
+24IT038,YASH CHOPRA,I.T.,3,M,5.46,3,N,5.44,5.21,5.73,5.44,,
+23ECE033,Pranav Mehta,ECE,4,F,6.51,0,N,6.43,6.13,6.86,6.47,6.35,6.85
+25ECE023,Nikhil Reddy,E.C.E,2,F,7.17,0,N,7.4,6.93,,,,
+23CIVIL009,Saanvi Bose,Civil,4,F,5.98,1,N,6.17,5.52,6.04,5.78,6.24,6.13
+25CSE005,Priya Rao,Computer Science & Engg,2,M,5.63,0,N,5.54,5.73,,,,
+23IT029,Isha Pillai,I.T.,4,M,6.24,0,N,6.24,6.09,6.31,6.11,6.09,6.58
+23IT030,YASH BOSE,Information Technology,4,F,8.85,0,Y,9.5,8.9,8.72,8.29,9.14,8.56
+25CSE019,VARUN JOSHI,CSE,2,M,6.3,0,N,6.5,6.11,,,,
+25IT031,Sai Menon,I.T.,2,M,7.79,1,Y,7.92,7.67,,,,
+25ECE035,Meera Singh,ECE,2,F,4.31,6,N,4.42,4.21,,,,
+23MECH010,SHREYA VERMA,Mechanical,4,M,9.45,0,Y,9.08,9.06,9.5,9.54,9.64,9.89
+24CSE040,Abhinav Bose,Computer Science & Engg,3,F,7.24,0,Y,6.96,6.91,7.62,7.46,,
+23IT031,Divya Naidu,Information Technology,4,M,5.16,1,N,5.08,5.06,5.65,4.92,5.18,5.04
+24ECE039,Aarav Chopra,E.C.E,3,F,6.99,0,N,7.15,7.25,6.6,6.95,,
+24MECH014,Krishna Verma,MECH,3,F,7.55,0,Y,7.77,7.56,7.56,7.3,,
+23CSE012,Saanvi Rao,Computer Science,4,M,7.79,0,N,7.5,7.31,7.56,8.23,8.16,7.98
+23CSE011,Aditya Joshi,C.S.E,4,M,6.12,0,Y,6.58,6.65,6.26,5.76,6.68,4.79
+24CSE007,Isha Singh,C.S.E,3,M,4.26,4,Y,4.8,4.04,3.91,4.29,,
+24ECE008,Harsh Reddy,E.C.E,3,M,6.62,0,N,6.52,6.87,6.67,6.41,,
+23IT004,Vivaan Agarwal,IT,4,F,8.6,0,N,8.88,7.87,8.61,8.52,8.69,9.03
+23ECE014,Ananya Sharma,Electronics & Communication,4,M,7.41,0,Y,7.48,7.94,7.24,7.33,7.24,7.2
+25MECH010,Tanvi Naidu,Mechanical Engg,2,F,6.38,0,Y,6.69,6.06,,,,
+23CIVIL003,ADITYA IYER,Civil,4,M,7.02,0,N,7.51,7.11,6.74,6.89,6.84,7.02
+25CSE023,Pranav Agarwal,Computer Science,2,F,6.12,1,N,6.96,5.27,,,,
+23ECE031,Manav Chopra,E.C.E,4,M,6.98,0,N,6.67,6.5,7.2,6.9,6.99,7.62
+24CSE024,Riya Naidu,CSE,3,F,7.12,0,N,7.32,6.98,6.84,7.33,,
+23MECH039,Divya Verma,Mechanical Engg,4,M,6.52,0,N,6.04,7.23,6.89,6.66,6.17,6.12
+23CSE008,Meera Kumar,C.S.E,4,M,7.83,0,Y,7.42,8.01,7.39,8.31,7.66,8.18
+23MECH024,Lakshmi Kumar,MECH,4,M,5.36,0,Y,5.14,5.52,4.93,5.67,5.28,5.64
+24CSE036,Aditi Das,Computer Science,3,M,5.81,3,Y,5.69,5.99,5.49,6.08,,
+23CIVIL037,Tanvi Reddy,Civil,4,F,6.78,0,N,6.12,7.19,6.53,6.81,6.88,7.17
+23MECH012,Arjun Verma,Mechanical Engg,4,M,7.39,0,N,7.74,7.77,7.17,7.76,7.09,6.79
+24IT013,Neha Menon,Information Technology,3,M,8.33,1,Y,7.97,8.57,8.18,8.6,,
+25MECH020,Arjun Patel,MECH,2,M,8.07,0,N,7.83,8.32,,,,
+25MECH028,Kavya Menon,Mechanical Engg,2,M,7.25,0,Y,7.6,6.91,,,,
+24IT035,POOJA KULKARNI,Information Technology,3,M,6.95,1,N,7.1,7.17,6.59,6.92,,
+24ECE012,Divya Naidu,ECE,3,M,7.3,0,N,6.78,6.88,7.25,8.29,,
+24MECH002,Siddharth Gupta,MECH,3,M,8.22,0,N,8.14,8.7,8.21,7.84,,
+25CSE013,Swathi Naidu,CSE,2,M,7.71,0,N,7.61,7.8,,,,
+23IT028,Diya Verma,IT,4,M,6.1,1,Y,6.75,6.18,5.68,5.65,6.15,6.18
+25ECE015,Priya Nair,Electronics & Communication,2,F,6.66,0,Y,6.72,6.6,,,,
+24IT016,Yash Kulkarni,IT,3,M,6.51,0,N,6.59,6.73,6.67,6.06,,
+23CIVIL012,Manav Verma,Civil Engg,4,M,8.75,0,Y,8.71,9.34,9.19,8.54,8.71,8.03
+25ECE007,Varun Rao,ECE,2,F,6.82,0,N,6.5,7.14,,,,
+23CIVIL007,Rohan Chopra,Civil,4,M,7.89,0,Y,7.39,8.04,8.28,7.75,8.31,7.59
+23ECE006,Karthik Agarwal,E.C.E,4,F,7.59,0,N,7.35,7.33,6.79,8.07,8.14,7.89
+23CSE017,Riya Iyer,Computer Science & Engg,4,M,8.14,1,N,8.44,7.71,7.8,7.76,8.85,8.26
+24MECH009,Riya Pillai,MECH,3,M,5.29,1,N,5.07,5.59,4.99,5.51,,
+25IT036,Vivaan Nair,IT,2,F,8.71,1,N,8.86,8.56,,,,
+24CIVIL026,Yash Bose,Civil Engg,3,M,6.91,0,Y,6.74,6.73,6.43,7.74,,
+23IT018,Aditya Das,I.T.,4,M,5.95,0,Y,5.76,6.05,5.57,6.19,6.21,5.93
+25ECE008,Meera Kumar,ECE,2,F,5.07,1,Y,4.85,5.3,,,,
+23CSE034,Aditya Patel,C.S.E,4,F,5.35,2,N,5.12,5.73,5.06,5.65,5.46,5.06
+24CIVIL016,Tanvi Nair,CIVIL,3,M,7.12,0,N,7.15,6.9,7.56,6.88,,
+25CSE018,Saanvi Kumar,Computer Science,2,M,5.52,2,Y,5.8,5.23,,,,
+24ECE002,Diya Rao,Electronics & Communication,3,M,7.12,0,N,7.29,7.24,6.88,7.05,,
+25CIVIL015,ISHA REDDY,CIVIL,2,F,7.12,0,N,6.77,7.46,,,,
+23IT001,Priya Nair,IT,4,M,6.95,0,Y,6.77,7.52,6.86,6.53,7.37,6.63
+23CSE014,Manav Pillai,C.S.E,4,F,7.25,0,Y,7.01,6.88,7.08,7.04,7.4,8.08
+24CSE018,Pooja Iyer,C.S.E,3,M,7.5,0,Y,7.2,7.95,7.01,7.85,,
+25ECE036,Isha Bose,Electronics & Communication,2,M,7.31,0,Y,7.36,7.26,,,,
+25CSE027,Siddharth Joshi,Computer Science & Engg,2,F,8.01,0,N,7.92,8.1,,,,
+23MECH020,PARI GUPTA,Mechanical Engg,4,M,6.5,0,N,6.91,6.93,6.02,6.78,6.47,5.88
+25CSE015,Shreya Kulkarni,Computer Science,2,M,6.54,0,N,6.77,6.32,,,,
+24MECH015,Divya Naidu,MECH,3,M,5.33,1,N,5.87,4.97,4.93,5.54,,
+24CIVIL017,Ishaan Naidu,Civil Engg,3,M,6.72,0,Y,6.9,6.82,6.26,6.91,,
+24CSE029,Lakshmi Das,C.S.E,3,M,7.98,0,Y,7.95,7.78,7.77,8.41,,
+23CSE021,Manav Chopra,CSE,4,M,7.65,0,N,7.98,8.09,7.38,7.58,7.96,6.92
+23CIVIL017,Swathi Gupta,Civil,4,M,6.65,0,N,6.83,7.22,6.4,6.95,6.43,6.08
+25ECE025,Ananya Naidu,ECE,2,F,5.47,0,N,5.19,5.75,,,,
+23IT002,Shreya Chopra,Information Technology,4,F,6.92,0,N,7.32,6.51,7.07,6.54,6.97,7.11
+25IT029,Harsh Joshi,IT,2,M,7.04,0,N,6.81,7.28,,,,
+25MECH030,Aditya Rao,Mechanical Engg,2,M,5.75,1,N,5.75,5.74,,,,
+23IT023,VIHAAN CHOPRA,I.T.,4,M,6.57,0,Y,6.42,6.36,6.54,6.89,6.2,7.01
+25CSE033,Lakshmi Pillai,C.S.E,2,M,5.23,2,N,4.8,5.67,,,,
+24CSE021,Vivaan Bose,Computer Science,3,M,4.94,5,Y,4.7,5.06,4.88,5.13,,
+24MECH012,Kavya Patel,Mechanical,3,M,5.71,1,N,5.42,6.16,6.02,5.23,,
+24ECE037,Meera Naidu,ECE,3,F,7.32,0,N,7.44,7.5,7.02,7.31,,
+24IT001,PRIYA VERMA,Information Technology,3,F,7.32,0,N,7.33,7.57,6.89,7.5,,
+23CIVIL029,MEERA SINGH,Civil,4,F,7.68,0,N,7.82,7.71,7.39,7.57,7.7,7.89
+24CSE039,Priya Iyer,Computer Science & Engg,3,M,5.9,0,N,6.83,6.15,5.59,5.02,,
+24CSE009,VIHAAN SHARMA,CSE,3,F,7.0,0,Y,6.84,6.63,7.34,7.18,,
+24ECE013,Priya Nair,ECE,3,F,6.81,0,N,7.11,7.04,6.94,6.16,,
+24ECE035,Rahul Das,ECE,3,M,7.83,0,N,7.65,7.36,8.43,7.89,,
+24ECE028,Vivaan Mehta,Electronics & Communication,3,M,8.82,0,Y,8.3,8.94,8.95,9.07,,
+23MECH002,Rohan Patel,Mechanical Engg,4,M,NA,0,Y,6.3,5.92,6.35,5.87,6.26,5.64
+24MECH034,Siddharth Sharma,Mechanical,3,M,7.18,0,N,7.33,6.8,7.06,7.53,,
+23CSE033,PARI KULKARNI,C.S.E,4,F,7.53,0,N,7.51,7.47,7.87,6.7,7.56,8.07
+24ECE031,Yash Patel,E.C.E,3,M,6.87,0,Y,7.2,6.91,6.44,6.91,,
+23IT011,Diya Agarwal,Information Technology,4,F,5.53,2,Y,5.99,5.13,5.18,5.45,5.79,5.62
+25IT032,Vivaan Agarwal,IT,2,F,5.9,0,Y,5.92,5.88,,,,
+25ECE027,Pari Agarwal,Electronics & Communication,2,M,7.04,0,N,7.27,6.8,,,,
+24IT015,Pari Verma,Information Technology,3,F,6.22,0,Y,6.12,6.03,6.45,6.29,,
+25MECH035,Shreya Singh,MECH,2,M,6.12,0,N,6.75,5.5,,,,
+25CIVIL018,Rahul Sharma,CIVIL,2,F,6.55,0,Y,6.5,6.61,,,,
+24ECE034,Pooja Rao,E.C.E,3,M,5.48,3,N,5.4,6.11,5.6,4.81,,
+23CSE022,Aadhya Agarwal,C.S.E,4,F,7.45,0,Y,7.78,7.2,6.85,7.33,7.58,7.94
+24ECE040,RAHUL PILLAI,E.C.E,3,M,9.19,0,Y,8.97,9.62,8.93,9.23,,
+24IT008,Karthik Menon,IT,3,F,8.95,0,Y,8.95,8.58,9.2,9.05,,
+25CIVIL026,SWATHI SHARMA,Civil Engg,2,F,8.07,0,N,8.34,7.8,,,,
+25IT040,Krishna Nair,Information Technology,2,M,7.98,0,Y,8.09,7.87,,,,
+25CSE030,KRISHNA GUPTA,CSE,2,F,6.29,2,Y,6.22,6.37,,,,
+23ECE038,VIVAAN PATEL,Electronics & Communication,4,M,6.37,0,Y,7.01,6.88,6.43,6.01,5.66,6.22
+24CIVIL008,Lakshmi Iyer,Civil Engg,3,M,8.08,0,Y,8.24,7.47,8.84,7.77,,
+23CIVIL021,Abhinav Naidu,CIVIL,4,F,6.88,0,N,6.96,6.85,5.98,7.27,7.18,7.04
+25CIVIL030,MEERA BOSE,Civil,2,M,5.38,1,N,5.73,5.03,,,,
+24IT017,Aditya Menon,Information Technology,3,F,5.87,2,Y,6.03,5.66,6.1,5.69,,
+25ECE028,Krishna Das,Electronics & Communication,2,M,5.93,0,Y,6.15,5.7,,,,
+25IT038,Vihaan Bose,I.T.,2,M,5.59,1,N,5.92,5.27,,,,
+23CSE034,Aditya Patel,C.S.E,4,F,5.35,2,N,5.12,5.73,5.06,5.65,5.46,5.06
+25CIVIL033,Reyansh Reddy,Civil,2,M,5.21,2,N,5.06,5.36,,,,
+23ECE034,Tanvi Patel,Electronics & Communication,4,F,5.63,0,Y,5.4,5.38,5.86,5.97,5.09,6.1
+24ECE038,SAANVI NAIDU,ECE,3,F,4.47,3,Y,4.3,3.94,4.62,5.03,,
+25ECE030,Riya Das,E.C.E,2,F,7.76,0,Y,7.85,7.67,,,,
+24CIVIL039,Harsh Singh,Civil Engg,3,M,5.45,2,Y,5.94,5.72,5.39,4.76,,
+25IT018,NEHA AGARWAL,Information Technology,2,F,6.97,1,N,6.82,7.13,,,,
+23MECH017,Riya Verma,Mechanical,4,M,7.73,0,Y,7.29,7.3,7.43,8.39,8.19,7.77
+23ECE001,Meera Mehta,ECE,4,M,6.59,0,N,7.05,6.79,6.65,6.49,6.18,6.35
+23IT038,Divya Agarwal,IT,4,M,9.19,0,Y,9.35,9.01,8.58,8.86,9.52,9.82
+25IT011,Aditi Bose,I.T.,2,M,5.64,1,Y,5.36,5.93,,,,
+23ECE032,Isha Patel,E.C.E,4,M,7.74,0,Y,8.17,7.32,7.78,7.8,8.15,7.24
+24IT023,Lakshmi Pillai,IT,3,F,5.25,0,Y,5.77,5.42,5.33,4.49,,
+24CIVIL009,SAANVI MEHTA,CIVIL,3,M,4.34,1,Y,4.64,3.94,4.14,4.64,,
+25CIVIL028,Tanvi Rao,Civil,2,M,7.47,0,N,6.79,8.16,,,,
+25CSE009,VIVAAN NAIR,C.S.E,2,F,7.4,0,N,7.67,7.13,,,,
+23IT007,Priya Chopra,Information Technology,4,M,9.46,0,N,9.53,8.92,9.61,9.39,9.29,10.0
+24MECH026,Nisha Patel,Mechanical,3,F,6.68,0,N,6.86,6.51,6.72,6.62,,
+23ECE026,Pooja Verma,E.C.E,4,F,6.75,0,N,7.27,6.48,6.91,5.97,7.17,6.68
+23IT016,Rahul Singh,I.T.,4,M,6.67,1,Y,7.02,7.1,7.42,6.05,6.38,6.03
+24IT027,Krishna Pillai,I.T.,3,F,7.65,0,N,8.04,7.35,7.34,7.88,,
+23IT020,Krishna Kumar,Information Technology,4,F,8.08,0,Y,7.78,8.5,7.71,8.17,7.84,8.5
+25CIVIL025,Kavya Naidu,CIVIL,2,F,7.13,0,N,6.35,7.91,,,,
+25CSE035,Diya Sharma,C.S.E,2,M,6.94,0,Y,7.33,6.55,,,,
+25CSE001,Sai Kumar,CSE,2,F,7.26,0,N,7.07,7.44,,,,
+25CIVIL007,Sneha Kulkarni,Civil Engg,2,M,7.44,0,N,7.4,7.47,,,,
+23CIVIL006,Ishaan Nair,Civil,4,F,7.8,0,N,7.56,8.07,7.54,7.76,7.72,8.15
+23CSE001,Aadhya Pillai,Computer Science & Engg,4,M,5.15,1,N,5.68,5.71,4.88,5.02,4.63,5.0
+24CIVIL023,PRANAV BOSE,CIVIL,3,M,7.72,0,N,7.73,7.79,7.82,7.54,,
+23CSE019,NISHA KUMAR,Computer Science & Engg,4,F,5.67,1,N,6.17,5.71,5.54,5.41,5.76,5.42
+25CIVIL022,Vihaan Kumar,Civil Engg,2,F,6.35,1,N,6.93,5.77,,,,
+24IT033,Divya Rao,I.T.,3,M,5.74,2,Y,6.26,5.21,6.08,5.43,,
+25CSE029,Sai Naidu,C.S.E,2,F,5.96,1,N,5.62,6.29,,,,
+24CSE012,Aadhya Verma,CSE,3,F,7.2,0,Y,7.26,7.2,7.29,7.05,,
+25MECH006,REYANSH KULKARNI,Mechanical Engg,2,F,6.93,0,Y,7.04,6.82,,,,
+25CIVIL017,TANVI VERMA,CIVIL,2,M,7.43,0,Y,7.41,7.45,,,,
+25CIVIL010,Nikhil Mehta,CIVIL,2,F,7.21,0,N,7.0,7.41,,,,
+23CSE007,Rohan Patel,Computer Science,4,F,5.13,2,Y,4.58,5.79,5.38,4.53,4.94,5.57
+24CSE015,Tanvi Menon,C.S.E,3,M,7.25,1,N,7.11,7.33,7.29,7.25,,
+23CIVIL019,Karthik Mehta,CIVIL,4,M,9.98,0,Y,10.0,10.0,10.0,10.0,9.86,10.0
+25CIVIL004,Abhinav Joshi,Civil,2,M,7.44,0,N,7.17,7.7,,,,
+25ECE003,Aditi Bose,ECE,2,F,6.73,0,N,6.87,6.59,,,,
+23CIVIL026,ADITYA BOSE,Civil,4,F,7.49,0,N,7.51,8.19,7.61,7.26,7.21,7.16
+25IT009,Meera Joshi,I.T.,2,M,7.38,0,N,7.56,7.21,,,,
+25CIVIL024,Yash Gupta,CIVIL,2,M,7.62,0,Y,7.44,7.81,,,,
+25IT008,Sai Bose,Information Technology,2,F,8.58,0,N,8.94,8.22,,,,
+25CSE022,Saanvi Singh,Computer Science & Engg,2,F,6.08,0,Y,6.19,5.97,,,,
+25IT016,Harsh Bose,I.T.,2,M,5.29,0,Y,5.52,5.05,,,,
+24IT009,Swathi Rao,Information Technology,3,M,8.35,0,N,7.87,8.22,8.78,8.53,,
+25CIVIL002,NISHA SINGH,Civil,2,M,8.1,0,N,7.89,8.3,,,,
+23IT024,Priya Pillai,Information Technology,4,F,5.87,1,Y,5.55,6.03,5.83,6.44,5.83,5.53
+25ECE034,MANAV PATEL,ECE,2,M,7.78,0,Y,7.78,7.78,,,,
+23CIVIL014,Karthik Chopra,CIVIL,4,M,6.93,0,Y,6.68,6.97,7.01,6.87,6.75,7.28
+25IT030,Shreya Patel,I.T.,2,M,4.46,1,N,4.86,4.06,,,,
+25MECH033,Pranav Pillai,Mechanical,2,F,4.79,3,Y,5.4,4.18,,,,
+24CSE028,Meera Patel,C.S.E,3,M,7.27,1,N,7.73,7.16,7.1,7.08,,
+25CSE025,Varun Kumar,Computer Science & Engg,2,F,8.86,0,Y,9.02,8.7,,,,
+25CIVIL013,Meera Gupta,Civil Engg,2,M,7.63,0,N,7.58,7.68,,,,
+25IT010,Krishna Sharma,I.T.,2,M,6.67,0,N,6.56,6.79,,,,
+23CSE027,Pooja Chopra,Computer Science,4,M,5.72,2,Y,5.58,5.81,6.2,5.91,5.51,5.29
+23IT013,Aadhya Menon,IT,4,M,7.66,0,Y,7.68,8.03,8.14,7.25,7.31,7.54
+24ECE004,Isha Kumar,Electronics & Communication,3,F,6.66,0,N,6.72,5.82,7.14,6.97,,
+24CSE032,Diya Kumar,Computer Science & Engg,3,M,7.26,0,Y,7.18,7.75,6.58,7.55,,
+25CSE004,Sai Patel,Computer Science,2,M,6.76,0,Y,6.76,6.76,,,,
+24IT019,AADHYA KULKARNI,IT,3,M,6.87,0,Y,7.17,6.85,6.37,7.09,,
+25IT012,Reyansh Gupta,IT,2,F,6.12,1,N,6.04,6.2,,,,
+25IT039,Sai Das,Information Technology,2,M,7.38,0,N,7.32,7.45,,,,
+23IT032,Reyansh Agarwal,I.T.,4,M,7.77,0,Y,7.99,7.59,8.11,7.57,7.74,7.64
+23ECE004,Nikhil Kulkarni,ECE,4,F,8.12,0,N,7.99,8.56,8.17,7.54,8.3,8.15
+23IT012,Varun Agarwal,Information Technology,4,M,6.91,0,Y,6.94,7.04,6.93,6.99,6.58,6.95
+25ECE002,ANANYA PATEL,E.C.E,2,M,7.62,0,Y,7.58,7.67,,,,
+25CIVIL031,Harsh Joshi,Civil,2,F,5.98,2,Y,6.2,5.76,,,,
+23CSE037,Tanvi Singh,C.S.E,4,F,5.5,0,N,5.6,5.65,5.59,5.29,5.3,5.54
+24ECE010,Nikhil Pillai,Electronics & Communication,3,M,7.52,0,Y,7.49,7.41,7.95,7.24,,
+23IT017,Aadhya Agarwal,Information Technology,4,M,8.32,0,N,8.08,8.76,7.94,8.0,8.37,8.78
+24CSE008,DIYA CHOPRA,CSE,3,F,6.73,0,N,5.98,6.79,7.06,7.09,,
+23CIVIL016,Riya Verma,Civil,4,M,9.03,0,N,9.42,9.06,8.71,9.24,9.04,8.73
+23ECE009,Kavya Chopra,ECE,4,M,7.11,0,Y,6.81,7.38,7.24,7.36,6.91,6.95
+23CIVIL010,Swathi Gupta,Civil Engg,4,M,6.45,0,N,7.41,6.01,6.23,6.55,6.32,6.18
+24MECH019,Varun Joshi,Mechanical Engg,3,M,8.05,0,N,8.11,7.79,7.91,8.38,,
+25CIVIL037,Siddharth Agarwal,CIVIL,2,F,6.69,0,Y,6.83,6.55,,,,
+24IT037,Shreya Bose,I.T.,3,M,8.37,0,N,8.16,8.85,8.3,8.16,,
+25IT023,Sneha Menon,Information Technology,2,F,5.87,1,N,5.68,6.05,,,,
+24ECE029,Sai Agarwal,Electronics & Communication,3,F,6.36,0,Y,6.55,6.24,6.38,6.29,,
+23CSE002,Sai Mehta,Computer Science,4,M,7.65,0,Y,7.87,7.35,7.58,7.71,7.93,7.47
+23MECH011,Saanvi Gupta,Mechanical Engg,4,M,9.72,0,Y,10.0,9.38,10.0,9.59,9.69,9.68
+23CIVIL020,SIDDHARTH CHOPRA,Civil Engg,4,M,7.33,0,Y,7.35,7.59,7.08,7.37,7.57,7.0
+23MECH029,Saanvi Agarwal,Mechanical Engg,4,M,8.21,0,Y,8.31,8.17,8.13,8.21,8.63,7.79
+23CSE036,Tanvi Chopra,CSE,4,F,7.09,0,Y,7.09,7.11,7.04,6.69,6.76,7.84
+25CSE020,Shreya Kulkarni,C.S.E,2,M,6.38,0,Y,6.31,6.44,,,,
+24IT026,PARI CHOPRA,IT,3,F,7.12,0,N,6.75,7.2,7.39,7.14,,
+23CIVIL040,Karthik Das,CIVIL,4,M,8.79,1,Y,8.88,8.31,8.46,8.67,9.33,9.11
+23CSE020,Priya Mehta,Computer Science,4,M,6.7,0,N,6.17,6.93,6.25,7.27,7.01,6.56
+24IT005,Ishaan Agarwal,Information Technology,3,F,6.17,0,N,6.39,6.13,6.05,6.09,,
+23IT006,Ananya Bose,I.T.,4,M,8.21,0,Y,8.07,8.01,8.03,8.24,8.42,8.5
+24CSE027,Tanvi Joshi,Computer Science,3,M,4.54,0,Y,4.77,5.1,4.27,4.01,,
+25MECH002,Pari Agarwal,MECH,2,M,6.89,0,N,6.76,7.02,,,,
+25ECE006,Arjun Pillai,E.C.E,2,M,6.67,0,N,6.6,6.75,,,,
+24CSE004,Tanvi Singh,C.S.E,3,F,8.92,0,Y,9.02,9.27,8.74,8.64,,
+23CSE024,Aarav Nair,CSE,4,M,5.42,3,Y,5.22,5.55,5.18,5.32,5.78,5.48
+25CSE002,Nikhil Gupta,CSE,2,M,6.64,0,N,6.62,6.67,,,,
+25ECE019,Nikhil Menon,Electronics & Communication,2,M,6.65,0,Y,6.68,6.62,,,,
+24CSE020,Sai Rao,CSE,3,M,7.28,0,N,7.33,7.01,7.84,6.94,,
+24MECH017,Diya Mehta,Mechanical Engg,3,M,7.06,0,N,6.83,7.46,6.84,7.12,,
+23IT026,Krishna Singh,IT,4,F,8.43,0,Y,8.7,8.24,8.67,8.11,8.07,8.8
+23ECE016,Isha Patel,Electronics & Communication,4,M,7.9,0,N,7.67,8.14,7.78,7.9,7.87,8.05
+24CIVIL035,Karthik Gupta,Civil,3,M,7.19,0,N,7.61,6.99,7.13,7.03,,
+23ECE023,KARTHIK RAO,E.C.E,4,F,5.98,1,Y,6.11,5.64,6.29,6.33,6.36,5.17
+24CIVIL027,Lakshmi Kumar,CIVIL,3,M,7.64,0,N,7.71,7.86,8.06,6.92,,
+25ECE040,Isha Mehta,Electronics & Communication,2,M,7.6,0,N,7.72,7.48,,,,
+25CSE024,Harsh Pillai,Computer Science,2,F,NA,0,N,6.68,6.87,,,,
+24ECE015,Meera Kulkarni,E.C.E,3,F,6.13,0,N,6.08,6.28,6.01,6.15,,
+24CSE035,Aditya Agarwal,Computer Science,3,F,10.0,0,N,10.0,10.0,10.0,10.0,,
+24CIVIL038,Pranav Das,Civil Engg,3,M,7.07,0,Y,6.99,7.13,7.01,7.13,,
+23CSE039,Ishaan Agarwal,Computer Science & Engg,4,M,7.14,0,N,7.07,7.69,6.82,6.97,6.9,7.39
+25IT034,Kavya Menon,I.T.,2,M,7.8,0,N,7.97,7.64,,,,
+23CIVIL013,Rohan Pillai,Civil Engg,4,M,7.76,0,Y,7.81,7.66,7.54,8.06,7.74,7.77
+24CSE003,Rohan Bose,Computer Science & Engg,3,M,8.1,0,N,7.8,8.04,8.37,8.2,,
+24IT030,Aarav Menon,I.T.,3,F,4.76,2,N,4.89,4.16,5.05,4.93,,
+23MECH014,Arjun Iyer,Mechanical,4,M,5.97,0,N,6.19,6.12,6.12,6.13,5.9,5.34
+24CIVIL040,Reyansh Bose,CIVIL,3,F,6.45,1,N,6.78,5.81,7.08,6.12,,
+25MECH012,Rahul Das,MECH,2,M,7.03,0,Y,7.11,6.94,,,,
+25MECH001,Harsh Menon,MECH,2,F,6.78,0,Y,6.56,7.0,,,,
+24IT040,Aarav Kulkarni,Information Technology,3,F,6.6,0,Y,6.8,6.77,6.4,6.42,,
+25IT003,MEERA IYER,Information Technology,2,M,7.81,0,N,7.97,7.66,,,,
+23MECH013,Krishna Joshi,Mechanical,4,M,6.69,0,Y,6.14,6.72,6.11,6.86,7.21,7.12
+24ECE025,Varun Chopra,E.C.E,3,F,6.76,0,N,6.38,6.89,6.92,6.86,,
+23IT015,Sneha Iyer,Information Technology,4,F,7.41,0,Y,7.23,7.22,7.15,7.39,7.45,8.01
+23CSE028,Neha Bose,Computer Science & Engg,4,M,8.61,0,N,8.5,8.51,8.35,8.62,8.61,9.05
+24CSE038,Pari Menon,Computer Science,3,M,7.04,0,N,7.32,7.08,6.77,6.97,,
+25IT019,Harsh Gupta,I.T.,2,M,8.16,0,Y,8.09,8.23,,,,
+24CIVIL004,Aadhya Verma,Civil,3,M,7.14,0,Y,7.5,7.1,6.89,7.07,,
+25CIVIL003,Swathi Gupta,Civil Engg,2,F,5.74,3,Y,5.92,5.56,,,,
+23CSE038,Ishaan Kulkarni,Computer Science & Engg,4,M,6.09,0,Y,6.34,6.13,5.51,5.96,5.91,6.72
+25CSE017,Shreya Reddy,Computer Science,2,M,8.84,0,N,9.17,8.51,,,,
+24IT020,Vivaan Mehta,I.T.,3,F,6.8,0,Y,6.79,6.51,6.85,7.06,,
+25MECH037,Aditi Verma,Mechanical Engg,2,M,4.67,4,Y,4.76,4.59,,,,
+25ECE001,Isha Kulkarni,Electronics & Communication,2,M,NA,0,N,7.08,6.55,,,,
+24IT025,Swathi Verma,Information Technology,3,F,8.71,0,N,8.82,8.78,8.54,8.69,,
+24CSE034,Arjun Patel,C.S.E,3,F,5.94,0,N,5.79,5.66,5.9,6.4,,
+25IT026,Varun Reddy,IT,2,M,7.42,0,N,7.61,7.23,,,,
+25CIVIL029,Nikhil Menon,CIVIL,2,M,6.67,0,N,6.47,6.86,,,,
+24MECH032,Swathi Joshi,Mechanical Engg,3,M,5.43,1,N,5.98,4.97,5.24,5.53,,
+25IT002,YASH KULKARNI,I.T.,2,F,5.95,1,N,6.08,5.81,,,,
+23ECE011,Arjun Mehta,ECE,4,M,8.13,0,N,8.13,8.38,8.34,7.98,7.92,8.03
+25IT032,Vivaan Agarwal,IT,2,F,5.9,0,Y,5.92,5.88,,,,
+23MECH009,DIYA SINGH,Mechanical Engg,4,M,6.31,0,Y,6.37,6.41,6.29,5.97,6.62,6.18
+24IT003,Isha Rao,I.T.,3,F,6.27,0,Y,5.78,6.3,6.52,6.48,,
+24CSE026,Arjun Sharma,Computer Science & Engg,3,F,6.44,1,Y,6.95,6.21,6.31,6.31,,
+23ECE028,Meera Patel,E.C.E,4,M,7.19,0,Y,7.4,6.75,7.02,7.3,7.37,7.28
+25IT025,Sai Menon,Information Technology,2,M,6.86,0,N,6.95,6.77,,,,
+25IT033,Divya Reddy,Information Technology,2,M,7.6,0,N,7.45,7.75,,,,
+23CSE030,Siddharth Nair,Computer Science,4,F,5.9,0,Y,6.2,5.43,5.72,5.61,5.76,6.66
+25IT015,Isha Patel,I.T.,2,F,5.46,0,N,5.61,5.31,,,,
+24MECH021,Nisha Patel,MECH,3,F,5.83,3,Y,5.91,6.04,5.82,5.53,,
+23MECH026,Manav Patel,Mechanical Engg,4,M,6.23,1,Y,6.55,5.95,5.84,6.38,5.81,6.85
+23ECE019,Vivaan Bose,Electronics & Communication,4,M,6.29,0,Y,6.6,6.78,5.42,5.89,6.56,6.5
+25CIVIL040,Pari Iyer,Civil,2,M,7.49,0,N,7.63,7.35,,,,
+24CSE010,Pooja Gupta,CSE,3,M,8.02,0,Y,8.24,7.79,7.96,8.07,,
+25IT017,Vihaan Kumar,Information Technology,2,M,6.09,0,Y,6.26,5.93,,,,
+25MECH005,Isha Mehta,Mechanical Engg,2,M,7.0,0,N,7.2,6.81,,,,
+23CIVIL039,Meera Nair,Civil,4,F,NA,1,Y,6.52,6.36,6.49,6.55,6.5,6.47
+24ECE026,Vivaan Gupta,ECE,3,M,4.49,4,N,4.3,3.81,4.87,4.99,,
+23MECH037,Neha Naidu,Mechanical,4,M,5.32,2,N,4.8,5.82,5.7,5.02,4.83,5.76
+24ECE006,Harsh Joshi,E.C.E,3,M,6.73,0,N,7.16,6.68,6.62,6.45,,
+25CIVIL001,REYANSH MEHTA,Civil Engg,2,F,6.21,0,N,6.56,5.85,,,,
+24ECE011,Pranav Gupta,Electronics & Communication,3,M,4.33,5,Y,4.97,4.59,3.98,3.8,,
+24IT002,Tanvi Iyer,IT,3,M,5.75,2,Y,5.77,5.87,5.92,5.44,,
+24MECH010,Varun Pillai,MECH,3,M,8.54,0,Y,8.41,8.5,8.63,8.61,,
+25IT013,Neha Kulkarni,Information Technology,2,M,6.61,0,N,6.35,6.87,,,,
+25MECH032,Vihaan Verma,MECH,2,M,8.11,0,Y,7.81,8.41,,,,
+25CIVIL035,Pooja Agarwal,CIVIL,2,F,9.02,0,N,9.28,8.77,,,,
+25MECH008,PRANAV KUMAR,MECH,2,M,6.44,0,Y,6.65,6.23,,,,
