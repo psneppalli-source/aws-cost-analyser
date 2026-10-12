@@ -25,8 +25,9 @@ const SUBJECT = new Set(['marks', 'attendance']);
   selector: 'app-entry-page',
   imports: [FormsModule, RouterLink, StateView],
   styles: [`.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-bottom:16px}
-    .cats button{text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer;font:inherit}
-    .cats button[aria-pressed=true]{border-color:var(--teal-500);box-shadow:0 0 0 2px var(--teal-100)}
+    .cats button{text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--white);cursor:pointer;font:inherit;display:flex;flex-direction:column;justify-content:flex-start;gap:2px;box-shadow:var(--shadow-1);transition:border-color .15s,box-shadow .15s}
+    .cats button:hover{border-color:#b8c5d5}
+    .cats button[aria-pressed=true]{border-color:var(--teal-500);box-shadow:0 0 0 3px var(--teal-100);background:linear-gradient(180deg,#fff,#f3fbfb)}
     td input,td select{min-width:70px;padding:5px 7px} .saved{color:var(--low)} .warn{color:var(--medium)}`],
   template: `
     <div class="page-head"><h1>{{ student() ? 'Submit information' : 'Enter data' }}</h1>
