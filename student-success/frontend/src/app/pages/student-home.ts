@@ -4,7 +4,7 @@ import { Api } from '../core/api.service';
 import { Session } from '../core/session.service';
 import { IV_CATEGORIES, OUTCOMES, when } from '../shared/labels';
 import { message } from '../shared/page';
-import { Line, MultiLine, Pair, PairedBars, SERIES } from '../shared/charts';
+import { Line, MultiLine, SERIES, Spark } from '../shared/charts';
 import { RiskBadge, StateView, StatusChip } from '../shared/ui';
 
 interface Flag { rule: string; label: string; observed: number; operator: string; threshold: number; level: string; observed_period: string;
@@ -17,18 +17,24 @@ interface Profile {
     summary?: string; calculated_at?: string; mentor_name?: string } | null;
   history: { period: string; score: number | null; status: string; missing: string[] }[];
   interventions: { intervention_id: string; title: string; category: string; status: string; due_date: string; review_date: string; outcome?: { result: string } | null }[];
-  cohort?: { label: string; students: number; score: number | null; components: Record<string, number | null> };
 }
-interface Rec { category: string; period: string; name?: string; issuer?: string; verification?: string; satisfaction?: number; stress?: number; updated_at: string; }
+interface Rec { category: string; period: string; name?: string; issuer?: string; verification?: string; satisfaction?: number; stress?: number; updated_at: string;
+  subject?: string; assessment?: string; score?: number; max_score?: number; classes_held?: number; classes_attended?: number;
+  semester?: number; sgpa?: number; cgpa?: number; backlogs?: number; assignments_due?: number; assignments_submitted?: number;
+  assessment_type?: string; technical?: number; communication?: number; }
+interface Metric { label: string; unit: string; values: (number | null)[]; first: number | null; last: number | null; change: number | null; scale: number; }
+const ASSESS: Record<string, string> = { aptitude: 'Aptitude test', coding: 'Coding assessment', mock_interview: 'Mock interview' };
+const r1 = (v: number) => Math.round(v * 10) / 10;
 
-const COMP: Record<string, string> = { academic: 'Academic', attendance: 'Attendance', lms: 'LMS activity', placement: 'Placement readiness', skills: 'Skills', engagement: 'Engagement' };
-
-/** The student's own dashboard: progress, comparison with classmates, what to focus on, support and actions. */
+/** The student's own dashboard: only their own details, marks and improvement over time, plus what to focus on and actions. */
 @Component({
   selector: 'app-student-home-page',
-  imports: [RouterLink, StateView, StatusChip, RiskBadge, MultiLine, PairedBars],
+  imports: [RouterLink, StateView, StatusChip, RiskBadge, MultiLine, Spark],
   styles: [`.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap} .big{font-size:56px;font-weight:700;color:var(--navy-900);line-height:1}
-    .focus li{margin:6px 0} .actions{display:flex;gap:10px;flex-wrap:wrap}`],
+    .focus li{margin:6px 0} .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .marks td,.marks th{text-align:center;white-space:nowrap} .marks td:first-child,.marks th:first-child{text-align:left}
+    .cell{display:inline-block;min-width:44px;padding:2px 6px;border-radius:6px;font-variant-numeric:tabular-nums}
+    .up{color:#006300;font-weight:600;white-space:nowrap} .down{color:#b42318;font-weight:600;white-space:nowrap} .num{font-variant-numeric:tabular-nums}`],
   template: `
     <app-state [loading]="loading() && !p()" [error]="error()" (retry)="load()" />
     @if (p(); as p) {
@@ -53,14 +59,45 @@ const COMP: Record<string, string> = { academic: 'Academic', attendance: 'Attend
         </section>
       }
 
+      @if (subjects().length) {
+        <section class="card" style="margin-top:16px"><div class="card-head"><h2>Your marks</h2>
+          <span class="desc">Monthly test scores as a percentage, with your attendance in each subject.</span></div>
+          <div class="table-wrap"><table class="marks"><thead><tr><th>Subject</th>
+            @for (m of markPeriods(); track m) { <th>{{ short(m) }}</th> }<th>Change</th><th>Trend</th><th>Attendance</th></tr></thead><tbody>
+            @for (r of subjects(); track r.subject) {
+              <tr><td><strong>{{ r.subject }}</strong></td>
+                @for (v of r.pcts; track $index) { <td>@if (v !== null) { <span class="cell" [style.background]="shade(v)">{{ v }}%</span> } @else { <span class="muted">–</span> }</td> }
+                <td>@if (r.change !== null) { <span [class]="r.change >= 0 ? 'up' : 'down'">{{ r.change >= 0 ? '▲ +' : '▼ ' }}{{ r.change }}</span> } @else { – }</td>
+                <td><app-spark [values]="r.pcts" [label]="r.subject + ' marks trend'" /></td>
+                <td class="num">{{ r.attendance === null ? '–' : r.attendance + '%' }}</td></tr>
+            }</tbody></table></div>
+        </section>
+      }
+
       <div class="grid g2" style="margin-top:16px">
+        <section class="card"><div class="card-head"><h2>Your improvement</h2><span class="desc">First recorded value compared with your latest.</span></div>
+          @if (metrics().length) {
+            <div class="table-wrap"><table><thead><tr><th>Measure</th><th>First</th><th>Latest</th><th>Change</th><th>Trend</th></tr></thead><tbody>
+              @for (m of metrics(); track m.label) {
+                <tr><td>{{ m.label }}</td><td class="num">{{ fmt(m.first, m.unit) }}</td><td class="num"><strong>{{ fmt(m.last, m.unit) }}</strong></td>
+                  <td>@if (m.change !== null) { <span [class]="m.change >= 0 ? 'up' : 'down'">{{ m.change >= 0 ? '▲ +' : '▼ ' }}{{ m.change }}{{ m.unit }}</span> } @else { – }</td>
+                  <td><app-spark [values]="sparkOf(m)" [label]="m.label + ' trend'" /></td></tr>
+              }</tbody></table></div>
+            @if (improved().length) { <p class="insight small" style="margin-top:8px">Improved: {{ improved().join(', ') }}.</p> }
+          } @else { <p class="muted">Not enough records yet to show change.</p> }
+        </section>
         @if (trend()[0].values.some(notNull)) {
-          <section class="card"><div class="card-head"><h2>Your progress</h2></div>
+          <section class="card"><div class="card-head"><h2>Your Success Score</h2></div>
             <app-multiline [series]="trend()" [labels]="labels()" label="Your Success Score by month" [ref]="60" refLabel="On track (60)" /></section>
         }
-        @if (pairs().length) {
-          <section class="card"><div class="card-head"><h2>You and your class</h2><span class="desc">Average of {{ p.cohort?.students }} classmates; no individual is shown.</span></div>
-            <app-paired-bars [data]="pairs()" nameA="You" nameB="Class average" label="Your components compared with the class average" /></section>
+        @if (semesters().length) {
+          <section class="card"><div class="card-head"><h2>Semester results</h2></div>
+            <div class="table-wrap"><table><thead><tr><th>Semester</th><th>SGPA</th><th>CGPA</th><th>Backlogs</th></tr></thead><tbody>
+              @for (r of semesters(); track r.period) {
+                <tr><td>Semester {{ r.semester }} <span class="small muted">({{ short(r.period) }})</span></td><td class="num">{{ r.sgpa ?? '–' }}</td>
+                  <td class="num"><strong>{{ r.cgpa ?? '–' }}</strong></td><td class="num">{{ r.backlogs ?? 0 }}</td></tr>
+              }</tbody></table></div>
+          </section>
         }
         <section class="card"><div class="card-head"><h2>What to focus on</h2></div>
           @if (focus().length) {
@@ -95,7 +132,7 @@ const COMP: Record<string, string> = { academic: 'Academic', attendance: 'Attend
             <dt class="muted">Email</dt><dd style="margin:0">{{ p.student.email || '–' }}</dd>
             <dt class="muted">Date of birth</dt><dd style="margin:0">{{ p.student.date_of_birth || '–' }}</dd>
             <dt class="muted">Sign-in security</dt><dd style="margin:0">@if (session.me()?.user?.mfa?.enabled) { Authenticator app ✓ } @else { <a routerLink="/security">Set up authenticator</a> }</dd></dl>
-          <p class="small muted" style="margin-top:8px">Something wrong? Contact the college office. <a [routerLink]="['/students', 'real', p.student.student_id]">See full details</a></p>
+          <p class="small muted" style="margin-top:8px">Something wrong? Contact the college office. <a [routerLink]="['/students', 'real', p.student.student_id]">See your full record</a></p>
         </section>
       </div>
     }`,
@@ -126,10 +163,55 @@ export class StudentHomePage {
     if (this.ins()?.profile === 'placement_years') out.push({ label: 'Coding assessment', value: f(ind['coding']) });
     return out;
   });
-  pairs = computed<Pair[]>(() => {
-    const c = this.p()?.cohort; const comps = this.ins()?.components; if (!c || !comps) return [];
-    return Object.keys(COMP).filter((k) => k in comps).map((k) => ({ label: COMP[k], a: comps[k]?.value ?? null, b: c.components[k] ?? null }));
+  private recs = (c: string) => this.records().filter((r) => r.category === c);
+  private periodsOf = (rs: Rec[]) => [...new Set(rs.map((r) => r.period))].sort();
+  markPeriods = computed(() => this.periodsOf(this.recs('marks')));
+  subjects = computed(() => {
+    const marks = this.recs('marks'); const att = this.recs('attendance'); const ps = this.markPeriods();
+    const names = [...new Set(marks.map((m) => m.subject!))].sort();
+    return names.map((subject) => {
+      const pcts = ps.map((p) => {
+        const xs = marks.filter((m) => m.subject === subject && m.period === p && m.max_score);
+        return xs.length ? Math.round(xs.reduce((a, m) => a + (m.score! / m.max_score!) * 100, 0) / xs.length) : null;
+      });
+      const got = pcts.filter((v): v is number => v !== null);
+      const a = att.filter((r) => r.subject === subject);
+      const held = a.reduce((x, r) => x + (r.classes_held || 0), 0);
+      return { subject, pcts, change: got.length > 1 ? got[got.length - 1] - got[0] : null,
+        attendance: held ? Math.round((a.reduce((x, r) => x + (r.classes_attended || 0), 0) / held) * 100) : null };
+    });
   });
+  semesters = computed(() => this.recs('academic_result').sort((a, b) => b.period.localeCompare(a.period)));
+  metrics = computed<Metric[]>(() => {
+    const out: Metric[] = [];
+    const add = (label: string, unit: string, scale: number, byPeriod: Map<string, number>) => {
+      const ps = [...byPeriod.keys()].sort(); if (!ps.length) return;
+      const values = ps.map((p) => r1(byPeriod.get(p)!));
+      const first = values[0], last = values[values.length - 1];
+      out.push({ label, unit, values, first, last, change: values.length > 1 ? r1(last - first) : null, scale });
+    };
+    const group = (rs: Rec[], f: (xs: Rec[]) => number | null) => {
+      const m = new Map<string, number>();
+      for (const p of this.periodsOf(rs)) { const v = f(rs.filter((r) => r.period === p)); if (v !== null) m.set(p, v); }
+      return m;
+    };
+    add('Average test marks', '%', 1, group(this.recs('marks').filter((r) => r.max_score), (xs) => xs.reduce((a, r) => a + (r.score! / r.max_score!) * 100, 0) / xs.length));
+    add('Attendance', '%', 1, group(this.recs('attendance'), (xs) => { const h = xs.reduce((a, r) => a + (r.classes_held || 0), 0);
+      return h ? (xs.reduce((a, r) => a + (r.classes_attended || 0), 0) / h) * 100 : null; }));
+    add('Assignments submitted', '%', 1, group(this.recs('lms'), (xs) => { const d = xs.reduce((a, r) => a + (r.assignments_due || 0), 0);
+      return d ? (xs.reduce((a, r) => a + (r.assignments_submitted || 0), 0) / d) * 100 : null; }));
+    add('CGPA', '', 10, group(this.recs('academic_result'), (xs) => xs[0].cgpa ?? null));
+    const pa = this.recs('placement_assessment');
+    for (const t of Object.keys(ASSESS)) {
+      const rs = pa.filter((r) => r.assessment_type === t); if (!rs.length) continue;
+      const scale = rs.every((r) => (r.score ?? 0) <= 5) ? 20 : rs.every((r) => (r.score ?? 0) <= 10) ? 10 : 1;
+      add(ASSESS[t], '', scale, group(rs, (xs) => xs[0].score ?? null));
+    }
+    add('Technical skills', '', 1, group(this.recs('skills'), (xs) => xs[0].technical ?? null));
+    add('Communication skills', '', 1, group(this.recs('skills'), (xs) => xs[0].communication ?? null));
+    return out;
+  });
+  improved = computed(() => this.metrics().filter((m) => (m.change ?? 0) > 0).map((m) => m.label.toLowerCase()));
   focus = computed(() => {
     const r = this.ins()?.risks || {}; const out: { label: string; level: string; observed: number; period: string; action: string }[] = [];
     for (const k of ['academic', 'placement'] as const) for (const f of r[k]?.flags || [])
@@ -141,6 +223,11 @@ export class StudentHomePage {
 
   constructor() { this.load(); }
 
+  sparkOf(m: Metric) { return m.values.map((v) => (v === null ? null : Math.min(100, v * m.scale))); }
+  fmt(v: number | null, unit: string) { return v === null ? '–' : `${v}${unit}`; }
+  short(p: string) { return new Date(p + '-01').toLocaleString(undefined, { month: 'short', year: '2-digit' }); }
+  /** Light background for a mark: red-ish below 50 %, neutral in the middle, green-ish from 75 %. */
+  shade(v: number) { return v < 50 ? '#fde7e4' : v >= 75 ? '#e3f4e8' : '#f0efec'; }
   month(p?: string | null) { return p ? new Date(p + '-01').toLocaleString(undefined, { month: 'long', year: 'numeric' }) : ''; }
   pct(v: number) { return `${Math.round(v * 100)}%`; }
   cat(c: string) { return IV_CATEGORIES[c] || c; }

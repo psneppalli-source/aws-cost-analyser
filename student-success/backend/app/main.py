@@ -189,11 +189,18 @@ def me(p: Principal = Depends(principal)):
 
 
 # --------------------------------------------------------------------------- students
+def staff_only(p: Principal, what: str) -> None:
+    """Cross-student views are for staff; a student account works only with its own record (/api/students/{ds}/{id})."""
+    if p.roles == {"student"}:
+        raise Denied(f"{what} are for staff roles.")
+
+
 @app.get("/api/students")
 def students(p: Principal = Depends(principal), dataset: str = Depends(ds_param), department: str | None = None,
              year: int | None = None, period: str | None = None, risk: str | None = None, segment: str | None = None,
              status: str | None = None, q: str | None = None, sort: str = "name", limit: int = Query(50, le=200),
              cursor: str | None = None):
+    staff_only(p, "Student lists")
     rows = views.apply_filters(views.visible_rows(p, dataset, department, year, period),
                                {"risk": risk, "segment": segment, "status": status, "q": q})
     page, nxt = views.paginate(rows, limit, cursor, sort if sort in ("name", "student_id", "score", "department") else "name")
@@ -310,6 +317,7 @@ def analytics(p: Principal = Depends(principal), dataset: str = Depends(ds_param
 @app.get("/api/risk/academic")
 def academic_risk(p: Principal = Depends(principal), dataset: str = Depends(ds_param), department: str | None = None,
                   year: int | None = None, period: str | None = None, level: str | None = None):
+    staff_only(p, "Risk lists")
     rows = views.visible_rows(p, dataset, department, year, period)
     order = {"high": 0, "medium": 1, "insufficient_data": 2, "low": 3}
     rows = [r for r in rows if views._risk_level(r, "academic") and (not level or views._risk_level(r, "academic") == level)]
@@ -320,6 +328,7 @@ def academic_risk(p: Principal = Depends(principal), dataset: str = Depends(ds_p
 @app.get("/api/placement")
 def placement(p: Principal = Depends(principal), dataset: str = Depends(ds_param), department: str | None = None,
               year: int | None = None):
+    staff_only(p, "Placement lists")
     rows = [r for r in views.visible_rows(p, dataset, department, year)
             if views._risk_level(r, "placement") not in (None, "not_applicable")]
     from collections import Counter
@@ -332,6 +341,7 @@ def placement(p: Principal = Depends(principal), dataset: str = Depends(ds_param
 @app.get("/api/segments")
 def segments(p: Principal = Depends(principal), dataset: str = Depends(ds_param), department: str | None = None,
              year: int | None = None, period: str | None = None):
+    staff_only(p, "Segments")
     cfg = insights.active_config()
     rows = views.visible_rows(p, dataset, department, year, period)
     out = []

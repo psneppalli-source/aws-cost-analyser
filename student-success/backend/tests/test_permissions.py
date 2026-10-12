@@ -33,7 +33,7 @@ def test_listing_scopes(call):
     assert total("admin.priya") == 150
     assert total("hod.meenakshi") == 50
     assert total("mentor.arjun") == 12
-    assert total("student.cse") == 1
+    assert call("student.cse", "GET", "/api/students?dataset=real").status_code == 403  # own record only, via /students/{ds}/{id}
     assert total("sysadmin.dev") == 0
 
 
@@ -218,7 +218,15 @@ def test_analytics_extras_and_profile_cohort(call):
     p = call("admin.priya", "GET", "/api/students/real/CSE24001").json()
     assert p["cohort"]["label"] == "CSE year 3" and p["cohort"]["students"] > 0 and "academic" in p["cohort"]["components"]
     s = call("student.cse", "GET", "/api/students/real/CSE24001").json()
-    assert "cohort" in s  # students see only aggregate averages of their class, never other students
+    assert "cohort" not in s  # a student's own page shows only their own progress
+
+
+def test_students_cannot_open_cross_student_views(call):
+    for path in ("/api/students?dataset=real", "/api/risk/academic?dataset=real", "/api/placement?dataset=real",
+                 "/api/segments?dataset=real", "/api/dashboard?dataset=real", "/api/analytics?dataset=real"):
+        assert call("student.cse", "GET", path).status_code == 403, path
+    assert call("student.cse", "GET", "/api/students/real/CSE24001").status_code == 200
+    assert call("student.cse", "GET", "/api/students/real/CSE24002").status_code in (403, 404)
 
 
 def test_only_one_dataset_is_served(call):

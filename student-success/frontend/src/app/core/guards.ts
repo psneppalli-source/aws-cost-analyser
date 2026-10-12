@@ -29,6 +29,12 @@ export function needs(...perms: string[]): CanActivateFn {
   };
 }
 
+/** Pages across many students: a student-only account is sent to their own dashboard instead. */
+export const staffOnly: CanActivateFn = () => {
+  const s = inject(Session);
+  return !(s.me()?.user.student && s.me()!.user.roles.length === 1) || inject(Router).parseUrl('/my');
+};
+
 /** Send each role to its natural landing page. */
 export const landing: CanActivateFn = () => {
   const s = inject(Session);

@@ -188,7 +188,8 @@ def profile(p: Principal, ds: str, sid: str) -> dict:
                  "mentor_name": ins.get("mentor_name")}
         out["insight"] = filter_fields(canon, f)
         mates = [r for r in insights.listing(ds, ins["department"], int(ins["year"])) if r["student_id"] != sid]
-        if ("components" in f or "*" in f) and len(mates) >= 5:  # averages only, and never over fewer than 5 classmates
+        # class averages are a staff view; a student's own page is about their own progress only
+        if ("components" in f or "*" in f) and len(mates) >= 5 and p.roles != {"student"}:  # averages only, and never over fewer than 5 classmates
             comp_keys = list((d.get("components") or {}).keys())
             out["cohort"] = {"label": f"{ins['department']} year {ins['year']}", "students": len(mates),
                              "score": _avg([r.get("score") for r in mates]),

@@ -42,7 +42,7 @@ def test_browser_supplied_roles_are_ignored(client, tokens):
     # Extra headers or body fields claiming a role have no effect; roles come from server-side assignments.
     r = client.get("/api/students?dataset=real", headers={"X-App-Authorization": f"Bearer {tokens['student.cse']}",
                                                          "X-Role": "college_admin", "X-Department": "CSE"})
-    assert r.json()["total"] == 1
+    assert r.status_code == 403  # still a student: no cross-student list
 
 
 def test_disabled_account_is_rejected(call, client):
