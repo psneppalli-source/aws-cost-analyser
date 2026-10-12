@@ -187,6 +187,12 @@ def profile(p: Principal, ds: str, sid: str) -> dict:
                  "calculated_at": ins.get("calculated_at"), "recalc_status": "stale" if stale else ins.get("recalc_status"),
                  "mentor_name": ins.get("mentor_name")}
         out["insight"] = filter_fields(canon, f)
+        mates = [r for r in insights.listing(ds, ins["department"], int(ins["year"])) if r["student_id"] != sid]
+        if ("components" in f or "*" in f) and len(mates) >= 5:  # averages only, and never over fewer than 5 classmates
+            comp_keys = list((d.get("components") or {}).keys())
+            out["cohort"] = {"label": f"{ins['department']} year {ins['year']}", "students": len(mates),
+                             "score": _avg([r.get("score") for r in mates]),
+                             "components": {c: _avg([(r.get("component_values") or {}).get(c) for r in mates]) for c in comp_keys}}
         if "by_period" in f or "*" in f:
             hist, _ = tbl.query(f"STU#{ds}#{sid}", "SCORE#")
             out["history"] = [{k: h.get(k) for k in ("period", "score", "indicative_score", "status", "band", "coverage",
@@ -323,8 +329,44 @@ def analytics(p: Principal, ds: str, department: str | None, year: int | None) -
           "by_outcome": dict(Counter((i.get("outcome") or {}).get("result") for i in ivs if i.get("outcome"))),
           "by_category": dict(Counter(i["category"] for i in ivs)), "overdue": sum(bool(i.get("overdue")) for i in ivs)}
 
+    # risk mix per month (academic and placement), from the slim per-period map
+    risk_trend = {k: [dict(Counter(bp(r, x).get(f"risk_{k}") for r in rows if bp(r, x).get(f"risk_{k}"))) for x in per]
+                  for k in ("academic", "placement")}
+
+    # band movement: previous month -> latest month (comparable scored periods only)
+    band_names = [b["label"] for b in insights.active_config()["bands"]] + ["Not enough data"]
+    flow = {a: {b: 0 for b in band_names} for a in band_names}
+    if prev:
+        for r in rows:
+            a, b = bp(r, prev), bp(r, cur)
+            if a and b:
+                fa = a.get("band") or "Not enough data"
+                fb = b.get("band") or "Not enough data"
+                if fa in flow and fb in flow[fa]:
+                    flow[fa][fb] += 1
+
+    # early warning: a fresh drop this month, and no open support yet
+    open_iv = {i["student_id"] for i in ivs if i["status"] != "Completed"}
+    warn = []
+    for r in rows:
+        a, b = bp(r, prev) if prev else {}, bp(r, cur)
+        reasons = []
+        if a.get("score") is not None and b.get("score") is not None and b["score"] - a["score"] <= -5:
+            reasons.append(f"Score fell {a['score'] - b['score']:.0f} points since last month")
+        ac, bc = (a.get("component_values") or {}).get("attendance"), (b.get("component_values") or {}).get("attendance")
+        if ac is not None and bc is not None and bc - ac <= -10:
+            reasons.append(f"Attendance fell {ac - bc:.0f} points")
+        if a.get("risk_academic") in ("low", "medium") and b.get("risk_academic") == "high":
+            reasons.append("Academic risk rose to high")
+        if reasons:
+            warn.append({"student_id": r["student_id"], "name": r.get("name"), "department": r["department"], "year": r["year"],
+                         "score": b.get("score"), "reasons": reasons, "has_open_intervention": r["student_id"] in open_iv})
+    warn.sort(key=lambda w: (w["has_open_intervention"], -len(w["reasons"]), w["score"] if w["score"] is not None else 999))
+
     return {
         "dataset": ds, "period": cur, "periods": per, "students": len(rows), "scored": len(scored),
+        "risk_trend": risk_trend, "band_flow": {"bands": band_names, "counts": flow, "from": prev, "to": cur},
+        "early_warning": warn[:12], "early_warning_total": len(warn),
         "kpis": {"average_score": _avg([r["score"] for r in scored]), "previous_average": _avg(prev_scores),
                  "previous_period": prev,
                  "complete_pct": round(100 * sum(r.get("status") == "complete" for r in rows) / len(rows)) if rows else None,

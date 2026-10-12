@@ -467,3 +467,46 @@ export class Spark {
     if (cur.length > 1) out.push('M' + cur.join('L')); return out; });
   last = computed(() => [...this.pts()].reverse().find((p) => p) || null);
 }
+
+// ------------------------------------------------------------------ paired bars (e.g. student vs class average per component)
+export interface Pair { label: string; a: number | null; b: number | null; }
+@Component({
+  selector: 'app-paired-bars',
+  imports: [TipView],
+  host: { class: 'viz' },
+  template: `
+    <div class="viz-legend"><span><i [style.background]="colorA()"></i>{{ nameA() }}</span><span><i [style.background]="colorB()"></i>{{ nameB() }}</span></div>
+    <svg [attr.width]="w()" [attr.height]="data().length * ROW + 4" role="img" [attr.aria-label]="label()">
+      @for (d of data(); track d.label; let i = $index) {
+        <g class="viz-hit" tabindex="0" [attr.aria-label]="d.label + ': ' + nameA() + ' ' + f(d.a) + ', ' + nameB() + ' ' + f(d.b)"
+           (pointermove)="show($event, d.label, rows(d))" (pointerleave)="hide()" (focus)="show($event, d.label, rows(d))" (blur)="hide()">
+          <rect x="0" [attr.y]="i * ROW" [attr.width]="w()" [attr.height]="ROW" fill="transparent" />
+          <text class="viz-label" x="0" [attr.y]="i * ROW + ROW / 2 + 4">{{ d.label }}</text>
+          <rect [attr.x]="LBL" [attr.y]="i * ROW + 8" [attr.width]="track()" [attr.height]="T * 2 + 2" rx="4" class="viz-track" />
+          @if (d.a !== null) { <path [attr.d]="bar(i, d.a, 0)" [attr.fill]="colorA()" />
+            <text class="viz-val" [attr.x]="LBL + len(d.a) + 6" [attr.y]="i * ROW + 8 + T - 1">{{ f(d.a) }}</text> }
+          @if (d.b !== null) { <path [attr.d]="bar(i, d.b, 1)" [attr.fill]="colorB()" />
+            <text class="viz-axis" [attr.x]="LBL + len(d.b) + 6" [attr.y]="i * ROW + 8 + 2 * T + 1">{{ f(d.b) }}</text> }
+        </g>
+      }
+    </svg>
+    <app-tip [tip]="tip()" [width]="w()" />
+    <details class="data-table"><summary>Show as table</summary>
+      <table><thead><tr><th></th><th class="num">{{ nameA() }}</th><th class="num">{{ nameB() }}</th><th class="num">Difference</th></tr></thead>
+        <tbody>@for (d of data(); track d.label) { <tr><td>{{ d.label }}</td><td class="num">{{ f(d.a) }}</td><td class="num">{{ f(d.b) }}</td>
+          <td class="num">{{ d.a !== null && d.b !== null ? (d.a - d.b > 0 ? '+' : '') + f(d.a - d.b) : '–' }}</td></tr> }</tbody></table></details>`,
+})
+export class PairedBars extends Sized {
+  data = input<Pair[]>([]);
+  nameA = input('This student');
+  nameB = input('Class average');
+  colorA = input(SERIES[0]);
+  colorB = input('#b9b7ae');
+  label = input('Comparison');
+  readonly ROW = 40; readonly T = 10; readonly LBL = 150;
+  track = computed(() => Math.max(40, this.w() - this.LBL - 44));
+  len(v: number) { return (Math.max(0, v) / 100) * this.track(); }
+  bar(i: number, v: number, k: number) { return barH(this.LBL, i * this.ROW + 8 + k * (this.T + 2), this.len(v), this.T); }
+  f(v: number | null) { return fmt(v); }
+  rows(d: Pair): TipRow[] { return [{ label: this.nameA(), value: this.f(d.a), color: this.colorA() }, { label: this.nameB(), value: this.f(d.b), color: this.colorB() }]; }
+}

@@ -207,3 +207,15 @@ def test_analytics_is_scoped_and_role_filtered(call):
     assert {c["key"] for c in placement["components"] if c["avg"] is not None} <= {"placement", "skills"}
     assert call("student.cse", "GET", "/api/analytics?dataset=demo").status_code == 403
     assert call("sysadmin.dev", "GET", "/api/analytics?dataset=demo").status_code == 403
+
+
+def test_analytics_extras_and_profile_cohort(call):
+    a = call("admin.priya", "GET", "/api/analytics?dataset=demo").json()
+    assert len(a["risk_trend"]["academic"]) == len(a["periods"])
+    flow = a["band_flow"]["counts"]
+    assert sum(sum(v.values()) for v in flow.values()) <= a["students"]
+    assert all(w["reasons"] for w in a["early_warning"]) and a["early_warning_total"] >= len(a["early_warning"])
+    p = call("admin.priya", "GET", "/api/students/demo/CSE24001").json()
+    assert p["cohort"]["label"] == "CSE year 3" and p["cohort"]["students"] > 0 and "academic" in p["cohort"]["components"]
+    s = call("student.cse", "GET", "/api/students/demo/CSE24001").json()
+    assert "cohort" in s  # students see only aggregate averages of their class, never other students

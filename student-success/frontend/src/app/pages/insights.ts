@@ -23,6 +23,10 @@ interface Analytics {
   risk_matrix: { levels: string[]; counts: Record<string, Record<string, number>> };
   scatter: { student_id: string; name: string; department: string; year: number; attendance: number; academic: number; score: number | null }[];
   movers: { up: Mover[]; down: Mover[] };
+  risk_trend: { academic: Record<string, number>[]; placement: Record<string, number>[] };
+  band_flow: { bands: string[]; counts: Record<string, Record<string, number>>; from: string | null; to: string };
+  early_warning: { student_id: string; name: string; department: string; year: number; score: number | null; reasons: string[]; has_open_intervention: boolean }[];
+  early_warning_total: number;
   interventions: { total: number; by_status: Record<string, number>; by_outcome: Record<string, number>; by_category: Record<string, number>; overdue: number };
 }
 
@@ -112,6 +116,31 @@ const COMP_SHORT: Record<string, string> = { academic: 'Academic', attendance: '
         }
       </div>
 
+      @if (a.early_warning.length) {
+        <section class="card" style="margin-top:16px"><div class="card-head"><h2>Early warning: slipped this month</h2>
+          <span class="desc">{{ a.early_warning_total }} student(s) changed for the worse since {{ month(a.kpis.previous_period) }}; those without support are listed first.</span></div>
+          <div class="table-wrap"><table><thead><tr><th>Student</th><th class="num">Score</th><th>What changed</th><th>Support</th></tr></thead><tbody>
+            @for (w of a.early_warning; track w.student_id) {
+              <tr><td><a [routerLink]="['/students', a.dataset, w.student_id]">{{ w.name }}</a><br><span class="small muted">{{ w.department }} · Y{{ w.year }}</span></td>
+                <td class="num">{{ w.score ?? '–' }}</td><td class="small">{{ w.reasons.join('; ') }}</td>
+                <td>@if (w.has_open_intervention) { <span class="chip teal">Intervention open</span> } @else { <span class="badge medium">■ None yet</span> }</td></tr>
+            }</tbody></table></div></section>
+      }
+      <div class="grid g2" style="margin-top:16px">
+        <section class="card"><div class="card-head"><h2>Risk over time</h2><span class="spacer"></span>
+          <div class="row" role="group" aria-label="Risk type" style="gap:4px">
+            @for (k of ['academic', 'placement']; track k) { <button type="button" class="btn small" [class.primary]="riskKind() === k" [attr.aria-pressed]="riskKind() === k" (click)="riskKind.set(k)">{{ k === 'academic' ? 'Academic' : 'Placement' }}</button> }
+          </div></div>
+          <p class="insight">{{ riskTrendText() }}</p>
+          <app-stack-columns [rows]="riskTrend()" [parts]="riskParts" label="Students by risk level per month" /></section>
+        @if (flow().rows.length) {
+          <section class="card"><div class="card-head"><h2>Band movement since {{ month(a.band_flow.from) }}</h2></div>
+            <p class="insight">{{ flowText() }}</p>
+            <app-heatmap [rows]="flow().rows" [cols]="flow().cols" [values]="flow().values" label="Students moving between score bands"
+                         valueName="Students" rowTitle="Last month ↓" colTitle="This month →" minLabel="Fewer" maxLabel="More" /></section>
+        }
+      </div>
+
       @if (a.movers.up.length || a.movers.down.length) {
         <div class="grid g2" style="margin-top:16px">
           @for (box of moverBoxes(); track box.title) {
@@ -139,6 +168,11 @@ export class InsightsPage {
   loading = signal(true);
   error = signal<string | null>(null);
   departments = computed(() => Object.keys(this.session.me()?.departments || {}));
+  riskKind = signal('academic');
+  riskParts = [
+    { key: 'high', label: '▲ High', color: STATUS.critical }, { key: 'medium', label: '■ Medium', color: STATUS.warning },
+    { key: 'low', label: '● Low', color: STATUS.good }, { key: 'insufficient_data', label: '◌ Not enough data', color: STATUS.neutral },
+  ];
   coverageParts = [
     { key: 'complete', label: 'Complete', color: STATUS.good },
     { key: 'provisional', label: 'Provisional', color: STATUS.warning },
@@ -184,6 +218,28 @@ export class InsightsPage {
   ivStatus = computed<HBar[]>(() => ['Open', 'In Progress', 'Completed'].map((s) => ({ label: s, value: this.a()?.interventions.by_status[s] || 0 })));
   ivOutcome = computed<HBar[]>(() => Object.keys(OUTCOMES).map((o) => ({ label: OUTCOMES[o], value: this.a()?.interventions.by_outcome[o] || 0,
     color: o === 'improved' ? STATUS.good : o === 'declined' ? STATUS.critical : STATUS.neutral })));
+  riskTrend = computed(() => { const a = this.a(); if (!a) return [];
+    const series = a.risk_trend[this.riskKind() as 'academic' | 'placement'];
+    return a.periods.map((p, i) => ({ label: p, values: series[i] || {} })); });
+  riskTrendText = computed(() => {
+    const r = this.riskTrend(); if (r.length < 2) return '';
+    const hi = (x: { values: Record<string, number> }) => x.values['high'] || 0;
+    const first = r.find((x) => Object.keys(x.values).length) || r[0]; const last = r[r.length - 1];
+    const d = hi(last) - hi(first);
+    return `${hi(last)} students at high ${this.riskKind()} risk in ${this.month(last.label)} — ${d === 0 ? 'unchanged' : (d > 0 ? 'up ' : 'down ') + Math.abs(d)} since ${this.month(first.label)}.`;
+  });
+  flow = computed(() => {
+    const f = this.a()?.band_flow; if (!f || !f.from) return { rows: [], cols: [], values: [] };
+    const used = f.bands.filter((b) => f.bands.some((o) => (f.counts[b]?.[o] || 0) + (f.counts[o]?.[b] || 0) > 0));
+    const name = (b: string) => (b === 'Not enough data' ? 'No data' : b);
+    return { rows: used.map(name), cols: used.map(name), values: used.map((r) => used.map((c) => f.counts[r][c] || 0)) };
+  });
+  flowText = computed(() => {
+    const f = this.a()?.band_flow; if (!f || !f.from) return '';
+    const order = f.bands.slice(0, -1); let up = 0, down = 0, same = 0;
+    order.forEach((a, i) => order.forEach((b, j) => { const n = f.counts[a][b] || 0; if (j < i) up += n; else if (j > i) down += n; else same += n; }));
+    return `${up} moved up a band, ${down} moved down, ${same} stayed. Bands: Strong 75+, On track 60+, Needs attention 45+.`;
+  });
   moverBoxes = computed(() => [{ title: 'Biggest improvements', items: this.a()?.movers.up || [] }, { title: 'Largest declines', items: this.a()?.movers.down || [] }]
     .filter((b) => b.items.length));
 
