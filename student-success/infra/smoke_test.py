@@ -7,7 +7,7 @@ Copy the token from the browser after signing in (sessionStorage 'ssp.session' -
   direct Function URL calls refused (IAM); no token -> 401; local demo sign-in absent;
   a real PUT through CloudFront (OAC SigV4 + payload hash + separate app token) and its restore;
   a wrong payload hash rejected; API responses never cached.
-Writes touch only the synthetic demo dataset and are restored.
+Writes change one LMS value of the chosen student and restore it straight away.
 """
 
 from __future__ import annotations
@@ -72,7 +72,7 @@ def write(site: str, token: str, method: str, path: str, payload: dict, bad_hash
 def main() -> int:
     p = parser("Smoke test through CloudFront")
     p.add_argument("--token", help="Cognito ID token for a mentor test account (enables write tests)")
-    p.add_argument("--student", default="CSE24001", help="demo student the mentor may edit (default: first CSE year 3)")
+    p.add_argument("--student", default="CSE24001", help="student the mentor may edit (default: first CSE year 3)")
     p.add_argument("--via-invoke", action="store_true",
                    help="call the API function through the Lambda API (for networks that block the site's host); "
                         "skips edge-only checks")
@@ -110,10 +110,10 @@ def main() -> int:
         auth = {"X-App-Authorization": f"Bearer {a.token}"}
         s, _, b = req("GET", site + "/api/me", headers=auth)
         check(s == 200, "token accepted (signature, issuer, audience, expiry, token_use)", f"{s} {b[:200]!r}")
-        path = f"/api/students/demo/{a.student}/records/lms/2026-09"
-        s, _, b = req("GET", site + f"/api/students/demo/{a.student}/records?category=lms&period=2026-09", headers=auth)
+        path = f"/api/students/real/{a.student}/records/lms/2026-09"
+        s, _, b = req("GET", site + f"/api/students/real/{a.student}/records?category=lms&period=2026-09", headers=auth)
         items = json.loads(b).get("items", []) if s == 200 else []
-        check(bool(items), "read a demo record", f"{s} {b[:200]!r}")
+        check(bool(items), "read a record", f"{s} {b[:200]!r}")
         if items:
             cur = items[0]
             orig = {k: cur[k] for k in ("assignments_due", "assignments_submitted", "logins")}

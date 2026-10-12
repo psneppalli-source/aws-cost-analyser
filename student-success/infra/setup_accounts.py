@@ -75,7 +75,7 @@ def main() -> int:
             sub, temp = ensure_user(accounts, seed, per["username"], per["display_name"], "")
             subs[per["username"]] = sub
             passwords.append((per["username"], ", ".join(r["role"] for r in per["roles"]), temp))
-        print("Loading the synthetic demo dataset (idempotent; at 8 WCU this takes several minutes)…")
+        print("Loading the 150-student dataset (idempotent; at 8 WCU this takes several minutes)…")
         s = seed.run(with_accounts=False)
         print(f"  {s['students']} students, {s['records']} records: {s['written']} written, {s['skipped']} unchanged")
         seed.assign_persona_roles(subs)
