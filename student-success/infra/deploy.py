@@ -68,6 +68,9 @@ def build(arch: str = "aarch64", frontend: bool = True) -> dict[str, Path]:
     for f in ("role-matrix.json", "scoring.json", "curriculum.json"):
         shutil.copy(ROOT / "config" / f, api / "config" / f)
     (api / "index.py").write_text(API_INDEX)
+    # The API package also carries the web app, served only in the template's temporary "direct" edge mode.
+    shutil.copytree(web_src, api / "web")
+    shutil.copy(ROOT / "backend" / "web_handler.py", api / "web_handler.py")
 
     print("Packaging the web app")
     web = out / "web"
@@ -96,8 +99,8 @@ def check_package(api: Path, web: Path) -> None:
         t = f.read_text(errors="ignore")
         if "os.environ.setdefault(\"AUTH_MODE\"" in t or "LOCAL_DEMO_SECRET=" in t:
             bad.append(f"{f.name} sets a local authentication default")
-    cfg = (web / "web").rglob("config.json")
-    if any(cfg):
+    cfg = list((web / "web").rglob("config.json")) + list((api / "web").rglob("config.json"))
+    if cfg:
         bad.append("a static config.json is packaged (it must come from APP_CONFIG)")
     settings = (api / "app" / "settings.py").read_text()
     if "in_lambda" not in settings or "cognito" not in settings:
@@ -107,9 +110,11 @@ def check_package(api: Path, web: Path) -> None:
     print("  package checks passed (no local sign-in bypass)")
 
 
-def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: bool, protect: bool = True) -> list[dict]:
+def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: bool, protect: bool = True,
+           edge: str = "cloudfront") -> list[dict]:
     """protect=False only for the very first create, so a failed create can roll back cleanly."""
     p = [{"ParameterKey": "AppName", "ParameterValue": name}, {"ParameterKey": "SiteUrl", "ParameterValue": site_url},
+         {"ParameterKey": "EdgeMode", "ParameterValue": edge},
          {"ParameterKey": "ApiReservedConcurrency", "ParameterValue": str(RESERVED["api"] if reserve else 0)},
          {"ParameterKey": "WebReservedConcurrency", "ParameterValue": str(RESERVED["web"] if reserve else 0)},
          {"ParameterKey": "TableDeletionProtection", "ParameterValue": "true" if protect else "false"},
@@ -179,6 +184,8 @@ def main() -> int:
     p.add_argument("--build-only", action="store_true", help="package only; no AWS calls")
     p.add_argument("--arch", default="aarch64", choices=["aarch64", "x86_64"], help="x86_64 only for local package tests")
     p.add_argument("--skip-frontend-build", action="store_true")
+    p.add_argument("--edge", choices=["cloudfront", "direct"], default="cloudfront",
+                   help="direct = TEMPORARY public function URL without CloudFront (e.g. while CloudFront verification is pending)")
     a = p.parse_args()
 
     if a.build_only:
@@ -208,15 +215,22 @@ def main() -> int:
     if existing and existing["StackStatus"] in ("ROLLBACK_COMPLETE", "ROLLBACK_FAILED"):
         sys.exit(f"Stack {a.stack} is {existing['StackStatus']} from a failed first deploy. Delete it, then deploy again.")
     site = outputs(cfn, a.stack).get("SiteUrl", "")
+    prev_edge = outputs(cfn, a.stack).get("EdgeMode", a.edge)
+    if prev_edge != a.edge:
+        site = ""  # the address changes with the edge mode; the second pass registers the new one
+    if a.edge == "direct":
+        print("WARNING: direct mode has no CloudFront: one public function URL serves the app and API. Data still needs a "
+              "Cognito token, but there is no edge protection; the account concurrency limit caps load. Temporary use only.")
     print(f"Deploying stack {a.stack} to {a.region}")
-    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve, protect=existing is not None), [])
+    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve, protect=existing is not None, edge=a.edge), [])
     out = outputs(cfn, a.stack)
     if out["SiteUrl"] != site or existing is None:
         print("Registering the CloudFront address with Cognito and switching on deletion protection (second pass)")
-        apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email, reserve), [])
+        apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email, reserve, edge=a.edge), [])
         out = outputs(cfn, a.stack)
     upload(lam, out["ApiFunctionName"], zips["api"])
-    upload(lam, out["WebFunctionName"], zips["web"])
+    if out.get("WebFunctionName"):
+        upload(lam, out["WebFunctionName"], zips["web"])
 
     print(f"""
 Deployed. Site: {out['SiteUrl']}
@@ -225,7 +239,7 @@ Next steps (see docs/deployment.md):
   1. Accounts:   python infra/setup_accounts.py --region {a.region} --stack {a.stack} --admin <username> --email <you>
                  (add --demo-personas to create the demonstration accounts and load the synthetic dataset)
   2. Smoke test: python infra/smoke_test.py --region {a.region} --stack {a.stack} --token <ID token>
-  3. Optional:   in the CloudFront console, subscribe distribution {out['DistributionId']} to the Free flat-rate plan
+  3. Optional:   in the CloudFront console, subscribe distribution {out.get('DistributionId', '(none in direct mode)')} to the Free flat-rate plan
                  if your account is eligible. Without it, pay-as-you-go always-free allowances apply.
   4. Watch the Billing console and Free Tier usage for the first days.
 """)

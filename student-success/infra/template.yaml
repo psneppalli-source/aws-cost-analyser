@@ -15,10 +15,18 @@ Parameters:
   SiteUrl:
     Type: String
     Default: ""
-    AllowedPattern: "^(|https://[a-z0-9.-]+\\.cloudfront\\.net)$"
+    AllowedPattern: "^(|https://[a-z0-9.-]+\\.cloudfront\\.net|https://[a-z0-9]+\\.lambda-url\\.[a-z0-9-]+\\.on\\.aws)$"
     Description: >-
       The CloudFront URL (https://dxxxx.cloudfront.net). Empty on the very first deploy; the deploy script
       fills it in from the stack output and updates the stack so sign-in redirects can be registered.
+  EdgeMode:
+    Type: String
+    Default: cloudfront
+    AllowedValues: [cloudfront, direct]
+    Description: >-
+      cloudfront (the designed architecture): CloudFront with OAC in front of two IAM-protected function URLs.
+      direct (temporary, e.g. while an account awaits CloudFront verification): one public function URL serves
+      both the app and the API; every data request still requires a Cognito token, but there is no edge layer.
   TableReadCapacity:
     Type: Number
     Default: 8
@@ -83,6 +91,8 @@ Parameters:
 
 Conditions:
   HasSiteUrl: !Not [!Equals [!Ref SiteUrl, ""]]
+  UseCloudFront: !Equals [!Ref EdgeMode, cloudfront]
+  Direct: !Equals [!Ref EdgeMode, direct]
   HasBudget: !Not [!Equals [!Ref BudgetEmail, ""]]
   ReserveApi: !Not [!Equals [!Ref ApiReservedConcurrency, 0]]
   ReserveWeb: !Not [!Equals [!Ref WebReservedConcurrency, 0]]
@@ -203,6 +213,7 @@ Resources:
 
   WebLogGroup:
     Type: AWS::Logs::LogGroup
+    Condition: UseCloudFront
     Properties:
       LogGroupName: !Sub "/aws/lambda/${AppName}-web"
       RetentionInDays: !Ref LogRetentionDays
@@ -245,6 +256,7 @@ Resources:
 
   WebRole:
     Type: AWS::IAM::Role
+    Condition: UseCloudFront
     Properties:
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
@@ -287,6 +299,12 @@ Resources:
           VERIFY_PAYLOAD_HASH: "1"
           SSP_CONFIG_DIR: /var/task/config
           INSIGHT_CACHE_SECONDS: "20"
+          SERVE_WEB: !If [Direct, "1", "0"]   # direct mode: this function also serves the web app
+          WEB_ROOT: /var/task/web
+          APP_CONFIG: !Sub
+            - '{"mode":"cognito","domain":"https://${Domain}.auth.${AWS::Region}.amazoncognito.com","clientId":"${UserPoolClient}","redirectUri":"${Redirect}"}'
+            - Domain: !Ref UserPoolDomain
+              Redirect: !If [HasSiteUrl, !Sub "${SiteUrl}/", ""]
       Code:
         ZipFile: |
           def handler(event, context):
@@ -294,6 +312,7 @@ Resources:
 
   WebFunction:
     Type: AWS::Lambda::Function
+    Condition: UseCloudFront
     Properties:
       FunctionName: !Sub "${AppName}-web"
       Runtime: python3.12
@@ -322,11 +341,12 @@ Resources:
     Type: AWS::Lambda::Url
     Properties:
       TargetFunctionArn: !GetAtt ApiFunction.Arn
-      AuthType: AWS_IAM               # only CloudFront (signed by OAC) may call it
+      AuthType: !If [UseCloudFront, AWS_IAM, NONE]   # cloudfront: only the distribution (OAC) may call it
       InvokeMode: BUFFERED
 
   WebUrl:
     Type: AWS::Lambda::Url
+    Condition: UseCloudFront
     Properties:
       TargetFunctionArn: !GetAtt WebFunction.Arn
       AuthType: AWS_IAM
@@ -335,6 +355,7 @@ Resources:
   # CloudFront OAC needs both permissions, each restricted to this distribution.
   ApiUrlPermission:
     Type: AWS::Lambda::Permission
+    Condition: UseCloudFront
     Properties:
       FunctionName: !Ref ApiFunction
       Action: lambda:InvokeFunctionUrl
@@ -344,6 +365,7 @@ Resources:
 
   ApiInvokePermission:
     Type: AWS::Lambda::Permission
+    Condition: UseCloudFront
     Properties:
       FunctionName: !Ref ApiFunction
       Action: lambda:InvokeFunction
@@ -353,6 +375,7 @@ Resources:
 
   WebUrlPermission:
     Type: AWS::Lambda::Permission
+    Condition: UseCloudFront
     Properties:
       FunctionName: !Ref WebFunction
       Action: lambda:InvokeFunctionUrl
@@ -362,6 +385,7 @@ Resources:
 
   WebInvokePermission:
     Type: AWS::Lambda::Permission
+    Condition: UseCloudFront
     Properties:
       FunctionName: !Ref WebFunction
       Action: lambda:InvokeFunction
@@ -369,9 +393,29 @@ Resources:
       InvokedViaFunctionUrl: true
       SourceArn: !Sub "arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
 
+  # Direct mode only: the function URL is public; the app itself requires a Cognito token for all data.
+  ApiPublicUrlPermission:
+    Type: AWS::Lambda::Permission
+    Condition: Direct
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+
+  ApiPublicInvokePermission:
+    Type: AWS::Lambda::Permission
+    Condition: Direct
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+
   # ------------------------------------------------------------------ edge
   LambdaOac:
     Type: AWS::CloudFront::OriginAccessControl
+    Condition: UseCloudFront
     Properties:
       OriginAccessControlConfig:
         Name: !Sub "${AppName}-lambda-oac"
@@ -382,6 +426,7 @@ Resources:
 
   ApiOriginRequestPolicy:
     Type: AWS::CloudFront::OriginRequestPolicy
+    Condition: UseCloudFront
     Properties:
       OriginRequestPolicyConfig:
         Name: !Sub "${AppName}-api-forward"
@@ -396,6 +441,7 @@ Resources:
 
   Distribution:
     Type: AWS::CloudFront::Distribution
+    Condition: UseCloudFront
     Properties:
       DistributionConfig:
         Comment: !Sub "${AppName} student success analytics"
@@ -455,8 +501,14 @@ Resources:
 Outputs:
   SiteUrl:
     Description: Open this address. Re-deploy with SiteUrl set to it (deploy.py does this automatically).
-    Value: !Sub "https://${Distribution.DomainName}"
+    Value: !If
+      - UseCloudFront
+      - !Sub "https://${Distribution.DomainName}"
+      - !Join ["", ["https://", !Select [2, !Split ["/", !GetAtt ApiUrl.FunctionUrl]]]]
+  EdgeMode:
+    Value: !Ref EdgeMode
   DistributionId:
+    Condition: UseCloudFront
     Value: !Ref Distribution
   TableName:
     Value: !Ref Table
@@ -469,7 +521,8 @@ Outputs:
   ApiFunctionName:
     Value: !Ref ApiFunction
   WebFunctionName:
+    Condition: UseCloudFront
     Value: !Ref WebFunction
   ApiFunctionUrl:
-    Description: Direct calls must be refused (403); only CloudFront may invoke it.
+    Description: In cloudfront mode direct calls must be refused (403); in direct mode this is the site.
     Value: !GetAtt ApiUrl.FunctionUrl

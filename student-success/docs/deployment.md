@@ -74,6 +74,25 @@ Optional: subscribe the distribution to the CloudFront **Free** flat-rate plan i
 
 Redeploying code only: run the same deploy command; unchanged infrastructure is reported as “no changes”.
 
+### Temporary mode without CloudFront (`--edge direct`)
+
+If CloudFront is not available yet (new accounts may need AWS Support to verify the account first):
+
+```bash
+python infra/deploy.py --region eu-west-2 --approve --pricing-verified YYYY-MM-DD --edge direct
+```
+
+One **public** function URL then serves both the web app and the API (same origin, same sign-in and role checks;
+every data request still needs a Cognito token). What is lost until you switch back: the IAM-protected origins
+and OAC signing, the single short `*.cloudfront.net` address and any edge protection. The Lambda account
+concurrency limit caps load, but a flood of requests beyond the free monthly allowance could cost money
+(the budget alert emails you). When CloudFront is available, deploy again **without** `--edge direct`: the stack
+adds the distribution and the web function, makes the function URL IAM-only, and the second pass registers
+the new address with Cognito (the old URL stops working).
+
+If the operator's network blocks the site host, run the smoke test with `--via-invoke` (calls the function
+through the Lambda API with Function URL events).
+
 ## 4. Rollback
 
 * **Code**: `python infra/rollback.py --approve` re-uploads the ZIPs that the last deploy replaced

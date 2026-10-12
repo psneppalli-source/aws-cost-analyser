@@ -13,10 +13,14 @@ TPL = (ROOT / "infra" / "template.yaml").read_text()
 
 
 def test_function_urls_are_iam_only_and_both_oac_permissions_exist():
-    assert len(re.findall(r"^\s+AuthType: AWS_IAM", TPL, re.M)) == 2 and "AuthType: NONE" not in TPL
+    # designed mode: both URLs IAM-only; NONE exists only behind the temporary "direct" EdgeMode condition
+    assert len(re.findall(r"^\s+AuthType: AWS_IAM", TPL, re.M)) == 1  # WebUrl (CloudFront mode only)
+    assert "AuthType: !If [UseCloudFront, AWS_IAM, NONE]" in TPL and "Default: cloudfront" in TPL
+    pub = TPL[TPL.index("  ApiPublicUrlPermission:"):TPL.index("  # ------------------------------------------------------------------ edge")]
+    assert pub.count("Condition: Direct") == 2
     # CloudFront needs InvokeFunctionUrl and InvokeFunction (via function URL), each scoped to the distribution
-    assert TPL.count("Action: lambda:InvokeFunctionUrl") == 2
-    assert TPL.count("Action: lambda:InvokeFunction\n") == 2 and TPL.count("InvokedViaFunctionUrl: true") == 2
+    assert TPL.count("Action: lambda:InvokeFunctionUrl") == 3  # 2 for CloudFront + 1 public in direct mode
+    assert TPL.count("Action: lambda:InvokeFunction\n") == 3 and TPL.count("InvokedViaFunctionUrl: true") == 3
     assert TPL.count(":distribution/${Distribution}") == 4
     assert "OriginAccessControlOriginType: lambda" in TPL and "SigningBehavior: always" in TPL
 

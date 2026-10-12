@@ -21,9 +21,32 @@ import urllib.request
 from common import boto, outputs, parser
 
 failures = []
+INVOKE: dict = {}  # set by --via-invoke: {"client": lambda client, "function": name}
+
+
+def _invoke(method: str, url: str, body: bytes | None, headers: dict | None):
+    """Send a Function URL (payload v2) event through the Lambda API instead of HTTP."""
+    import base64
+    from urllib.parse import urlsplit
+    u = urlsplit(url)
+    ev = {"version": "2.0", "rawPath": u.path or "/", "rawQueryString": u.query,
+          "headers": {"host": u.netloc, **{k.lower(): v for k, v in (headers or {}).items()}},
+          "requestContext": {"http": {"method": method, "path": u.path or "/", "sourceIp": "203.0.113.1", "protocol": "HTTP/1.1",
+                                      "userAgent": "smoke-test"}, "domainName": u.netloc, "requestId": "smoke", "stage": "$default"},
+          "body": base64.b64encode(body).decode() if body else None, "isBase64Encoded": bool(body)}
+    r = INVOKE["client"].invoke(FunctionName=INVOKE["function"], Payload=json.dumps(ev).encode())
+    out = json.loads(r["Payload"].read())
+    if "statusCode" not in out:
+        return 502, {}, json.dumps(out).encode()
+    b = out.get("body") or ""
+    data = base64.b64decode(b) if out.get("isBase64Encoded") else b.encode()
+    hdrs = {k.title(): v for k, v in (out.get("headers") or {}).items()}
+    return out["statusCode"], hdrs, data
 
 
 def req(method: str, url: str, body: bytes | None = None, headers: dict | None = None):
+    if INVOKE:
+        return _invoke(method, url, body, headers)
     r = urllib.request.Request(url, data=body, method=method, headers=headers or {})
     try:
         with urllib.request.urlopen(r, timeout=30) as resp:
@@ -50,25 +73,37 @@ def main() -> int:
     p = parser("Smoke test through CloudFront")
     p.add_argument("--token", help="Cognito ID token for a mentor test account (enables write tests)")
     p.add_argument("--student", default="CSE24001", help="demo student the mentor may edit (default: first CSE year 3)")
+    p.add_argument("--via-invoke", action="store_true",
+                   help="call the API function through the Lambda API (for networks that block the site's host); "
+                        "skips edge-only checks")
     a = p.parse_args()
     out = outputs(boto("cloudformation", a.region), a.stack)
+    if a.via_invoke:
+        INVOKE.update(client=boto("lambda", a.region), function=out["ApiFunctionName"])
+        print("Mode: Lambda invoke with Function URL events (edge checks skipped)")
     site = out["SiteUrl"]
     print(f"Testing {site}\n")
 
-    s, h, b = req("GET", site + "/")
-    check(s == 200 and b"<app-root" in b, "web app served by the web Lambda via CloudFront")
-    check("Content-Security-Policy" in h and "Strict-Transport-Security" in h, "security headers present")
-    s, _, b = req("GET", site + "/config.json")
-    check(s == 200 and json.loads(b).get("mode") == "cognito", "runtime config is Cognito mode")
+    if not (a.via_invoke and out.get("EdgeMode") != "direct"):  # in cloudfront mode the web app is another function
+        s, h, b = req("GET", site + "/")
+        check(s == 200 and b"<app-root" in b, "web app served")
+        check("Content-Security-Policy" in h and "Strict-Transport-Security" in h, "security headers present")
+        s, _, b = req("GET", site + "/config.json")
+        check(s == 200 and json.loads(b).get("mode") == "cognito", "runtime config is Cognito mode")
     s, h, b = req("GET", site + "/api/health")
-    check(s == 200, "API health through CloudFront", f"{s} {b[:120]!r}")
+    check(s == 200, "API health", f"{s} {b[:120]!r}")
     check("no-store" in h.get("Cache-Control", "") and "Hit" not in h.get("X-Cache", ""), "API response not cached",
           f"{h.get('Cache-Control')} {h.get('X-Cache')}")
-    s, _, _ = req("GET", out["ApiFunctionUrl"].rstrip("/") + "/api/health")
-    check(s == 403, "direct Function URL call refused (only CloudFront may invoke)", f"got {s}")
+    if a.via_invoke:
+        pass
+    elif out.get("EdgeMode", "cloudfront") == "cloudfront":
+        s, _, _ = req("GET", out["ApiFunctionUrl"].rstrip("/") + "/api/health")
+        check(s == 403, "direct Function URL call refused (only CloudFront may invoke)", f"got {s}")
+    else:
+        print("INFO direct edge mode (temporary): no CloudFront; the function URL is the public site")
     s, _, _ = req("GET", site + "/api/me")
     check(s == 401, "no token -> 401", f"got {s}")
-    s, _, _ = write(site, "x", "POST", "/api/auth/local/login", {"username": "admin.priya"})
+    s, _ = write(site, "x", "POST", "/api/auth/local/login", {"username": "admin.priya"})
     check(s == 404, "local demo sign-in endpoint absent", f"got {s}")
 
     if a.token:
@@ -83,7 +118,7 @@ def main() -> int:
             cur = items[0]
             orig = {k: cur[k] for k in ("assignments_due", "assignments_submitted", "logins")}
             s, r = write(site, a.token, "PUT", path, {"data": {**orig, "logins": orig["logins"] + 1}, "version": cur["version"]})
-            check(s == 200 and r.get("status") == "updated", "real write through CloudFront (OAC + payload hash + app token)",
+            check(s == 200 and r.get("status") == "updated", "real write (payload hash + app token; via CloudFront OAC in cloudfront mode)",
                   f"{s} {str(r)[:200]}")
             if s == 200:
                 s2, r2 = write(site, a.token, "PUT", path, {"data": orig, "version": r["record"]["version"]})

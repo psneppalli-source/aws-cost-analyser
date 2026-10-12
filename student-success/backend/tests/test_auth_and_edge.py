@@ -181,3 +181,28 @@ def test_web_lambda_serves_spa_with_headers(tmp_path, monkeypatch):
     assert json.loads(get("/config.json")["body"])["clientId"] == "x"
     assert get("/../../etc/passwd")["statusCode"] in (200, 404) and "root:" not in get("/../../etc/passwd")["body"]
     assert "Content-Security-Policy" in r["headers"]
+
+
+def test_direct_edge_mode_serves_web_and_api_from_one_function(tmp_path, monkeypatch):
+    """Temporary no-CloudFront mode: non-/api paths go to the web handler, /api to FastAPI."""
+    import importlib
+    import sys
+    (tmp_path / "index.html").write_text("<!doctype html><app-root></app-root>")
+    monkeypatch.setenv("SERVE_WEB", "1")
+    monkeypatch.setenv("WEB_ROOT", str(tmp_path))
+    for m in ("lambda_api", "web_handler"):
+        sys.modules.pop(m, None)
+    lam = importlib.import_module("lambda_api")
+    try:
+        def ev(path):
+            return {"version": "2.0", "rawPath": path, "rawQueryString": "", "headers": {"host": "x.lambda-url.eu-west-2.on.aws"},
+                    "requestContext": {"http": {"method": "GET", "path": path, "sourceIp": "1.2.3.4", "protocol": "HTTP/1.1",
+                                                "userAgent": "t"}, "domainName": "x", "requestId": "r", "stage": "$default"},
+                    "isBase64Encoded": False}
+        page = lam.handler(ev("/students/demo/CSE24001"), None)
+        assert page["statusCode"] == 200 and "<app-root>" in page["body"] and "Content-Security-Policy" in page["headers"]
+        api = lam.handler(ev("/api/me"), None)
+        assert api["statusCode"] == 401
+    finally:
+        for m in ("lambda_api", "web_handler"):
+            sys.modules.pop(m, None)
