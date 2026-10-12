@@ -72,6 +72,20 @@ Optional: subscribe the distribution to the CloudFront **Free** flat-rate plan i
 
 Redeploying code only: run the same deploy command; unchanged infrastructure is reported as “no changes”.
 
+### Readable site address (Netlify, free)
+
+A Lambda function URL can't be renamed. `netlify.toml` lets Netlify's free plan serve the site at an address
+such as `https://smart-campus.netlify.app`: it forwards every request unchanged to AWS (nothing is built or stored
+on Netlify). Set up once:
+
+1. In Netlify: *Add new site → Import an existing project → GitHub* → choose the Smart-Campus repository and
+   deploy (the settings come from `netlify.toml`).
+2. *Site configuration → Change site name* → `smart-campus` (or another free name).
+3. Register the address for sign-in: `python infra/deploy.py ... --alias-url https://<name>.netlify.app`.
+
+The sign-in and sign-out redirects follow whichever address the user opened. If the AWS address changes, update
+the `to` line in `netlify.toml`. Netlify's free plan has monthly usage limits; heavy use may need a paid plan.
+
 ### Sign-in address (`--auth-domain`)
 
 The college sign-in page lives at `https://<prefix>.auth.<region>.amazoncognito.com` (free). Choose a meaningful,

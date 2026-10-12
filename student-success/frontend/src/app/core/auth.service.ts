@@ -69,13 +69,16 @@ export class AuthService {
     this.signedIn.set(false);
   }
 
+  /** Return to the address the user is on (the site URL or a registered alias); Cognito accepts only registered ones. */
+  private redirectUri(): string { return `${location.origin}/`; }
+
   async startCognito(): Promise<void> {
     const c = this.config()!;
     const verifier = randomString(48);
     const state = randomString(16);
     sessionStorage.setItem(PKCE, JSON.stringify({ verifier, state }));
     const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
-    const q = new URLSearchParams({ response_type: 'code', client_id: c.clientId!, redirect_uri: c.redirectUri!,
+    const q = new URLSearchParams({ response_type: 'code', client_id: c.clientId!, redirect_uri: this.redirectUri(),
       scope: 'openid profile email aws.cognito.signin.user.admin', state, code_challenge: challenge, code_challenge_method: 'S256' });
     location.assign(`${c.domain}/oauth2/authorize?${q}`);
   }
@@ -87,7 +90,7 @@ export class AuthService {
     const p = JSON.parse(sessionStorage.getItem(PKCE) || '{}');
     history.replaceState(null, '', u.pathname);
     if (!p.verifier || u.searchParams.get('state') !== p.state) throw new Error('Sign-in expired. Please sign in again.');
-    const t = await this.tokenRequest({ grant_type: 'authorization_code', code, redirect_uri: this.config()!.redirectUri!,
+    const t = await this.tokenRequest({ grant_type: 'authorization_code', code, redirect_uri: this.redirectUri(),
       code_verifier: p.verifier });
     sessionStorage.removeItem(PKCE);
     this.save({ idToken: t.id_token, accessToken: t.access_token, refreshToken: t.refresh_token, exp: Number(claims(t.id_token)['exp']) });
@@ -136,7 +139,7 @@ export class AuthService {
     const c = this.config();
     this.clear();
     if (c?.mode === 'cognito') {
-      location.assign(`${c.domain}/logout?${new URLSearchParams({ client_id: c.clientId!, logout_uri: c.redirectUri! })}`);
+      location.assign(`${c.domain}/logout?${new URLSearchParams({ client_id: c.clientId!, logout_uri: this.redirectUri() })}`);
     } else {
       location.assign('/login');
     }

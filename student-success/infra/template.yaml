@@ -19,6 +19,13 @@ Parameters:
     Description: >-
       The CloudFront URL (https://dxxxx.cloudfront.net). Empty on the very first deploy; the deploy script
       fills it in from the stack output and updates the stack so sign-in redirects can be registered.
+  AliasUrl:
+    Type: String
+    Default: ""
+    AllowedPattern: "^$|^https://[a-z0-9.-]+$"
+    Description: >-
+      Optional second address that forwards to this site (e.g. https://smart-campus.netlify.app). It is registered
+      for sign-in and sign-out alongside SiteUrl, so users can use either address.
   AuthDomainPrefix:
     Type: String
     Default: ""
@@ -98,6 +105,7 @@ Parameters:
 
 Conditions:
   HasSiteUrl: !Not [!Equals [!Ref SiteUrl, ""]]
+  HasAliasUrl: !And [!Condition HasSiteUrl, !Not [!Equals [!Ref AliasUrl, ""]]]
   HasAuthDomainPrefix: !Not [!Equals [!Ref AuthDomainPrefix, ""]]
   UseCloudFront: !Equals [!Ref EdgeMode, cloudfront]
   Direct: !Equals [!Ref EdgeMode, direct]
@@ -210,8 +218,8 @@ Resources:
       AllowedOAuthFlows: !If [HasSiteUrl, [code], !Ref AWS::NoValue]
       # aws.cognito.signin.user.admin lets a signed-in user register their own authenticator app (TOTP)
       AllowedOAuthScopes: !If [HasSiteUrl, [openid, email, profile, aws.cognito.signin.user.admin], !Ref AWS::NoValue]
-      CallbackURLs: !If [HasSiteUrl, [!Sub "${SiteUrl}/"], !Ref AWS::NoValue]
-      LogoutURLs: !If [HasSiteUrl, [!Sub "${SiteUrl}/"], !Ref AWS::NoValue]
+      CallbackURLs: !If [HasAliasUrl, [!Sub "${SiteUrl}/", !Sub "${AliasUrl}/"], !If [HasSiteUrl, [!Sub "${SiteUrl}/"], !Ref AWS::NoValue]]
+      LogoutURLs: !If [HasAliasUrl, [!Sub "${SiteUrl}/", !Sub "${AliasUrl}/"], !If [HasSiteUrl, [!Sub "${SiteUrl}/"], !Ref AWS::NoValue]]
       IdTokenValidity: 60
       AccessTokenValidity: 60
       RefreshTokenValidity: 12
@@ -537,6 +545,9 @@ Outputs:
     Value: !Ref UserPool
   UserPoolClientId:
     Value: !Ref UserPoolClient
+  AliasUrl:
+    Condition: HasAliasUrl
+    Value: !Ref AliasUrl
   CognitoDomain:
     Value: !Sub "https://${UserPoolDomain}.auth.${AWS::Region}.amazoncognito.com"
   ApiFunctionName:
