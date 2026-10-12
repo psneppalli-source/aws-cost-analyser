@@ -1,197 +1,131 @@
 {
-  "version": "2026.1",
-  "description": "Initial scoring rules for the 2026 pilot.",
-  "current_period": "2026-ODD",
-  "terms": ["2024-ODD", "2025-EVEN", "2025-ODD", "2026-EVEN", "2026-ODD"],
-  "review_periods": [
-    {"id": "2026-EVEN", "label": "Even semester 2026 (Jan-Apr)", "start": "2026-01-01", "end": "2026-04-30"},
-    {"id": "2026-ODD", "label": "Odd semester 2026 (Jul-Nov)", "start": "2026-07-01", "end": "2026-11-30"}
-  ],
-  "courses": {
-    "B.Tech": {"years": 4, "placement_from_year": 3},
-    "MCA": {"years": 2, "placement_from_year": 2}
-  },
-  "lookback_days": {"engagement": 365, "placement": 365, "skills": 365},
-  "freshness_days": {"academic": 200, "internal_marks": 60, "attendance": 45, "lms": 21, "engagement": 120,
-                     "placement": 180, "skills": 200, "feedback": 200},
-  "coverage": {"provisional_below": 0.75, "insufficient_below": 0.4},
-  "bands": [
-    {"min": 70, "label": "Thriving"},
-    {"min": 55, "label": "On track"},
-    {"min": 40, "label": "Needs attention"},
-    {"min": 0, "label": "Critical"}
-  ],
-  "pillars": {
+  "version": "1.0.0",
+  "status": "approved",
+  "description": "Initial demonstration configuration. All thresholds are ASSUMPTIONS for demonstration and must be validated by the college before operational use.",
+  "coverage_threshold": 0.8,
+  "components": {
     "academic": {"label": "Academic", "weight": 0.30},
-    "attendance": {"label": "Attendance", "weight": 0.15},
+    "attendance": {"label": "Attendance", "weight": 0.20},
     "lms": {"label": "LMS", "weight": 0.15},
     "placement": {"label": "Placement readiness", "weight": 0.15},
     "skills": {"label": "Skills", "weight": 0.10},
-    "engagement": {"label": "Engagement", "weight": 0.10},
-    "feedback": {"label": "Feedback", "weight": 0.05}
+    "engagement": {"label": "Engagement", "weight": 0.10}
   },
-  "indicators": [
-    {"id": "cgpa", "pillar": "academic", "weight": 0.45, "worst": 5.0, "best": 9.0},
-    {"id": "backlogs", "pillar": "academic", "weight": 0.25, "worst": 4, "best": 0},
-    {"id": "internal_pct", "pillar": "academic", "weight": 0.15, "worst": 35, "best": 85},
-    {"id": "sgpa_trend", "pillar": "academic", "weight": 0.15, "worst": -1.0, "best": 0.5},
-    {"id": "attendance_pct", "pillar": "attendance", "weight": 0.6, "worst": 60, "best": 95},
-    {"id": "attendance_min_subject_pct", "pillar": "attendance", "weight": 0.2, "worst": 50, "best": 90},
-    {"id": "attendance_trend", "pillar": "attendance", "weight": 0.2, "worst": -15, "best": 5},
-    {"id": "lms_completion_pct", "pillar": "lms", "weight": 0.4, "worst": 40, "best": 100},
-    {"id": "lms_logins_per_week", "pillar": "lms", "weight": 0.2, "worst": 1, "best": 7},
-    {"id": "lms_quiz_avg", "pillar": "lms", "weight": 0.2, "worst": 40, "best": 85},
-    {"id": "lms_login_trend", "pillar": "lms", "weight": 0.2, "worst": 0.4, "best": 1.1},
-    {"id": "events", "pillar": "engagement", "weight": 0.3, "worst": 0, "best": 6},
-    {"id": "clubs", "pillar": "engagement", "weight": 0.2, "worst": 0, "best": 2},
-    {"id": "projects_hackathons", "pillar": "engagement", "weight": 0.25, "worst": 0, "best": 3},
-    {"id": "certifications", "pillar": "engagement", "weight": 0.25, "worst": 0, "best": 3},
-    {"id": "aptitude_score", "pillar": "placement", "weight": 0.35, "worst": 30, "best": 85, "applies": "placement_years"},
-    {"id": "coding_score", "pillar": "placement", "weight": 0.4, "worst": 20, "best": 80, "applies": "placement_years"},
-    {"id": "mock_interview_rating", "pillar": "placement", "weight": 0.25, "worst": 1.5, "best": 4.5, "applies": "placement_years"},
-    {"id": "technical", "pillar": "skills", "weight": 0.5, "worst": 30, "best": 90},
-    {"id": "communication", "pillar": "skills", "weight": 0.25, "worst": 30, "best": 90},
-    {"id": "problem_solving", "pillar": "skills", "weight": 0.25, "worst": 30, "best": 90},
-    {"id": "satisfaction", "pillar": "feedback", "weight": 0.5, "worst": 1, "best": 5},
-    {"id": "faculty_rating", "pillar": "feedback", "weight": 0.5, "worst": 1, "best": 5}
+  "cohort_profiles": {
+    "early_years": {
+      "label": "Years 1-2 (placement not yet applicable)",
+      "applies_to_years": [1, 2],
+      "components": ["academic", "attendance", "lms", "skills", "engagement"]
+    },
+    "placement_years": {
+      "label": "Years 3-4 (all components)",
+      "applies_to_years": [3, 4],
+      "components": ["academic", "attendance", "lms", "placement", "skills", "engagement"]
+    }
+  },
+  "normalisation": {
+    "academic": {
+      "indicators": {
+        "cgpa": {"weight": 0.5, "worst": 5.0, "best": 9.0},
+        "backlogs": {"weight": 0.2, "worst": 4, "best": 0},
+        "marks_pct": {"weight": 0.3, "worst": 35, "best": 85}
+      }
+    },
+    "attendance": {"indicators": {"attendance_pct": {"weight": 1.0, "worst": 60, "best": 95}}},
+    "lms": {
+      "indicators": {
+        "assignment_completion_pct": {"weight": 0.6, "worst": 40, "best": 100},
+        "logins_per_week": {"weight": 0.4, "worst": 1, "best": 7}
+      }
+    },
+    "placement": {
+      "indicators": {
+        "aptitude": {"weight": 0.35, "worst": 30, "best": 85},
+        "coding": {"weight": 0.4, "worst": 20, "best": 80},
+        "mock_interview": {"weight": 0.25, "worst": 1.5, "best": 4.5}
+      }
+    },
+    "skills": {
+      "indicators": {
+        "technical": {"weight": 0.6, "worst": 30, "best": 90},
+        "communication": {"weight": 0.4, "worst": 30, "best": 90}
+      }
+    },
+    "engagement": {
+      "indicators": {
+        "events": {"weight": 0.3, "worst": 0, "best": 4},
+        "clubs": {"weight": 0.2, "worst": 0, "best": 2},
+        "projects": {"weight": 0.25, "worst": 0, "best": 2},
+        "certifications": {"weight": 0.25, "worst": 0, "best": 2}
+      }
+    }
+  },
+  "windows": {
+    "assessment_lookback_periods": 6,
+    "engagement_lookback_periods": 6,
+    "trend_periods": 3
+  },
+  "bands": [
+    {"min": 75, "label": "Strong"},
+    {"min": 60, "label": "On track"},
+    {"min": 45, "label": "Needs attention"},
+    {"min": 0, "label": "At risk"}
   ],
   "risk": {
-    "levels": [{"name": "High", "min_points": 7}, {"name": "Medium", "min_points": 3}, {"name": "Low", "min_points": 0}],
+    "assumption_notice": "Demonstration thresholds. Validate with the college before relying on them.",
     "academic": {
-      "label": "Academic risk",
-      "required_all": ["cgpa", "attendance_pct"],
+      "required": ["cgpa", "attendance_pct"],
       "rules": [
-        {"id": "A-CGPA-LOW", "feature": "cgpa", "op": "<", "value": 6.0, "points": 3, "action": "remedial_academic",
-         "why": "CGPA below 6.0 (most universities' pass/eligibility line)"},
-        {"id": "A-CGPA-WATCH", "feature": "cgpa", "op": "between", "value": [6.0, 6.5], "points": 1, "action": "remedial_academic",
-         "why": "CGPA in the 6.0-6.5 watch zone"},
-        {"id": "A-BACKLOG", "feature": "backlogs", "op": "between", "value": [1, 3], "points": 2, "action": "backlog_clearance",
-         "why": "Has active backlogs"},
-        {"id": "A-BACKLOG-MANY", "feature": "backlogs", "op": ">=", "value": 3, "points": 4, "action": "backlog_clearance",
-         "why": "Three or more active backlogs"},
-        {"id": "A-ATT-SHORT", "feature": "attendance_pct", "op": "<", "value": 75, "points": 3, "action": "attendance_recovery",
-         "why": "Attendance below the 75% exam-eligibility rule"},
-        {"id": "A-ATT-CRIT", "feature": "attendance_pct", "op": "<", "value": 65, "points": 2, "action": "attendance_recovery",
-         "why": "Attendance below 65% (condonation unlikely)"},
-        {"id": "A-ATT-DECLINE", "feature": "attendance_trend", "op": "<=", "value": -10, "points": 1, "action": "mentor_checkin",
-         "why": "Attendance fell 10+ points within the term"},
-        {"id": "A-MARKS-LOW", "feature": "internal_pct", "op": "<", "value": 45, "points": 2, "action": "remedial_subject",
-         "why": "Average internal marks below 45%"},
-        {"id": "A-WEAK-SUBJECT", "feature": "weakest_subject_pct", "op": "<", "value": 35, "points": 1, "action": "remedial_subject",
-         "why": "At least one subject below 35% in internals"},
-        {"id": "A-ASSIGN", "feature": "lms_completion_pct", "op": "<", "value": 60, "points": 2, "action": "assignment_plan",
-         "why": "Fewer than 60% of assignments submitted"},
-        {"id": "A-LMS-DROP", "feature": "lms_login_trend", "op": "<", "value": 0.6, "points": 1, "action": "mentor_checkin",
-         "why": "LMS activity in the last 4 weeks is under 60% of the first 4"},
-        {"id": "A-SGPA-DECLINE", "feature": "sgpa_trend", "op": "<=", "value": -0.5, "points": 1, "action": "remedial_academic",
-         "why": "Latest SGPA is 0.5+ below the student's earlier average"},
-        {"id": "A-WELLBEING", "feature": "wellbeing_concern", "op": "==", "value": true, "points": 1, "action": "counsellor_referral",
-         "why": "Wellbeing concern in survey or mentor remarks", "sensitive": true}
+        {"id": "A1", "indicator": "cgpa", "op": "<", "value": 6.0, "level": "high", "label": "CGPA below 6.0", "intervention": "academic_support_plan"},
+        {"id": "A2", "indicator": "cgpa", "op": "<", "value": 6.5, "level": "medium", "label": "CGPA below 6.5", "intervention": "academic_support_plan"},
+        {"id": "A3", "indicator": "backlogs", "op": ">=", "value": 2, "level": "high", "label": "Two or more active backlogs", "intervention": "backlog_clearance"},
+        {"id": "A4", "indicator": "backlogs", "op": ">=", "value": 1, "level": "medium", "label": "An active backlog", "intervention": "backlog_clearance"},
+        {"id": "A5", "indicator": "attendance_pct", "op": "<", "value": 65, "level": "high", "label": "Attendance below 65%", "intervention": "attendance_recovery"},
+        {"id": "A6", "indicator": "attendance_pct", "op": "<", "value": 75, "level": "medium", "label": "Attendance below the 75% eligibility rule", "intervention": "attendance_recovery"},
+        {"id": "A7", "indicator": "attendance_change", "op": "<=", "value": -10, "level": "medium", "label": "Attendance fell 10+ points over 3 periods", "intervention": "mentor_checkin"},
+        {"id": "A8", "indicator": "marks_pct", "op": "<", "value": 40, "level": "high", "label": "Average marks below 40%", "intervention": "subject_tutoring"},
+        {"id": "A9", "indicator": "marks_pct", "op": "<", "value": 50, "level": "medium", "label": "Average marks below 50%", "intervention": "subject_tutoring"},
+        {"id": "A10", "indicator": "assignment_completion_pct", "op": "<", "value": 50, "level": "medium", "label": "Fewer than half of assignments submitted", "intervention": "assignment_plan"}
       ]
     },
     "placement": {
-      "label": "Placement risk",
-      "applies": "placement_years",
-      "required_any": ["aptitude_score", "coding_score"],
-      "missing_action": "register_placement_test",
+      "applies_to_profiles": ["placement_years"],
+      "required_any": ["aptitude", "coding"],
       "rules": [
-        {"id": "P-CODING-LOW", "feature": "coding_score", "op": "<", "value": 40, "points": 3, "action": "coding_bootcamp",
-         "why": "Coding score below 40"},
-        {"id": "P-CODING-WATCH", "feature": "coding_score", "op": "between", "value": [40, 55], "points": 1, "action": "coding_bootcamp",
-         "why": "Coding score 40-55"},
-        {"id": "P-APTITUDE-LOW", "feature": "aptitude_score", "op": "<", "value": 45, "points": 2, "action": "aptitude_training",
-         "why": "Aptitude score below 45"},
-        {"id": "P-MOCK-LOW", "feature": "mock_interview_rating", "op": "<", "value": 2.5, "points": 2, "action": "mock_interviews",
-         "why": "Mock interview rating below 2.5/5"},
-        {"id": "P-BACKLOG", "feature": "backlogs", "op": ">=", "value": 1, "points": 3, "action": "backlog_clearance",
-         "why": "Active backlogs (most recruiters require none)"},
-        {"id": "P-CGPA-CUTOFF", "feature": "cgpa", "op": "<", "value": 6.0, "points": 2, "action": "remedial_academic",
-         "why": "CGPA below common recruiter cut-off of 6.0"},
-        {"id": "P-COMMUNICATION", "feature": "communication", "op": "<", "value": 45, "points": 1, "action": "communication_workshop",
-         "why": "Communication assessment below 45"},
-        {"id": "P-NO-PORTFOLIO", "feature": "portfolio_items", "op": "==", "value": 0, "points": 1, "action": "project_hackathon",
-         "why": "No projects, hackathons or certifications in the last year"}
+        {"id": "P1", "indicator": "coding", "op": "<", "value": 40, "level": "high", "label": "Coding score below 40", "intervention": "coding_bootcamp"},
+        {"id": "P2", "indicator": "coding", "op": "<", "value": 55, "level": "medium", "label": "Coding score below 55", "intervention": "coding_bootcamp"},
+        {"id": "P3", "indicator": "aptitude", "op": "<", "value": 35, "level": "high", "label": "Aptitude score below 35", "intervention": "aptitude_training"},
+        {"id": "P4", "indicator": "aptitude", "op": "<", "value": 50, "level": "medium", "label": "Aptitude score below 50", "intervention": "aptitude_training"},
+        {"id": "P5", "indicator": "mock_interview", "op": "<", "value": 2.5, "level": "medium", "label": "Mock interview below 2.5/5", "intervention": "mock_interviews"},
+        {"id": "P6", "indicator": "backlogs", "op": ">=", "value": 1, "level": "medium", "label": "Active backlog (most recruiters require none)", "intervention": "backlog_clearance"},
+        {"id": "P7", "indicator": "communication", "op": "<", "value": 45, "level": "medium", "label": "Communication assessment below 45", "intervention": "communication_workshop"}
       ]
     }
   },
-  "actions": {
-    "attendance_recovery": {"title": "Attendance recovery plan", "detail": "Call the student, inform parents, agree weekly attendance targets and check condonation eligibility.", "owner_role": "mentor", "due_days": 7, "review_days": 21},
-    "remedial_academic": {"title": "Academic support plan", "detail": "Agree a study plan with subject faculty and fortnightly progress checks.", "owner_role": "mentor", "due_days": 14, "review_days": 30},
-    "remedial_subject": {"title": "Remedial tutoring: {weakest_subject}", "detail": "Arrange tutoring or peer support in the weakest subject ({weakest_subject_pct}% in internals).", "owner_role": "mentor", "due_days": 14, "review_days": 30},
-    "assignment_plan": {"title": "Assignment submission plan", "detail": "Weekly submission schedule agreed with subject faculty; mentor checks LMS each Friday.", "owner_role": "mentor", "due_days": 7, "review_days": 21},
-    "mentor_checkin": {"title": "Mentor check-in on disengagement", "detail": "One-to-one conversation within a week to understand falling activity before marks drop.", "owner_role": "mentor", "due_days": 7, "review_days": 14},
-    "backlog_clearance": {"title": "Backlog clearance plan", "detail": "Register for supplementary exams and attend remedial classes for each backlog subject.", "owner_role": "mentor", "due_days": 21, "review_days": 60},
-    "counsellor_referral": {"title": "Counsellor referral", "detail": "Refer to the campus counsellor; follow up on any financial or health support needed.", "owner_role": "mentor", "due_days": 7, "review_days": 21},
-    "register_placement_test": {"title": "Register for placement assessment", "detail": "Student has no aptitude or coding test on record; enrol in the next mock drive.", "owner_role": "placement", "due_days": 14, "review_days": 30},
-    "coding_bootcamp": {"title": "Coding bootcamp (DSA track)", "detail": "Enrol in the 6-week data-structures and problem-solving bootcamp.", "owner_role": "placement", "due_days": 14, "review_days": 45},
-    "aptitude_training": {"title": "Aptitude training batch", "detail": "Quantitative and logical reasoning sessions, twice a week.", "owner_role": "placement", "due_days": 14, "review_days": 45},
-    "mock_interviews": {"title": "Mock interview series", "detail": "Two mock interviews with written feedback, plus a resume review.", "owner_role": "placement", "due_days": 21, "review_days": 45},
-    "communication_workshop": {"title": "Communication skills workshop", "detail": "Group discussion and presentation practice with the soft-skills trainer.", "owner_role": "placement", "due_days": 21, "review_days": 45},
-    "project_hackathon": {"title": "Build a portfolio project", "detail": "Join the next internal hackathon or a faculty-guided mini project.", "owner_role": "placement", "due_days": 30, "review_days": 60}
+  "interventions": {
+    "academic_support_plan": {"title": "Academic support plan", "category": "academic", "owner_role": "mentor"},
+    "backlog_clearance": {"title": "Backlog clearance plan", "category": "academic", "owner_role": "mentor"},
+    "attendance_recovery": {"title": "Attendance recovery plan", "category": "attendance", "owner_role": "mentor"},
+    "mentor_checkin": {"title": "Mentor check-in on falling attendance", "category": "wellbeing", "owner_role": "mentor"},
+    "subject_tutoring": {"title": "Subject tutoring", "category": "academic", "owner_role": "mentor"},
+    "assignment_plan": {"title": "Assignment submission plan", "category": "academic", "owner_role": "mentor"},
+    "coding_bootcamp": {"title": "Coding bootcamp", "category": "placement_training", "owner_role": "placement_officer"},
+    "aptitude_training": {"title": "Aptitude training batch", "category": "placement_training", "owner_role": "placement_officer"},
+    "mock_interviews": {"title": "Mock interview series", "category": "placement_training", "owner_role": "placement_officer"},
+    "communication_workshop": {"title": "Communication skills workshop", "category": "placement_training", "owner_role": "placement_officer"},
+    "collect_placement_data": {"title": "Schedule placement assessments", "category": "placement_training", "owner_role": "placement_officer"}
   },
-  "segments": [
-    {"id": "critical", "label": "Critical support needed", "owner": "Mentor + HOD",
-     "playbook": "Weekly mentor check-ins, parent meeting, remedial classes and counsellor referral. HOD reviews fortnightly.",
-     "when": {"any": [{"feature": "score", "op": "<", "value": 40},
-                      {"all": [{"feature": "academic_level", "op": "==", "value": "High"}, {"feature": "attendance_pct", "op": "<", "value": 75}]}]}},
-    {"id": "declining", "label": "Declining attendance and academic performance", "owner": "Mentor",
-     "playbook": "Mentor call within a week to find the cause, then a joint plan with subject faculty. Re-check at the next review.",
-     "when": {"all": [{"any": [{"feature": "attendance_trend", "op": "<=", "value": -8}, {"feature": "attendance_change", "op": "<=", "value": -8}]},
-                      {"any": [{"feature": "sgpa_trend", "op": "<=", "value": -0.3}, {"feature": "internal_change", "op": "<=", "value": -8}, {"feature": "score_change", "op": "<=", "value": -8}]}]}},
-    {"id": "achiever_unready", "label": "Strong academics, low placement readiness", "owner": "Placement Officer",
-     "playbook": "Fast-track into the coding bootcamp and mock interviews; strong grades make these students quick wins.",
-     "when": {"all": [{"feature": "placement_year", "op": "==", "value": true}, {"feature": "pillar_academic", "op": ">=", "value": 65},
-                      {"feature": "pillar_placement", "op": "<", "value": 45}]}},
-    {"id": "skills_need_support", "label": "Strong skills, academic support needed", "owner": "Mentor + Exam cell",
-     "playbook": "Clear backlogs and lift grades before placement season so eligibility cut-offs don't block a capable student.",
-     "when": {"all": [{"any": [{"feature": "pillar_skills", "op": ">=", "value": 65}, {"feature": "pillar_placement", "op": ">=", "value": 60}]},
-                      {"any": [{"feature": "backlogs", "op": ">=", "value": 1}, {"feature": "pillar_academic", "op": "<", "value": 50}]}]}},
-    {"id": "disengaging", "label": "Disengaging (early warning)", "owner": "Mentor",
-     "playbook": "Check in before marks fall. Re-check LMS activity in two weeks.",
-     "when": {"any": [{"feature": "lms_login_trend", "op": "<", "value": 0.6}, {"feature": "attendance_trend", "op": "<=", "value": -10}]}},
-    {"id": "thriving", "label": "Thriving", "owner": "Department",
-     "playbook": "Stretch goals: research projects, competitive hackathons and peer-mentor roles.",
-     "when": {"all": [{"feature": "score", "op": ">=", "value": 70}]}},
-    {"id": "steady", "label": "Steady", "owner": "Department",
-     "playbook": "Group nudges: monthly progress digest, optional workshops and club drives.",
-     "when": {"all": []}}
-  ],
-  "features": {
-    "cgpa": {"label": "CGPA", "source": "academic"},
-    "backlogs": {"label": "Active backlogs", "source": "academic"},
-    "sgpa_trend": {"label": "SGPA trend (latest vs earlier average)", "source": "academic"},
-    "internal_pct": {"label": "Internal marks average", "unit": "%", "source": "internal_marks"},
-    "weakest_subject_pct": {"label": "Weakest subject (internals)", "unit": "%", "source": "internal_marks"},
-    "attendance_pct": {"label": "Overall attendance", "unit": "%", "source": "attendance"},
-    "attendance_min_subject_pct": {"label": "Lowest subject attendance", "unit": "%", "source": "attendance"},
-    "attendance_trend": {"label": "Attendance change within term", "unit": " pts", "source": "attendance"},
-    "attendance_change": {"label": "Attendance vs previous review", "unit": " pts", "source": "attendance"},
-    "lms_completion_pct": {"label": "Assignments submitted", "unit": "%", "source": "lms"},
-    "lms_logins_per_week": {"label": "LMS logins per week", "source": "lms"},
-    "lms_quiz_avg": {"label": "Quiz average", "unit": "%", "source": "lms"},
-    "lms_login_trend": {"label": "LMS activity, last 4 weeks vs first 4", "unit": "x", "source": "lms"},
-    "events": {"label": "Events attended (12 months)", "source": "engagement"},
-    "clubs": {"label": "Club memberships", "source": "engagement"},
-    "projects_hackathons": {"label": "Projects & hackathons (12 months)", "source": "engagement"},
-    "certifications": {"label": "Certifications (12 months)", "source": "engagement"},
-    "portfolio_items": {"label": "Projects, hackathons & certifications", "source": "engagement"},
-    "aptitude_score": {"label": "Aptitude score", "source": "placement"},
-    "coding_score": {"label": "Coding score", "source": "placement"},
-    "mock_interview_rating": {"label": "Mock interview rating", "unit": "/5", "source": "placement"},
-    "technical": {"label": "Technical skill", "source": "skills"},
-    "communication": {"label": "Communication", "source": "skills"},
-    "problem_solving": {"label": "Problem solving", "source": "skills"},
-    "teamwork": {"label": "Teamwork", "source": "skills"},
-    "satisfaction": {"label": "Student satisfaction", "unit": "/5", "source": "feedback"},
-    "faculty_rating": {"label": "Faculty/mentor rating", "unit": "/5", "source": "feedback"},
-    "wellbeing_concern": {"label": "Wellbeing concern", "source": "feedback"},
-    "internal_change": {"label": "Internal marks vs previous review", "unit": " pts", "source": "internal_marks"},
-    "score": {"label": "Success Score", "source": "derived"},
-    "score_change": {"label": "Score change vs previous review", "unit": " pts", "source": "derived"},
-    "academic_level": {"label": "Academic risk", "source": "derived"},
-    "placement_year": {"label": "In placement years", "source": "academic"},
-    "pillar_academic": {"label": "Academic pillar", "source": "derived"},
-    "pillar_placement": {"label": "Placement readiness pillar", "source": "derived"},
-    "pillar_skills": {"label": "Skills pillar", "source": "derived"}
+  "segments": {
+    "strong_academics_low_placement": {"label": "Strong academics, low placement readiness", "academic_min": 70, "placement_max": 50},
+    "declining_attendance_results": {"label": "Declining attendance and results", "attendance_drop": 8, "academic_drop": 5},
+    "strong_skills_academic_support": {"label": "Strong skills, academic support required", "skills_min": 70},
+    "improving_after_intervention": {"label": "Improving after intervention", "score_gain": 5},
+    "consistently_performing_well": {"label": "Consistently performing well", "score_min": 75},
+    "insufficient_data": {"label": "Insufficient data"}
+  },
+  "feedback_support_needs": {
+    "note": "Feedback never changes the score. It is shown as context so staff can offer support.",
+    "stress_at_least": 4,
+    "satisfaction_at_most": 2
   }
 }

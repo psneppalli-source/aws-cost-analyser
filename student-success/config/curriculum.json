@@ -1,0 +1,34 @@
+{
+  "description": "Departments, programmes and subjects per study year. Students in a department/year take that year's subjects.",
+  "programme": "B.Tech",
+  "departments": {
+    "CSE": {
+      "name": "Computer Science & Engineering",
+      "subjects": {
+        "1": ["Programming in C", "Engineering Mathematics I", "Digital Logic", "Communication English"],
+        "2": ["Data Structures", "Discrete Mathematics", "Computer Organisation", "Object-Oriented Programming"],
+        "3": ["Operating Systems", "Database Systems", "Computer Networks", "Design of Algorithms"],
+        "4": ["Machine Learning", "Cloud Computing", "Software Engineering", "Information Security"]
+      }
+    },
+    "ECE": {
+      "name": "Electronics & Communication Engineering",
+      "subjects": {
+        "1": ["Basic Electronics", "Engineering Mathematics I", "Engineering Physics", "Communication English"],
+        "2": ["Signals and Systems", "Analog Circuits", "Network Theory", "Digital Electronics"],
+        "3": ["Microprocessors", "Communication Systems", "Control Systems", "Electromagnetic Fields"],
+        "4": ["VLSI Design", "Embedded Systems", "Wireless Communication", "Digital Signal Processing"]
+      }
+    },
+    "MECH": {
+      "name": "Mechanical Engineering",
+      "subjects": {
+        "1": ["Engineering Mechanics", "Engineering Mathematics I", "Engineering Drawing", "Communication English"],
+        "2": ["Thermodynamics", "Strength of Materials", "Manufacturing Processes", "Fluid Mechanics"],
+        "3": ["Machine Design", "Heat Transfer", "Dynamics of Machinery", "Metrology"],
+        "4": ["CAD/CAM", "Automobile Engineering", "Finite Element Analysis", "Industrial Engineering"]
+      }
+    }
+  },
+  "reporting_periods": ["2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09"]
+}

@@ -13,3 +13,4 @@ dist/
 build/
 .secrets.baseline.local
 docs/_gate_last_run.json
+node_modules/

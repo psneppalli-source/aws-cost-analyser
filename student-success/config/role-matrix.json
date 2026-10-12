@@ -1,0 +1,1000 @@
+{
+  "version": "1.0.0",
+  "description": "Canonical permission policy for the Smart Campus Student Success Platform. The backend enforces this file; docs/role-matrix.md is generated from it. Scopes are resolved from trusted server-side assignments linked to the Cognito user ID, never from browser input.",
+  "scopes": {
+    "college": "Every student in the datasets the user may see",
+    "department": "Students in a department the user is assigned to (HOD assignment)",
+    "assigned_subject": "Students in a department/year class for a subject the user teaches; record writes must name that subject",
+    "assigned_students": "Students the user mentors",
+    "own_record": "The signed-in student's own record only",
+    "system": "Platform administration objects; never student records"
+  },
+  "field_sets": {
+    "student_core": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "programme",
+      "cohort_profile",
+      "dataset"
+    ],
+    "student_master_all": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "programme",
+      "cohort_profile",
+      "dataset",
+      "email",
+      "mentor_sub",
+      "mentor_name",
+      "status",
+      "version",
+      "updated_at",
+      "updated_by"
+    ],
+    "insight_all": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "dataset",
+      "period",
+      "score",
+      "indicative_score",
+      "status",
+      "band",
+      "coverage",
+      "profile",
+      "components",
+      "risks",
+      "segments",
+      "support_needs",
+      "eligibility",
+      "trend",
+      "by_period",
+      "score_rows",
+      "indicators",
+      "sources",
+      "summary",
+      "scoring_version",
+      "calculated_at",
+      "recalc_status",
+      "mentor_name"
+    ],
+    "insight_student_view": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "dataset",
+      "period",
+      "score",
+      "indicative_score",
+      "status",
+      "band",
+      "coverage",
+      "profile",
+      "components",
+      "risks",
+      "segments",
+      "trend",
+      "by_period",
+      "score_rows",
+      "summary",
+      "scoring_version",
+      "calculated_at",
+      "recalc_status",
+      "mentor_name"
+    ],
+    "insight_placement": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "dataset",
+      "period",
+      "profile",
+      "components.placement",
+      "components.skills",
+      "risks.placement",
+      "eligibility",
+      "segments",
+      "scoring_version",
+      "calculated_at",
+      "recalc_status"
+    ],
+    "insight_activity": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "dataset",
+      "period",
+      "components.engagement",
+      "calculated_at",
+      "recalc_status"
+    ],
+    "intervention_all": [
+      "*"
+    ],
+    "intervention_student_view": [
+      "intervention_id",
+      "student_id",
+      "title",
+      "category",
+      "status",
+      "due_date",
+      "review_date",
+      "outcome",
+      "created_at"
+    ],
+    "record_all": [
+      "*"
+    ]
+  },
+  "roles": {
+    "college_admin": {
+      "label": "College Administrator",
+      "summary": "Manages student master records, imports, mentor assignments and the approved scoring configuration; sees college-wide dashboards and reviews interventions.",
+      "permissions": [
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "college",
+          "fields": "student_master_all"
+        },
+        {
+          "resource": "student_master",
+          "action": "create",
+          "scope": "college",
+          "fields": "student_master_all"
+        },
+        {
+          "resource": "student_master",
+          "action": "update",
+          "scope": "college",
+          "fields": "student_master_all"
+        },
+        {
+          "resource": "student_insight",
+          "action": "read",
+          "scope": "college",
+          "fields": "insight_all"
+        },
+        {
+          "resource": "record.academic_result",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.academic_result",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.academic_result",
+          "action": "update",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.lms",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.feedback",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "mentor_assignment",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "mentor_assignment",
+          "action": "assign",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "correction",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "read",
+          "scope": "college",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "update",
+          "scope": "college",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.confidential",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "scoring_config",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "scoring_config",
+          "action": "propose",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "scoring_config",
+          "action": "activate",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "insight",
+          "action": "recompute",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "dataset",
+          "action": "reset_demo",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "audit.academic",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        }
+      ]
+    },
+    "hod": {
+      "label": "Head of Department",
+      "summary": "Sees their department, assigns department mentors, approves corrections within the department and monitors department interventions.",
+      "permissions": [
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "department",
+          "fields": "student_master_all"
+        },
+        {
+          "resource": "student_insight",
+          "action": "read",
+          "scope": "department",
+          "fields": "insight_all"
+        },
+        {
+          "resource": "record.academic_result",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.lms",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.feedback",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "mentor_assignment",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "mentor_assignment",
+          "action": "assign",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "correction",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "correction",
+          "action": "approve",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "read",
+          "scope": "department",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "create",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.confidential",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "department",
+          "fields": "record_all"
+        }
+      ]
+    },
+    "mentor": {
+      "label": "Faculty / Mentor",
+      "summary": "Enters marks and attendance only for assigned subjects and students, enters LMS and assessment summaries, sees authorised insights and manages assigned interventions.",
+      "permissions": [
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "student_master_all"
+        },
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "assigned_subject",
+          "fields": "student_core"
+        },
+        {
+          "resource": "student_insight",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "insight_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "read",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "create",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "update",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "read",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "create",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "update",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.academic_result",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.lms",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.lms",
+          "action": "create",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.lms",
+          "action": "update",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.feedback",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "create",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "read",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "correction",
+          "action": "read",
+          "scope": "assigned_subject",
+          "fields": "record_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "create",
+          "scope": "assigned_students",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "update",
+          "scope": "assigned_students",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "create",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.confidential",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.confidential",
+          "action": "create",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "assigned_students",
+          "fields": "record_all"
+        }
+      ]
+    },
+    "placement_officer": {
+      "label": "Placement Officer",
+      "summary": "Enters aptitude, coding, interview and readiness results, maintains skill assessments and assigns placement training; sees only the student fields needed for this.",
+      "permissions": [
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "college",
+          "fields": "student_core"
+        },
+        {
+          "resource": "student_insight",
+          "action": "read",
+          "scope": "college",
+          "fields": "insight_placement"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "update",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "update",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "read",
+          "scope": "college",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "create",
+          "scope": "college",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "update",
+          "scope": "college",
+          "fields": "intervention_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "note.staff",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        }
+      ],
+      "constraints": {
+        "intervention_categories": [
+          "placement_training"
+        ]
+      }
+    },
+    "activity_coordinator": {
+      "label": "Activity Coordinator",
+      "summary": "Maintains events and participation and verifies engagement and certification submissions. Cannot modify academic or placement results.",
+      "permissions": [
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "college",
+          "fields": "student_core"
+        },
+        {
+          "resource": "student_insight",
+          "action": "read",
+          "scope": "college",
+          "fields": "insight_activity"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "update",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "verify",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "verify",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "create",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "import",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "college",
+          "fields": "record_all"
+        }
+      ]
+    },
+    "student": {
+      "label": "Student",
+      "summary": "Sees their own authorised profile, scores and recommendations; submits feedback and certifications. Cannot edit verified results or calculated scores, and never sees staff notes.",
+      "permissions": [
+        {
+          "resource": "student_master",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "student_core"
+        },
+        {
+          "resource": "student_insight",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "insight_student_view"
+        },
+        {
+          "resource": "record.academic_result",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.marks",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.attendance",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.lms",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.engagement",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.certification",
+          "action": "submit",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.placement_assessment",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.skills",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.feedback",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "record.feedback",
+          "action": "submit",
+          "scope": "own_record",
+          "fields": "record_all"
+        },
+        {
+          "resource": "intervention",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "intervention_student_view"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "own_record",
+          "fields": "record_all"
+        }
+      ]
+    },
+    "system_admin": {
+      "label": "System Administrator",
+      "summary": "Manages accounts, role assignments and technical configuration. Has no access to student records and cannot change their own role assignments.",
+      "permissions": [
+        {
+          "resource": "user_account",
+          "action": "read",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "user_account",
+          "action": "create",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "user_account",
+          "action": "update",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_assignment",
+          "action": "assign",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "system_config",
+          "action": "read",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "system_config",
+          "action": "update",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "audit.technical",
+          "action": "read",
+          "scope": "system",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_matrix",
+          "action": "read",
+          "scope": "system",
+          "fields": "record_all"
+        }
+      ]
+    }
+  },
+  "separation_of_duties": {
+    "student_data_roles": [
+      "college_admin",
+      "hod",
+      "mentor",
+      "placement_officer",
+      "activity_coordinator",
+      "student"
+    ],
+    "rules": [
+      "No account may hold system_admin together with any student-data role.",
+      "Nobody may add or remove their own role assignments.",
+      "Only system_admin may create accounts or change role assignments."
+    ]
+  }
+}

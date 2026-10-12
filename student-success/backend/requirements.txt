@@ -1,0 +1,8 @@
+# Runtime dependencies packaged into the API Lambda ZIP (boto3 is provided by the Lambda runtime).
+fastapi==0.115.6
+starlette==0.41.3
+pydantic==2.10.4
+pydantic_core==2.27.2
+mangum==0.19.0
+openpyxl==3.1.5
+et_xmlfile==2.0.0

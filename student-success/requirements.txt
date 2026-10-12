@@ -1,6 +1,0 @@
-# Runtime (also bundled into the Lambda package by deploy/deploy.py)
-openpyxl>=3.1
-# Deployment and AWS mode
-boto3>=1.34
-# Optional: AWS-mode tests against simulated AWS
-# moto[s3,dynamodb,cognitoidp]>=5
