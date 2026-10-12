@@ -3,7 +3,8 @@ import { Api } from './api.service';
 
 export interface Me {
   user: { sub: string; username: string; display_name: string; roles: string[]; role_labels: string[]; departments: string[];
-    subjects: { department: string; year: number; subject: string }[]; student: { dataset: string; student_id: string } | null; };
+    subjects: { department: string; year: number; subject: string }[]; student: { dataset: string; student_id: string } | null;
+    mfa: { enabled: boolean | null; required: boolean }; };
   permissions: string[];
   periods: string[];
   current_period: string;
@@ -22,6 +23,8 @@ export class Session {
   readonly roles = computed(() => new Set(this.me()?.user.roles || []));
   readonly isStudent = computed(() => this.roles().has('student') && this.roles().size === 1);
   readonly isSysAdmin = computed(() => this.roles().has('system_admin'));
+  /** Students must set up an authenticator app before seeing any data (enforced by the API too). */
+  readonly mfaPending = computed(() => !!this.me()?.user.mfa?.required && !this.me()?.user.mfa?.enabled);
 
   async load(): Promise<Me> {
     const me = await this.api.get<Me>('/me');

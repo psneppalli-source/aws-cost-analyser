@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { AuthService } from '../core/auth.service';
 import { Session } from '../core/session.service';
 
@@ -7,6 +8,7 @@ interface Persona { username: string; display_name: string; }
 
 @Component({
   selector: 'app-login-page',
+  imports: [RouterLink, FormsModule],
   template: `
     <div class="login-wrap">
       <main class="login-card" aria-labelledby="t">
@@ -16,18 +18,21 @@ interface Persona { username: string; display_name: string; }
         @if (auth.config()?.mode === 'cognito') {
           <p>Sign in with the account your college administrator created for you. There is no public registration.</p>
           <button class="btn primary" type="button" style="width:100%" (click)="cognito()" [disabled]="busy()">Sign in</button>
-          <p class="small muted" style="margin-top:14px">Accounts are provisioned by the System Administrator. Forgotten your password? Use “Forgot password” on the sign-in page.</p>
+          <p class="small muted" style="margin-top:14px">Staff accounts are created by the college. Forgotten your password? Use “Forgot your password?” on the sign-in page.</p>
         } @else {
           <p class="banner warn small"><strong>Local demonstration sign-in.</strong> Choose a persona. This mode is for local development only and is refused by AWS deployments.</p>
           <div class="stack" role="list">
             @for (p of personas(); track p.username) {
               <button class="btn" role="listitem" type="button" style="justify-content:flex-start;text-align:left" [disabled]="busy()" (click)="local(p.username)">
                 <span><strong>{{ p.display_name }}</strong><br><span class="small muted mono">{{ p.username }}</span></span></button>
-            } @empty {
-              <p class="muted">No demo personas. Run <span class="mono">python -m app.seed</span> in backend/ first.</p>
             }
+            <form class="row" style="gap:6px;margin-top:6px" (submit)="$event.preventDefault(); local(other)">
+              <input name="o" [(ngModel)]="other" placeholder="or another local user ID" aria-label="Local user ID" style="flex:1">
+              <button class="btn" type="submit" [disabled]="busy() || !other">Sign in</button></form>
+            @if (!personas().length) { <p class="muted">No personas yet. Run <span class="mono">python -m app.seed</span> in backend/ first.</p> }
           </div>
         }
+        <p class="small" style="margin-top:16px;border-top:1px solid var(--line);padding-top:12px">New student? <a routerLink="/register">Create your account</a> using your student ID, date of birth and college email.</p>
       </main>
     </div>`,
 })
@@ -36,6 +41,7 @@ export class LoginPage implements OnInit {
   private session = inject(Session);
   private router = inject(Router);
   personas = signal<Persona[]>([]);
+  other = '';
   busy = signal(false);
   error = signal<string | null>(null);
 

@@ -58,7 +58,8 @@ export class Shell {
         { path: '/risk', label: 'Academic risk', show: staff && !this.only('placement_officer', 'activity_coordinator') },
         { path: '/placement', label: 'Placement readiness', show: staff && !this.only('activity_coordinator') },
         { path: '/segments', label: 'Segments', show: staff },
-        { path: own ? `/students/${own.dataset}/${own.student_id}` : '/', label: 'My progress', show: !!own },
+        { path: '/my', label: 'My dashboard', show: !!own },
+        { path: own ? `/students/${own.dataset}/${own.student_id}` : '/', label: 'My full record', show: !!own },
       ]),
       g('Actions', [
         { path: '/entry', label: own && this.session.isStudent() ? 'Submit information' : 'Enter data',
@@ -74,6 +75,7 @@ export class Shell {
           show: c('user_account', 'read') || c('mentor_assignment', 'assign') },
         { path: '/admin/audit', label: 'Audit history', show: c('audit.academic', 'read') || c('audit.technical', 'read') },
       ]),
+      g('Account', [{ path: '/security', label: 'Security', show: true }]),
     ];
   });
 

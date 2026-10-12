@@ -25,6 +25,7 @@ access patterns below; no dashboard scans the table.
 | Platform settings | `pk = CONFIG#SYSTEM`, `sk = CURRENT` |
 | Audit history | `pk = AUDIT#{yyyy-mm-dd}`, `sk = {ts}#{id}`, `gsi2 = AUDITCAT#{academic|technical} / {ts}#{id}` |
 | Dataset metadata | `pk = DATASET#{ds}`, `sk = META` (seed, generator and dataset versions) |
+| Student self-registration state | `pk = REGISTER#{ds}#{student_id}`, `sk = STATE` (salted hash of the emailed code, expiry, attempts, send times, status) |
 
 Items are bounded: the listed `INSIGHT` item holds only summary fields and a slim per-period map; large
 detail lives in `INSIGHTD`; import rows are stored 25 per `BATCH` item; problem rows are capped at 500.
@@ -53,7 +54,8 @@ and for imports `import_id` + `row_hash` (makes retries idempotent). Verified ca
 | `feedback` | satisfaction* (1–5), stress* (1–5), support_needed, comment (sensitive) | student, period | Student submits | Context only; never lowers a score; comment visible to the student, mentor, HOD, admin |
 
 Student master (`MASTER`): `student_id` (e.g. `CSE24007`: department, admission year, number), `name`,
-`department` (CSE, ECE, MECH), `year` (1–4), `programme`, `email`, `status`, `mentor_sub`, `mentor_name`,
+`department` (CSE, ECE, MECH), `year` (1–4), `programme`, `email`, `date_of_birth` (YYYY-MM-DD; used with the
+ID and email to match self-registration), `status`, `mentor_sub`, `mentor_name`,
 `version`. Curriculum and reporting periods: `config/curriculum.json`.
 
 ## Derived items

@@ -174,8 +174,29 @@ def load_principal(sub: str) -> Principal:
             p.subjects.add((i["department"], int(i["year"]), i["subject"]))
     if "mentor" not in p.roles:
         p.mentees, p.subjects = set(), set()
+    if settings().auth_mode == "cognito":
+        p.mfa_enabled = mfa_enabled(prof["username"])
+        p.mfa_required = "student" in p.roles
     _principal_cache[sub] = (time.time(), p)
     return p
+
+
+def mfa_enabled(username: str) -> bool:
+    """True when the Cognito user has an authenticator app (TOTP) enabled."""
+    import boto3
+    try:
+        r = boto3.client("cognito-idp", region_name=settings().region).admin_get_user(
+            UserPoolId=settings().cognito_pool_id, Username=username)
+        return "SOFTWARE_TOKEN_MFA" in (r.get("UserMFASettingList") or [])
+    except Exception:
+        return False
+
+
+def reset_mfa(username: str) -> None:
+    import boto3
+    boto3.client("cognito-idp", region_name=settings().region).admin_set_user_mfa_preference(
+        UserPoolId=settings().cognito_pool_id, Username=username,
+        SoftwareTokenMfaSettings={"Enabled": False, "PreferredMfa": False})
 
 
 def clear_principal_cache(sub: str | None = None) -> None:

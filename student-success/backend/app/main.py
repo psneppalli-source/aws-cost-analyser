@@ -95,8 +95,23 @@ async def guard(request: Request, call_next):
     return resp
 
 
+MFA_EXEMPT = ("/api/me", "/api/me/mfa/refresh")
+
+
+class MfaRequired(Exception):
+    pass
+
+
+@app.exception_handler(MfaRequired)
+async def _mfa(_, e):
+    return err(403, "mfa_setup_required", "Set up your authenticator app to continue.")
+
+
 def principal(request: Request) -> Principal:
-    return authenticate(request.headers)
+    p = authenticate(request.headers)
+    if p.mfa_required and not p.mfa_enabled and request.url.path not in MFA_EXEMPT:
+        raise MfaRequired()
+    return p
 
 
 def ds_param(dataset: str = "real") -> str:
@@ -128,12 +143,38 @@ async def local_login(request: Request):
         return err(404, "not_found", "Not found")
     body = await request.json()
     username = str(body.get("username", ""))
-    if username not in {p["username"] for p in seed.PERSONAS}:
-        return err(401, "unauthenticated", "Unknown demo persona")
     sub = f"local-{username}"
     from .auth import load_principal
+    if username not in {p["username"] for p in seed.PERSONAS} and not db.table().get(f"USER#{sub}", "PROFILE"):
+        return err(401, "unauthenticated", "Unknown local account")
     load_principal(sub)
     return {"token": issue_local(sub)}
+
+
+@app.post("/api/me/mfa/refresh")
+def mfa_refresh(p: Principal = Depends(principal)):
+    """Called after the browser enables the authenticator app with Cognito, so the new state applies at once."""
+    from .auth import clear_principal_cache, load_principal
+    clear_principal_cache(p.sub)
+    q = load_principal(p.sub)
+    audit.log(q, "mfa.status_checked", "user", q.username, {"enabled": q.mfa_enabled})
+    return {"mfa": {"enabled": q.mfa_enabled, "required": q.mfa_required}}
+
+
+# --------------------------------------------------------------------------- student self-registration (public)
+@app.post("/api/register/start")
+async def register_start(request: Request):
+    from . import registration
+    b = await request.json()
+    return registration.start(b.get("student_id", ""), b.get("date_of_birth", ""), b.get("email", ""))
+
+
+@app.post("/api/register/complete", status_code=201)
+async def register_complete(request: Request):
+    from . import registration
+    b = await request.json()
+    return registration.complete(b.get("student_id", ""), b.get("email", ""), b.get("code", ""), b.get("username", ""),
+                                 b.get("password", ""))
 
 
 @app.get("/api/me")
@@ -484,6 +525,24 @@ async def create_user(request: Request, p: Principal = Depends(principal)):
 async def set_roles(sub: str, request: Request, p: Principal = Depends(principal)):
     b = await request.json()
     return accounts.set_roles(p, sub, b.get("assignments") or [], b.get("version"))
+
+
+@app.post("/api/users/{sub}/mfa-reset")
+def mfa_reset(sub: str, p: Principal = Depends(principal)):
+    """System Administrator: clear a lost authenticator so the user can set up a new one."""
+    require(p, "user_account", "update")
+    if sub == p.sub:
+        raise Denied("You can't reset your own authenticator.")
+    prof = db.table().get(f"USER#{sub}", "PROFILE")
+    if not prof:
+        raise recordsvc.NotFound("Account not found")
+    if settings().auth_mode == "cognito":
+        from .auth import reset_mfa
+        reset_mfa(prof["username"])
+    from .auth import clear_principal_cache
+    clear_principal_cache(sub)
+    audit.log(p, "mfa.reset", "user", prof["username"])
+    return {"ok": True}
 
 
 @app.put("/api/users/{sub}/status")

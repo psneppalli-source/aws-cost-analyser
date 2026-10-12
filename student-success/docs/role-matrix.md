@@ -20,14 +20,15 @@ Policy version **1.0.0**. Canonical permission policy for the Smart Campus Stude
 | Field set | Fields |
 |---|---|
 | `student_core` | `student_id`, `name`, `department`, `year`, `programme`, `cohort_profile`, `dataset` |
-| `student_master_all` | `student_id`, `name`, `department`, `year`, `programme`, `cohort_profile`, `dataset`, `email`, `mentor_sub`, `mentor_name`, `status`, `version`, `updated_at`, `updated_by` |
+| `student_master_all` | `student_id`, `name`, `department`, `year`, `programme`, `cohort_profile`, `dataset`, `email`, `date_of_birth`, `mentor_sub`, `mentor_name`, `status`, `version`, `updated_at`, `updated_by` |
 | `insight_all` | `student_id`, `name`, `department`, `year`, `dataset`, `period`, `score`, `indicative_score`, `status`, `band`, `coverage`, `profile`, `components`, `risks`, `segments`, `support_needs`, `eligibility`, `trend`, `by_period`, `score_rows`, `indicators`, `sources`, `summary`, `scoring_version`, `calculated_at`, `recalc_status`, `mentor_name` |
-| `insight_student_view` | `student_id`, `name`, `department`, `year`, `dataset`, `period`, `score`, `indicative_score`, `status`, `band`, `coverage`, `profile`, `components`, `risks`, `segments`, `trend`, `by_period`, `score_rows`, `summary`, `scoring_version`, `calculated_at`, `recalc_status`, `mentor_name` |
+| `insight_student_view` | `student_id`, `name`, `department`, `year`, `dataset`, `period`, `score`, `indicative_score`, `status`, `band`, `coverage`, `profile`, `components`, `risks`, `segments`, `trend`, `by_period`, `score_rows`, `sources`, `indicators`, `summary`, `scoring_version`, `calculated_at`, `recalc_status`, `mentor_name` |
 | `insight_placement` | `student_id`, `name`, `department`, `year`, `dataset`, `period`, `profile`, `components.placement`, `components.skills`, `risks.placement`, `eligibility`, `segments`, `scoring_version`, `calculated_at`, `recalc_status` |
 | `insight_activity` | `student_id`, `name`, `department`, `year`, `dataset`, `period`, `components.engagement`, `calculated_at`, `recalc_status` |
 | `intervention_all` | `*` |
 | `intervention_student_view` | `intervention_id`, `student_id`, `title`, `category`, `status`, `due_date`, `review_date`, `outcome`, `created_at` |
 | `record_all` | `*` |
+| `student_self` | `student_id`, `name`, `department`, `year`, `programme`, `cohort_profile`, `dataset`, `email`, `date_of_birth`, `mentor_name`, `status` |
 
 ## College Administrator (`college_admin`)
 
@@ -144,7 +145,7 @@ Sees their own authorised profile, scores and recommendations; submits feedback 
 
 | Resource | Action | Scope | Fields |
 |---|---|---|---|
-| `student_master` | read | `own_record` | `student_core` |
+| `student_master` | read | `own_record` | `student_self` |
 | `student_insight` | read | `own_record` | `insight_student_view` |
 | `record.academic_result` | read | `own_record` | `record_all` |
 | `record.marks` | read | `own_record` | `record_all` |

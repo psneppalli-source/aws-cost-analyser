@@ -36,7 +36,7 @@ interface Note { note_id: string; intervention_id: string; visibility: string; t
 interface Rec { record_key: string; category: string; period: string; verification?: string; version: number; source?: string;
   updated_at: string; [k: string]: unknown; }
 interface Profile {
-  student: { student_id: string; name: string; department: string; year: number; programme?: string; email?: string; status?: string;
+  student: { student_id: string; name: string; department: string; year: number; programme?: string; email?: string; date_of_birth?: string; status?: string;
     mentor_name?: string; mentor_sub?: string; version: number; dataset: string; };
   insight: Insight | null; history: History[]; recommendations: Recommendation[]; interventions: Intervention[]; notes: Note[];
   corrections: { correction_id: string; category: string; period: string; status: string; proposed: Record<string, unknown>; current: Record<string, unknown>; requested_by_name: string; requested_at: string }[];
@@ -109,6 +109,7 @@ const RECORD_COLS: Record<string, string[]> = {
           <section class="card"><h2>About</h2>
             <dl class="facts"><dt>Mentor</dt><dd>{{ p.student.mentor_name || 'Not assigned' }}</dd>
               @if (p.student.email) { <dt>Email</dt><dd>{{ p.student.email }}</dd> }
+              @if (p.student.date_of_birth) { <dt>Date of birth</dt><dd>{{ p.student.date_of_birth }}</dd> }
               <dt>Status</dt><dd>{{ p.student.status }}</dd></dl>
             @if (p.permissions['assign_mentor']) {
               <form class="row" style="margin-top:10px;gap:6px" (submit)="$event.preventDefault(); assignMentor()">

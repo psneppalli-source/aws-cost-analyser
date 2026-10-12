@@ -23,7 +23,8 @@ SECURITY = {
     "Referrer-Policy": "no-referrer",
     "Content-Security-Policy": os.environ.get(
         "CSP", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; "
-               "connect-src 'self' https://*.amazoncognito.com https://cognito-idp.*.amazonaws.com; frame-ancestors 'none'; "
+               f"connect-src 'self' https://*.amazoncognito.com https://cognito-idp.{os.environ.get('AWS_REGION', 'eu-west-2')}.amazonaws.com; "
+               "frame-ancestors 'none'; "
                "base-uri 'self'; form-action 'self' https://*.amazoncognito.com"),
 }
 TEXT = ("text/", "application/javascript", "application/json", "image/svg+xml")

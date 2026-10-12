@@ -15,6 +15,12 @@ export const signedIn: CanActivateFn = async () => {
   return true;
 };
 
+/** Until a required authenticator is set up, every page leads to the Security page. */
+export const mfaReady: CanActivateFn = (_r, state) => {
+  const s = inject(Session);
+  return !s.mfaPending() || state.url.startsWith('/security') || inject(Router).parseUrl('/security');
+};
+
 /** Route-level convenience only; the API enforces every permission. */
 export function needs(...perms: string[]): CanActivateFn {
   return () => {
@@ -30,6 +36,7 @@ export const landing: CanActivateFn = () => {
   const me = s.me();
   if (!me) return r.parseUrl('/login');
   if (s.isSysAdmin() && me.user.roles.length === 1) return r.parseUrl('/admin/users');
-  if (me.user.student && me.user.roles.length === 1) return r.parseUrl(`/students/${me.user.student.dataset}/${me.user.student.student_id}`);
+  if (s.mfaPending()) return r.parseUrl('/security');
+  if (me.user.student && me.user.roles.length === 1) return r.parseUrl('/my');
   return r.parseUrl('/overview');
 };

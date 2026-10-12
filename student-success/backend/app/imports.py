@@ -25,7 +25,7 @@ from .store import C, ConditionFailed, Put
 BATCH = 25
 MAX_ROWS = 2000
 MASTER = "student_master"
-MASTER_FIELDS = ["student_id", "name", "department", "year", "email"]
+MASTER_FIELDS = ["student_id", "name", "department", "year", "email", "date_of_birth"]
 
 
 def _norm(h) -> str:
@@ -58,7 +58,7 @@ def _fields(category: str) -> list[str]:
 
 def template(category: str) -> str:
     if category == MASTER:
-        return ",".join(MASTER_FIELDS) + "\nCSE24007,Ananya Rao,CSE,3,ananya@example.edu\n"
+        return ",".join(MASTER_FIELDS) + "\nCSE24007,Ananya Rao,CSE,3,ananya@example.edu,2005-08-14\n"
     from .categories import template_csv
     return template_csv(category)
 
@@ -80,7 +80,7 @@ def preview(p: Principal, category: str, dataset: str, filename: str, raw: bytes
     mapping = {i: lookup[_norm(h)] for i, h in enumerate(table[0]) if _norm(h) in lookup}
     missing = [f for f in expected if f not in mapping.values() and (f in ("student_id", "period") or
                (category != MASTER and next(x for x in CATEGORIES[category].fields if x.name == f).required) or
-               (category == MASTER and f != "email"))]
+               (category == MASTER and f not in ("email", "date_of_birth")))]
     if missing:
         raise ValidationError({"columns": f"missing required column(s): {', '.join(missing)}"})
     ignored = [str(h) for i, h in enumerate(table[0]) if i not in mapping and str(h).strip()]

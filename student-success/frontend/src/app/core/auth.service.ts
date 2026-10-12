@@ -5,10 +5,11 @@ export interface AppConfig {
   mode: 'cognito' | 'local-demo';
   domain?: string;        // Cognito hosted login domain, e.g. https://prefix.auth.eu-west-2.amazoncognito.com
   clientId?: string;      // public SPA client (no secret)
-  redirectUri?: string;   // the CloudFront URL
+  redirectUri?: string;   // the site URL
+  region?: string;        // AWS region of the user pool (authenticator setup calls Cognito directly)
 }
 
-interface Session { idToken: string; refreshToken?: string; exp: number; }
+interface Session { idToken: string; accessToken?: string; refreshToken?: string; exp: number; }
 
 const KEY = 'ssp.session';
 const PKCE = 'ssp.pkce';
@@ -75,7 +76,7 @@ export class AuthService {
     sessionStorage.setItem(PKCE, JSON.stringify({ verifier, state }));
     const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
     const q = new URLSearchParams({ response_type: 'code', client_id: c.clientId!, redirect_uri: c.redirectUri!,
-      scope: 'openid profile email', state, code_challenge: challenge, code_challenge_method: 'S256' });
+      scope: 'openid profile email aws.cognito.signin.user.admin', state, code_challenge: challenge, code_challenge_method: 'S256' });
     location.assign(`${c.domain}/oauth2/authorize?${q}`);
   }
 
@@ -89,10 +90,10 @@ export class AuthService {
     const t = await this.tokenRequest({ grant_type: 'authorization_code', code, redirect_uri: this.config()!.redirectUri!,
       code_verifier: p.verifier });
     sessionStorage.removeItem(PKCE);
-    this.save({ idToken: t.id_token, refreshToken: t.refresh_token, exp: Number(claims(t.id_token)['exp']) });
+    this.save({ idToken: t.id_token, accessToken: t.access_token, refreshToken: t.refresh_token, exp: Number(claims(t.id_token)['exp']) });
   }
 
-  private async tokenRequest(params: Record<string, string>): Promise<{ id_token: string; refresh_token?: string }> {
+  private async tokenRequest(params: Record<string, string>): Promise<{ id_token: string; access_token?: string; refresh_token?: string }> {
     const c = this.config()!;
     const r = await fetch(`${c.domain}/oauth2/token`, { method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -117,12 +118,18 @@ export class AuthService {
     if (this.config()?.mode === 'cognito' && s.refreshToken) {
       try {
         const t = await this.tokenRequest({ grant_type: 'refresh_token', refresh_token: s.refreshToken });
-        this.save({ idToken: t.id_token, refreshToken: s.refreshToken, exp: Number(claims(t.id_token)['exp']) });
+        this.save({ idToken: t.id_token, accessToken: t.access_token, refreshToken: s.refreshToken, exp: Number(claims(t.id_token)['exp']) });
         return t.id_token;
       } catch { /* fall through */ }
     }
     this.clear();
     return null;
+  }
+
+  /** Access token (Cognito mode) for the user's own account operations, e.g. registering an authenticator app. */
+  async accessToken(): Promise<string | null> {
+    await this.token();
+    return this.load()?.accessToken || null;
   }
 
   signOut(): void {

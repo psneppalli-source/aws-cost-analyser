@@ -26,6 +26,8 @@ class Principal:
     subjects: set[tuple[str, int, str]] = field(default_factory=set)  # (dept, year, subject)
     student: tuple[str, str] | None = None                      # (dataset, student_id) for student accounts
     datasets: tuple[str, ...] = ("real",)
+    mfa_enabled: bool | None = None                             # authenticator app set up (None: not applicable locally)
+    mfa_required: bool = False                                  # students must use an authenticator app
 
     def public(self) -> dict:
         m = role_matrix()
@@ -35,6 +37,7 @@ class Principal:
             "departments": sorted(self.departments), "mentee_count": len(self.mentees),
             "subjects": [{"department": d, "year": y, "subject": s} for d, y, s in sorted(self.subjects)],
             "student": {"dataset": self.student[0], "student_id": self.student[1]} if self.student else None,
+            "mfa": {"enabled": self.mfa_enabled, "required": self.mfa_required},
         }
 
 

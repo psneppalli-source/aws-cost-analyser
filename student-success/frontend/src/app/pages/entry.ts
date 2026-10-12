@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Api, ApiError } from '../core/api.service';
 import { Session } from '../core/session.service';
 import { message } from '../shared/page';
@@ -54,7 +54,9 @@ const SUBJECT = new Set(['marks', 'attendance']);
           <label class="field">Full name<input name="n" [(ngModel)]="master.name" required></label>
           <label class="field">Department<select name="d" [(ngModel)]="master.department">@for (d of departments(); track d) { <option [value]="d">{{ d }}</option> }</select></label>
           <label class="field">Year<select name="y" [(ngModel)]="master.year">@for (y of [1,2,3,4]; track y) { <option [ngValue]="y">{{ y }}</option> }</select></label>
-          <label class="field">Email (optional)<input name="e" type="email" [(ngModel)]="master.email"></label>
+          <label class="field">College email<input name="e" type="email" [(ngModel)]="master.email"></label>
+          <label class="field">Date of birth<input name="dob" type="date" [(ngModel)]="master.date_of_birth"></label>
+          <p class="small muted" style="grid-column:1/-1">Email and date of birth let the student create their own account.</p>
           @if (formMsg()) { <p style="grid-column:1/-1" [class.error-text]="formErr()" role="status">{{ formMsg() }}</p> }
           <div style="grid-column:1/-1"><button class="btn primary" type="submit" [disabled]="busy()">Create student</button></div>
         </form></section>
@@ -152,7 +154,7 @@ export class EntryPage {
   year = '';
   common: Record<string, unknown> = {};
   own: Record<string, unknown> = {};
-  master: { student_id?: string; name?: string; department?: string; year: number; email?: string } = { year: 1 };
+  master: { student_id?: string; name?: string; department?: string; year: number; email?: string; date_of_birth?: string } = { year: 1 };
   student = computed(() => this.session.isStudent());
   periods = computed(() => [...(this.session.me()?.periods || [])].reverse());
   departments = computed(() => Object.keys(this.session.me()?.departments || {}));
@@ -162,6 +164,7 @@ export class EntryPage {
   rowFields = computed(() => { const c = this.cat(); return c ? c.fields.filter((f) => !(COMMON[c.category] || []).includes(f.name) && !f.sensitive && f.type !== 'list') : []; });
   dirtyCount = computed(() => this.rows().filter((r) => r.dirty).length);
 
+  private route = inject(ActivatedRoute);
   constructor() { this.init(); }
 
   async init() {
@@ -174,7 +177,9 @@ export class EntryPage {
         this.classList.set((await this.api.get<{ classes: { department: string; year: number; subject: string }[] }>('/entry/classes')).classes);
         this.classKey = this.classes()[0]?.key || '';
       }
-      if (this.cats().length === 1) this.pick(this.cats()[0]);
+      const want = this.route.snapshot.queryParamMap.get('category');
+      const pre = this.cats().find((c) => c.category === want) || (this.cats().length === 1 ? this.cats()[0] : null);
+      if (pre) this.pick(pre);
     } catch (e) { this.error.set(message(e)); }
     finally { this.loading.set(false); }
   }

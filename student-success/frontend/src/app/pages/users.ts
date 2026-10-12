@@ -44,7 +44,8 @@ interface Edit { roles: Record<string, boolean>; department: string; dataset: st
             <td class="small">{{ roleText(u) }}</td><td>{{ u.status }}</td><td class="small">{{ when(u.created_at) }}</td>
             <td class="row" style="gap:4px">@if (u.sub !== me()) {
               <button class="btn small" type="button" (click)="startEdit(u)">Roles</button>
-              <button class="btn small" type="button" (click)="toggle(u)" [disabled]="busy()">{{ u.status === 'active' ? 'Disable' : 'Enable' }}</button> }
+              <button class="btn small" type="button" (click)="toggle(u)" [disabled]="busy()">{{ u.status === 'active' ? 'Disable' : 'Enable' }}</button>
+              <button class="btn small" type="button" (click)="resetMfa(u)" [disabled]="busy()" title="For a lost phone: the user sets up a new authenticator at next sign-in">Reset authenticator</button> }
               @else { <span class="small muted">You</span> }</td></tr>
           @if (editing() === u.sub) {
             <tr><td colspan="5">
@@ -166,6 +167,14 @@ export class UsersPage {
       await this.api.put(`/users/${encodeURIComponent(u.sub)}/status`, { status: u.status === 'active' ? 'disabled' : 'active', version: u.version });
       await this.load();
       return `${u.username} is now ${u.status === 'active' ? 'disabled' : 'active'}.`;
+    });
+  }
+
+  resetMfa(u: User) {
+    if (!confirm(`Reset the authenticator app for ${u.username}? They will need to set it up again.`)) return;
+    return this.act(async () => {
+      await this.api.post(`/users/${encodeURIComponent(u.sub)}/mfa-reset`);
+      return `Authenticator reset for ${u.username}.`;
     });
   }
 

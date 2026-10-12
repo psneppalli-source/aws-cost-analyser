@@ -1,12 +1,15 @@
 import { Routes } from '@angular/router';
-import { landing, needs, signedIn } from './core/guards';
+import { landing, mfaReady, needs, signedIn } from './core/guards';
 import { Shell } from './shell';
 
 export const routes: Routes = [
   { path: 'login', title: 'Sign in · Smart Campus', loadComponent: () => import('./pages/login').then((m) => m.LoginPage) },
+  { path: 'register', title: 'Create your student account', loadComponent: () => import('./pages/register').then((m) => m.RegisterPage) },
   {
-    path: '', component: Shell, canActivate: [signedIn], children: [
+    path: '', component: Shell, canActivate: [signedIn], canActivateChild: [mfaReady], children: [
       { path: '', pathMatch: 'full', canActivate: [landing], children: [] },
+      { path: 'security', title: 'Security', loadComponent: () => import('./pages/security').then((m) => m.SecurityPage) },
+      { path: 'my', title: 'My dashboard', loadComponent: () => import('./pages/student-home').then((m) => m.StudentHomePage) },
       { path: 'overview', title: 'Overview', canActivate: [needs('student_insight:read')],
         loadComponent: () => import('./pages/overview').then((m) => m.OverviewPage) },
       { path: 'insights', title: 'Insights', canActivate: [needs('student_insight:read')],

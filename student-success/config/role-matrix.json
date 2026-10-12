@@ -28,6 +28,7 @@
       "cohort_profile",
       "dataset",
       "email",
+      "date_of_birth",
       "mentor_sub",
       "mentor_name",
       "status",
@@ -83,6 +84,8 @@
       "trend",
       "by_period",
       "score_rows",
+      "sources",
+      "indicators",
       "summary",
       "scoring_version",
       "calculated_at",
@@ -133,6 +136,19 @@
     ],
     "record_all": [
       "*"
+    ],
+    "student_self": [
+      "student_id",
+      "name",
+      "department",
+      "year",
+      "programme",
+      "cohort_profile",
+      "dataset",
+      "email",
+      "date_of_birth",
+      "mentor_name",
+      "status"
     ]
   },
   "roles": {
@@ -833,7 +849,7 @@
           "resource": "student_master",
           "action": "read",
           "scope": "own_record",
-          "fields": "student_core"
+          "fields": "student_self"
         },
         {
           "resource": "student_insight",

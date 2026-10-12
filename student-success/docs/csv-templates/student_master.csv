@@ -1,2 +1,2 @@
-student_id,name,department,year,email
-CSE24007,Ananya Rao,CSE,3,ananya@example.edu
+student_id,name,department,year,email,date_of_birth
+CSE24007,Ananya Rao,CSE,3,ananya@example.edu,2005-08-14

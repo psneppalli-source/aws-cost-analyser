@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import random
 import time
 
@@ -80,11 +81,19 @@ def generate() -> dict:
             arche = _archetype(rng, year)
             students.append({"student_id": sid, "name": f"{rng.choice(FIRST)} {rng.choice(LAST)}", "department": dept,
                              "year": year, "programme": cur["programme"], "email": f"{sid.lower()}@example.edu",
+                             "date_of_birth": _dob(sid, year),
                              "status": "active", "archetype": arche})
     for s in students:
         records += _records_for(rng, s, periods, cur)
         interventions += _interventions_for(s, periods)
     return {"students": students, "records": records, "interventions": interventions}
+
+
+def _dob(sid: str, year: int) -> str:
+    """Deterministic date of birth from the ID (no random draws, so the rest of the data is unchanged)."""
+    h = int(hashlib.sha256(sid.encode()).hexdigest(), 16)
+    born = 2026 - 17 - year - (h % 2)
+    return f"{born}-{1 + h % 12:02d}-{1 + (h // 12) % 28:02d}"
 
 
 def _archetype(rng: random.Random, year: int) -> str:
@@ -418,6 +427,10 @@ def relabel() -> int:
     for st in generate()["students"]:
         pk = f"STU#{DS}#{st['student_id']}"
         m = t.get(pk, "MASTER")
+        if m and not m.get("date_of_birth") and st.get("date_of_birth"):
+            m = {**m, "date_of_birth": st["date_of_birth"], "version": m["version"] + 1}
+            t.put(m)
+            n += 1
         if not m or m.get("name") == st["name"] or m.get("updated_by") != "seed":
             continue
         t.put({**m, "name": st["name"], "version": m["version"] + 1}, C.version(m["version"]))

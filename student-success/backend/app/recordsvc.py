@@ -10,6 +10,8 @@ Every write:
 
 from __future__ import annotations
 
+from datetime import date
+
 import hashlib
 import json
 
@@ -54,7 +56,7 @@ def _public(item: dict) -> dict:
 
 
 # --------------------------------------------------------------------------- student master
-MASTER_FIELDS = ("name", "department", "year", "programme", "email", "status")
+MASTER_FIELDS = ("name", "department", "year", "programme", "email", "date_of_birth", "status")
 
 
 def _validate_master(data: dict, creating: bool) -> dict:
@@ -94,6 +96,16 @@ def _validate_master(data: dict, creating: bool) -> dict:
             if v and ("@" not in str(v) or len(str(v)) > 120):
                 errors[f] = "is not a valid email address"
             out[f] = v or None
+        elif f == "date_of_birth":
+            out[f] = None
+            if v:
+                try:
+                    d = date.fromisoformat(str(v).strip()[:10])
+                    if not date(1960, 1, 1) <= d <= date.today().replace(year=date.today().year - 14):
+                        raise ValueError
+                    out[f] = d.isoformat()
+                except ValueError:
+                    errors[f] = "must be a date (YYYY-MM-DD) for someone at least 14 years old"
         elif f == "status":
             if (v or "active") not in ("active", "inactive"):
                 errors[f] = "must be active or inactive"

@@ -36,7 +36,7 @@ before deploying.** `infra/preflight.py` prints the links and checks the account
 | Four Lambda permissions | CloudFront principal, `SourceArn` = the distribution | None |
 | CloudFront distribution | Default `*.cloudfront.net` domain and certificate, PriceClass_100, `/api/*` uncached | Pay-as-you-go always-free allowance, or Free flat-rate plan if you subscribe (optional, console) |
 | Origin access control, origin request policy | — | None |
-| Cognito user pool + domain + app client | Lite (or Essentials), admin-created users only, TOTP optional, no SMS, default email sender | Within 10,000 free MAU |
+| Cognito user pool + domain + app client | Lite (or Essentials), staff accounts admin-created, students self-register (matched to their record, email verified by code), authenticator-app (TOTP) MFA required for students, no SMS, default Cognito email sender (about 50 emails/day) | Within 10,000 free MAU |
 | Two IAM roles | Least privilege | None |
 | Two CloudWatch log groups | 3-day retention | Within free log allowance at expected volume |
 | Optional AWS Budget | USD 1/month, email alerts (only with `--budget-email`) | Expected free (confirm budget pricing) |

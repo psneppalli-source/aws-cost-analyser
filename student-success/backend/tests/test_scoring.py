@@ -145,7 +145,8 @@ def test_score_sort_is_numeric_and_paginates(call):
         cursor = r["next_cursor"]
         if not cursor:
             break
-    assert len(seen) == 150 and len({s["student_id"] for s in seen}) == 150
+    total = call("admin.priya", "GET", "/api/students?dataset=real&limit=1").json()["total"]
+    assert len(seen) == total >= 150 and len({s["student_id"] for s in seen}) == total
     scores = [s["score"] for s in seen if s["score"] is not None]
     assert scores == sorted(scores)
     assert all(s["score"] is None for s in seen[len(scores):])
