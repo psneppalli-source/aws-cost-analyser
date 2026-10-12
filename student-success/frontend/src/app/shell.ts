@@ -71,7 +71,7 @@ export class Shell {
       g('Governance', [
         { path: '/role-matrix', label: 'Role matrix', show: c('role_matrix', 'read') && !this.session.isStudent() },
         { path: '/admin/config', label: 'Configuration', show: c('scoring_config', 'read') || c('system_config', 'read') },
-        { path: '/admin/users', label: this.session.isSysAdmin() ? 'Users and roles' : 'Mentor assignments',
+        { path: '/admin/users', label: c('user_account', 'read') ? 'Users and roles' : 'Mentor assignments',
           show: c('user_account', 'read') || c('mentor_assignment', 'assign') },
         { path: '/admin/audit', label: 'Audit history', show: c('audit.academic', 'read') || c('audit.technical', 'read') },
       ]),

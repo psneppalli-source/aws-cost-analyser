@@ -65,6 +65,8 @@ def grants(p: Principal, resource: str, action: str) -> list[dict]:
 def scope_holds(p: Principal, scope: str, t: dict | None) -> bool:
     if scope == "system":
         return t is None or not t.get("student_id")
+    if scope == "staff_accounts":  # account administration that never touches System Administrator accounts
+        return t is None or (not t.get("student_id") and "system_admin" not in (t.get("roles") or []))
     if t is None:
         return scope == "college"
     ds, sid = t.get("dataset"), t.get("student_id")

@@ -17,22 +17,31 @@ interface Edit { roles: Record<string, boolean>; department: string; dataset: st
   imports: [FormsModule, StateView],
   template: `
     <div class="page-head"><h1>{{ sysAdmin() ? 'Users and roles' : 'Mentor assignments' }}</h1>
-      <p class="sub">@if (sysAdmin()) { Accounts are created by the System Administrator only; there is no public registration. Role assignments are stored
-        server-side against the account and checked on every request. You can't change your own roles, and the System Administrator role can't be combined with student-data roles. }
+      <p class="sub">@if (sysAdmin()) { Create staff accounts and choose what each person can do. Students create their own accounts.
+        Roles are checked on every request. You can't change your own roles@if (!session.isSysAdmin()) {, and System Administrator accounts are managed by the System Administrator}. }
         @else { Assign subjects to faculty. Assign mentors to individual students from their profile. }</p></div>
     @if (notice()) { <p class="banner" role="status">{{ notice() }}</p> }
     @if (temp(); as t) {
-      <p class="banner warn" role="alert"><strong>Temporary password for {{ t.username }}:</strong> <span class="mono">{{ t.password }}</span><br>
-        Share it securely; it is shown once and the user must change it at first sign-in. <button class="btn small" type="button" (click)="temp.set(null)">I've recorded it</button></p>
+      <p class="banner warn" role="alert">
+        @if (t.emailed) { <strong>Invitation emailed to {{ t.email }}</strong> with the user ID <span class="mono">{{ t.username }}</span> and a temporary password.<br>
+          If it doesn't arrive, share this temporary password securely instead: <span class="mono">{{ t.password }}</span><br> }
+        @else { <strong>Temporary password for {{ t.username }}:</strong> <span class="mono">{{ t.password }}</span><br>
+          Share it securely; it is shown once. }
+        They choose their own password at first sign-in. <button class="btn small" type="button" (click)="temp.set(null)">Done</button></p>
     }
 
     @if (sysAdmin()) {
-      <section class="card"><div class="card-head"><h2>Create account</h2></div>
+      <section class="card"><div class="card-head"><h2>Create staff account</h2>
+        <span class="desc">With an email address, the person is emailed their user ID and a temporary password.</span></div>
         <form class="form-grid" (submit)="$event.preventDefault(); create()">
-          <label class="field">Username<input name="u" [(ngModel)]="nu.username" required autocomplete="off"></label>
-          <label class="field">Display name<input name="d" [(ngModel)]="nu.display_name" required></label>
-          <label class="field">Email<input name="e" type="email" [(ngModel)]="nu.email"></label>
-          <div class="field"><span>&nbsp;</span><button class="btn primary" type="submit" [disabled]="busy()">Create</button></div>
+          <label class="field">Full name<input name="d" [(ngModel)]="nu.display_name" required placeholder="e.g. Dr Anita Rao"></label>
+          <label class="field">User ID<input name="u" [(ngModel)]="nu.username" required autocomplete="off" placeholder="e.g. anita.rao"></label>
+          <label class="field">Email<input name="e" type="email" [(ngModel)]="nu.email" placeholder="name@college.edu"></label>
+          <label class="field">Role<select name="r" [(ngModel)]="nu.role">
+            <option value="">Choose later</option>
+            @for (r of staffRoles(); track r) { <option [value]="r">{{ roleLabel(r) }}</option> }</select></label>
+          @if (nu.role === 'hod') { <label class="field">Department<select name="nd" [(ngModel)]="nu.department">@for (d of allDepartments(); track d) { <option [value]="d">{{ d }}</option> }</select></label> }
+          <div class="field"><span>&nbsp;</span><button class="btn primary" type="submit" [disabled]="busy() || !nu.username.trim() || !nu.display_name.trim() || (nu.role === 'hod' && !nu.department)">Create account</button></div>
         </form>
         @if (auth.config()?.mode !== 'cognito') { <p class="small muted">Local demo mode: accounts are local only and sign in from the persona list.</p> }
       </section>
@@ -42,18 +51,19 @@ interface Edit { roles: Record<string, boolean>; department: string; dataset: st
         <tbody>@for (u of users(); track u.sub) {
           <tr><td><strong>{{ u.display_name }}</strong><br><span class="mono small muted">{{ u.username }}</span></td>
             <td class="small">{{ roleText(u) }}</td><td>{{ u.status }}</td><td class="small">{{ when(u.created_at) }}</td>
-            <td class="row" style="gap:4px">@if (u.sub !== me()) {
+            <td class="row" style="gap:4px;flex-wrap:wrap">@if (u.sub === me()) { <span class="small muted">You</span> }
+              @else if (u.roles.includes('system_admin') && !session.isSysAdmin()) { <span class="small muted">Managed by the System Administrator</span> }
+              @else {
               <button class="btn small" type="button" (click)="startEdit(u)">Roles</button>
               <button class="btn small" type="button" (click)="toggle(u)" [disabled]="busy()">{{ u.status === 'active' ? 'Disable' : 'Enable' }}</button>
               <button class="btn small" type="button" (click)="resetMfa(u)" [disabled]="busy()" title="For a lost phone: the user sets up a new authenticator at next sign-in">Reset authenticator</button>
-              <button class="btn small" type="button" (click)="resetPassword(u)" [disabled]="busy()" title="Emails a 6-digit code; the user sets a new password with Forgot password">Send password reset</button> }
-              @else { <span class="small muted">You</span> }</td></tr>
+              <button class="btn small" type="button" (click)="resetPassword(u)" [disabled]="busy()" title="Emails a 6-digit code; the user sets a new password with Forgot password">Send password reset</button> }</td></tr>
           @if (editing() === u.sub) {
             <tr><td colspan="5">
               <form class="stack" (submit)="$event.preventDefault(); saveRoles(u)">
-                <div class="row" style="gap:14px;flex-wrap:wrap">@for (r of roleKeys; track r) {
+                <div class="row" style="gap:14px;flex-wrap:wrap">@for (r of assignableRoles(); track r) {
                   <label class="row small" style="gap:4px"><input type="checkbox" style="width:auto" [name]="'r' + r" [(ngModel)]="edit.roles[r]">{{ roleLabel(r) }}</label> }</div>
-                @if (edit.roles['hod']) { <label class="field">HOD department<select name="hd" [(ngModel)]="edit.department">@for (d of departments(); track d) { <option [value]="d">{{ d }}</option> }</select></label> }
+                @if (edit.roles['hod']) { <label class="field">HOD department<select name="hd" [(ngModel)]="edit.department">@for (d of allDepartments(); track d) { <option [value]="d">{{ d }}</option> }</select></label> }
                 @if (edit.roles['student']) { <div class="row" style="gap:8px">
                   <label class="field">Student ID<input name="si" [(ngModel)]="edit.student_id" placeholder="CSE24001"></label></div> }
                 <div class="row" style="gap:6px"><button class="btn primary small" type="submit" [disabled]="busy()">Save roles</button>
@@ -97,10 +107,14 @@ export class UsersPage {
   busy = signal(false);
   error = signal<string | null>(null);
   notice = signal<string | null>(null);
-  temp = signal<{ username: string; password: string } | null>(null);
+  temp = signal<{ username: string; password: string; email: string; emailed: boolean } | null>(null);
   editing = signal<string | null>(null);
   edit: Edit = { roles: {}, department: '', dataset: 'real', student_id: '' };
-  nu = { username: '', display_name: '', email: '' };
+  nu = { username: '', display_name: '', email: '', role: '', department: '' };
+  /** College Administrators manage staff and student accounts; only the System Administrator grants that role. */
+  assignableRoles = computed(() => this.roleKeys.filter((r) => r !== 'system_admin' || this.session.isSysAdmin()));
+  staffRoles = computed(() => this.assignableRoles().filter((r) => r !== 'student'));
+  allDepartments = computed(() => Object.keys(this.session.me()?.departments || {}).length ? Object.keys(this.session.me()!.departments) : ['CSE', 'ECE', 'MECH']);
   mentor = '';
   sd = '';
   sy = '1';
@@ -138,11 +152,15 @@ export class UsersPage {
 
   create() {
     return this.act(async () => {
-      const r = await this.api.post<User & { temporary_password?: string }>('/users', this.nu);
-      if (r.temporary_password) this.temp.set({ username: r.username, password: r.temporary_password });
-      this.nu = { username: '', display_name: '', email: '' };
+      const { role, department, ...body } = this.nu;
+      const r = await this.api.post<User & { temporary_password?: string; invitation_emailed?: boolean }>('/users', body);
+      if (r.temporary_password) this.temp.set({ username: r.username, password: r.temporary_password, email: body.email, emailed: !!r.invitation_emailed });
+      if (role) {
+        await this.api.put(`/users/${encodeURIComponent(r.sub)}/roles`, { assignments: [role === 'hod' ? { role, department } : { role }], version: r.version });
+      }
+      this.nu = { username: '', display_name: '', email: '', role: '', department: '' };
       await this.load();
-      return `Created ${r.username}. Assign roles next.`;
+      return role ? `Created ${r.username} as ${this.roleLabel(role)}.` : `Created ${r.username}. Choose their roles with “Roles”.`;
     });
   }
 

@@ -62,6 +62,11 @@ def _temp_password() -> str:
     return "".join(secrets.choice(alpha) for _ in range(14)) + secrets.choice("!@#%^*") + secrets.choice(string.digits) + "Aa"
 
 
+def account_target(prof: dict) -> dict:
+    """Policy target for administering an account (its roles decide whether staff_accounts scope applies)."""
+    return {"roles": list(prof.get("roles") or [])}
+
+
 def create_user(principal: Principal, username: str, display_name: str, email: str = "", sub: str | None = None,
                 system: bool = False) -> dict:
     if not system:
@@ -69,6 +74,9 @@ def create_user(principal: Principal, username: str, display_name: str, email: s
     username = (username or "").strip().lower()
     if not username or not all(c.isalnum() or c in "._-" for c in username) or not 3 <= len(username) <= 40:
         raise ValidationError({"username": "3-40 characters: letters, digits, dot, dash or underscore"})
+    email = (email or "").strip().lower()
+    if email and ("@" not in email or "." not in email.split("@")[-1] or len(email) > 120):
+        raise ValidationError({"email": "enter a valid email address"})
     temp = None
     if sub is None:
         if settings().auth_mode == "cognito":
@@ -77,9 +85,11 @@ def create_user(principal: Principal, username: str, display_name: str, email: s
             attrs = [{"Name": "name", "Value": display_name}]
             if email:
                 attrs += [{"Name": "email", "Value": email}, {"Name": "email_verified", "Value": "true"}]
+            # with an email address, Cognito emails the user ID and temporary password (InviteMessageTemplate)
+            kw = {"DesiredDeliveryMediums": ["EMAIL"]} if email else {"MessageAction": "SUPPRESS"}
             r = boto3.client("cognito-idp", region_name=settings().region).admin_create_user(
                 UserPoolId=settings().cognito_pool_id, Username=username, UserAttributes=attrs,
-                TemporaryPassword=temp, MessageAction="SUPPRESS")
+                TemporaryPassword=temp, **kw)
             sub = next(a["Value"] for a in r["User"]["Attributes"] if a["Name"] == "sub")
         else:
             sub = f"local-{username}"
@@ -95,16 +105,18 @@ def create_user(principal: Principal, username: str, display_name: str, email: s
     out = public_user(item)
     if temp:
         out["temporary_password"] = temp  # shown once to the administrator; never stored or logged
+        out["invitation_emailed"] = bool(email)
     return out
 
 
 def set_roles(principal: Principal, sub: str, assignments: list[dict], expected_version: int, system: bool = False) -> dict:
-    if not system:
-        require(principal, "role_assignment", "assign")
-        if principal.sub == sub:
-            raise Denied("You can't change your own role assignments.")
     prof = _profile(sub)
     roles = {a.get("role") for a in assignments}
+    if not system:
+        # the target covers the account's current and new roles: staff_accounts scope never reaches system_admin
+        require(principal, "role_assignment", "assign", {"roles": sorted(roles | set(prof.get("roles") or []))})
+        if principal.sub == sub:
+            raise Denied("You can't change your own role assignments.")
     bad = roles - set(ROLES)
     if bad:
         raise ValidationError({"roles": f"unknown role(s): {', '.join(sorted(bad))}"})
@@ -143,12 +155,12 @@ def set_roles(principal: Principal, sub: str, assignments: list[dict], expected_
 
 
 def set_status(principal: Principal, sub: str, status: str, expected_version: int) -> dict:
-    require(principal, "user_account", "update")
+    prof = _profile(sub)
+    require(principal, "user_account", "update", account_target(prof))
     if principal.sub == sub:
         raise Denied("You can't change your own account status.")
     if status not in ("active", "disabled"):
         raise ValidationError({"status": "must be active or disabled"})
-    prof = _profile(sub)
     try:
         db.table().put({**prof, "status": status, "version": prof["version"] + 1}, C.version(expected_version))
     except ConditionFailed:

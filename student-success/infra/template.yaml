@@ -169,6 +169,11 @@ Resources:
       DeletionProtection: !Ref UserPoolDeletionProtection
       AdminCreateUserConfig:
         AllowAdminCreateUserOnly: true      # no open sign-up: students register only by matching their record (app/registration.py)
+        InviteMessageTemplate:              # sent when an administrator creates a staff account with an email address
+          EmailSubject: "Your Smart Campus account"
+          EmailMessage: !Sub
+            - "Hello,<br><br>A Smart Campus account has been created for you.<br><br>User ID: <b>{username}</b><br>Temporary password: <b>{####}</b><br><br>Sign in at ${Site} and choose your own password. The temporary password expires in 7 days.<br><br>If you did not expect this email, contact the college office."
+            - Site: !If [HasAliasUrl, !Ref AliasUrl, !If [HasSiteUrl, !Ref SiteUrl, "the Smart Campus site"]]
       UsernameConfiguration:
         CaseSensitive: false
       AutoVerifiedAttributes: [email]

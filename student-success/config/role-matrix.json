@@ -7,7 +7,8 @@
     "assigned_subject": "Students in a department/year class for a subject the user teaches; record writes must name that subject",
     "assigned_students": "Students the user mentors",
     "own_record": "The signed-in student's own record only",
-    "system": "Platform administration objects; never student records"
+    "system": "Platform administration objects; never student records",
+    "staff_accounts": "Accounts other than System Administrators; never grants the system_admin role"
   },
   "field_sets": {
     "student_core": [
@@ -340,6 +341,30 @@
           "resource": "role_matrix",
           "action": "read",
           "scope": "college",
+          "fields": "record_all"
+        },
+        {
+          "resource": "user_account",
+          "action": "read",
+          "scope": "staff_accounts",
+          "fields": "record_all"
+        },
+        {
+          "resource": "user_account",
+          "action": "create",
+          "scope": "staff_accounts",
+          "fields": "record_all"
+        },
+        {
+          "resource": "user_account",
+          "action": "update",
+          "scope": "staff_accounts",
+          "fields": "record_all"
+        },
+        {
+          "resource": "role_assignment",
+          "action": "assign",
+          "scope": "staff_accounts",
           "fields": "record_all"
         }
       ]
@@ -1004,7 +1029,7 @@
     "rules": [
       "No account may hold system_admin together with any student-data role.",
       "Nobody may add or remove their own role assignments.",
-      "Only system_admin may create accounts or change role assignments."
+      "Only system_admin and college_admin may create accounts or change role assignments; college_admin only for staff and student accounts (never System Administrator accounts or the system_admin role)."
     ]
   }
 }

@@ -562,9 +562,12 @@ async def set_roles(sub: str, request: Request, p: Principal = Depends(principal
 @app.post("/api/users/{sub}/password-reset")
 def password_reset(sub: str, p: Principal = Depends(principal)):
     """System Administrator: email a reset code; the user then sets a new password with "Forgot password"."""
-    require(p, "user_account", "update")
     if sub == p.sub:
         raise Denied("Use Security, Change password, for your own account.")
+    prof = db.table().get(f"USER#{sub}", "PROFILE")
+    if not prof:
+        raise recordsvc.NotFound("Account not found")
+    require(p, "user_account", "update", accounts.account_target(prof))
     from . import recovery
     return recovery.admin_send_reset(p, sub)
 
@@ -572,12 +575,12 @@ def password_reset(sub: str, p: Principal = Depends(principal)):
 @app.post("/api/users/{sub}/mfa-reset")
 def mfa_reset(sub: str, p: Principal = Depends(principal)):
     """System Administrator: clear a lost authenticator so the user can set up a new one."""
-    require(p, "user_account", "update")
     if sub == p.sub:
         raise Denied("You can't reset your own authenticator.")
     prof = db.table().get(f"USER#{sub}", "PROFILE")
     if not prof:
         raise recordsvc.NotFound("Account not found")
+    require(p, "user_account", "update", accounts.account_target(prof))
     if settings().auth_mode == "cognito":
         from .auth import reset_mfa
         reset_mfa(prof["username"])

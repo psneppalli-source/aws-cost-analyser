@@ -164,7 +164,31 @@ def test_system_admin_cannot_change_own_roles_or_mix_duties(call):
     assert bad.status_code == 422
     good = call("sysadmin.dev", "PUT", f"/api/users/{new['sub']}/roles", {"assignments": [{"role": "mentor"}], "version": new["version"]})
     assert good.status_code == 200 and good.json()["roles"] == ["mentor"]
-    assert call("admin.priya", "POST", "/api/users", {"username": "sneaky"}).status_code == 403
+    assert call("mentor.arjun", "POST", "/api/users", {"username": "sneaky"}).status_code == 403
+
+
+def test_college_admin_manages_staff_accounts_but_never_system_admins(call):
+    new = call("admin.priya", "POST", "/api/users", {"username": "new.faculty", "display_name": "New Faculty",
+                                                     "email": "new.faculty@college.example"})
+    assert new.status_code == 201, new.text
+    u = new.json()
+    ok = call("admin.priya", "PUT", f"/api/users/{u['sub']}/roles", {"assignments": [{"role": "mentor"}], "version": u["version"]})
+    assert ok.status_code == 200 and ok.json()["roles"] == ["mentor"]
+    u = ok.json()
+    # may not grant the System Administrator role
+    assert call("admin.priya", "PUT", f"/api/users/{u['sub']}/roles",
+                {"assignments": [{"role": "system_admin"}], "version": u["version"]}).status_code == 403
+    # may not touch a System Administrator account
+    sa = next(x for x in call("admin.priya", "GET", "/api/users").json()["items"] if x["username"] == "sysadmin.dev")
+    assert call("admin.priya", "PUT", f"/api/users/{sa['sub']}/roles", {"assignments": [{"role": "mentor"}], "version": sa["version"]}).status_code == 403
+    assert call("admin.priya", "PUT", f"/api/users/{sa['sub']}/status", {"status": "disabled", "version": sa["version"]}).status_code == 403
+    assert call("admin.priya", "POST", f"/api/users/{sa['sub']}/mfa-reset").status_code == 403
+    assert call("admin.priya", "POST", f"/api/users/{sa['sub']}/password-reset").status_code == 403
+    # but may disable a staff account, and still not change their own
+    assert call("admin.priya", "PUT", f"/api/users/{u['sub']}/status", {"status": "disabled", "version": u["version"]}).status_code == 200
+    me = next(x for x in call("admin.priya", "GET", "/api/users").json()["items"] if x["username"] == "admin.priya")
+    assert call("admin.priya", "PUT", f"/api/users/{me['sub']}/roles", {"assignments": [{"role": "mentor"}], "version": me["version"]}).status_code == 403
+    assert call("admin.priya", "POST", "/api/users", {"username": "bad.mail", "display_name": "X", "email": "nope"}).status_code == 422
 
 
 def test_scoring_config_workflow_is_admin_only_and_audited(call):

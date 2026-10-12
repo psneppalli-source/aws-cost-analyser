@@ -14,6 +14,7 @@ Policy version **1.0.0**. Canonical permission policy for the Smart Campus Stude
 | `assigned_students` | Students the user mentors |
 | `own_record` | The signed-in student's own record only |
 | `system` | Platform administration objects; never student records |
+| `staff_accounts` | Accounts other than System Administrators; never grants the system_admin role |
 
 ## Field sets
 
@@ -57,6 +58,8 @@ Manages student master records, imports, mentor assignments and the approved sco
 | `insight` | recompute | `college` | `record_all` |
 | `audit.academic` | read | `college` | `record_all` |
 | `role_matrix` | read | `college` | `record_all` |
+| `user_account` | read, create, update | `staff_accounts` | `record_all` |
+| `role_assignment` | assign | `staff_accounts` | `record_all` |
 
 ## Head of Department (`hod`)
 
@@ -175,4 +178,4 @@ Manages accounts, role assignments and technical configuration. Has no access to
 
 - No account may hold system_admin together with any student-data role.
 - Nobody may add or remove their own role assignments.
-- Only system_admin may create accounts or change role assignments.
+- Only system_admin and college_admin may create accounts or change role assignments; college_admin only for staff and student accounts (never System Administrator accounts or the system_admin role).

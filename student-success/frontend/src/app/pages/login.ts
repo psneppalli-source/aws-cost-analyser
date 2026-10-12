@@ -174,7 +174,7 @@ interface Persona { username: string; display_name: string; }
             <a class="btn" routerLink="/register">Create account</a>
           </div>
           }
-          <p class="foot">Staff accounts are created by the college office.</p>
+          <p class="foot">Staff accounts are created by your College Administrator.</p>
         </div>
       </main>
     </div>`,
