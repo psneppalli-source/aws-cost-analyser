@@ -19,6 +19,13 @@ Parameters:
     Description: >-
       The CloudFront URL (https://dxxxx.cloudfront.net). Empty on the very first deploy; the deploy script
       fills it in from the stack output and updates the stack so sign-in redirects can be registered.
+  AuthDomainPrefix:
+    Type: String
+    Default: ""
+    AllowedPattern: "^$|^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$"
+    Description: >-
+      Prefix of the sign-in address https://<prefix>.auth.<region>.amazoncognito.com (free; must be unused in the
+      region). Empty = "<AppName>-<AccountId>". Changing it replaces the domain; sign-in briefly fails until it's ready.
   EdgeMode:
     Type: String
     Default: cloudfront
@@ -91,6 +98,7 @@ Parameters:
 
 Conditions:
   HasSiteUrl: !Not [!Equals [!Ref SiteUrl, ""]]
+  HasAuthDomainPrefix: !Not [!Equals [!Ref AuthDomainPrefix, ""]]
   UseCloudFront: !Equals [!Ref EdgeMode, cloudfront]
   Direct: !Equals [!Ref EdgeMode, direct]
   HasBudget: !Not [!Equals [!Ref BudgetEmail, ""]]
@@ -182,7 +190,7 @@ Resources:
   UserPoolDomain:
     Type: AWS::Cognito::UserPoolDomain
     Properties:
-      Domain: !Sub "${AppName}-${AWS::AccountId}"
+      Domain: !If [HasAuthDomainPrefix, !Ref AuthDomainPrefix, !Sub "${AppName}-${AWS::AccountId}"]
       UserPoolId: !Ref UserPool
       ManagedLoginVersion: 1        # classic hosted UI
 

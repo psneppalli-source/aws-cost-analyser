@@ -72,6 +72,13 @@ Optional: subscribe the distribution to the CloudFront **Free** flat-rate plan i
 
 Redeploying code only: run the same deploy command; unchanged infrastructure is reported as “no changes”.
 
+### Sign-in address (`--auth-domain`)
+
+The college sign-in page lives at `https://<prefix>.auth.<region>.amazoncognito.com` (free). Choose a meaningful,
+unused prefix with `--auth-domain smartcampus`; later deploys keep it. A user pool holds one prefix, so to change it,
+first delete the current one (`aws cognito-idp delete-user-pool-domain --domain <old> --user-pool-id <pool>`), then
+deploy with the new prefix. Sign-in is unavailable for those few minutes.
+
 ### Temporary mode without CloudFront (`--edge direct`)
 
 If CloudFront is not available yet (new accounts may need AWS Support to verify the account first):

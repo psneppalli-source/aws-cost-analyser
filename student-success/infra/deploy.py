@@ -111,7 +111,7 @@ def check_package(api: Path, web: Path) -> None:
 
 
 def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: bool, protect: bool = True,
-           edge: str = "cloudfront") -> list[dict]:
+           edge: str = "cloudfront", auth_domain: str | None = None) -> list[dict]:
     """protect=False only for the very first create, so a failed create can roll back cleanly."""
     p = [{"ParameterKey": "AppName", "ParameterValue": name}, {"ParameterKey": "SiteUrl", "ParameterValue": site_url},
          {"ParameterKey": "EdgeMode", "ParameterValue": edge},
@@ -125,6 +125,10 @@ def params(cfn, name: str, site_url: str, budget_email: str | None, reserve: boo
         p.append({"ParameterKey": "BudgetEmail", "ParameterValue": budget_email})
     elif "BudgetEmail" in existing:
         p.append({"ParameterKey": "BudgetEmail", "UsePreviousValue": True})
+    if auth_domain is not None:
+        p.append({"ParameterKey": "AuthDomainPrefix", "ParameterValue": auth_domain})
+    elif "AuthDomainPrefix" in existing:
+        p.append({"ParameterKey": "AuthDomainPrefix", "UsePreviousValue": True})
     for k in ("UserPoolTier",):
         if k in existing:
             p.append({"ParameterKey": k, "UsePreviousValue": True})
@@ -186,6 +190,7 @@ def main() -> int:
     p.add_argument("--skip-frontend-build", action="store_true")
     p.add_argument("--edge", choices=["cloudfront", "direct"], default="cloudfront",
                    help="direct = TEMPORARY public function URL without CloudFront (e.g. while CloudFront verification is pending)")
+    p.add_argument("--auth-domain", help="sign-in address prefix, e.g. smartcampus -> https://smartcampus.auth.<region>.amazoncognito.com")
     a = p.parse_args()
 
     if a.build_only:
@@ -222,11 +227,11 @@ def main() -> int:
         print("WARNING: direct mode has no CloudFront: one public function URL serves the app and API. Data still needs a "
               "Cognito token, but there is no edge protection; the account concurrency limit caps load. Temporary use only.")
     print(f"Deploying stack {a.stack} to {a.region}")
-    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve, protect=existing is not None, edge=a.edge), [])
+    apply_stack(cfn, a.stack, params(cfn, a.stack, site, a.budget_email, reserve, protect=existing is not None, edge=a.edge, auth_domain=a.auth_domain), [])
     out = outputs(cfn, a.stack)
     if out["SiteUrl"] != site or existing is None:
         print("Registering the CloudFront address with Cognito and switching on deletion protection (second pass)")
-        apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email, reserve, edge=a.edge), [])
+        apply_stack(cfn, a.stack, params(cfn, a.stack, out["SiteUrl"], a.budget_email, reserve, edge=a.edge, auth_domain=a.auth_domain), [])
         out = outputs(cfn, a.stack)
     upload(lam, out["ApiFunctionName"], zips["api"])
     if out.get("WebFunctionName"):
