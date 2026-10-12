@@ -7,7 +7,6 @@ on the Principal (loaded from the database by the Cognito user ID).
 
 from __future__ import annotations
 
-import copy
 from dataclasses import dataclass, field
 
 from .settings import role_matrix
@@ -122,6 +121,15 @@ def constraints(p: Principal, key: str) -> list | None:
     return None if unconstrained else vals
 
 
+def _clone(v):
+    """Copy plain JSON-like data (dicts, lists, scalars); much cheaper than copy.deepcopy for listings."""
+    if isinstance(v, dict):
+        return {k: _clone(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [_clone(x) for x in v]
+    return v
+
+
 def filter_fields(obj: dict, fields: list[str]) -> dict:
     """Keep only allowed fields; dotted paths keep nested keys (e.g. components.placement)."""
     if "*" in fields:
@@ -134,7 +142,7 @@ def filter_fields(obj: dict, fields: list[str]) -> dict:
             if not isinstance(src, dict) or part not in src:
                 break
             if i == len(parts) - 1:
-                dst[part] = copy.deepcopy(src[part])
+                dst[part] = _clone(src[part])
             else:
                 src = src[part]
                 dst = dst.setdefault(part, {})

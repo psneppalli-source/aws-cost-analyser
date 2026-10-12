@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideAppInitializer, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection, inject } from '@angular/core';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { provideRouter, withComponentInputBinding, withNavigationErrorHandler } from '@angular/router';
+import { PreloadAllModules, provideRouter, withComponentInputBinding, withNavigationErrorHandler, withPreloading } from '@angular/router';
 
 import { routes } from './app.routes';
 import { authInterceptor } from './core/auth.interceptor';
@@ -12,7 +12,8 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     // After a new version is deployed, an open tab may ask for page files that no longer exist:
     // reload once to pick up the new version instead of showing an error.
-    provideRouter(routes, withComponentInputBinding(), withNavigationErrorHandler((e) => {
+    // pages load their code in the background after sign-in, so moving between pages never waits for a download
+    provideRouter(routes, withComponentInputBinding(), withPreloading(PreloadAllModules), withNavigationErrorHandler((e) => {
       const msg = String((e.error as Error)?.message || e.error);
       if (!/dynamically imported module|Importing a module script failed|ChunkLoadError/i.test(msg)) return;
       const key = 'ssp.reloaded';

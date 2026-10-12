@@ -10,14 +10,14 @@ from .policy import Principal, decide, filter_fields, visibility
 from .settings import curriculum
 
 
-def _canon(r: dict, period: str | None) -> dict:
+def _canon(r: dict, period: str | None, history: bool = True) -> dict:
     """Slim list row -> canonical insight shape used by field filtering, optionally for another period."""
     row = {"student_id": r["student_id"], "dataset": r["dataset"], "name": r["name"], "department": r["department"],
            "year": r["year"], "period": r["period"], "score": r.get("score"), "indicative_score": r.get("indicative_score"),
            "status": r.get("status"), "band": r.get("band"), "coverage": r.get("coverage"), "profile": r.get("profile"),
            "components": dict(r.get("component_values") or {}),
            "risks": {"academic": {"level": r.get("risk_academic")}, "placement": {"level": r.get("risk_placement")}},
-           "segments": list(r.get("segment_keys") or []), "by_period": r.get("by_period"),
+           "segments": list(r.get("segment_keys") or []), "by_period": r.get("by_period") if history else None,
            "calculated_at": r.get("calculated_at"), "recalc_status": r.get("recalc_status"), "scoring_version": r.get("scoring_version"),
            "mentor_name": r.get("mentor_name"), "support_flag": r.get("support_flag")}
     bp = (r.get("by_period") or {}).get(period) if period and period != r["period"] else None
@@ -30,7 +30,9 @@ def _canon(r: dict, period: str | None) -> dict:
 
 
 def visible_rows(p: Principal, ds: str, department: str | None = None, year: int | None = None,
-                 period: str | None = None) -> list[dict]:
+                 period: str | None = None, history: bool = False) -> list[dict]:
+    """Field-filtered list rows. history=True adds each student's per-period map (only the Insights page needs it;
+    leaving it out keeps listings small and fast)."""
     vis = visibility(p, "student_insight")
     depts = list(curriculum()["departments"])
     wanted_depts = set()
@@ -53,7 +55,10 @@ def visible_rows(p: Principal, ds: str, department: str | None = None, year: int
             f = decide(p, "student_insight", "read", t)
             if f is None:
                 continue
-            out.append(filter_fields(_canon(r, period), f))
+            row = filter_fields(_canon(r, period, history), f)
+            if not history:
+                row.pop("by_period", None)
+            out.append(row)
     return out
 
 
@@ -259,7 +264,7 @@ def analytics(p: Principal, ds: str, department: str | None, year: int | None) -
     (e.g. a Placement Officer gets no overall scores). Periods compare only scored values; missing data is
     excluded, never counted as zero.
     """
-    rows = visible_rows(p, ds, department, year)
+    rows = visible_rows(p, ds, department, year, history=True)
     per = insights.periods()
     cur = per[-1] if per else None
     comps = list(COMPONENT_LABELS)

@@ -17,6 +17,7 @@ import logging
 
 from fastapi import Depends, FastAPI, Query, Request
 from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse, PlainTextResponse
 
 from . import accounts, audit, db, imports, insights, interventions, recordsvc, seed, views
@@ -30,6 +31,7 @@ logging.basicConfig(level=logging.WARNING)
 
 app = FastAPI(title="Smart Campus Student Success API", version="1.0.0", docs_url="/api/docs", openapi_url="/api/openapi.json",
               redoc_url=None)
+app.add_middleware(GZipMiddleware, minimum_size=1024)  # listings shrink several-fold on the wire
 
 
 def err(status: int, code: str, message: str, details=None):

@@ -9,6 +9,7 @@ deep links work. Only files inside WEB_ROOT can be served.
 from __future__ import annotations
 
 import base64
+import gzip
 import json
 import mimetypes
 import os
@@ -30,9 +31,14 @@ SECURITY = {
 TEXT = ("text/", "application/javascript", "application/json", "image/svg+xml")
 
 
-def _resp(status: int, body: bytes, ctype: str, cache: str) -> dict:
+def _resp(status: int, body: bytes, ctype: str, cache: str, gzip_ok: bool = False) -> dict:
     is_text = ctype.startswith(TEXT)
-    return {"statusCode": status, "headers": {**SECURITY, "Content-Type": ctype, "Cache-Control": cache},
+    headers = {**SECURITY, "Content-Type": ctype, "Cache-Control": cache}
+    if is_text and gzip_ok and len(body) > 1024:  # page code and styles shrink several-fold
+        headers.update({"Content-Encoding": "gzip", "Vary": "Accept-Encoding"})
+        return {"statusCode": status, "headers": headers, "body": base64.b64encode(gzip.compress(body, 6)).decode(),
+                "isBase64Encoded": True}
+    return {"statusCode": status, "headers": headers,
             "body": body.decode() if is_text else base64.b64encode(body).decode(), "isBase64Encoded": not is_text}
 
 
@@ -57,7 +63,8 @@ def handler(event, context):
     hashed = f.name != "index.html" and any(c == "-" for c in f.stem) and f.suffix in (".js", ".css", ".woff2")
     # the app page is never stored (by browsers, Netlify or CloudFront), so it always names the current files
     cache = "public, max-age=31536000, immutable" if hashed else "no-store" if f.name == "index.html" else "no-cache"
-    return _resp(200, f.read_bytes(), ctype, cache)
+    accept = {k.lower(): v for k, v in (event.get("headers") or {}).items()}.get("accept-encoding", "")
+    return _resp(200, f.read_bytes(), ctype, cache, gzip_ok="gzip" in accept)
 
 
 if __name__ == "__main__":  # quick manual check
