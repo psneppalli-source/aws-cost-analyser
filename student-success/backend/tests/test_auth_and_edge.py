@@ -175,7 +175,7 @@ def test_web_lambda_serves_spa_with_headers(tmp_path, monkeypatch):
     def get(path):
         return web.handler({"rawPath": path, "requestContext": {"http": {"method": "GET"}}, "headers": {}}, None)
     r = get("/")
-    assert r["statusCode"] == 200 and "app" in r["body"] and r["headers"]["Cache-Control"] == "no-cache"
+    assert r["statusCode"] == 200 and "app" in r["body"] and r["headers"]["Cache-Control"] == "no-store"
     assert get("/main-ABC123.js")["headers"]["Cache-Control"].startswith("public, max-age=31536000")
     assert get("/students/real/CSE24001")["body"] == "<html>app</html>"  # SPA deep link
     assert json.loads(get("/config.json")["body"])["clientId"] == "x"

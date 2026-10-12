@@ -46,6 +46,8 @@ def handler(event, context):
     rel = path.lstrip("/") or "index.html"
     f = (ROOT / rel).resolve()
     if ROOT not in f.parents or not f.is_file():
+        if f.suffix:  # a missing file (e.g. a chunk from an older build) is a real 404, never the app page
+            return _resp(404, b"Not found", "text/plain", "no-store")
         f = ROOT / "index.html"
     if not f.is_file():
         return _resp(404, b"Not found", "text/plain", "no-store")
@@ -53,7 +55,8 @@ def handler(event, context):
     if ctype == "text/html":
         ctype = "text/html; charset=utf-8"
     hashed = f.name != "index.html" and any(c == "-" for c in f.stem) and f.suffix in (".js", ".css", ".woff2")
-    cache = "public, max-age=31536000, immutable" if hashed else "no-cache"
+    # the app page is never stored (by browsers, Netlify or CloudFront), so it always names the current files
+    cache = "public, max-age=31536000, immutable" if hashed else "no-store" if f.name == "index.html" else "no-cache"
     return _resp(200, f.read_bytes(), ctype, cache)
 
 

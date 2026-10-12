@@ -1,6 +1,6 @@
-# Netlify front door: gives the site a readable address (e.g. https://smart-campus.netlify.app) on Netlify's free
+# Netlify front door: gives the site a readable address (e.g. https://smart-campus-s.netlify.app) on Netlify's free
 # plan. Netlify builds nothing and stores no data; it forwards every request, unchanged, to the AWS site.
-# Register the address with Cognito once: python infra/deploy.py ... --alias-url https://smart-campus.netlify.app
+# Register the address with Cognito once: python infra/deploy.py ... --alias-url https://smart-campus-s.netlify.app
 # If the AWS address changes (e.g. after switching to CloudFront), update "to" below.
 
 [build]
