@@ -20,8 +20,8 @@ python3 -m venv .venv && .venv/bin/pip install -r backend/requirements-dev.txt
 cd backend && ../.venv/bin/python -m app.seed && ../.venv/bin/python local_server.py   # http://127.0.0.1:8000
 ```
 
-Choose a persona on the login page (local demonstration sign-in; refused in AWS). The 150-student demo dataset
-is shown by default; the topbar switch selects real records.
+Choose a persona on the login page (local demonstration sign-in; refused in AWS). All 150 students are shown
+immediately; there is a single dataset.
 
 ## Deliverables
 
@@ -30,7 +30,7 @@ is shown by default; the topbar switch selects real records.
 | Frontend | `frontend/` — 16 screens: login, overview, insights & charts, students, profile with trends, academic risk, placement, segments, data entry, imports, interventions, approvals & verification, role matrix, configuration (scoring, recalculation, demo reset, platform settings), audit, users & assignments |
 | Backend | `backend/app/`, Lambda handlers `backend/lambda_api.py`, `backend/web_handler.py` |
 | Infrastructure | `infra/template.yaml`; `infra/preflight.py`, `deploy.py`, `setup_accounts.py`, `smoke_test.py`, `rollback.py`, `teardown.py` |
-| Seed generator | `backend/app/seed.py` (`python -m app.seed`; deterministic, idempotent, labelled synthetic) |
+| Seed generator | `backend/app/seed.py` (`python -m app.seed`; deterministic and idempotent: never overwrites staff changes) |
 | Role matrix | `config/role-matrix.json` (canonical) → [docs/role-matrix.md](docs/role-matrix.md) (generated) |
 | CSV templates | [docs/csv-templates/](docs/csv-templates/) (also downloadable in the app) |
 | Tests | `backend/tests/` (pytest, incl. moto DynamoDB/Cognito), `frontend/src/**/*.spec.ts`, `e2e/journey.mjs` |

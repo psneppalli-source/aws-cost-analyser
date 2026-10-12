@@ -1,10 +1,10 @@
-"""Deterministic demo dataset: 150 fictional students (dataset 'demo').
+"""Deterministic starting dataset: 150 students across CSE, ECE and MECH.
 
     python -m app.seed                  # idempotent; skips anything staff have changed
     python -m app.seed --accounts       # also create the 9 demo accounts (local-demo mode)
 
 * Fixed random seed and versioned generator (SEED_VERSION / DATASET_VERSION).
-* Every item is labelled synthetic (dataset 'demo', source 'seed').
+* Seeded items carry source 'seed' and seed/dataset versions, so reruns never overwrite staff changes.
 * Re-running writes only missing items or items still owned by an older seed
   version; anything a person has edited (source != 'seed') is never overwritten.
 * Only nine sign-in accounts are created; students don't get accounts just
@@ -25,8 +25,8 @@ from .store import C, ConditionFailed
 
 SEED = 20260401
 SEED_VERSION = 4
-DATASET_VERSION = "demo-2026.09"
-DS = "demo"
+DATASET_VERSION = "2026.09"
+DS = "real"
 DEPTS = ["CSE", "ECE", "MECH"]
 FIRST = ["Aarav", "Ananya", "Vihaan", "Diya", "Arjun", "Saanvi", "Ishaan", "Kavya", "Rohan", "Meera", "Karthik", "Isha",
          "Siddharth", "Riya", "Pranav", "Lakshmi", "Varun", "Sneha", "Nikhil", "Tanvi", "Farhan", "Zoya", "Joseph", "Fatima",
@@ -390,78 +390,6 @@ def _fill_baseline(iv: dict) -> None:
     t.put(item)
 
 
-DERIVED = ("INSIGHT", "INSIGHTD", "STALE")
-
-
-def reset_demo(principal, confirmation: str, cursor: int = 0, budget_seconds: float = 10.0) -> dict:
-    """Restore the demo dataset to its generated state. Bounded and resumable.
-
-    Only items people created or changed are deleted or restored; untouched seed items are not rewritten,
-    so a reset costs writes in proportion to what changed. Call again with the returned cursor until done.
-    Real records are never read or written.
-    """
-    from . import audit
-    from .policy import require
-    require(principal, "dataset", "reset_demo")
-    if confirmation != "RESET DEMO":
-        from .categories import ValidationError
-        raise ValidationError({"confirmation": "type RESET DEMO to confirm"})
-    t = db.table()
-    data = generate()
-    ts = db.now()
-    subs = _persona_subs(local=False) or _persona_subs(local=True)
-    plan, mentor_for = _plan(data, subs, ts)
-    present = sorted({i["student_id"] for d in curriculum()["departments"] for i in t.query(f"DEPT#{DS}#{d}", index="gsi1")[0]}
-                     | {s["student_id"] for s in data["students"]})
-    removed = restored = 0
-    stats = {"written": 0, "skipped": 0}
-    ivs = {iv["student_id"]: [] for iv in data["interventions"]}
-    for iv in data["interventions"]:
-        ivs[iv["student_id"]].append(iv)
-    i = cursor
-    start = time.time()
-    while i < len(present) and (i == cursor or time.time() - start < budget_seconds):  # always progress
-        sid = present[i]
-        pk = f"STU#{DS}#{sid}"
-        want = plan.get(pk, {})
-        items, _ = t.query(pk)
-        have = {it["sk"]: it for it in items}
-        changed = False
-        for sk, it in have.items():
-            seed_owned = it.get("source") == "seed" and it.get("updated_by") == "seed"
-            derived = sk in DERIVED or sk.startswith("SCORE#")
-            if sk in want and seed_owned:
-                continue
-            if derived and want:
-                continue  # recalculated below
-            t.delete(pk, sk)
-            removed += 1
-            changed = True
-        for sk, it in want.items():
-            if sk not in have or not (have[sk].get("source") == "seed" and have[sk].get("updated_by") == "seed"):
-                t.put({**it, "source": "seed", "seed_version": SEED_VERSION, "dataset_version": DATASET_VERSION, "synthetic": True})
-                restored += 1
-                changed = True
-        if changed and want:
-            insights.recompute_safely(DS, sid)
-            for iv in ivs.get(sid, []):
-                _fill_baseline(iv)
-        i += 1
-    done = i >= len(present)
-    if done:
-        users, _ = t.query("USERS", index="gsi2", limit=500)
-        for u in users:
-            for mm in t.query(f"USER#{u['sub']}", f"MENTEE#{DS}#")[0]:
-                if mentor_for.get(mm["student_id"], (None,))[0] != u["sub"]:
-                    t.delete(mm["pk"], mm["sk"])
-                    removed += 1
-        _assignments(subs, mentor_for, ts)
-        insights.invalidate_listing()
-        audit.log(principal, "dataset.reset", "dataset", DS, {"removed": removed, "restored": restored}, dataset=DS)
-    return {"done": done, "cursor": None if done else i, "students": len(present), "checked": i - cursor,
-            "removed": removed, "restored": restored}
-
-
 def relabel() -> int:
     """One-off: replace older seeded display texts in place (no score changes). Returns items updated."""
     t, n = db.table(), 0
@@ -510,7 +438,7 @@ def relabel() -> int:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--no-accounts", action="store_true", help="don't create the demo sign-in accounts")
+    ap.add_argument("--no-accounts", action="store_true", help="don't create the local sign-in accounts")
     ap.add_argument("--relabel", action="store_true", help="update older seeded display texts in place, then exit")
     a = ap.parse_args()
     if a.relabel:
@@ -520,7 +448,7 @@ def main() -> None:
     if settings().auth_mode == "cognito" and not a.no_accounts:
         raise SystemExit("In Cognito mode create accounts with infra/setup_accounts.py, then run with --no-accounts.")
     s = run(with_accounts=not a.no_accounts)
-    print(f"Demo dataset {DATASET_VERSION} (seed {SEED}, generator v{SEED_VERSION}): {s['students']} students, "
+    print(f"Dataset {DATASET_VERSION} (seed {SEED}, generator v{SEED_VERSION}): {s['students']} students, "
           f"{s['records']} records, {s['interventions']} interventions; {s['written']} written, {s['skipped']} kept unchanged, "
           f"{s['accounts']} accounts set up.")
 

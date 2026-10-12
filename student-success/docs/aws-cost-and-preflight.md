@@ -80,7 +80,7 @@ certificates, SMS, X-Ray, alarms, backups.
 | Page view | 1 web request + 3–8 API requests |
 | 30 staff × 40 page views × 22 days | ≈ 26,000 web + ≈ 160,000 API requests/month (well under 1M) |
 | API compute | ≈ 160,000 × ~0.3 s × 0.5 GB ≈ 24,000 GB-s (6 % of 400,000) |
-| Data size | Demo dataset ≈ 10,000 items, well under 1 GB |
+| Data size | 150 students ≈ 10,000 items, well under 1 GB |
 | Initial demo seed | ≈ 10,000 writes; at 8 WCU it takes roughly 20–30 minutes (adaptive retries absorb throttling) |
 | Dashboards | Read per-department listings (no scans), cached for 20 s per Lambda instance |
 

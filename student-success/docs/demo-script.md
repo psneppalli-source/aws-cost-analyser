@@ -1,6 +1,6 @@
 # Five-minute demonstration script
 
-Setup beforehand: demo dataset loaded (shown by default). Locally pick personas on the login page; on AWS sign in
+Setup beforehand: the 150-student dataset is loaded. Locally pick personas on the login page; on AWS sign in
 with the persona accounts from `infra/setup_accounts.py --demo-personas`.
 
 | Time | Persona | Show | Say |
@@ -18,5 +18,4 @@ with the persona accounts from `infra/setup_accounts.py --demo-personas`.
 | 4:45 | System Administrator (`sysadmin.dev`) | **Role matrix**, **Users and roles** | “The canonical role matrix drives every API check. The system administrator manages accounts but can't see student data or change their own roles.” |
 | 5:00 | | — | “Runs on CloudFront, two Lambda functions, DynamoDB and Cognito, sized to stay inside AWS free allowances — with a preflight that stops the deployment if it can't.” |
 
-Fallbacks: if a step fails, use **Refresh**; every screen has loading, empty and error states. To restore
-the demo afterwards: *Configuration → Reset demo dataset* (type `RESET DEMO`).
+Fallbacks: if a step fails, use **Refresh**; every screen has loading, empty and error states.

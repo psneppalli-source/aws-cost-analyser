@@ -26,13 +26,6 @@ interface NavItem { path: string; label: string; show: boolean; }
       </nav>
       <div class="main">
         <header class="topbar">
-          @if (datasets().length > 1) {
-            <label class="row small" style="gap:6px">Dataset
-              <select [value]="session.dataset()" (change)="setDataset($any($event.target).value)" aria-label="Dataset">
-                <option value="demo">Demo data</option>
-                <option value="real">Real records</option>
-              </select></label>
-          }
           <span class="spacer"></span>
           <span class="small"><strong>{{ me()?.user?.display_name }}</strong>
             <span class="muted"> · {{ me()?.user?.role_labels?.join(', ') }}</span></span>
@@ -90,8 +83,5 @@ export class Shell {
   }
   private canEnter() {
     return (this.me()?.permissions || []).some((p) => p.startsWith('record.') && /:(create|update|submit)$/.test(p));
-  }
-  setDataset(d: 'real' | 'demo') {
-    this.session.setDataset(d); // pages re-query when the dataset changes; datasets are never mixed in one view
   }
 }

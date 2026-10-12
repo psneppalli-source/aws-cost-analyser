@@ -53,7 +53,6 @@ interface Edit { roles: Record<string, boolean>; department: string; dataset: st
                   <label class="row small" style="gap:4px"><input type="checkbox" style="width:auto" [name]="'r' + r" [(ngModel)]="edit.roles[r]">{{ roleLabel(r) }}</label> }</div>
                 @if (edit.roles['hod']) { <label class="field">HOD department<select name="hd" [(ngModel)]="edit.department">@for (d of departments(); track d) { <option [value]="d">{{ d }}</option> }</select></label> }
                 @if (edit.roles['student']) { <div class="row" style="gap:8px">
-                  <label class="field">Dataset<select name="sd" [(ngModel)]="edit.dataset"><option value="real">Real</option><option value="demo">Demo</option></select></label>
                   <label class="field">Student ID<input name="si" [(ngModel)]="edit.student_id" placeholder="CSE24001"></label></div> }
                 <div class="row" style="gap:6px"><button class="btn primary small" type="submit" [disabled]="busy()">Save roles</button>
                   <button class="btn small" type="button" (click)="editing.set(null)">Cancel</button></div>
@@ -147,7 +146,7 @@ export class UsersPage {
 
   startEdit(u: User) {
     this.edit = { roles: Object.fromEntries(u.roles.map((r) => [r, true])), department: u.departments[0] || this.departments()[0],
-      dataset: u.student?.dataset || 'real', student_id: u.student?.student_id || '' };
+      dataset: 'real', student_id: u.student?.student_id || '' };
     this.editing.set(u.sub);
   }
 

@@ -40,7 +40,7 @@ def test_alg_none_and_expired(client):
 
 def test_browser_supplied_roles_are_ignored(client, tokens):
     # Extra headers or body fields claiming a role have no effect; roles come from server-side assignments.
-    r = client.get("/api/students?dataset=demo", headers={"X-App-Authorization": f"Bearer {tokens['student.cse']}",
+    r = client.get("/api/students?dataset=real", headers={"X-App-Authorization": f"Bearer {tokens['student.cse']}",
                                                          "X-Role": "college_admin", "X-Department": "CSE"})
     assert r.json()["total"] == 1
 
@@ -132,13 +132,13 @@ def test_cognito_mode_ignores_authorization_header(client, tokens, monkeypatch):
 def test_write_requires_matching_payload_hash(client, tokens, monkeypatch):
     body = json.dumps({"data": {"assignments_due": 3, "assignments_submitted": 3, "logins": 9}}).encode()
     base = {"X-App-Authorization": f"Bearer {tokens['mentor.arjun']}", "Authorization": SIGV4, "Content-Type": "application/json"}
-    bad = client.put("/api/students/demo/CSE24002/records/lms/2026-02", content=body,
+    bad = client.put("/api/students/real/CSE24002/records/lms/2026-02", content=body,
                      headers={**base, "x-amz-content-sha256": hashlib.sha256(b"tampered").hexdigest()})
     assert bad.status_code == 400 and bad.json()["error"]["code"] == "payload_hash_mismatch"
     monkeypatch.setattr(settings(), "require_payload_hash", True)
-    missing = client.put("/api/students/demo/CSE24002/records/lms/2026-02", content=body, headers=base)
+    missing = client.put("/api/students/real/CSE24002/records/lms/2026-02", content=body, headers=base)
     assert missing.status_code == 400 and missing.json()["error"]["code"] == "payload_hash_required"
-    ok = client.put("/api/students/demo/CSE24002/records/lms/2026-02", content=body,
+    ok = client.put("/api/students/real/CSE24002/records/lms/2026-02", content=body,
                     headers={**base, "x-amz-content-sha256": hashlib.sha256(body).hexdigest()})
     assert ok.status_code == 201, ok.text
 
@@ -147,11 +147,11 @@ def test_lambda_function_url_event_through_mangum(tokens):
     """The API Lambda handles the Function URL (payload 2.0) event CloudFront forwards, including a signed write."""
     import lambda_api
     body = json.dumps({"data": {"assignments_due": 2, "assignments_submitted": 1, "logins": 4}})
-    ev = {"version": "2.0", "routeKey": "$default", "rawPath": "/api/students/demo/CSE24003/records/lms/2026-01",
+    ev = {"version": "2.0", "routeKey": "$default", "rawPath": "/api/students/real/CSE24003/records/lms/2026-01",
           "rawQueryString": "", "headers": {"x-app-authorization": f"Bearer {tokens['mentor.arjun']}", "authorization": SIGV4,
                                             "content-type": "application/json", "host": "abc.lambda-url.eu-west-2.on.aws",
                                             "x-amz-content-sha256": hashlib.sha256(body.encode()).hexdigest()},
-          "requestContext": {"http": {"method": "PUT", "path": "/api/students/demo/CSE24003/records/lms/2026-01",
+          "requestContext": {"http": {"method": "PUT", "path": "/api/students/real/CSE24003/records/lms/2026-01",
                                       "sourceIp": "1.2.3.4", "protocol": "HTTP/1.1", "userAgent": "Amazon CloudFront"},
                              "domainName": "abc.lambda-url.eu-west-2.on.aws", "stage": "$default", "requestId": "r1",
                              "accountId": "anonymous", "apiId": "abc", "timeEpoch": 0, "time": "12/Oct/2026:10:00:00 +0000"},
@@ -177,7 +177,7 @@ def test_web_lambda_serves_spa_with_headers(tmp_path, monkeypatch):
     r = get("/")
     assert r["statusCode"] == 200 and "app" in r["body"] and r["headers"]["Cache-Control"] == "no-cache"
     assert get("/main-ABC123.js")["headers"]["Cache-Control"].startswith("public, max-age=31536000")
-    assert get("/students/demo/CSE24001")["body"] == "<html>app</html>"  # SPA deep link
+    assert get("/students/real/CSE24001")["body"] == "<html>app</html>"  # SPA deep link
     assert json.loads(get("/config.json")["body"])["clientId"] == "x"
     assert get("/../../etc/passwd")["statusCode"] in (200, 404) and "root:" not in get("/../../etc/passwd")["body"]
     assert "Content-Security-Policy" in r["headers"]
@@ -199,7 +199,7 @@ def test_direct_edge_mode_serves_web_and_api_from_one_function(tmp_path, monkeyp
                     "requestContext": {"http": {"method": "GET", "path": path, "sourceIp": "1.2.3.4", "protocol": "HTTP/1.1",
                                                 "userAgent": "t"}, "domainName": "x", "requestId": "r", "stage": "$default"},
                     "isBase64Encoded": False}
-        page = lam.handler(ev("/students/demo/CSE24001"), None)
+        page = lam.handler(ev("/students/real/CSE24001"), None)
         assert page["statusCode"] == 200 and "<app-root>" in page["body"] and "Content-Security-Policy" in page["headers"]
         api = lam.handler(ev("/api/me"), None)
         assert api["statusCode"] == 401

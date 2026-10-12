@@ -4,7 +4,7 @@ import { prepare, sha256Hex } from './auth.interceptor';
 
 describe('prepare (CloudFront OAC payload hash + app token)', () => {
   it('hashes the exact JSON bytes sent and keeps Authorization free for SigV4', async () => {
-    const req = new HttpRequest('PUT', '/api/students/demo/CSE24001/records/lms/2026-09', { data: { logins: 4 }, version: 2 });
+    const req = new HttpRequest('PUT', '/api/students/real/CSE24001/records/lms/2026-09', { data: { logins: 4 }, version: 2 });
     const out = await prepare(req, 'tok');
     const body = out.body as string;
     expect(body).toBe('{"data":{"logins":4},"version":2}');

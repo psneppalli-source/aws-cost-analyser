@@ -103,7 +103,7 @@ const RECORD_COLS: Record<string, string[]> = {
           <section class="card"><h2>Risks</h2>
             <p>Academic <app-risk [level]="ins()?.risks?.academic?.level" /></p>
             <p>Placement <app-risk [level]="ins()?.risks?.placement?.level" /></p>
-            <p class="small muted">Academic and placement risk are assessed separately. Thresholds are demonstration assumptions.</p>
+            <p class="small muted">Academic and placement risk are assessed separately. Thresholds are assumptions to validate with the college.</p>
             <button class="btn small" type="button" (click)="tab.set('risks')">See evidence</button>
           </section>
           <section class="card"><h2>About</h2>

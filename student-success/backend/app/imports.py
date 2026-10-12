@@ -67,7 +67,7 @@ def preview(p: Principal, category: str, dataset: str, filename: str, raw: bytes
     if category != MASTER and category not in CATEGORIES:
         raise ValidationError({"category": "unknown category"})
     if dataset not in recordsvc.DATASETS:
-        raise ValidationError({"dataset": "must be real or demo"})
+        raise ValidationError({"dataset": "must be real"})
     if not grants(p, "import", "create"):
         raise Denied("Your role can't import data.")
     table = read_rows(filename, raw)

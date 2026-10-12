@@ -2,7 +2,7 @@
 //   seed -> sign in -> dashboard -> enter data -> verify the score -> assign an intervention -> record its outcome,
 // then confirm a student can see only their own record.
 //
-// Local (default): starts backend/local_server.py on a fresh SQLite database and seeds the demo dataset.
+// Local (default): starts backend/local_server.py on a fresh SQLite database and seeds the 150-student dataset.
 //   node e2e/journey.mjs
 // Against a deployment, sign in is via Cognito, so pass a pre-obtained ID token for a mentor test account:
 //   E2E_BASE_URL=https://dxxxx.cloudfront.net E2E_ID_TOKEN=... node e2e/journey.mjs
@@ -69,15 +69,14 @@ async function main() {
     const writes = [];
     page.on('response', (r) => { if (['PUT', 'POST', 'PATCH'].includes(r.request().method()) && r.url().includes('/api/')) writes.push(`${r.status()} ${r.request().method()} ${new URL(r.url()).pathname}`); });
 
-    // 1. sign in and open the dashboard on the demo dataset
+    // 1. sign in and open the dashboard
     await signIn(page, 'mentor.arjun');
     await page.goto(`${base}/overview`);
-    await page.getByLabel('Dataset').selectOption('demo');
     await page.getByText('Average Success Score').waitFor();
-    step('mentor signed in; dashboard loaded on the demo dataset');
+    step('mentor signed in; dashboard loaded');
 
     // 2. score before
-    await page.goto(`${base}/students/demo/${SID}`);
+    await page.goto(`${base}/students/real/${SID}`);
     await page.getByRole('tab', { name: 'Score & trends' }).click();
     await page.getByText('How the score is calculated').waitFor();
     const lmsRow = page.locator('tr', { hasText: 'assignment_completion_pct' });
@@ -99,7 +98,7 @@ async function main() {
     step('LMS record saved through the form');
 
     // 4. the score reflects it
-    await page.goto(`${base}/students/demo/${SID}`);
+    await page.goto(`${base}/students/real/${SID}`);
     await page.getByRole('tab', { name: 'Score & trends' }).click();
     await page.getByText('How the score is calculated').waitFor();
     const lmsAfter = (await page.locator('tr', { hasText: 'assignment_completion_pct' }).locator('td').nth(2).textContent())?.trim();
@@ -149,7 +148,7 @@ async function main() {
       await signIn(s, 'student.cse');
       await s.getByText('Success Score').first().waitFor();
       check(!(await s.getByText('Discussed workload privately').count()), 'students never see notes');
-      await s.goto(`${base}/students/demo/${SID}`);
+      await s.goto(`${base}/students/real/${SID}`);
       await s.getByText(/don't have access/).waitFor();
       step('student sees own progress only; other students are refused');
     }

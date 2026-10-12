@@ -9,7 +9,7 @@ cd student-success
 python3 -m venv .venv && .venv/bin/pip install -r backend/requirements-dev.txt
 (cd frontend && npm ci && npm run build)
 cd backend
-../.venv/bin/python -m app.seed          # demo dataset: 150 fictional students, 9 demo personas (idempotent)
+../.venv/bin/python -m app.seed          # 150 students and 9 sign-in personas (idempotent)
 ../.venv/bin/python local_server.py      # http://127.0.0.1:8000
 ```
 
@@ -25,10 +25,8 @@ cd frontend && npx ng test --watch=false
 node e2e/journey.mjs                                   # needs Playwright; PW=/path/to/playwright if global
 ```
 
-The demo seed is deterministic (seed `20260401`), labelled synthetic (`dataset = demo`,
-`synthetic = true`, `seed_version`, `dataset_version`) and idempotent: rerunning never overwrites anything a
-person changed. *Configuration → Reset demo dataset* (College Admin, typed confirmation) restores it; real
-records are never touched.
+The seed is deterministic (seed `20260401`) and idempotent: rerunning never overwrites anything a person changed.
+There is no reset: once staff edit records, those edits are kept.
 
 ## 2. Before deploying
 
@@ -56,7 +54,7 @@ Then:
 # First administrators (temporary passwords are printed once):
 python infra/setup_accounts.py --admin it.admin --name "IT Administrator" --email it@college.example
 python infra/setup_accounts.py --college-admin office --name "College Office" --email office@college.example
-# Optional demonstration: 9 persona accounts + the synthetic dataset (20–30 min at 8 WCU)
+# Optional: 9 persona accounts + the 150-student dataset (20–30 min at 8 WCU)
 python infra/setup_accounts.py --demo-personas
 # Smoke test through CloudFront, including real writes (token: sign in as mentor.arjun, copy idToken from
 # sessionStorage 'ssp.session' in the browser dev tools)

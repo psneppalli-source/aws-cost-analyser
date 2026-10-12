@@ -17,8 +17,8 @@ export interface Me {
 export class Session {
   private api = inject(Api);
   readonly me = signal<Me | null>(null);
-  /** The dataset being viewed: the user's choice, else demo data when the user may see it (never mixed with real). */
-  readonly dataset = signal<'real' | 'demo'>((sessionStorage.getItem('ssp.dataset') as 'real' | 'demo') || 'real');
+  /** All records live in one dataset; the key stays in API paths so another dataset could be added later. */
+  readonly dataset = signal<'real'>('real');
   readonly roles = computed(() => new Set(this.me()?.user.roles || []));
   readonly isStudent = computed(() => this.roles().has('student') && this.roles().size === 1);
   readonly isSysAdmin = computed(() => this.roles().has('system_admin'));
@@ -26,18 +26,11 @@ export class Session {
   async load(): Promise<Me> {
     const me = await this.api.get<Me>('/me');
     this.me.set(me);
-    if (me.user.student) this.setDataset(me.user.student.dataset as 'real' | 'demo');
-    else if (!sessionStorage.getItem('ssp.dataset') && me.datasets.includes('demo')) this.dataset.set('demo');
     return me;
   }
 
   can(resource: string, action: string): boolean {
     return (this.me()?.permissions || []).includes(`${resource}:${action}`);
-  }
-
-  setDataset(d: 'real' | 'demo'): void {
-    this.dataset.set(d);
-    try { sessionStorage.setItem('ssp.dataset', d); } catch { /* ignore */ }
   }
 
   clear(): void {

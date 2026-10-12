@@ -101,7 +101,7 @@ def principal(request: Request) -> Principal:
 
 def ds_param(dataset: str = "real") -> str:
     if dataset not in recordsvc.DATASETS:
-        raise ValidationError({"dataset": "must be real or demo"})
+        raise ValidationError({"dataset": "must be real"})
     return dataset
 
 
@@ -429,16 +429,10 @@ async def recompute(request: Request, p: Principal = Depends(principal)):
     b = await request.json()
     ds = b.get("dataset", "real")
     if ds not in recordsvc.DATASETS:
-        raise ValidationError({"dataset": "must be real or demo"})
+        raise ValidationError({"dataset": "must be real"})
     out = insights.repair(ds, budget_seconds=12.0, everyone=bool(b.get("all")))
     audit.log(p, "insight.recomputed", "dataset", ds, out, dataset=ds)
     return out
-
-
-@app.post("/api/admin/demo/reset")
-async def reset_demo(request: Request, p: Principal = Depends(principal)):
-    b = await request.json()
-    return seed.reset_demo(p, b.get("confirmation", ""), int(b.get("cursor") or 0))
 
 
 @app.get("/api/audit")

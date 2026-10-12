@@ -315,12 +315,6 @@
           "fields": "record_all"
         },
         {
-          "resource": "dataset",
-          "action": "reset_demo",
-          "scope": "college",
-          "fields": "record_all"
-        },
-        {
           "resource": "audit.academic",
           "action": "read",
           "scope": "college",

@@ -140,7 +140,7 @@ def test_improving_after_intervention_is_association_only():
 def test_score_sort_is_numeric_and_paginates(call):
     seen, cursor = [], None
     while True:
-        r = call("admin.priya", "GET", "/api/students?dataset=demo&sort=score&limit=40" + (f"&cursor={cursor}" if cursor else "")).json()
+        r = call("admin.priya", "GET", "/api/students?dataset=real&sort=score&limit=40" + (f"&cursor={cursor}" if cursor else "")).json()
         seen += r["items"]
         cursor = r["next_cursor"]
         if not cursor:
@@ -152,15 +152,15 @@ def test_score_sort_is_numeric_and_paginates(call):
 
 
 def test_insufficient_data_student_profile_and_listing(call):
-    rows = call("admin.priya", "GET", "/api/students?dataset=demo&status=insufficient_data&limit=5").json()["items"]
+    rows = call("admin.priya", "GET", "/api/students?dataset=real&status=insufficient_data&limit=5").json()["items"]
     assert rows and all(r["score"] is None for r in rows)
     sid = rows[0]["student_id"]
-    r = call("admin.priya", "GET", f"/api/students/demo/{sid}")
+    r = call("admin.priya", "GET", f"/api/students/real/{sid}")
     assert r.status_code == 200, r.text
     ins = r.json()["insight"]
     assert ins["score"] is None and ins["status"] == "insufficient_data" and ins["band"] is None
     for period in ("2026-04", "2026-09"):
-        assert call("admin.priya", "GET", f"/api/students?dataset=demo&period={period}&limit=200").status_code == 200
+        assert call("admin.priya", "GET", f"/api/students?dataset=real&period={period}&limit=200").status_code == 200
 
 
 def test_prediction_model_is_disabled_by_default(client):
@@ -173,18 +173,18 @@ def test_prediction_model_is_disabled_by_default(client):
 def test_failed_first_calculation_is_marked_and_repairable(call, monkeypatch):
     from app import db, insights
     t = db.table()
-    t.put({"pk": "STU#demo#MECH26900", "sk": "MASTER", "student_id": "MECH26900", "name": "Repair Case", "department": "MECH",
-           "year": 1, "dataset": "demo", "programme": "B.Tech", "status": "active", "version": 1})
+    t.put({"pk": "STU#real#MECH26900", "sk": "MASTER", "student_id": "MECH26900", "name": "Repair Case", "department": "MECH",
+           "year": 1, "dataset": "real", "programme": "B.Tech", "status": "active", "version": 1})
     for sk in ("INSIGHT", "STALE"):
-        t.delete("STU#demo#MECH26900", sk)
+        t.delete("STU#real#MECH26900", sk)
     real = insights.recompute
     monkeypatch.setattr(insights, "recompute", lambda ds, sid: (_ for _ in ()).throw(RuntimeError("throttled")))
-    assert insights.recompute_safely("demo", "MECH26900") == "stale"
-    assert t.get("STU#demo#MECH26900", "STALE") is not None  # visible to repair even with no insight yet
+    assert insights.recompute_safely("real", "MECH26900") == "stale"
+    assert t.get("STU#real#MECH26900", "STALE") is not None  # visible to repair even with no insight yet
     monkeypatch.setattr(insights, "recompute", real)
-    insights.repair("demo", budget_seconds=5)
-    assert t.get("STU#demo#MECH26900", "INSIGHT") is not None and t.get("STU#demo#MECH26900", "STALE") is None
-    t.delete("STU#demo#MECH26900", "INSIGHT"); t.delete("STU#demo#MECH26900", "INSIGHTD"); t.delete("STU#demo#MECH26900", "MASTER")
-    for i in t.query("STU#demo#MECH26900")[0]:
+    insights.repair("real", budget_seconds=5)
+    assert t.get("STU#real#MECH26900", "INSIGHT") is not None and t.get("STU#real#MECH26900", "STALE") is None
+    t.delete("STU#real#MECH26900", "INSIGHT"); t.delete("STU#real#MECH26900", "INSIGHTD"); t.delete("STU#real#MECH26900", "MASTER")
+    for i in t.query("STU#real#MECH26900")[0]:
         t.delete(i["pk"], i["sk"])
     insights.invalidate_listing()

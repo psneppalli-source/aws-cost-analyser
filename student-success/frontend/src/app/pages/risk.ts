@@ -13,7 +13,7 @@ import { Row } from './students';
   template: `
     <div class="page-head"><h1>Academic risk</h1><span class="spacer"></span>
       <button class="btn small" type="button" (click)="load()" [disabled]="loading()">Refresh</button>
-      <p class="sub">Rules on CGPA, backlogs, marks, attendance and assignment completion. Thresholds are demonstration assumptions,
+      <p class="sub">Rules on CGPA, backlogs, marks, attendance and assignment completion. Thresholds are assumptions to validate with the college,
         shown with every flag on the student profile. Placement readiness is assessed separately.</p></div>
     <app-filters [value]="filters()" (changed)="filters.set($event)" [departments]="departments()" [periods]="periods()" [showRisk]="false" />
     <div class="row" role="group" aria-label="Risk level" style="margin:-4px 0 14px;gap:6px">

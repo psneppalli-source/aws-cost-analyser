@@ -11,7 +11,7 @@ Base path `/api`, JSON. Interactive schema at `/api/docs` (OpenAPI at `/api/open
 | Concurrency | Updates send the `version` they started from. A changed item → `409 conflict` with `details.current`. |
 | Errors | `{"error": {"code", "message", "details"}}` — 400 bad_request, 401 unauthenticated, 403 forbidden, 404 not_found, 409 conflict, 422 validation_error (`details` maps field → message), 500 server_error. |
 | Lists | `limit` (≤ 200) and opaque `cursor`; responses include `next_cursor`. |
-| Datasets | `dataset=real` (default) or `demo`. Never mixed in one response. |
+| Dataset | One dataset, `real` (the default). The key stays in paths so a separate dataset could be added later. |
 | Caching | Every response: `Cache-Control: no-store, private`. CloudFront caching is disabled for `/api/*`. |
 
 Authorisation is enforced on every call by the role matrix (`GET /api/role-matrix`); fields a role may not
@@ -54,7 +54,6 @@ see are removed from responses.
 | GET | `/api/config/scoring` | Active scoring configuration and versions |
 | POST | `/api/config/scoring/propose`, `/api/config/scoring/activate` | Versioned changes with a reason; activation can require a second administrator |
 | POST | `/api/admin/recompute` | Repair stale students or recalculate all (`{dataset, all}`), time-bounded; returns `remaining` |
-| POST | `/api/admin/demo/reset` | Demo dataset only; `{confirmation: "RESET DEMO", cursor}`; bounded, resumable |
 | GET | `/api/audit` | `category=academic|technical`, paginated |
 | GET / PUT | `/api/system/config` | Platform settings (System Administrator) |
 | GET / POST | `/api/users` | Accounts (System Administrator); creation returns a one-time temporary password in Cognito mode |

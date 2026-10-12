@@ -19,7 +19,7 @@ from .policy import Denied, Principal, decide, filter_fields, require
 from .settings import curriculum
 from .store import C, ConditionFailed, Put
 
-DATASETS = ("real", "demo")
+DATASETS = ("real",)  # one dataset; records carry the key so a separate dataset can be added later
 
 
 class Conflict(Exception):
@@ -67,7 +67,7 @@ def _validate_master(data: dict, creating: bool) -> dict:
         out["student_id"] = sid
         ds = data.get("dataset", "real")
         if ds not in DATASETS:
-            errors["dataset"] = "must be real or demo"
+            errors["dataset"] = "must be real"
         out["dataset"] = ds
     for f in MASTER_FIELDS:
         if f not in data and not creating:

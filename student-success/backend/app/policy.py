@@ -25,7 +25,7 @@ class Principal:
     mentees: set[tuple[str, str]] = field(default_factory=set)   # (dataset, student_id)
     subjects: set[tuple[str, int, str]] = field(default_factory=set)  # (dept, year, subject)
     student: tuple[str, str] | None = None                      # (dataset, student_id) for student accounts
-    datasets: tuple[str, ...] = ("real", "demo")
+    datasets: tuple[str, ...] = ("real",)
 
     def public(self) -> dict:
         m = role_matrix()

@@ -36,7 +36,7 @@ Every `REC#` item carries: `student_id`, `dataset`, `department`, `year`, `categ
 `created_at`, `created_by`, `updated_at`, `updated_by` (Cognito `sub`), `version` (optimistic concurrency),
 and for imports `import_id` + `row_hash` (makes retries idempotent). Verified categories add
 `verification` (`pending`/`verified`/`rejected`), `verified_by`, `verified_at`. Seeded items add
-`seed_version`, `dataset_version`, `synthetic: true`. Absent values are omitted, never stored as zero.
+`seed_version`, `dataset_version`. Absent values are omitted, never stored as zero.
 
 ## Record categories
 

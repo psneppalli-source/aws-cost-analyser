@@ -54,7 +54,6 @@ Manages student master records, imports, mentor assignments and the approved sco
 | `note.confidential` | read | `college` | `record_all` |
 | `scoring_config` | read, propose, activate | `college` | `record_all` |
 | `insight` | recompute | `college` | `record_all` |
-| `dataset` | reset_demo | `college` | `record_all` |
 | `audit.academic` | read | `college` | `record_all` |
 | `role_matrix` | read | `college` | `record_all` |
 

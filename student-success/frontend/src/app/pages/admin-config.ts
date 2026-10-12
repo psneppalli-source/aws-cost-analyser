@@ -71,20 +71,10 @@ interface Version { config_version: string; status: string; reason: string; prop
       <section class="card" style="margin-top:16px"><div class="card-head"><h2>Recalculation</h2>
         <span class="desc">Scores recalculate when data changes. If something was interrupted, students stay marked and are repaired here. Runs only when you ask.</span></div>
         <div class="row" style="gap:8px">
-          <select [(ngModel)]="recalcDs" name="rds" aria-label="Dataset"><option value="real">Real records</option><option value="demo">Demo dataset</option></select>
           <button class="btn primary" type="button" (click)="recompute(false)" [disabled]="busy()">Repair pending</button>
           <button class="btn" type="button" (click)="recompute(true)" [disabled]="busy()">Recalculate everyone</button>
         </div>
         @if (recalc()) { <p class="small" role="status">{{ recalc() }}</p> }
-      </section>
-    }
-
-    @if (session.can('dataset', 'reset_demo')) {
-      <section class="card" style="margin-top:16px"><div class="card-head"><h2>Reset demo dataset</h2></div>
-        <p class="small">Restores the demo dataset to its original state. Real records are never touched.</p>
-        <form class="row" style="gap:6px" (submit)="$event.preventDefault(); resetDemo()">
-          <label class="field">Type RESET DEMO to confirm<input name="rc" [(ngModel)]="confirm" autocomplete="off"></label>
-          <button class="btn danger" type="submit" [disabled]="busy() || confirm !== 'RESET DEMO'">Reset demo data</button></form>
       </section>
     }
 
@@ -112,8 +102,7 @@ export class AdminConfigPage {
   reason = '';
   activateVersion = '';
   activateReason = '';
-  recalcDs: 'real' | 'demo' = this.session.dataset();
-  confirm = '';
+  recalcDs = 'real';
 
   constructor() { this.load(); }
 
@@ -177,20 +166,6 @@ export class AdminConfigPage {
       this.recalc.set(`Done: ${total} recalculated, ${failed} failed.`);
     } catch (e) { this.recalc.set(message(e)); }
     finally { this.busy.set(false); }
-  }
-  /** Bounded steps; each call checks a few students and restores only what people changed. */
-  resetDemo() {
-    return this.act(async () => {
-      let cursor: number | null = 0, removed = 0, restored = 0, students = 0;
-      for (let n = 0; n < 500 && cursor !== null; n++) {
-        const r: { done: boolean; cursor: number | null; removed: number; restored: number; students: number } =
-          await this.api.post('/admin/demo/reset', { confirmation: this.confirm, cursor });
-        removed += r.removed; restored += r.restored; students = r.students; cursor = r.cursor;
-        this.notice.set(`Resetting… ${cursor ?? students} of ${students} students checked.`);
-      }
-      this.confirm = '';
-      return `Demo dataset reset: ${restored} item(s) restored and ${removed} removed across ${students} students. Real records were not touched.`;
-    });
   }
   setSecondApprover(on: boolean) {
     return this.act(async () => {

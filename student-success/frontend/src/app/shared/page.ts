@@ -19,16 +19,12 @@ export function message(e: unknown): string {
 @Component({
   selector: 'app-real-empty',
   template: `
-    @if (show() && session.dataset() === 'real') {
+    @if (show()) {
       <div class="banner" style="margin-bottom:14px">
-        No real student records yet. Add students and data with <strong>Enter data</strong> or <strong>Import</strong>@if (canDemo()) {,
-        or <button class="btn small" type="button" (click)="session.setDataset('demo')">view the demo data</button>}.
+        No student records yet. Add students and data with <strong>Enter data</strong> or <strong>Import</strong>.
       </div>
     }`,
 })
 export class RealEmpty {
-  session = inject(Session);
   show = input(false);
-  canDemo = () => (this.session.me()?.datasets || []).includes('demo');
-  switched = output<void>();
 }

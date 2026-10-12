@@ -76,11 +76,10 @@ and the profile says "recalculation pending" until an administrator runs *Repair
   access, can't hold a student-data role, and nobody can change their own roles.
 * Content-Security-Policy, HSTS, `X-Frame-Options: DENY`, `nosniff` and `no-referrer` on every page.
 
-## Data separation
+## Datasets
 
-Every key includes a dataset (`real` or `demo`). Real views show real data only; the synthetic demo dataset
-(150 fictional students, fixed seed) is shown only when chosen and labelled *Synthetic demo data*.
-Aggregates never mix the two.
+All records live in one dataset (`real`). The key is part of every partition key and API path so a separate
+dataset could be added later without a data migration; today only `real` is served.
 
 ## Code map
 
