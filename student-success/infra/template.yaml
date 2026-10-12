@@ -208,9 +208,10 @@ Resources:
       ClientName: !Sub "${AppName}-spa"
       UserPoolId: !Ref UserPool
       GenerateSecret: false                          # public client; PKCE
-      # ADMIN_USER_PASSWORD_AUTH needs AWS credentials (the API role); the backend uses it only for the short-lived
-      # registration placeholder that receives and checks the email code. Browsers keep using SRP / the hosted UI.
-      ExplicitAuthFlows: [ALLOW_REFRESH_TOKEN_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH]
+      # USER_PASSWORD_AUTH: the app's own sign-in form sends the password to Cognito over TLS (it never reaches the
+      # app's API); the authenticator code follows as a challenge. ADMIN_USER_PASSWORD_AUTH needs AWS credentials
+      # (the API role) and is used only for the short-lived registration placeholder that checks the email code.
+      ExplicitAuthFlows: [ALLOW_REFRESH_TOKEN_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH]
       PreventUserExistenceErrors: ENABLED
       EnableTokenRevocation: true
       SupportedIdentityProviders: [COGNITO]

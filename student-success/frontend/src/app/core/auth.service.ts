@@ -3,7 +3,7 @@ import { Injectable, signal } from '@angular/core';
 /** Runtime configuration served at /config.json by the Web Lambda (or the local server). */
 export interface AppConfig {
   mode: 'cognito' | 'local-demo';
-  domain?: string;        // Cognito hosted login domain, e.g. https://prefix.auth.eu-west-2.amazoncognito.com
+  domain?: string;        // Cognito domain (sign-in emails and recovery use it; the app signs in through its own form)
   clientId?: string;      // public SPA client (no secret)
   redirectUri?: string;   // the site URL
   region?: string;        // AWS region of the user pool (authenticator setup calls Cognito directly)
@@ -12,19 +12,7 @@ export interface AppConfig {
 interface Session { idToken: string; accessToken?: string; refreshToken?: string; exp: number; }
 
 const KEY = 'ssp.session';
-const PKCE = 'ssp.pkce';
 
-function b64url(bytes: ArrayBuffer | Uint8Array): string {
-  const arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
-  let s = '';
-  arr.forEach((b) => (s += String.fromCharCode(b)));
-  return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-}
-function randomString(n: number): string {
-  const a = new Uint8Array(n);
-  crypto.getRandomValues(a);
-  return b64url(a);
-}
 export function claims(jwt: string): Record<string, unknown> {
   try {
     return JSON.parse(atob(jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
@@ -33,11 +21,19 @@ export function claims(jwt: string): Record<string, unknown> {
   }
 }
 
+/** A step the user still has to complete after the password (Cognito challenges). */
+export interface Challenge { name: 'SOFTWARE_TOKEN_MFA' | 'NEW_PASSWORD_REQUIRED' | string; session: string; username: string; }
+
+/** Cognito error with its type, e.g. NotAuthorizedException. */
+export class CognitoError extends Error {
+  constructor(public type: string, message: string) { super(message); }
+}
+
 /**
- * Sign-in for both modes. Cognito uses the authorisation code flow with PKCE against
- * the hosted login (public client, no secret). Tokens are kept in sessionStorage only,
- * so closing the tab signs the user out. Local demo mode is for development only and
- * is refused by the backend in AWS.
+ * Sign-in for both modes. Cognito: the app's own sign-in form talks to the Cognito user-pool API directly
+ * (public client, no secret; password, then the authenticator code), so there is no redirect to a hosted page and
+ * any address of the site works. Tokens are kept in sessionStorage only, so closing the tab signs the user out.
+ * Local demo mode is for development only and is refused by the backend in AWS.
  */
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -53,7 +49,6 @@ export class AuthService {
       cfg = { mode: 'local-demo' };
     }
     this.config.set(cfg);
-    if (cfg.mode === 'cognito') await this.completeRedirect();
     this.signedIn.set(!!this.load() && this.load()!.exp > Date.now() / 1000);
   }
 
@@ -65,44 +60,57 @@ export class AuthService {
     this.signedIn.set(true);
   }
   clear(): void {
-    try { sessionStorage.removeItem(KEY); sessionStorage.removeItem(PKCE); } catch { /* ignore */ }
+    try { sessionStorage.removeItem(KEY); } catch { /* ignore */ }
     this.signedIn.set(false);
   }
 
-  /** Return to the address the user is on (the site URL or a registered alias); Cognito accepts only registered ones. */
-  private redirectUri(): string { return `${location.origin}/`; }
-
-  async startCognito(): Promise<void> {
-    const c = this.config()!;
-    const verifier = randomString(48);
-    const state = randomString(16);
-    sessionStorage.setItem(PKCE, JSON.stringify({ verifier, state }));
-    const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
-    const q = new URLSearchParams({ response_type: 'code', client_id: c.clientId!, redirect_uri: this.redirectUri(),
-      scope: 'openid profile email aws.cognito.signin.user.admin', state, code_challenge: challenge, code_challenge_method: 'S256' });
-    location.assign(`${c.domain}/oauth2/authorize?${q}`);
+  /** Call the Cognito user-pool API (unauthenticated operations and the user's own token operations). */
+  async cognito<T>(target: string, body: Record<string, unknown>): Promise<T> {
+    const region = this.config()?.region || 'eu-west-2';
+    let r: Response;
+    try {
+      r = await fetch(`https://cognito-idp.${region}.amazonaws.com/`, { method: 'POST',
+        headers: { 'Content-Type': 'application/x-amz-json-1.1', 'X-Amz-Target': `AWSCognitoIdentityProviderService.${target}` },
+        body: JSON.stringify(body) });
+    } catch { throw new CognitoError('Network', 'The sign-in service could not be reached. Check your connection and try again.'); }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      const type = String((j as { __type?: string }).__type || '').split('#').pop() || 'Error';
+      throw new CognitoError(type, (j as { message?: string }).message || 'Something went wrong. Please try again.');
+    }
+    return j as T;
   }
 
-  private async completeRedirect(): Promise<void> {
-    const u = new URL(location.href);
-    const code = u.searchParams.get('code');
-    if (!code) return;
-    const p = JSON.parse(sessionStorage.getItem(PKCE) || '{}');
-    history.replaceState(null, '', u.pathname);
-    if (!p.verifier || u.searchParams.get('state') !== p.state) throw new Error('Sign-in expired. Please sign in again.');
-    const t = await this.tokenRequest({ grant_type: 'authorization_code', code, redirect_uri: this.redirectUri(),
-      code_verifier: p.verifier });
-    sessionStorage.removeItem(PKCE);
-    this.save({ idToken: t.id_token, accessToken: t.access_token, refreshToken: t.refresh_token, exp: Number(claims(t.id_token)['exp']) });
+  private store(r: { IdToken: string; AccessToken: string; RefreshToken?: string }, refresh?: string): void {
+    this.save({ idToken: r.IdToken, accessToken: r.AccessToken, refreshToken: r.RefreshToken || refresh, exp: Number(claims(r.IdToken)['exp']) });
   }
 
-  private async tokenRequest(params: Record<string, string>): Promise<{ id_token: string; access_token?: string; refresh_token?: string }> {
-    const c = this.config()!;
-    const r = await fetch(`${c.domain}/oauth2/token`, { method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ client_id: c.clientId!, ...params }).toString() });
-    if (!r.ok) throw new Error('Sign-in failed. Please try again.');
-    return r.json();
+  private async finish(username: string, r: { AuthenticationResult?: { IdToken: string; AccessToken: string; RefreshToken?: string };
+    ChallengeName?: string; Session?: string }): Promise<Challenge | null> {
+    if (r.AuthenticationResult) { this.store(r.AuthenticationResult); return null; }
+    if (r.ChallengeName && r.Session) return { name: r.ChallengeName, session: r.Session, username };
+    throw new CognitoError('Unexpected', 'Sign-in could not be completed. Please try again.');
+  }
+
+  /** Step 1: user ID and password. Returns a challenge when an authenticator code or new password is needed. */
+  async signIn(username: string, password: string): Promise<Challenge | null> {
+    const u = username.trim().toLowerCase();
+    const r = await this.cognito<{ AuthenticationResult?: { IdToken: string; AccessToken: string; RefreshToken?: string };
+      ChallengeName?: string; Session?: string }>('InitiateAuth', { AuthFlow: 'USER_PASSWORD_AUTH', ClientId: this.config()!.clientId,
+      AuthParameters: { USERNAME: u, PASSWORD: password } });
+    return this.finish(u, r);
+  }
+
+  /** Step 2: answer a challenge (authenticator code, or a new password for a first sign-in). */
+  async answer(c: Challenge, value: string): Promise<Challenge | null> {
+    const responses: Record<string, string> = { USERNAME: c.username };
+    if (c.name === 'SOFTWARE_TOKEN_MFA') responses['SOFTWARE_TOKEN_MFA_CODE'] = value.trim();
+    else if (c.name === 'NEW_PASSWORD_REQUIRED') responses['NEW_PASSWORD'] = value;
+    else throw new CognitoError('Unsupported', 'This account needs a sign-in step the app does not support. Contact the college office.');
+    const r = await this.cognito<{ AuthenticationResult?: { IdToken: string; AccessToken: string; RefreshToken?: string };
+      ChallengeName?: string; Session?: string }>('RespondToAuthChallenge', { ChallengeName: c.name, ClientId: this.config()!.clientId,
+      Session: c.session, ChallengeResponses: responses });
+    return this.finish(c.username, r);
   }
 
   async localLogin(username: string): Promise<void> {
@@ -120,9 +128,10 @@ export class AuthService {
     if (s.exp - Date.now() / 1000 > 60) return s.idToken;
     if (this.config()?.mode === 'cognito' && s.refreshToken) {
       try {
-        const t = await this.tokenRequest({ grant_type: 'refresh_token', refresh_token: s.refreshToken });
-        this.save({ idToken: t.id_token, accessToken: t.access_token, refreshToken: s.refreshToken, exp: Number(claims(t.id_token)['exp']) });
-        return t.id_token;
+        const r = await this.cognito<{ AuthenticationResult: { IdToken: string; AccessToken: string } }>('InitiateAuth', {
+          AuthFlow: 'REFRESH_TOKEN_AUTH', ClientId: this.config()!.clientId, AuthParameters: { REFRESH_TOKEN: s.refreshToken } });
+        this.store(r.AuthenticationResult, s.refreshToken);
+        return r.AuthenticationResult.IdToken;
       } catch { /* fall through */ }
     }
     this.clear();
@@ -137,11 +146,12 @@ export class AuthService {
 
   signOut(): void {
     const c = this.config();
+    const refresh = this.load()?.refreshToken;
     this.clear();
-    if (c?.mode === 'cognito') {
-      location.assign(`${c.domain}/logout?${new URLSearchParams({ client_id: c.clientId!, logout_uri: this.redirectUri() })}`);
-    } else {
-      location.assign('/login');
+    if (c?.mode === 'cognito' && refresh) {
+      // end the session on the server too; the page moves on whether or not this completes
+      this.cognito('RevokeToken', { Token: refresh, ClientId: c.clientId }).catch(() => undefined);
     }
+    setTimeout(() => location.assign('/login'), 150);
   }
 }

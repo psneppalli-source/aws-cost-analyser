@@ -75,7 +75,14 @@ export class RecoverPage {
   notice = signal('');
   local = computed(() => this.auth.config()?.mode !== 'cognito');
   username = ''; code = ''; password = ''; password2 = ''; dob = '';
-  resetMfa = inject(ActivatedRoute).snapshot.queryParamMap.get('mode') === 'mfa';
+  private q = inject(ActivatedRoute).snapshot.queryParamMap;
+  resetMfa = this.q.get('mode') === 'mfa';
+
+  constructor() {
+    // sent=1: the college already emailed a reset code (an administrator reset the password)
+    if (this.q.get('user')) this.username = this.q.get('user')!;
+    if (this.q.get('sent')) { this.notice.set('Your password was reset by the college. Enter the 6-digit code from the email and choose a new password.'); this.step.set(2); }
+  }
   pw = signal('');
   rules = computed(() => {
     const p = this.pw();
