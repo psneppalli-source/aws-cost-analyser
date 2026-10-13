@@ -71,7 +71,7 @@ interface Answer {
                   }</tr>
               }</tbody></table></div>
             <p class="meta">Figures are calculated from your students' records, not written by AI.
-              {{ a.source === 'ai' ? 'AI interpreted the question (' + a.model + ').' : 'Question read by keywords.' }} Check the heading matches what you asked.</p>
+              {{ a.source === 'ai' ? 'AI interpreted the question.' : 'Question read by keywords.' }} Check the heading matches what you asked.</p>
           }
         </div>
       }

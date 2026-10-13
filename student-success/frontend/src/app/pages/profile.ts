@@ -469,7 +469,7 @@ export class ProfilePage {
       const iso = (days: number) => { const t = new Date(); t.setDate(t.getDate() + days); return t.toISOString().slice(0, 10); };
       this.draft.set({ ...d, title: r.title.slice(0, 120), detail: r.steps.map((s) => '- ' + s).join('\n').slice(0, 1000),
         due_date: iso(Math.max(7, r.review_weeks * 7 - 7)), review_date: iso(r.review_weeks * 7), reviewed: false });
-      this.aiNote.set(`Drafted by AI (${r.model}). Check and edit every field, then confirm the review box before assigning.`);
+      this.aiNote.set(`Drafted by AI. Check and edit every field, then confirm the review box before assigning.`);
     } catch (e) { this.formError.set(message(e)); }
     finally { this.drafting.set(false); }
   }
@@ -516,7 +516,7 @@ export class ProfilePage {
       const u = this.upd(i);
       u.result = r.result; u.note = r.note.slice(0, 1000);
       if (r.recommendation === 'close') u.status = 'Completed'; else if (u.status === 'Open') u.status = 'In Progress';
-      this.setMsg(i.intervention_id, `Suggested: ${r.recommendation} the plan (AI, ${r.model}). Check before saving.`);
+      this.setMsg(i.intervention_id, `Suggested: ${r.recommendation} the plan (AI suggestion). Check before saving.`);
     } catch (e) { this.setMsg(i.intervention_id, message(e)); }
     finally { this.aiBusy.set(null); }
   }

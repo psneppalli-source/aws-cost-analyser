@@ -76,7 +76,7 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
           @if (pqError()) { <p class="error-text" role="alert" style="margin-top:8px">{{ pqError() }}</p> }
           @if (pq().length) {
             <ol class="pq">@for (q of pqItems(); track $index) { <li>{{ q.q }}@if (q.hint) { <br><span class="small muted">Hint: {{ q.hint }}</span> }</li> }</ol>
-            <p class="small muted">AI-generated practice ({{ pqModel() }}). Questions can contain mistakes; ask your teacher if one looks wrong.</p>
+            <p class="small muted">AI-generated practice. Questions can contain mistakes; ask your teacher if one looks wrong.</p>
           }
         </section>
       }
@@ -250,7 +250,6 @@ export class StudentHomePage {
   // practice questions
   pqSubject = '';
   pq = signal<string[]>([]);
-  pqModel = signal('');
   pqBusy = signal(false);
   pqError = signal<string | null>(null);
   pqItems = computed(() => this.pq().filter((l) => l.startsWith('- ')).map((l) => {
@@ -261,7 +260,7 @@ export class StudentHomePage {
     try {
       const body = this.pqSubject === '__interview' ? { tool: 'practice', mode: 'interview' } : { tool: 'practice', mode: 'subject', subject: this.pqSubject };
       const r = await this.api.post<{ lines: string[]; model: string }>('/ai/tool', body);
-      this.pq.set(r.lines); this.pqModel.set(r.model);
+      this.pq.set(r.lines);
     } catch (e) { this.pqError.set(message(e)); }
     finally { this.pqBusy.set(false); }
   }

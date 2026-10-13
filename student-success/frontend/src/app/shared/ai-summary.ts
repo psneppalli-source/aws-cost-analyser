@@ -51,7 +51,7 @@ interface Summary { lines: string[]; model: string; generated_at: string; cached
             @if (headline()) { <p class="headline">{{ headline() }}</p> }
             @for (t of paras(); track $index) { <p class="para">{{ t }}</p> }
             @if (bullets().length) { <ul>@for (b of bullets(); track $index) { <li>{{ b }}</li> }</ul> }
-            <p class="foot">AI-generated from {{ kind() === 'coach' ? 'your own records' : 'the figures on this page' }} (no names or IDs are shared) · {{ r.model }}{{ r.cached ? ' · saved summary' : '' }}.
+            <p class="foot">AI-generated from {{ kind() === 'coach' ? 'your own records' : 'the figures on this page' }} (no names or IDs are shared){{ r.cached ? ' · saved summary' : '' }}.
               It can be wrong: check the figures before acting.</p>
           }
         </div>
