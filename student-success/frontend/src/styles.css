@@ -387,3 +387,15 @@ input[type=file]::file-selector-button { font: inherit; font-weight: 600; border
 @media (max-width: 360px) {
   .filters, .kpis { grid-template-columns: 1fr; }
 }
+
+/* never wider than the screen: iPhone Safari measures hidden chart tables and long tables when sizing the page,
+   so the layout column may not grow past the screen, and wide content scrolls inside its own box */
+.shell { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 861px) { .shell { grid-template-columns: 236px minmax(0, 1fr); } }
+.shell > *, .content, .content > *, .card, .viz, app-ai-hub, app-ask-panel { min-width: 0; max-width: 100%; }
+.viz svg { max-width: 100%; }
+details.data-table { max-width: 100%; overflow-x: auto; }
+details.data-table table { width: max-content; min-width: 100%; }
+.table-wrap { max-width: 100%; -webkit-overflow-scrolling: touch; }
+html, body { overflow-x: hidden; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
