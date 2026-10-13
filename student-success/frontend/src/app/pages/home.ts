@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 interface P3 { x: number; y: number; z: number; c: string; r: number; }
 
 /**
- * Public home page: a 3D network of students (canvas, no libraries) behind the headline, floating 3D preview
+ * Public home page: a turning 3D brain with firing signals (canvas, no libraries) behind the headline, floating 3D preview
  * cards that follow the pointer, and the main features. Still for people who prefer reduced motion.
  */
 @Component({
@@ -39,10 +39,11 @@ interface P3 { x: number; y: number; z: number; c: string; r: number; }
     .stage{position:relative;height:460px;perspective:1100px}
     .float{position:absolute;border-radius:18px;padding:16px 18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(10px);box-shadow:0 30px 60px rgba(0,0,0,.35);transform-style:preserve-3d;transition:transform .25s ease-out}
-    .f1{left:6%;top:10%;width:280px;animation:bob 7s ease-in-out infinite}
-    .f2{right:2%;top:42%;width:250px;animation:bob 8s ease-in-out -2s infinite}
-    .f3{left:16%;bottom:2%;width:270px;animation:bob 9s ease-in-out -4s infinite}
+    .f1{left:-6%;top:-8%;width:262px;animation:bob 7s ease-in-out infinite}
+    .f2{right:-8%;top:72%;width:262px;animation:bob 8s ease-in-out -2s infinite}
+    .f3{left:-10%;bottom:-14%;width:250px;animation:bob 9s ease-in-out -4s infinite}
     @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+    .brain-slot{display:none}
     .k{font-size:12px;color:#9fb4c9} .big{font-size:40px;font-weight:700;color:#fff;letter-spacing:-.02em} .up{color:#7fe0a0;font-size:13px;font-weight:600}
     .pill{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:999px;margin:6px 6px 0 0;background:rgba(127,224,220,.16);color:#bdeeea}
     .pill.red{background:rgba(255,120,110,.16);color:#ffb3ab}
@@ -78,6 +79,7 @@ interface P3 { x: number; y: number; z: number; c: string; r: number; }
       .stage{height:auto;perspective:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
       .float{position:static;width:auto;transform:none !important;animation:none}
       .f3{grid-column:1 / -1}
+      .brain-slot{display:block;grid-column:1 / -1;height:clamp(220px,40vw,320px)}
       .steps{grid-template-columns:1fr}
       section.block{padding-top:56px;padding-bottom:56px}
     }
@@ -120,6 +122,7 @@ interface P3 { x: number; y: number; z: number; c: string; r: number; }
           <div class="trust"><span>🔒 Two-step sign-in</span><span>👥 Role-based access</span><span>🛡️ No names sent to AI</span></div>
         </div>
         <div class="stage" aria-hidden="true">
+          <div class="brain-slot" #slot></div>
           <div class="float f1" [style.transform]="t(1)">
             <div class="k">Success Score · Sep 2026</div>
             <div class="row3"><span class="big">72.4</span><span class="up">▲ +6.2 since April</span></div>
@@ -172,6 +175,7 @@ interface P3 { x: number; y: number; z: number; c: string; r: number; }
 })
 export class HomePage implements AfterViewInit, OnDestroy {
   private cv = viewChild.required<ElementRef<HTMLCanvasElement>>('cv');
+  private slot = viewChild.required<ElementRef<HTMLElement>>('slot');
   private raf = 0;
   private io?: IntersectionObserver;
   private mx = 0; private my = 0;
@@ -207,50 +211,108 @@ export class HomePage implements AfterViewInit, OnDestroy {
   }
   ngOnDestroy() { cancelAnimationFrame(this.raf); this.io?.disconnect(); }
 
-  /** A slowly turning sphere of students (points coloured by band) with links between near neighbours. */
+  /**
+   * A turning 3D brain drawn from points: two folded hemispheres, the cerebellum and the brain stem, with links
+   * between near neighbours and signals that travel along them and light up the points they reach.
+   */
   private draw() {
     const canvas = this.cv().nativeElement;
     const ctx = canvas.getContext('2d'); if (!ctx) return;
-    const colours = ['#7fe0dc', '#7fe0dc', '#5aa9ff', '#5aa9ff', '#ffc04d', '#ff7a6e'];
-    const N = 260, pts: P3[] = [];
-    for (let i = 0; i < N; i++) {  // Fibonacci sphere: evenly spread points
-      const y = 1 - (i / (N - 1)) * 2, rad = Math.sqrt(1 - y * y), th = Math.PI * (3 - Math.sqrt(5)) * i;
-      pts.push({ x: Math.cos(th) * rad, y, z: Math.sin(th) * rad, c: colours[i % colours.length], r: 1.2 + (i % 3) * 0.6 });
+    const pts: P3[] = [];
+    const golden = Math.PI * (3 - Math.sqrt(5));
+    const shell = (n: number, f: (ux: number, uy: number, uz: number) => P3 | null) => {
+      for (let i = 0; i < n; i++) {  // Fibonacci sphere directions, mapped onto each part's surface
+        const uy = 1 - (i / (n - 1)) * 2, rad = Math.sqrt(1 - uy * uy), th = golden * i;
+        const q = f(Math.cos(th) * rad, uy, Math.sin(th) * rad); if (q) pts.push(q);
+      }
+    };
+    // cerebrum: x left-right, y up, z front (+) to back (-); the folds come from ripples on the surface
+    for (const h of [-1, 1]) shell(900, (ux, uy, uz) => {
+      if (ux * h < -0.25) return null;                                  // open the gap between the hemispheres
+      const fold = 1 + 0.085 * Math.sin(11 * Math.atan2(uy, uz) + 4 * ux) * Math.sin(9 * uy + 6 * uz + ux * 3);
+      let y = uy * 0.56, z = uz;
+      if (y < 0) y *= 0.62 + 0.38 * Math.max(0, Math.min(1, (z + 0.2) * 2.2));   // flat underside, temporal lobe hangs lower at the front
+      z *= z > 0 ? 0.92 : 1;                                             // rounder at the front, longer at the back
+      const x = h * 0.06 + ux * 0.43 * fold, Y = y * fold + 0.1, Z = z * 0.98 * fold + 0.05;
+      const lobe = Z > 0.32 ? '#7fe0dc' : Z < -0.5 ? '#a9b8ff' : Y < -0.06 ? '#ffc04d' : '#5aa9ff';  // frontal, occipital, temporal, parietal
+      return { x, y: Y, z: Z, c: lobe, r: 1 + ((Math.abs(uy * 97) | 0) % 3) * 0.45 };
+    });
+    shell(150, (ux, uy, uz) => {                                         // cerebellum, tucked under the back, with fine ridges
+      const ridge = 1 + 0.08 * Math.sin(uy * 30);
+      return { x: ux * 0.34 * ridge, y: -0.33 + uy * 0.15 * ridge, z: -0.66 + uz * 0.22 * ridge, c: '#c79bff', r: 0.9 };
+    });
+    for (let i = 0; i < 36; i++) {                                         // brain stem, sloping down and back
+      const t = i / 35, a = i * golden;
+      pts.push({ x: Math.cos(a) * 0.08, y: -0.26 - t * 0.42, z: -0.36 - t * 0.14 + Math.sin(a) * 0.08, c: '#7fe0dc', r: 0.9 });
     }
-    const near: [number, number][] = [];
+    const N = pts.length, links: [number, number][] = [], adj: number[][] = pts.map(() => []);
     for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
       const d = (pts[i].x - pts[j].x) ** 2 + (pts[i].y - pts[j].y) ** 2 + (pts[i].z - pts[j].z) ** 2;
-      if (d < 0.045) near.push([i, j]);
+      if (d < 0.0068) { adj[i].push(links.length); adj[j].push(links.length); links.push([i, j]); }
     }
-    let a = 0, b = 0.35;
+    const glow = new Float32Array(N);
+    type Pulse = { l: number; from: number; t: number; hops: number; c: string };
+    const colours = ['#7fe0dc', '#a9b8ff', '#ffffff', '#ffc04d'];
+    const spawn = (): Pulse => {
+      const l = (Math.random() * links.length) | 0;
+      return { l, from: links[l][0], t: 0, hops: 6 + ((Math.random() * 10) | 0), c: colours[(Math.random() * colours.length) | 0] };
+    };
+    const pulses: Pulse[] = links.length ? Array.from({ length: 34 }, spawn) : [];
+    let a = 1.2, b = 0.22, clock = 0;
     const frame = () => {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       const w = canvas.clientWidth, h = canvas.clientHeight;
       if (canvas.width !== w * dpr || canvas.height !== h * dpr) { canvas.width = w * dpr; canvas.height = h * dpr; }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
-      const narrow = w < 900;  // phones and tablets: a smaller, dimmer globe above the text so it stays readable
-      const R = narrow ? Math.min(w * 0.42, 260) : Math.min(w, h) * 0.36, cx = narrow ? w * 0.78 : w * 0.70, cy = narrow ? Math.min(h * 0.2, 220) : h * 0.52;
-      const dim = narrow ? 0.3 : 1;
-      a += this.reduce ? 0 : 0.0022; b += ((0.35 + this.my * 0.5) - b) * 0.04;
-      const ay = a + this.mx * 0.6, ca = Math.cos(ay), sa = Math.sin(ay), cb = Math.cos(b), sb = Math.sin(b);
+      // phones and tablets: the brain sits in its own space between the buttons and the preview cards
+      const narrow = w < 900, cr = narrow ? canvas.getBoundingClientRect() : null, sr = narrow ? this.slot().nativeElement.getBoundingClientRect() : null;
+      const R = sr ? Math.min(sr.width * 0.42, sr.height * 0.62) : Math.min(w * 0.19, h * 0.38);
+      const cx = sr && cr ? sr.left - cr.left + sr.width / 2 : w * 0.715, cy = sr && cr ? sr.top - cr.top + sr.height / 2 : h * 0.5;
+      const k = Math.max(0.55, Math.min(1, R / 260));                    // smaller points on a smaller brain
+      clock += this.reduce ? 0 : 1;
+      a = 1.2 + Math.sin(clock * 0.005) * 0.75;                            // sway around a three-quarter side view
+      b += ((0.22 + this.my * 0.5) - b) * 0.04;
+      const ay = a + this.mx * 0.8, ca = Math.cos(ay), sa = Math.sin(ay), cb = Math.cos(b), sb = Math.sin(b);
       const proj = pts.map((p) => {
-        const x1 = p.x * ca - p.z * sa, z1 = p.x * sa + p.z * ca;
+        const x1 = p.x * ca + p.z * sa, z1 = -p.x * sa + p.z * ca;
         const y2 = p.y * cb - z1 * sb, z2 = p.y * sb + z1 * cb;
-        const s = 2.4 / (2.4 + z2);
-        return { x: cx + x1 * R * s, y: cy + y2 * R * s, z: z2, s };
+        const s = 2.6 / (2.6 + z2);
+        return { x: cx + x1 * R * s, y: cy - y2 * R * s, z: z2, s };
       });
-      ctx.lineWidth = 0.6;
-      for (const [i, j] of near) {
-        const p = proj[i], q = proj[j], depth = (2 - (p.z + q.z) / 2) / 3;
-        ctx.strokeStyle = `rgba(127,224,220,${((0.05 + depth * 0.22) * dim).toFixed(3)})`;
+      // soft glow behind the brain
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.25);
+      g.addColorStop(0, 'rgba(20,163,163,0.16)'); g.addColorStop(1, 'rgba(20,163,163,0)');
+      ctx.fillStyle = g; ctx.fillRect(cx - R * 1.3, cy - R * 1.3, R * 2.6, R * 2.6);
+      ctx.lineWidth = 0.5;
+      for (const [i, j] of links) {
+        const p = proj[i], q = proj[j], depth = (1.2 - (p.z + q.z) / 2) / 2.2;
+        ctx.strokeStyle = `rgba(127,224,220,${((0.03 + depth * 0.14)).toFixed(3)})`;
         ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
       }
-      proj.map((p, i) => ({ ...p, i })).sort((u, v) => v.z - u.z).forEach((p) => {
-        const alpha = 0.35 + (1 - (p.z + 1) / 2) * 0.65;
-        ctx.globalAlpha = alpha * dim; ctx.fillStyle = pts[p.i].c;
-        ctx.beginPath(); ctx.arc(p.x, p.y, pts[p.i].r * p.s * 1.6, 0, Math.PI * 2); ctx.fill();
-      });
-      ctx.globalAlpha = 1;
+      for (let i = 0; i < N; i++) glow[i] *= 0.94;
+      const order = proj.map((p, i) => i).sort((u, v) => proj[v].z - proj[u].z);
+      for (const i of order) {
+        const p = proj[i], alpha = 0.3 + (1 - (p.z + 1) / 2) * 0.6;
+        ctx.globalAlpha = Math.min(1, alpha + glow[i]); ctx.fillStyle = pts[i].c;
+        ctx.beginPath(); ctx.arc(p.x, p.y, pts[i].r * p.s * k * (1.5 + glow[i] * 2.2), 0, Math.PI * 2); ctx.fill();
+      }
+      // signals: each travels along a link, lights the point it reaches, then carries on to a neighbouring link
+      ctx.globalCompositeOperation = 'lighter';
+      for (let k = 0; k < pulses.length; k++) {
+        const pl = pulses[k], [i, j] = links[pl.l], to = pl.from === i ? j : i;
+        const p = proj[pl.from], q = proj[to], x = p.x + (q.x - p.x) * pl.t, y = p.y + (q.y - p.y) * pl.t;
+        ctx.globalAlpha = 0.9; ctx.fillStyle = pl.c;
+        ctx.beginPath(); ctx.arc(x, y, 2.2 * p.s * k, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = 0.25; ctx.beginPath(); ctx.arc(x, y, 6 * p.s * k, 0, Math.PI * 2); ctx.fill();
+        if (!this.reduce) pl.t += 0.09;
+        if (pl.t >= 1) {
+          glow[to] = 1;
+          const next = adj[to].filter((l) => l !== pl.l);
+          if (--pl.hops <= 0 || !next.length) pulses[k] = spawn();
+          else { pl.l = next[(Math.random() * next.length) | 0]; pl.from = to; pl.t = 0; }
+        }
+      }
+      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
       if (!this.reduce) this.raf = requestAnimationFrame(frame);
     };
     frame();
