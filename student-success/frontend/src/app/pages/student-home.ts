@@ -32,7 +32,7 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
 @Component({
   selector: 'app-student-home-page',
   imports: [AiHub, FormsModule, RouterLink, StateView, StatusChip, RiskBadge, MultiLine, Spark],
-  styles: [`.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap} .big{font-size:56px;font-weight:700;color:var(--navy-900);line-height:1}
+  styles: [`.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap} .big{font-size:clamp(44px,12vw,56px);font-weight:700;color:var(--navy-900);line-height:1}
     .focus li{margin:6px 0} .actions{display:flex;gap:10px;flex-wrap:wrap}
     .marks td,.marks th{text-align:center;white-space:nowrap} .marks td:first-child,.marks th:first-child{text-align:left}
     .cell{display:inline-block;min-width:44px;padding:2px 6px;border-radius:6px;font-variant-numeric:tabular-nums}
@@ -52,7 +52,7 @@ const r1 = (v: number) => Math.round(v * 10) / 10;
           <div><div class="small muted">Success Score · {{ month(i.period) }}</div>
             <div class="big">{{ i.score ?? '–' }}</div>
             <div style="margin-top:6px"><app-status [status]="i.status" /> @if (i.band) { <span class="chip teal">{{ i.band }}</span> }</div></div>
-          <div style="flex:1;min-width:260px">
+          <div style="flex:1;min-width:min(260px,100%)">
             @if (change() !== null) { <p class="insight"><strong [style.color]="change()! >= 0 ? '#006300' : '#b42318'">{{ change()! >= 0 ? '▲ +' : '▼ ' }}{{ change() }} points</strong> since {{ month(firstPeriod()) }}.</p> }
             @if (i.score === null) { <p class="small">There isn't enough recorded data for a score yet ({{ pct(i.coverage) }} of what's needed). Missing: {{ missing().join(', ') || '–' }}.</p> }
             <div class="kpis" style="margin-top:8px">

@@ -24,7 +24,7 @@ interface P3 { x: number; y: number; z: number; c: string; r: number; }
     .btn-l.ghost{color:#e8f1f8;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
     .btn-l.ghost:hover{background:rgba(255,255,255,.1)}
 
-    .hero{position:relative;min-height:100vh;display:grid;align-items:center;padding:110px clamp(16px,5vw,64px) 60px;
+    .hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;padding:110px clamp(16px,5vw,64px) 60px;
       background:radial-gradient(1000px 600px at 75% 40%,rgba(20,163,163,.18),transparent 60%),radial-gradient(800px 600px at 10% 90%,rgba(111,91,214,.16),transparent 60%)}
     canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
     .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;max-width:1240px;margin:0 auto;width:100%}
@@ -59,20 +59,40 @@ interface P3 { x: number; y: number; z: number; c: string; r: number; }
       transition:transform .2s,border-color .2s} .feat:hover{transform:translateY(-4px);border-color:rgba(127,224,220,.4)}
     .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;color:#7fe0dc;background:rgba(127,224,220,.12)}
     .feat h3{margin:0 0 6px;color:#fff;font-size:17px} .feat p{margin:0;color:#9fb4c9;font-size:14.5px;line-height:1.55}
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;counter-reset:s}
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
     .step{position:relative;padding:22px 22px 22px 70px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
     .step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
       font-weight:700;color:#07131f;background:linear-gradient(135deg,#7fe0dc,#14a3a3)}
     .step h3{margin:0 0 4px;color:#fff;font-size:16px} .step p{margin:0;color:#9fb4c9;font-size:14px}
-    .cta{margin:0 auto 70px;max-width:1100px;border-radius:24px;padding:40px clamp(20px,4vw,48px);display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+    .cta{margin:0 clamp(16px,5vw,64px) 70px;max-width:1100px;border-radius:24px;padding:40px clamp(20px,4vw,48px);display:flex;align-items:center;gap:24px;flex-wrap:wrap;
       background:linear-gradient(135deg,rgba(20,163,163,.25),rgba(111,91,214,.22));border:1px solid rgba(255,255,255,.12)}
     .cta h2{margin:0 0 6px;color:#fff;font-size:26px} .cta p{margin:0;color:#c9d6e6} .cta .sp{flex:1}
     footer{text-align:center;color:#6f86a0;font-size:13px;padding:0 16px 40px}
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease} .reveal.in{opacity:1;transform:none}
-    @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .stage{height:380px;margin-top:10px} .f1{left:0} .f3{left:4%} .nav a.link{display:none} }
     .btn-l{white-space:nowrap} .logo{white-space:nowrap}
-    @media (max-width:520px){ .stage{display:none} .hero{padding-top:92px;align-items:end} .nav .ghost{display:none} .nav{padding:12px 16px}
-      .btn-l{padding:9px 14px;font-size:14px} .lede{font-size:15.5px} }
+    @media (min-width:1164px){ .cta{margin-inline:auto} }
+    /* tablets and phones: the preview cards sit in the page flow (no 3D float) so nothing overlaps or leaves gaps */
+    @media (max-width:900px){
+      .hero{min-height:auto;padding-top:104px;padding-bottom:56px} .hero-grid{grid-template-columns:1fr;gap:32px}
+      .nav a.link{display:none} .nav{background:rgba(7,19,31,.88);backdrop-filter:blur(10px)}
+      .stage{height:auto;perspective:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+      .float{position:static;width:auto;transform:none !important;animation:none}
+      .f3{grid-column:1 / -1}
+      .steps{grid-template-columns:1fr}
+      section.block{padding-top:56px;padding-bottom:56px}
+    }
+    @media (max-width:600px){
+      .stage{grid-template-columns:1fr} .f3{grid-column:auto}
+      .nav .ghost{display:none} .nav{padding:10px 16px} .mark{width:34px;height:34px}
+      .eyebrow{font-size:12px} .lede{font-size:15.5px}
+      .ctas{flex-direction:column} .ctas .btn-l{justify-content:center;white-space:normal;text-align:center}
+      .trust{gap:8px 14px}
+      .big{font-size:34px}
+      .cta{padding:28px 20px;flex-direction:column;align-items:stretch;text-align:left} .cta .sp{display:none}
+      .cta .btn-l{justify-content:center} .cta h2{font-size:22px}
+      .sec-h{margin-bottom:28px} .feat{padding:18px} .step{padding:18px 18px 18px 64px} .step::before{left:16px;top:18px}
+    }
+    @media (max-width:360px){ .btn-l{padding:9px 12px;font-size:14px} h1{font-size:30px} }
     @media (prefers-reduced-motion: reduce){ .float{animation:none} .reveal{opacity:1;transform:none;transition:none} }
   `],
   template: `
@@ -209,8 +229,8 @@ export class HomePage implements AfterViewInit, OnDestroy {
       if (canvas.width !== w * dpr || canvas.height !== h * dpr) { canvas.width = w * dpr; canvas.height = h * dpr; }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
       const narrow = w < 900;  // phones and tablets: a smaller, dimmer globe above the text so it stays readable
-      const R = narrow ? Math.min(w, h) * 0.34 : Math.min(w, h) * 0.36, cx = narrow ? w * 0.62 : w * 0.70, cy = narrow ? h * 0.22 : h * 0.52;
-      const dim = narrow ? 0.45 : 1;
+      const R = narrow ? Math.min(w * 0.42, 260) : Math.min(w, h) * 0.36, cx = narrow ? w * 0.78 : w * 0.70, cy = narrow ? Math.min(h * 0.2, 220) : h * 0.52;
+      const dim = narrow ? 0.3 : 1;
       a += this.reduce ? 0 : 0.0022; b += ((0.35 + this.my * 0.5) - b) * 0.04;
       const ay = a + this.mx * 0.6, ca = Math.cos(ay), sa = Math.sin(ay), cb = Math.cos(b), sb = Math.sin(b);
       const proj = pts.map((p) => {

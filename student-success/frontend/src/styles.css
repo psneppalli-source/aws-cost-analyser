@@ -368,3 +368,22 @@ input[type=file]::file-selector-button { font: inherit; font-weight: 600; border
 .sk-panel { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 12px; }
 .sk-panel .skeleton { height: 12px; }
 @media (prefers-reduced-motion: reduce) { .content > :not(router-outlet), .sk-card { animation: none; } }
+
+/* phones: filters fill the width in two even columns, figures sit two to a row, buttons share the row evenly */
+@media (max-width: 600px) {
+  .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; gap: 10px 12px; }
+  .filters label { min-width: 0; }
+  .filters select, .filters input:not([type=checkbox]) { width: 100%; max-width: none; min-width: 0; }
+  .filters label.check, .filters .btn, .filters button { grid-column: 1 / -1; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .kpis > .card .value, .kpis .stat .value { font-size: 26px; }
+  .page-head { flex-wrap: wrap; row-gap: 10px; }
+  .page-head .actions, .page-head .row { width: 100%; }
+  .page-head .actions > .btn, .page-head .row > .btn { flex: 1 1 auto; justify-content: center; text-align: center; }
+  .card { padding: 14px; }
+  .content { padding-bottom: 88px; }                       /* room for the floating Help button */
+  table { font-size: 13.5px; }
+}
+@media (max-width: 360px) {
+  .filters, .kpis { grid-template-columns: 1fr; }
+}

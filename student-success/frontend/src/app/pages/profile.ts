@@ -60,6 +60,7 @@ const RECORD_COLS: Record<string, string[]> = {
   styles: [`.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:8px 0 16px;flex-wrap:wrap}
     .tabs button{background:none;border:0;padding:10px 14px;font:inherit;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent}
     .tabs button[aria-selected=true]{color:var(--navy-900);border-color:var(--teal-500);font-weight:600}
+    @media (max-width:600px){.tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch} .tabs::-webkit-scrollbar{display:none} .tabs button{white-space:nowrap;flex:none;padding:10px 12px}}
     .bigscore{font-size:44px;font-weight:700;color:var(--navy-900);line-height:1}
     dl.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px} dl.facts dt{color:var(--muted)} dl.facts dd{margin:0}`],
   template: `
